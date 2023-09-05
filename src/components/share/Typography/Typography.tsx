@@ -17,6 +17,11 @@ const variants: ITypography = {
   ParagraphM: styles.ParagraphM,
   ParagraphS: styles.ParagraphS,
   ParagraphXS: styles.ParagraphXS,
+  LabelXL: styles.LabelXL,
+  LabelL: styles.LabelL,
+  LabelM: styles.LabelM,
+  LabelS: styles.LabelS,
+  LabelXS: styles.LabelXS,
 }
 
 const components: ITypography = {
@@ -32,6 +37,11 @@ const components: ITypography = {
   ParagraphM: 'p',
   ParagraphS: 'p',
   ParagraphXS: 'p',
+  LabelXL: 'label',
+  LabelL: 'label',
+  LabelM: 'label',
+  LabelS: 'label',
+  LabelXS: 'label',
 }
 
 const Typography = ({

@@ -11,6 +11,11 @@ export interface ITypography {
   ParagraphM: string
   ParagraphS: string
   ParagraphXS: string
+  LabelXL: string
+  LabelL: string
+  LabelM: string
+  LabelS: string
+  LabelXS: string
 }
 
 export interface ITypographyProps {
@@ -19,5 +24,3 @@ export interface ITypographyProps {
   className?: string
   component?: string
 }
-
-
