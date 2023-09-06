@@ -7,13 +7,12 @@ const Landing = () => {
       <div>
         <Header />
       </div>
-
-      <div
-        style={{ width: '100%', height: '1000px', backgroundColor: 'yellow' }}
-      ></div>
       <div style={{}}>
         <Banner />
       </div>
+      <div
+        style={{ width: '100%', height: '1000px', backgroundColor: 'yellow' }}
+      ></div>
     </div>
   )
 }
