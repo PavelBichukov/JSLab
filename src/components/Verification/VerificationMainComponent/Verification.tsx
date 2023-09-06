@@ -1,5 +1,10 @@
 import { Typography } from 'src/components/share/Typography'
+
 import styles from './Verification.module.scss'
+
+import { EmailBlock, SuccessBlock } from 'src/components'
+
+import { Link } from 'react-router-dom'
 
 
 const benefitsList: string[] = [
@@ -27,7 +32,8 @@ export const VerificationMainComponent = () => {
                     </ul>
                 </section>
                 <div className={styles.formBlock}>
-                    
+                    {/* <EmailBlock/> */}
+                    <SuccessBlock/>
                 </div>
             </div>
         </div>
