@@ -8,3 +8,12 @@
   line-height: 40px;
   margin-top: 40px;
 }
+.teamCards{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 15px;
+  padding: 0 17% 2%;
+}
