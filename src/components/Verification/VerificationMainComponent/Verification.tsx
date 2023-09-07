@@ -4,36 +4,36 @@ import styles from './Verification.module.scss'
 
 import { EmailBlock, SuccessBlock } from 'src/components'
 
-import { Link } from 'react-router-dom'
+import { IBenefitsList } from 'src/types/types'
 
 
-const benefitsList: string[] = [
-    'Grow your customer base',
-    'Save on transactional fees',
-    'Run custom promotions',
-    'Get access to the latest tech',
-    'Win your market',
+
+const benefitsLists: IBenefitsList [] = [
+    {id:1, name:'Grow your customer base'},
+    {id:2, name:'Save on transactional fees'},
+    {id:3, name:'Run custom promotions'},
+    {id:4, name:'Get access to the latest tech'},
+    {id:5, name:'Win your market'},
 ]
 
 export const VerificationMainComponent = () => {
-
     return(
         <div className={styles.container}>
             <div className={styles.verificationBlock}>
                 <section className={styles.sideSection}>
                     <button className={styles.backButton}>Back</button>
                     <Typography variant='HeaderM'>Stations</Typography>
-                    <Typography variant='ParagraphL' className={styles.sideSectionDescription}> For organizations that want to grow their revenue by reducing credit card fees,
-                    while increasing traffic to their location.</Typography>
+                    <Typography variant='ParagraphL' className={styles.sideSectionDescription}> For organizations that want to grow their revenue by reducing
+                    credit card fees,while increasing traffic to their location.</Typography>
                     <ul className={styles.benefitsList}>
                         {
-                            benefitsList.map((item, index) => <Typography variant='ParagraphL'className={styles.listitem} key={index}>{item}</Typography>  )
+                            benefitsLists.map((item:IBenefitsList) => <Typography variant='ParagraphL'className={styles.listitem} key={item.id}>{item.name}</Typography>)
                         }
                     </ul>
                 </section>
                 <div className={styles.formBlock}>
-                    {/* <EmailBlock/> */}
-                    <SuccessBlock/>
+                    <EmailBlock/>
+                    {/* <SuccessBlock/> */}
                 </div>
             </div>
         </div>
