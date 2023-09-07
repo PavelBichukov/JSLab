@@ -2,7 +2,7 @@ import { Typography } from 'src/components/share/Typography'
 
 import styles from './Verification.module.scss'
 
-import { EmailBlock, SuccessBlock } from 'src/components'
+import { CodeEnterBlock, EmailBlock, SuccessBlock } from 'src/components'
 
 import { IBenefitsList } from 'src/types/types'
 
@@ -17,6 +17,7 @@ const benefitsLists: IBenefitsList [] = [
 ]
 
 export const VerificationMainComponent = () => {
+    const currentStep = 1
     return(
         <div className={styles.container}>
             <div className={styles.verificationBlock}>
@@ -32,8 +33,9 @@ export const VerificationMainComponent = () => {
                     </ul>
                 </section>
                 <div className={styles.formBlock}>
-                    <EmailBlock/>
-                    {/* <SuccessBlock/> */}
+                    {
+                        currentStep === 1 ? <EmailBlock/> : currentStep === 2 ? <CodeEnterBlock/> : <SuccessBlock/>
+                    }
                 </div>
             </div>
         </div>
