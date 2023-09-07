@@ -1,77 +1,74 @@
+.emailBlock {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 30px;
+  text-align: left;
+}
 
-.emailBlock{
+.emailForm {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-top: 48px;
+}
+
+.emailInputBox {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  & label {
+    position: absolute;
     height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    gap: 30px;
-    text-align: left;
-}
-
-.emailForm{
-    flex: 2;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding-top: 48px;
-}
-
-.emailInputBox{
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    & label{
-        position: absolute;
-        height: 100%;
-        color: rgba(80, 87, 107, 1);
-        font-family: 'Metropolis', sans-serif;
-        font-weight: 400;
-        font-size: 16px;
-        line-height: 24px;
-        cursor: text;
-        transition: 0.3s;
-    }
-}
-
-.emailFormInput{
-    border: none;
-    border-bottom: 1px solid rgba(171, 178, 194, 1);
-    margin-bottom: -1px;
-    transition: 0.3s;
+    color: rgba(80, 87, 107, 1);
     font-family: 'Metropolis', sans-serif;
     font-weight: 400;
     font-size: 16px;
     line-height: 24px;
-        &:focus{
-            outline: none;
-            border-bottom: 2px solid rgba(20, 21, 26, 1) ;
-            margin-bottom: -2px;
-        }
-        &:focus + label,
-        &:not(:placeholder-shown) + label{
-            transform: translateY(-25px);
-            cursor: default;
-            font-size: 12px;
-            line-height: 16px;
-        }
+    cursor: text;
+    transition: 0.3s;
+  }
 }
 
-
-
-.emailContinueButton{
-    border: none;
-    text-decoration: none;
-    color: rgba(255, 255, 255, 1);
-    background-color: rgba(20, 21, 26, 1);
-    border-radius: 16px;
-    padding: 15px;
-    font-family: 'Metropolis', sans-serif;
-    font-weight: 600;
-    font-size: 18px;
-    line-height: 24px;
-    cursor: pointer;
+.emailFormInput {
+  border: none;
+  border-bottom: 1px solid rgba(171, 178, 194, 1);
+  margin-bottom: -1px;
+  transition: 0.3s;
+  font-family: 'Metropolis', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  &:focus {
+    outline: none;
+    border-bottom: 2px solid rgba(20, 21, 26, 1);
+    margin-bottom: -2px;
+  }
+  &:focus + label,
+  &:not(:placeholder-shown) + label {
+    transform: translateY(-25px);
+    cursor: default;
+    font-size: 12px;
+    line-height: 16px;
+  }
 }
 
-.emailAgreement{
-    text-align: center;
+.emailContinueButton {
+  border: none;
+  text-decoration: none;
+  color: rgba(255, 255, 255, 1);
+  background-color: rgba(20, 21, 26, 1);
+  border-radius: 16px;
+  padding: 15px;
+  font-family: 'Metropolis', sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 24px;
+  cursor: pointer;
+}
+
+.emailAgreement {
+  text-align: center;
 }

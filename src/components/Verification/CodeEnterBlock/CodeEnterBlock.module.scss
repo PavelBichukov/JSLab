@@ -1,49 +1,48 @@
-.codeEnterBlock{
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    gap: 10px;
-    text-align: left;
+.codeEnterBlock {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 10px;
+  text-align: left;
 }
 
-.codeForm{
-    flex: 2;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding-top: 48px;
+.codeForm {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-top: 48px;
 }
 
-.codeOtpInput{
-    input{
-        font-family: 'Metropolis', sans-serif;
-        font-weight: 400;
-        font-size: 24px;
-        line-height: 48px;
-        border-image: none;
-    }
-    fieldset{
-        // outline: 3px solid;
-    }
-    legend{
-        
-    }
-    span{
-        outline: 3px solid;
-    }
-}
-
-.codeEnterContinueButton{
-    border: none;
-    text-decoration: none;
-    color: rgba(255, 255, 255, 1);
-    background-color: rgba(20, 21, 26, 1);
-    border-radius: 16px;
-    padding: 15px;
+.codeOtpInput {
+  input {
     font-family: 'Metropolis', sans-serif;
-    font-weight: 600;
-    font-size: 18px;
-    line-height: 24px;
-    cursor: pointer;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 48px;
+    border-image: none;
+  }
+  fieldset {
+    // outline: 3px solid;
+  }
+  legend {
+  }
+  span {
+    outline: 3px solid;
+  }
+}
+
+.codeEnterContinueButton {
+  border: none;
+  text-decoration: none;
+  color: rgba(255, 255, 255, 1);
+  background-color: rgba(20, 21, 26, 1);
+  border-radius: 16px;
+  padding: 15px;
+  font-family: 'Metropolis', sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 24px;
+  cursor: pointer;
 }

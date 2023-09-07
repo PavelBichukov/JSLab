@@ -1,4 +1,4 @@
-export interface IBenefitsList{
-    id: number,
-    name: string,
+export interface IBenefitsList {
+  id: number
+  name: string
 }

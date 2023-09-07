@@ -1,71 +1,71 @@
-.container{
-    max-width: 1920px;
-    margin: 0 auto;
+.container {
+  max-width: 1920px;
+  margin: 0 auto;
 }
 
-.verificationBlock{
-    max-width: 1184px;
-    background-color: rgba(255, 255, 255, 1);
-    display: flex;
-    margin: 0 auto;
-    border-radius: 24px;
-    box-shadow: 0px 0px 4px -1px rgba(34, 60, 80, 0.2);
+.verificationBlock {
+  max-width: 1184px;
+  background-color: rgba(255, 255, 255, 1);
+  display: flex;
+  margin: 0 auto;
+  border-radius: 24px;
+  box-shadow: 0px 0px 4px -1px rgba(34, 60, 80, 0.2);
 }
 
-.sideSection{
-    max-width: 392px;
-    border-right: 1px solid rgba(225, 229, 237, 1);
-    margin: 0 auto;
-    flex: 2;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    text-align: left;
-    padding: 22px 48px 360px 64px;
+.sideSection {
+  max-width: 392px;
+  border-right: 1px solid rgba(225, 229, 237, 1);
+  margin: 0 auto;
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  padding: 22px 48px 360px 64px;
 }
 
-.backButton{
-    font-family: 'Metropolis', sans-serif;
-    font-weight: 600;
-    font-size: 12px;
-    line-height: 16px;
-    padding-bottom: 22px;
-    background: none;
-    vertical-align: text-top;
-    border: none;
-    text-decoration: underline 0.5px rgba(20, 21, 26, 1);
+.backButton {
+  font-family: 'Metropolis', sans-serif;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 16px;
+  padding-bottom: 22px;
+  background: none;
+  vertical-align: text-top;
+  border: none;
+  text-decoration: underline 0.5px rgba(20, 21, 26, 1);
+  position: relative;
+  left: -29px;
+  cursor: pointer;
+  &::before {
+    content: url(src/assets/icons/chevron-left-icon.svg);
+    vertical-align: middle;
     position: relative;
-    left: -29px;
-    cursor: pointer;
-    &::before{
-        content: url(src/assets/icons/chevron-left-icon.svg);
-        vertical-align: middle;
-        position: relative;
-    }
+  }
 }
 
-.sideSectionDescription{
-    color: rgba(80, 87, 107, 1);
-    padding-top: 8px;
-    padding-bottom: 48px;
+.sideSectionDescription {
+  color: rgba(80, 87, 107, 1);
+  padding-top: 8px;
+  padding-bottom: 48px;
 }
 
-.benefitsList{
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
+.benefitsList {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
 }
 
-.listitem{
-    color: rgba(20, 21, 26, 1);
-    &:before{
-        content: url(src/assets/icons/bullet-point-icon.svg);
-        vertical-align: text-bottom;
-        padding: 6px 28px 6px 12px ;
-    }
+.listitem {
+  color: rgba(20, 21, 26, 1);
+  &:before {
+    content: url(src/assets/icons/bullet-point-icon.svg);
+    vertical-align: text-bottom;
+    padding: 6px 28px 6px 12px;
+  }
 }
 
-.formBlock{
-    flex: 3;
-    padding: 72px 204px 32px;
+.formBlock {
+  flex: 3;
+  padding: 72px 204px 32px;
 }

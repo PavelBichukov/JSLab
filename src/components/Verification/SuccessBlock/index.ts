@@ -1,1 +1,1 @@
-export {default as SuccessBlock} from './SuccessBlock'
+export { default as SuccessBlock } from './SuccessBlock'

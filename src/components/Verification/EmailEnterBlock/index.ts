@@ -1,1 +1,1 @@
-export {default as EmailBlock} from './EmailBlock'
+export { default as EmailBlock } from './EmailBlock'
