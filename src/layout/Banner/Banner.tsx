@@ -14,7 +14,9 @@ const Banner = () => {
           <span className={styles.smartText}> Energy</span>.
         </p>
       </div>
-      <button className={styles.bannerButton}>Get started today</button>
+      <a href="#rates">
+        <button className={styles.bannerButton}>Get started today</button>
+      </a>
     </div>
   )
 }

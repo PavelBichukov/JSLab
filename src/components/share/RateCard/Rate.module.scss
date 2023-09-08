@@ -1,0 +1,65 @@
+.mainCard{
+  width: 384px;
+  height: 480px;
+  border-radius: 24px;
+  background: var(--light-mode-white-ffffff, #FFF);
+  padding: 36px 32px 32px;
+}
+.cardTitle{
+  color: #14151A;
+  font-family: Metropolis, sans-serif;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 32px;
+}
+.cardDescription{
+  width: 299px;
+  height: 72px;
+  color: var(--light-mode-darker-gray-50576-b, #50576B);
+  font-family: Metropolis, sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+  padding-bottom: 20px;
+}
+.cardListContainer{
+  height: 200px;
+}
+.cardList{
+  padding-left: 20px;
+  padding-top: 20px;
+  list-style-image: url('../../../assets/icons/dotForList.png');
+}
+.cardListElement{
+  color: var(--light-mode-brand-black-14151-a, #14151A);
+  text-overflow: ellipsis;
+  font-family: Metropolis, sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+  padding: 0 20px 12px 28px;
+}
+.cardButton {
+  display: flex;
+  width: 184px;
+  padding: 16px 17px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 16px;
+  background: var(--light-mode-brand-black-14151-a, #14151A);
+  color: var(--light-mode-white-ffffff, #FFF);
+  text-align: center;
+  font-family: Metropolis, sans-serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 24px;
+  margin-left: 63px;
+  cursor: pointer;
+  margin-top: 40px;
+}

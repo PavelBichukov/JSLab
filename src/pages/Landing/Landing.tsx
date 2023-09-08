@@ -2,6 +2,7 @@ import Header from 'src/layout/Header/Header'
 import Banner from 'src/layout/Banner/Banner'
 import Team from 'src/layout/Team/Team'
 import styles from './Landing.module.scss'
+import Rates from 'src/layout/Rates/Rates'
 
 const Landing = () => {
   return (
@@ -20,6 +21,9 @@ const Landing = () => {
       </div>
       <div>
         <Team />
+      </div>
+      <div id="rates">
+        <Rates />
       </div>
     </div>
   )
