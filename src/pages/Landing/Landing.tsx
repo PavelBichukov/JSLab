@@ -1,6 +1,7 @@
 import Header from 'src/layout/Header/Header'
 import Banner from 'src/layout/Banner/Banner'
 import Team from 'src/layout/Team/Team'
+import styles from './Landing.module.scss'
 
 const Landing = () => {
   return (
@@ -10,13 +11,16 @@ const Landing = () => {
       </div>
       <div>
         <Banner />
+        <div className={styles.bannerMission}>
+          <p className={styles.bannerMissionText}>
+            <span className={styles.bannerMissionSmart}>Our Mission</span> is to
+            transform the way fuel is delivered to everything in the world.
+          </p>
+        </div>
       </div>
       <div>
         <Team />
       </div>
-      <div
-        style={{ width: '100%', height: '1000px', backgroundColor: 'yellow' }}
-      ></div>
     </div>
   )
 }
