@@ -7,40 +7,51 @@ import imgDenis from '../../assets/images/denis.png'
 import imgDasha from '../../assets/images/dasha.png'
 
 const Team = () => {
+  const teams = [
+    {
+      imgSrc: imgDasha,
+      name: 'Dasha Kavalenka',
+      jobTitle: 'Group Manager',
+      email: 'darya.kavalenka@ventionteams.com',
+    },
+    {
+      imgSrc: imgDenis,
+      name: 'Denis Kozyrev',
+      jobTitle: 'Tech Lead',
+      email: 'deniskozyrev55@gmail.com',
+    },
+    {
+      imgSrc: imgAnton,
+      name: 'Anton Gavrilenko',
+      jobTitle: 'Tech Lead',
+      email: 'gavrilenko7732@gmail.com',
+    },
+    {
+      imgSrc: imgNikita,
+      name: 'Nikita Pelikh',
+      jobTitle: 'Software Developer',
+      email: 'mikitapelikh@gmail.com',
+    },
+    {
+      imgSrc: imgPavel,
+      name: 'Pavel Bichukou',
+      jobTitle: 'Software Developer',
+      email: 'pavel.bichukou@itechart-group.com',
+    },
+  ]
   return (
     <div>
       <p className={styles.teamTitle}>Our development team</p>
       <div className={styles.teamCards}>
-        <TeamCard
-          imgSrc={imgDasha}
-          name="Dasha Kavalenka"
-          jobTitle="Group Manager"
-          email="darya.kavalenka@ventionteams.com"
-        />
-        <TeamCard
-          imgSrc={imgDenis}
-          name="Denis Kozyrev"
-          jobTitle="Tech Lead"
-          email="deniskozyrev55@gmail.com"
-        />
-        <TeamCard
-          imgSrc={imgAnton}
-          name="Anton Gavrilenko"
-          jobTitle="Tech Lead"
-          email="gavrilenko7732@gmail.com"
-        />
-        <TeamCard
-          imgSrc={imgNikita}
-          name="Nikita Pelikh"
-          jobTitle="Software Developer"
-          email="mikitapelikh@gmail.com"
-        />
-        <TeamCard
-          imgSrc={imgPavel}
-          name="Pavel Bichukou"
-          jobTitle="Software Developer"
-          email="pavel.bichukou@itechart-group.com"
-        />
+        {teams.map((team) => (
+          <TeamCard
+            key={team.email}
+            imgSrc={team.imgSrc}
+            name={team.name}
+            jobTitle={team.jobTitle}
+            email={team.email}
+          />
+        ))}
       </div>
     </div>
   )
