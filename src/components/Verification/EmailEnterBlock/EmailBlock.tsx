@@ -2,7 +2,7 @@ import { Typography } from 'src/components/share/Typography'
 
 import styles from './EmailEnterBlock.module.scss'
 
-// import { SubmitHandler, useForm } from 'react-hook-form'
+
 
 export const EmailBlock = () => {
   return (
@@ -25,8 +25,7 @@ export const EmailBlock = () => {
           <label htmlFor="email">Your email address</label>
         </div>
         <button className={styles.emailContinueButton} type="submit">
-          {' '}
-          Continue{' '}
+          Continue
         </button>
       </form>
       <Typography variant="ParagraphS" className={styles.emailAgreement}>

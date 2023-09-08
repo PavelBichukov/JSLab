@@ -21,26 +21,28 @@ export const VerificationMainComponent = () => {
       <div className={styles.verificationBlock}>
         <section className={styles.sideSection}>
           <button className={styles.backButton}>Back</button>
+          <div className={styles.sideSectionText}>
           <Typography variant="HeaderM">Stations</Typography>
-          <Typography
-            variant="ParagraphL"
-            className={styles.sideSectionDescription}
-          >
-            {' '}
-            For organizations that want to grow their revenue by reducing credit
-            card fees,while increasing traffic to their location.
-          </Typography>
-          <ul className={styles.benefitsList}>
-            {benefitsLists.map((item: IBenefitsList) => (
-              <Typography
-                variant="ParagraphL"
-                className={styles.listitem}
-                key={item.id}
-              >
-                {item.name}
-              </Typography>
-            ))}
-          </ul>
+            <Typography
+              variant="ParagraphL"
+              className={styles.sideSectionDescription}
+            >
+              {' '}
+              For organizations that want to grow their revenue by reducing credit
+              card fees,while increasing traffic to their location.
+            </Typography>
+            <ul className={styles.benefitsList}>
+              {benefitsLists.map((item: IBenefitsList) => (
+                <Typography
+                  variant="ParagraphL"
+                  className={styles.listitem}
+                  key={item.id}
+                >
+                  {item.name}
+                </Typography>
+              ))}
+            </ul>
+          </div>
         </section>
         <div className={styles.formBlock}>
           {currentStep === 1 ? (

@@ -17,10 +17,9 @@ export const CodeEnterBlock = () => {
     <div className={styles.codeEnterBlock}>
       <Typography variant="HeaderM"> Confirm your email address? </Typography>
       <Typography variant="ParagraphL">
-        {' '}
         Enter the 6-digit code that we sent to your email address {
           emailAddress
-        }{' '}
+        }
       </Typography>
       <form className={styles.codeForm}>
         <MuiOtpInput
@@ -31,8 +30,7 @@ export const CodeEnterBlock = () => {
           autoFocus
         />
         <button className={styles.codeEnterContinueButton} type="submit">
-          {' '}
-          Continue{' '}
+          Continue
         </button>
       </form>
     </div>
