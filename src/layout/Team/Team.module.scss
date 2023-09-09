@@ -1,0 +1,19 @@
+.teamTitle{
+  color: var(--light-mode-brand-black-14151-a, #14151A);
+  text-align: center;
+  font-family: Metropolis, sans-serif;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 40px;
+  margin-top: 40px;
+}
+.teamCards{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 15px;
+  padding: 0 17% 2%;
+}
