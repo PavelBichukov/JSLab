@@ -1,8 +1,6 @@
-import { Typography } from 'src/components/share/Typography'
+import { Typography } from 'components/share/Typography'
 
 import styles from './EmailEnterBlock.module.scss'
-
-
 
 export const EmailBlock = () => {
   return (

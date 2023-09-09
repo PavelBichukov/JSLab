@@ -1,8 +1,8 @@
+import { Typography } from 'components/share/Typography'
+
+import { ReactComponent as SuccessIcon } from 'assets/icons/SuccessIcon.svg'
+
 import styles from './successBlock.module.scss'
-
-import { ReactComponent as SuccessIcon } from '../../../assets/icons/SuccessIcon.svg'
-
-import { Typography } from 'src/components/share/Typography'
 
 export const SuccessBlock = () => {
   return (
