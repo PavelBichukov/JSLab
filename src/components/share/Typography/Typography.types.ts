@@ -20,7 +20,7 @@ export interface ITypography {
 
 export interface ITypographyProps {
   variant: string
-  children?: string
+  children?: any
   className?: string
   component?: string
 }
