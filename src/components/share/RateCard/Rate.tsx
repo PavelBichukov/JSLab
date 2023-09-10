@@ -1,12 +1,14 @@
+import { Typography } from 'components/share/Typography'
+
 import styles from './Rate.module.scss'
 
 const Rate = (props) => {
   const { title, description, options } = props
   return (
     <div className={styles.mainCard}>
-      <p className={styles.cardTitle}>{title}</p>
+      <Typography variant="HeaderM">{title}</Typography>
       <div className={styles.cardDescription}>
-        <p>{description}</p>
+        <Typography variant="ParagraphL">{description}</Typography>
       </div>
       <div className={styles.cardListContainer}>
         <ul className={styles.cardList}>

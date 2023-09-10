@@ -1,8 +1,7 @@
 import cn from 'classnames'
 
-import { ITypography, ITypographyProps } from './Typography.types'
-
 import styles from './Typography.module.scss'
+import { ITypography, ITypographyProps } from './Typography.types'
 
 const variants: ITypography = {
   Header3XL: styles.Header3XL,
