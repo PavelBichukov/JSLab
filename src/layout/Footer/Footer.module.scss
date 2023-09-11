@@ -28,3 +28,22 @@ hr.hrStyle{
   background: #E1E5ED;
   color: #E1E5ED
 }
+.footPartFooter{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 36px;
+}
+.footerIcons{
+  display: flex;
+  gap: 24px;
+}
+.footerLastText{
+  margin-top: 4px;
+  display: flex;
+  gap: 64px;
+  font-weight: 600;
+}
+a{
+  color: #14151A;
+  cursor: pointer;
+}

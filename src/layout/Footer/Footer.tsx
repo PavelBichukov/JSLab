@@ -2,9 +2,11 @@ import { Link } from 'react-router-dom'
 
 import Jslab from 'assets/icons/Jslab.jsx'
 import Logo from 'assets/icons/Logo.jsx'
+import { Typography } from 'components/share/Typography'
 import AppStoreImg from 'src/assets/images/AppStore.png'
 import PlayMarkerImg from 'src/assets/images/GooglePlay.png'
 
+import { labels as LABELS, socialNetworks as LOGOS } from './Footer.constants'
 import styles from './Footer.module.scss'
 
 const Footer = () => (
@@ -36,7 +38,24 @@ const Footer = () => (
       </div>
     </div>
     <hr className={styles.hrStyle} />
-    <div></div>
+    <div className={styles.footPartFooter}>
+      <div className={styles.footerIcons}>
+        {LOGOS.map((logo) => (
+          <a key={logo.imgSrc} href={logo.href} target="_blank">
+            <div>
+              <img src={logo.imgSrc} alt={logo.imgSrc} />
+            </div>
+          </a>
+        ))}
+      </div>
+      <div className={styles.footerLastText}>
+        {LABELS.map((label) => (
+          <Link key={label} to="/">
+            <Typography variant="LabelS">{label}</Typography>
+          </Link>
+        ))}
+      </div>
+    </div>
   </div>
 )
 
