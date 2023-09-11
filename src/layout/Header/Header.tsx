@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom'
-import { ReactComponent as Logo } from '../../assets/icons/Logo.svg'
-import { ReactComponent as Jslab } from '../../assets/icons/Jslab.svg'
+
+import Jslab from 'assets/icons/Jslab.jsx'
+import Logo from 'assets/icons/Logo.jsx'
+
 import styles from './Header.module.scss'
 
 const Header = () => {
@@ -8,8 +10,8 @@ const Header = () => {
     <div className={styles.main}>
       <Link to="/">
         <div className={styles.logo}>
-          <Logo />
-          <Jslab className={styles.logoName} />
+          <Logo color="#FFFFFF" />
+          <Jslab color="#FFFFFF" className={styles.logoName} />
         </div>
       </Link>
 

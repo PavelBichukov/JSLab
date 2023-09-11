@@ -1,4 +1,4 @@
-import { Banner, Header, Rates, Team } from 'src/layout/index'
+import { Banner, Footer, Header, Rates, Team } from 'src/layout/index'
 
 import styles from './Landing.module.scss'
 
@@ -21,6 +21,9 @@ const Landing = () => (
     </div>
     <div id="rates">
       <Rates />
+    </div>
+    <div>
+      <Footer />
     </div>
   </div>
 )
