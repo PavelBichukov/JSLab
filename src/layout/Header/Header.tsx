@@ -11,7 +11,9 @@ const Header = () => {
       <Link to="/">
         <div className={styles.logo}>
           <Logo color="#FFFFFF" />
-          <Jslab color="#FFFFFF" className={styles.logoName} />
+          <div className={styles.logoName}>
+            <Jslab color="#FFFFFF" />
+          </div>
         </div>
       </Link>
 
