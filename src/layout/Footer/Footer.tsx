@@ -14,9 +14,7 @@ const Footer = () => (
     <div className={styles.headPartFooter}>
       <div className={styles.logo}>
         <Link to="/">
-          <div>
-            <Logo color="#14151A" />
-          </div>
+          <Logo color="#14151A" />
         </Link>
         <Link to="/">
           <div className={styles.logoName}>
@@ -26,14 +24,10 @@ const Footer = () => (
       </div>
       <div className={styles.platforms}>
         <a href="https://www.apple.com/by/app-store/" target="_blank">
-          <div>
-            <img src={AppStoreImg} alt="App Store" />
-          </div>
+          <img src={AppStoreImg} alt="App Store" />
         </a>
         <a href="https://play.google.com/store/games" target="_blank">
-          <div>
-            <img src={PlayMarkerImg} alt="Google Play" />
-          </div>
+          <img src={PlayMarkerImg} alt="Google Play" />
         </a>
       </div>
     </div>
@@ -42,9 +36,7 @@ const Footer = () => (
       <div className={styles.footerIcons}>
         {LOGOS.map((logo) => (
           <a key={logo.imgSrc} href={logo.href} target="_blank">
-            <div>
-              <img src={logo.imgSrc} alt={logo.imgSrc} />
-            </div>
+            <img src={logo.imgSrc} alt={logo.imgSrc} />
           </a>
         ))}
       </div>
