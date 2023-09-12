@@ -1,10 +1,11 @@
 import { useState } from 'react'
 
+import { Typography } from 'components/share/Typography'
+
 import styles from './FormInput.module.scss'
 
-const FormInput = (props) => {
+const FormInput = ({ label, errorMessage, onChange, ...inputProps }) => {
   const [focused, setFocused] = useState(false)
-  const { label, errorMessage, onChange, id, ...inputProps } = props
 
   const handleFocus = (e) => {
     setFocused(true)
@@ -12,7 +13,7 @@ const FormInput = (props) => {
 
   return (
     <div className={styles.formInput}>
-      <label>{label}</label>
+      <Typography variant="LabelXL">{label}</Typography>
       <input
         {...inputProps}
         onChange={onChange}
@@ -22,7 +23,7 @@ const FormInput = (props) => {
         }
         focused={focused.toString()}
       />
-      <span>{errorMessage}</span>
+      <span className={styles.errorMessages}>{errorMessage}</span>
     </div>
   )
 }

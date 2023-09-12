@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom'
 import FormInput from 'components/share/FormInput/FormInput'
 import { Typography } from 'components/share/Typography'
 
+import { inputs as INPUTS } from './Login.constants'
 import styles from './Login.module.scss'
 
 const Login = () => {
@@ -16,29 +17,6 @@ const Login = () => {
     confirmPassword: '',
   })
 
-  const inputs = [
-    {
-      id: 2,
-      name: 'email',
-      type: 'email',
-      placeholder: 'Email',
-      errorMessage: 'It should be a valid email address!',
-      label: 'Email',
-      required: true,
-    },
-    {
-      id: 4,
-      name: 'password',
-      type: 'password',
-      placeholder: 'Password',
-      errorMessage:
-        'Password should be 8-20 characters and include at least 1 letter, 1 number and 1 special character!',
-      label: 'Password',
-      pattern: `^(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,20}$`,
-      required: true,
-    },
-  ]
-
   const handleSubmit = (e) => {
     e.preventDefault()
   }
@@ -49,25 +27,33 @@ const Login = () => {
 
   return (
     <div className={styles.app}>
-      <form onSubmit={handleSubmit}>
-        <div className={styles.titleContainer}>
+      <div className={styles.mainForm}>
+        <form onSubmit={handleSubmit}>
+          <Link to="/" className={styles.closeIcon}>
+            <AiOutlineCloseCircle />
+          </Link>
           <Typography variant="Header2XL" className={styles.formTitle}>
             Register
           </Typography>
-          <Link to="/">
-            <AiOutlineCloseCircle />
-          </Link>
-        </div>
-        {inputs.map((input) => (
-          <FormInput
-            key={input.id}
-            {...input}
-            value={values[input.name]}
-            onChange={onChange}
-          />
-        ))}
-        <button>Submit</button>
-      </form>
+
+          {INPUTS.map((input) => (
+            <FormInput
+              key={input.id}
+              {...input}
+              value={values[input.name]}
+              onChange={onChange}
+            />
+          ))}
+          <button className={styles.buttonLogin}>Submit</button>
+        </form>
+      </div>
+      <div>
+        <Typography variant="Header2XL" className={styles.createText}>
+          Created with ❤️ in <span className={styles.spanText}>&nbsp;i</span>
+          Tech
+          <span className={styles.spanText}>Art</span>
+        </Typography>
+      </div>
     </div>
   )
 }
