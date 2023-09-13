@@ -1,0 +1,73 @@
+.container {
+  max-width: 1920px;
+  margin: 0 auto;
+}
+
+.signUpBlock {
+  max-width: 1184px;
+  background-color: rgba(255, 255, 255, 1);
+  display: flex;
+  margin: 0 auto;
+  border-radius: 24px;
+  box-shadow: 0px 0px 4px -1px rgba(34, 60, 80, 0.2);
+}
+
+.sideSection {
+  max-width: 392px;
+  border-right: 1px solid rgba(225, 229, 237, 1);
+  margin: 0 auto;
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  padding: 72px 48px 608px 64px;
+}
+
+.progressBar {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.progressBarItem {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  color: rgba(110, 118, 138, 1);
+}
+
+.progressBarItemActive {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  color: rgba(20, 21, 26, 1);
+}
+
+.circleNumber {
+  color: rgba(80, 87, 107, 1);
+  border: 1px solid;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.circleNumberActive {
+  color: rgba(255, 255, 255, 1);
+  border: 1px solid rgba(20, 21, 26, 1);
+  background-color: rgba(20, 21, 26, 1);
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.formBlock {
+  flex: 3;
+  padding: 72px 204px 32px;
+}
