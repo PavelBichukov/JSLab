@@ -1,4 +1,6 @@
+import { SignUpMainComponent } from "src/components"
+
 const SignUp = () => {
-  return <>Sign Up</>
+  return <SignUpMainComponent/>
 }
 export default SignUp

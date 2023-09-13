@@ -1,4 +1,5 @@
 import cn from 'classnames'
+import { UserInfoBlock } from 'src/components'
 import { Typography } from 'src/components/share/Typography'
 
 import { progressBarConstants } from './progressBarConstants'
@@ -26,7 +27,9 @@ export const SignUpMainComponent = () => {
             ))}
           </div>
         </section>
-        <div className={styles.formBlock}></div>
+        <div className={styles.formBlock}>
+          <UserInfoBlock/>
+        </div>
       </div>
     </div>
   )

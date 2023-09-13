@@ -40,9 +40,11 @@
 .progressBarItemActive {
   color: rgba(20, 21, 26, 1);
   .circleNumber{
-    color: rgba(255, 255, 255, 1);
     border: 1px solid rgba(20, 21, 26, 1);
     background-color: rgba(20, 21, 26, 1);
+    & *{
+      color: rgba(255, 255, 255, 1);
+    }
     }
 }
 
