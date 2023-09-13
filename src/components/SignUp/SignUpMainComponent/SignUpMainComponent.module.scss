@@ -38,27 +38,17 @@
 }
 
 .progressBarItemActive {
-  display: flex;
-  align-items: center;
-  gap: 16px;
   color: rgba(20, 21, 26, 1);
+  .circleNumber{
+    color: rgba(255, 255, 255, 1);
+    border: 1px solid rgba(20, 21, 26, 1);
+    background-color: rgba(20, 21, 26, 1);
+    }
 }
 
 .circleNumber {
   color: rgba(80, 87, 107, 1);
   border: 1px solid;
-  border-radius: 50%;
-  width: 32px;
-  height: 32px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.circleNumberActive {
-  color: rgba(255, 255, 255, 1);
-  border: 1px solid rgba(20, 21, 26, 1);
-  background-color: rgba(20, 21, 26, 1);
   border-radius: 50%;
   width: 32px;
   height: 32px;
