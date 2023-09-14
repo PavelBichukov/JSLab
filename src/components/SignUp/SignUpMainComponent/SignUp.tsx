@@ -1,5 +1,5 @@
 import cn from 'classnames'
-import { TermsAndConditions, UserInfoBlock } from 'src/components'
+import { BusinessInfoBlock, TermsAndConditions, UserInfoBlock,  } from 'src/components'
 import { Typography } from 'src/components/share/Typography'
 
 import { progressBarConstants } from './progressBarConstants'
@@ -18,6 +18,7 @@ export const SignUpMainComponent = () => {
                 className={cn(styles.progressBarItem, {
                   [styles.progressBarItemActive]: currentStep >= item.id,
                 })}
+                key={item.id}
               >
                 <div className={styles.circleNumber}>
                   <Typography variant="LabelL">{item.id}</Typography>
@@ -29,7 +30,8 @@ export const SignUpMainComponent = () => {
         </section>
         <div className={styles.formBlock}>
           {/* <UserInfoBlock/> */}
-          <TermsAndConditions/>
+          {/* <TermsAndConditions/> */}
+          <BusinessInfoBlock/>
         </div>
       </div>
     </div>
