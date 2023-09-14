@@ -1,8 +1,6 @@
 import { Route, Routes } from 'react-router-dom'
 
-import Landing from 'src/pages/Landing/Landing'
-import Login from 'src/pages/Log In/Login'
-import SignUp from 'src/pages/Sign Up/SignUp'
+import { Landing, Login, SignUp, Testing } from 'src/pages/index'
 
 function App() {
   return (
@@ -10,6 +8,7 @@ function App() {
       <Route index element={<Landing />} />
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<SignUp />} />
+      <Route path="/testing" element={<Testing />} />
     </Routes>
   )
 }
