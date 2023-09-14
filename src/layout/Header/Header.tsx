@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 
 import Jslab from 'assets/icons/Jslab.jsx'
 import Logo from 'assets/icons/Logo.jsx'
+import HeaderBtns from 'components/share/HeaderBtns/HeaderBtns'
 
 import styles from './Header.module.scss'
 
@@ -18,12 +19,7 @@ const Header = () => {
       </Link>
 
       <div className={styles.buttons}>
-        <Link to="/login">
-          <button className={styles.loginButton}>Log in</button>
-        </Link>
-        <Link to="/signup">
-          <button className={styles.signupButton}>Sign up</button>
-        </Link>
+        <HeaderBtns />
       </div>
     </div>
   )
