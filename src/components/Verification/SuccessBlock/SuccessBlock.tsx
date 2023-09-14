@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom'
-
 import { ReactComponent as SuccessIcon } from 'assets/icons/SuccessIcon.svg'
 import { Typography } from 'components/share/Typography'
 
