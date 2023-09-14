@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 
 import Jslab from 'assets/icons/Jslab.jsx'
 import Logo from 'assets/icons/Logo.jsx'
-import HeaderBtns from 'components/share/HeaderBtns/HeaderBtns'
+import { HeaderBtns } from 'components/share/index'
 
 import styles from './Header.module.scss'
 

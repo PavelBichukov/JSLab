@@ -2,13 +2,11 @@ import { QueryClient, QueryClientProvider, useQuery } from 'react-query'
 
 const queryClient = new QueryClient()
 
-const Testing = () => {
-  return (
-    <QueryClientProvider client={queryClient}>
-      <Example />
-    </QueryClientProvider>
-  )
-}
+const Testing = () => (
+  <QueryClientProvider client={queryClient}>
+    <Example />
+  </QueryClientProvider>
+)
 function Example() {
   const { isLoading, error, data } = useQuery('repoData', () =>
     fetch('http://localhost:5000/api').then((res) => res.json())
