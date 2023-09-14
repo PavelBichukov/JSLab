@@ -13,6 +13,7 @@
   flex-direction: column;
   justify-content: space-between;
   padding-top: 48px;
+  width: 100%;
 }
 
 .codeOtpInput {
@@ -22,9 +23,12 @@
     font-size: 24px;
     line-height: 48px;
     border-image: none;
+    border-bottom: 2px solid transparent;
+    &:focus {
+      border-bottom: 2px solid rgba(20, 21, 26, 1);
+    }
     &:focus ~ fieldset {
       border: none;
-      border-bottom: 2px solid rgba(171, 178, 194, 1);
     }
   }
   fieldset {

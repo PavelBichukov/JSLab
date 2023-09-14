@@ -1,11 +1,14 @@
+import { useState } from 'react'
+
 import cn from 'classnames'
+import { BusinessInfoBlock, TermsAndConditions, UserInfoBlock,  } from 'src/components'
 import { Typography } from 'src/components/share/Typography'
 
 import { progressBarConstants } from './progressBarConstants'
 import styles from './SignUpMainComponent.module.scss'
 
 export const SignUpMainComponent = () => {
-  const currentStep = 2
+  const [currentStep, setCurrenStep] = useState(1)
 
   return (
     <div className={styles.container}>
@@ -17,6 +20,8 @@ export const SignUpMainComponent = () => {
                 className={cn(styles.progressBarItem, {
                   [styles.progressBarItemActive]: currentStep >= item.id,
                 })}
+                key={item.id}
+                onClick={() => setCurrenStep(item.id)}
               >
                 <div className={styles.circleNumber}>
                   <Typography variant="LabelL">{item.id}</Typography>
@@ -26,7 +31,12 @@ export const SignUpMainComponent = () => {
             ))}
           </div>
         </section>
-        <div className={styles.formBlock}></div>
+        <div className={styles.formBlock}>
+        {currentStep === 1 && <UserInfoBlock/>}
+        {currentStep === 2 && <BusinessInfoBlock/>}
+        {currentStep === 3 && <TermsAndConditions/>}
+        {currentStep === 4 && <TermsAndConditions/>}          
+        </div>
       </div>
     </div>
   )

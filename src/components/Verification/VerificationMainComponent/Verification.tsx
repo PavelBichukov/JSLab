@@ -1,3 +1,7 @@
+import { useState } from 'react'
+import { Link } from 'react-router-dom'
+
+import cn from 'classnames'
 import { Typography } from 'components/share/Typography'
 import { CodeEnterBlock, EmailBlock, SuccessBlock } from 'src/components'
 import { IBenefitsList } from 'src/types/types'
@@ -6,12 +10,25 @@ import { benefitsLists } from './Verification.constants'
 import styles from './Verification.module.scss'
 
 export const VerificationMainComponent = () => {
-  const currentStep = 3
+  const [currentStep, setCurrenStep] = useState(1)
+
   return (
     <div className={styles.container}>
+      <div className={styles.headerButtons}>
+        <Link to="/" className={styles.closeIcon}>
+          <button className={styles.headerButton}>Log In</button>
+        </Link>
+        <Link to="/" className={cn(styles.button, styles.buttonSignUp)}>
+          <button className={cn(styles.headerButton, styles.signUpButton)}>
+            Sign Up
+          </button>
+        </Link>
+      </div>
       <div className={styles.verificationBlock}>
         <section className={styles.sideSection}>
-          <button className={styles.backButton}>Back</button>
+          <Link to="/" className={styles.closeIcon}>
+            <button className={styles.backButton}>Back</button>
+          </Link>
           <div className={styles.sideSectionText}>
             <Typography variant="HeaderM">Stations</Typography>
             <Typography
@@ -32,6 +49,24 @@ export const VerificationMainComponent = () => {
                 </Typography>
               ))}
             </ul>
+            <div className={styles.buttonsBlock}>
+              <button
+                onClick={() =>
+                  setCurrenStep(currentStep > 1 ? currentStep - 1 : currentStep)
+                }
+              >
+                ‹
+              </button>
+              <button
+                onClick={() =>
+                  setCurrenStep(
+                    currentStep >= 3 ? currentStep : currentStep + 1
+                  )
+                }
+              >
+                ›
+              </button>
+            </div>
           </div>
         </section>
         <div className={styles.formBlock}>
