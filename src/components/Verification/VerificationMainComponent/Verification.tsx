@@ -1,11 +1,8 @@
 import { Typography } from 'components/share/Typography'
-
 import { CodeEnterBlock, EmailBlock, SuccessBlock } from 'src/components'
-
-import { benefitsLists } from './Verification.constants'
-
 import { IBenefitsList } from 'src/types/types'
 
+import { benefitsLists } from './Verification.constants'
 import styles from './Verification.module.scss'
 
 export const VerificationMainComponent = () => {

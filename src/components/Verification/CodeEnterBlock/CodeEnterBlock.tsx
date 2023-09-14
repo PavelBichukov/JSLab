@@ -1,7 +1,6 @@
 import { useState } from 'react'
 
 import { Typography } from 'components/share/Typography'
-
 import { MuiOtpInput } from 'mui-one-time-password-input'
 
 import styles from './CodeEnterBlock.module.scss'
@@ -20,7 +19,7 @@ export const CodeEnterBlock = () => {
       <Typography variant="ParagraphL">
         Enter the 6-digit code that we sent to your email address {emailAddress}
       </Typography>
-      <form className={styles.codeForm}>
+      <form className={styles.codeForm} onSubmit={registerUser}>
         <MuiOtpInput
           className={styles.codeOtpInput}
           value={code}

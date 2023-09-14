@@ -1,6 +1,5 @@
-import { Typography } from 'components/share/Typography'
-
 import { ReactComponent as SuccessIcon } from 'assets/icons/SuccessIcon.svg'
+import { Typography } from 'components/share/Typography'
 
 import styles from './successBlock.module.scss'
 
