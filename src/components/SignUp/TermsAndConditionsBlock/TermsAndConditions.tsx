@@ -44,10 +44,10 @@ export const TermsAndConditions = () => {
       <div className={styles.checkBoxBlock}>
         <input type="checkbox" id="checkbox" name="checkbox" />
         <Typography variant="ParagraphL">
-          I agree to JSLab
-          <a href="#">Terms & Conditions </a>
-          and
-          <a href="#"> Privacy Policy</a>
+          {'I agree to JSLab '}
+          <a href="#">Terms & Conditions</a>
+          {' and '}
+          <a href="#">Privacy Policy</a>
         </Typography>
       </div>
       <div className={styles.buttonsBlock}>

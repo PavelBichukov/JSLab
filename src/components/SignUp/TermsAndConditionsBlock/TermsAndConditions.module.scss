@@ -32,6 +32,7 @@
   gap: 16px;
   padding-right: 196px;
   padding-top: 16px;
+  color: rgba(50, 54, 66, 1);
   & input {
     background-color: rgba(20, 21, 26, 1);
     border: 1px solid;
@@ -52,6 +53,10 @@
     &:checked {
       background-color: white;
     }
+  }
+  & a{
+    text-decoration: underline;
+    font-weight: 600;
   }
 }
 
