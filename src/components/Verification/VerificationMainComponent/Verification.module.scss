@@ -50,7 +50,7 @@
 .sideSectionDescription {
   color: rgba(80, 87, 107, 1);
   padding-top: 8px;
-  padding-bottom: 48px;
+  padding-bottom: 28px;
 }
 
 .benefitsList {
@@ -65,6 +65,19 @@
     content: url(src/assets/icons/bullet-point-icon.svg);
     vertical-align: text-bottom;
     padding: 6px 28px 6px 12px;
+  }
+}
+
+.buttonsBlock{
+  padding-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  & button{
+    cursor: pointer;
+    border: none;
+    text-decoration: none;
+    background: none;
   }
 }
 

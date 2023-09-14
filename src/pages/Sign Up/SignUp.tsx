@@ -1,6 +1,6 @@
-import { SignUpMainComponent } from "src/components"
+import { VerificationMainComponent } from "src/components"
 
 const SignUp = () => {
-  return <SignUpMainComponent/>
+  return <VerificationMainComponent/>
 }
 export default SignUp
