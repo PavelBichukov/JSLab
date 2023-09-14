@@ -12,7 +12,9 @@ export const UserInfoBlock = () => {
   return (
     <div className={styles.userInfoBlock}>
       <Typography variant="HeaderM">Welcome to JSLab</Typography>
-      <Typography variant="ParagraphL">Let’s setup your account</Typography>
+      <Typography variant="ParagraphL" className={styles.subTittle}>
+        Let’s setup your account
+      </Typography>
       <form className={styles.form}>
         <div>
           {userFormConstants.map((input) => (

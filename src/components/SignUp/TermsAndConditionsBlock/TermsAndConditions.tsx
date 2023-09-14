@@ -39,7 +39,16 @@ export const TermsAndConditions = () => {
         maxime quam at?Lorem ipsum dolor sit amet consectetur adipisicing elit.
         Ratione consequatur iste, sed, doloribus, dolor nisi numquam odit veniam
         adipisci assumenda alias. Error perspiciatis suscipit doloribus corrupti
-        explicabo maxime quam at?
+        explicabo maxime quam at?odit veniam adipisci assumenda alias. Error
+        perspiciatis suscipit doloribus corrupti explicabo maxime quam at?Lorem
+        ipsum dolor sit amet consectetur adipisicing elit. Ratione consequatur
+        iste, sed, doloribus, dolor nisi numquam odit veniam adipisci assumenda
+        alias. Error perspiciatis suscipit doloribus corrupti explicabo maxime
+        quam at?nda alias. Error perspiciatis suscipit doloribus corrupti
+        explicabo maxime quam at?Lorem ipsum dolor sit amet consectetur
+        adipisicing elit. Ratione consequatur iste, sed, doloribus, dolor nisi
+        numquam odit veniam adipisci assumenda alias. Error perspiciatis
+        suscipit doloribus corrupti explicabo maxime quam at?
       </Typography>
       <div className={styles.checkBoxBlock}>
         <input type="checkbox" id="checkbox" name="checkbox" />

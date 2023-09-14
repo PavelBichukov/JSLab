@@ -4,7 +4,12 @@
   flex-direction: column;
   justify-content: space-between;
   text-align: left;
-  padding-right: 196px;
+  padding-right: 230px;
+}
+
+.subTittle {
+  color: rgba(80, 87, 107, 1);
+  padding-top: 10px;
 }
 
 .form {
@@ -37,7 +42,7 @@
     position: absolute;
     right: 0;
     top: 40%;
-}
+  }
 }
 
 .formInput {

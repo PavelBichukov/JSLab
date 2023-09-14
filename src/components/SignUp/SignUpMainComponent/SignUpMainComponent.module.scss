@@ -1,10 +1,12 @@
 .container {
   max-width: 1920px;
   margin: 0 auto;
+  padding-top: 116px;
 }
 
 .signUpBlock {
   max-width: 1184px;
+  max-height: 750px;
   background-color: rgba(255, 255, 255, 1);
   display: flex;
   margin: 0 auto;
@@ -16,12 +18,12 @@
   max-width: 392px;
   border-right: 1px solid rgba(225, 229, 237, 1);
   margin: 0 auto;
-  flex: 2;
+  flex: 1;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   text-align: left;
-  padding: 72px 48px 608px 64px;
+  padding: 72px 80px 608px 64px;
 }
 
 .progressBar {
@@ -40,13 +42,13 @@
 
 .progressBarItemActive {
   color: rgba(20, 21, 26, 1);
-  .circleNumber{
+  .circleNumber {
     border: 1px solid rgba(20, 21, 26, 1);
     background-color: rgba(20, 21, 26, 1);
-    & *{
+    & * {
       color: rgba(255, 255, 255, 1);
     }
-    }
+  }
 }
 
 .circleNumber {

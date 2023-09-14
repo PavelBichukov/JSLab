@@ -9,17 +9,16 @@
   color: rgba(80, 87, 107, 1);
 }
 
-.formBlock{
+.formBlock {
   width: 600px;
 }
 
-
 .textInfo {
-  max-height: 485px;
+  max-height: 350px;
   overflow-y: scroll;
   overflow-y: overlay;
   margin-top: 48px;
-  padding-right: 196px;
+  padding-right: 230px;
   color: rgba(80, 87, 107, 1);
   &::-webkit-scrollbar {
     background-color: transparent;
@@ -35,7 +34,7 @@
   width: 100%;
   display: flex;
   gap: 16px;
-  padding-right: 196px;
+  padding-right: 230px;
   padding-top: 19px;
   color: rgba(50, 54, 66, 1);
   & input {
@@ -59,7 +58,7 @@
       background-color: rgba(20, 21, 26, 1);
     }
   }
-  & a{
+  & a {
     text-decoration: underline;
     font-weight: 600;
   }
@@ -71,8 +70,8 @@
   align-items: center;
   justify-content: space-between;
   gap: 16px;
-  padding-right: 196px;
-  padding-top: 32px;
+  padding-right: 230px;
+  padding-top: 37px;
   & button {
     flex: 1;
   }
