@@ -1,6 +1,7 @@
 import { useState } from 'react'
 
 import { ReactComponent as EyeIcon } from 'assets/icons/Eye.svg'
+import cn from 'classnames'
 import { Typography } from 'src/components/share/Typography'
 
 import { userFormConstants } from './userFormConstants'
@@ -31,8 +32,7 @@ export const UserInfoBlock = () => {
               />
               <label htmlFor={input.id.toString()}>{input.name}</label>
               <EyeIcon
-                className={styles.eyeIcon}
-                style={{ display: input.id === 4 ? '' : 'none' }}
+                className={input.id === 4 ? styles.eyeIcon: cn(styles.eyeIcon, styles.eyeIconHidden)}
                 onClick={() => setShowPass(!showPass)}
               />
             </div>
