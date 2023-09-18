@@ -1,7 +1,7 @@
 import { ChangeEventHandler, ComponentProps } from 'react'
 
 export interface IInputProps extends ComponentProps<'input'> {
-  type: string
+  variant: string
   className?: string
   label: string
   labelClassName?: string

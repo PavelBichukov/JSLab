@@ -7,7 +7,7 @@ import styles from './Input.module.scss'
 import { useState } from 'react'
 
 export const Input = ({
-  type,
+  variant,
   className,
   onChange,
   label,
@@ -22,7 +22,7 @@ export const Input = ({
       <input
         {...restProps}
         className={cn(styles.input, className)}
-        type={type === 'password' && showPass ? 'text' : type}
+        type={variant === 'password' && showPass ? 'text' : variant}
         placeholder=""
         id={id ? id : 'customInput'}
         onChange={onChange}
@@ -36,7 +36,7 @@ export const Input = ({
       {!showPass ? (
         <EyeIcon
           className={
-            type === 'password'
+            variant === 'password'
               ? styles.eyeIcon
               : cn(styles.eyeIcon, styles.eyeIconHidden)
           }
@@ -45,7 +45,7 @@ export const Input = ({
       ) : (
         <ClosedEyeIcon
           className={
-            type === 'password'
+            variant === 'password'
               ? styles.eyeIcon
               : cn(styles.eyeIcon, styles.eyeIconHidden)
           }
