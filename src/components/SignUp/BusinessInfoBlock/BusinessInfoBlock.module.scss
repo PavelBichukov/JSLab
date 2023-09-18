@@ -1,0 +1,170 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 8px;
+  padding-right: 230px;
+  height: 100%;
+}
+
+.subTittle {
+  color: rgba(80, 87, 107, 1);
+  max-width: 300px;
+}
+
+.formBlock {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.businessInputBox {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding: 20px 0px;
+  & label {
+    position: absolute;
+    top: 35px;
+    color: rgba(80, 87, 107, 1);
+    font-family: 'Metropolis', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    cursor: text;
+    transition: 0.3s;
+  }
+}
+
+.businessFormInput {
+  border: none;
+  border-bottom: 1px solid rgba(171, 178, 194, 1);
+  margin-bottom: -1px;
+  color: rgba(80, 87, 107, 1);
+  font-family: 'Metropolis', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  padding: 5px 0px;
+  width: 100%;
+  &:focus {
+    outline: none;
+    border-color: rgba(20, 21, 26, 1);
+  }
+  &:focus + label,
+  &:not(:placeholder-shown) + label {
+    transform: translateY(-25px);
+    cursor: default;
+    font-size: 12px;
+    line-height: 16px;
+  }
+}
+
+.selectsGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  padding-top: 28px;
+  & select {
+    border: none;
+    appearance: none;
+    border-bottom: 1px solid rgba(171, 178, 194, 1);
+    margin-bottom: -1px;
+    font-family: 'Metropolis', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    height: 30px;
+    cursor: pointer;
+    &:focus {
+      outline: none;
+    }
+  }
+}
+
+.selectBox {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  & label {
+    position: absolute;
+    bottom: 30px;
+    font-family: 'Metropolis', sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+  }
+  &::after {
+    position: absolute;
+    content: url(src/assets/icons/ChevronDownIcon.svg);
+    right: 0;
+    top: 5px;
+  }
+}
+
+.checkBoxBlock {
+  width: 100%;
+  display: flex;
+  gap: 16px;
+  padding-top: 60px;
+  color: rgba(50, 54, 66, 1);
+  & input {
+    background-color: white;
+    border: 1px solid;
+    align-self: start;
+    border-radius: 8px;
+    margin: 0;
+    position: relative;
+    cursor: pointer;
+    transition: 0.2s;
+    transform: scale(0.8);
+    &::before {
+      position: absolute;
+      content: url(src/assets/icons/CheckBoxTickIcon.svg);
+      right: 5px;
+      bottom: 5px;
+      transform: scale(1.3);
+    }
+    &:checked {
+      background-color: rgba(20, 21, 26, 1);
+    }
+  }
+  & a {
+    text-decoration: underline;
+    font-weight: 600;
+  }
+}
+
+.buttonsBlock {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding-top: 30px;
+  & button {
+    flex: 1;
+  }
+}
+
+.button {
+  border: 1px solid rgba(50, 54, 66, 1);
+  text-decoration: none;
+  color: rgba(255, 255, 255, 1);
+  background-color: rgba(20, 21, 26, 1);
+  border-radius: 16px;
+  padding: 15px;
+  font-family: 'Metropolis', sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 24px;
+  cursor: pointer;
+}
+
+.buttonBack {
+  color: rgba(50, 54, 66, 1);
+  background-color: transparent;
+}

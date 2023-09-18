@@ -1,0 +1,52 @@
+.app {
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+  background-image: url("../../assets/images/milkyway.jpg");
+}
+.mainForm{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 13%;
+}
+form{
+  width: 33%;
+  height: 40%;
+  background-color: white;
+  border-radius: 20px;
+}
+.formTitle{
+  text-align: center;
+}
+.titleContainer{
+  display: flex;
+  justify-content: center;
+}
+.closeIcon{
+  font-size: 30px;
+  margin-left: 95%;
+}
+.buttonLogin{
+  width: 90%;
+  height: 50px;
+  padding: 10px;
+  border: none;
+  background-color: black;
+  color: white;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 18px;
+  cursor: pointer;
+  margin: 15px 5% 30px;
+}
+.createText{
+  margin-top: 5px;
+  display: flex;
+  justify-content: center;
+  -webkit-text-stroke: 0.8px #FFFFFF;
+}
+.spanText{
+  color: red;
+  display: block
+}

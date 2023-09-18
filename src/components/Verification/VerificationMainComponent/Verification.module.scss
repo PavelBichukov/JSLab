@@ -1,0 +1,116 @@
+.container {
+  max-width: 1920px;
+  margin: 0 auto;
+  padding-top: 30px;
+}
+
+.headerButtons {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 16px;
+  max-width: 1184px;
+  margin: 0 auto;
+  padding-bottom: 42px;
+}
+
+.headerButton {
+  border: none;
+  background-color: rgba(0, 0, 0, 1);
+  color: rgba(255, 255, 255, 1);
+  padding: 10px 35px;
+  border-radius: 22px;
+  font-family: 'Metropolis', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 24px;
+}
+
+.signUpButton {
+  background-color: rgba(255, 255, 255, 1);
+  color: rgba(0, 0, 0, 1);
+}
+
+.verificationBlock {
+  max-width: 1184px;
+  max-height: 750px;
+  background-color: rgba(255, 255, 255, 1);
+  display: flex;
+  margin: 0 auto;
+  border-radius: 24px;
+  box-shadow: 0px 0px 4px -1px rgba(34, 60, 80, 0.2);
+}
+
+.sideSection {
+  max-width: 392px;
+  border-right: 1px solid rgba(225, 229, 237, 1);
+  margin: 0 auto;
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  padding: 22px 48px 360px 20px;
+}
+
+.sideSectionText {
+  padding-left: 29px;
+}
+
+.backButton {
+  font-family: 'Metropolis', sans-serif;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 16px;
+  padding-bottom: 22px;
+  background: none;
+  vertical-align: text-top;
+  border: none;
+  text-decoration: underline 0.5px rgba(20, 21, 26, 1);
+  position: relative;
+  cursor: pointer;
+  &::before {
+    content: url(src/assets/icons/chevron-left-icon.svg);
+    vertical-align: middle;
+    position: relative;
+  }
+}
+
+.sideSectionDescription {
+  color: rgba(80, 87, 107, 1);
+  padding-top: 8px;
+  padding-bottom: 28px;
+}
+
+.benefitsList {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.listitem {
+  color: rgba(20, 21, 26, 1);
+  &:before {
+    content: url(src/assets/icons/bullet-point-icon.svg);
+    vertical-align: text-bottom;
+    padding: 6px 28px 6px 12px;
+  }
+}
+
+.buttonsBlock {
+  padding-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  & button {
+    cursor: pointer;
+    border: none;
+    text-decoration: none;
+    background: none;
+  }
+}
+
+.formBlock {
+  flex: 3;
+  padding: 72px 204px 32px;
+}
