@@ -7,21 +7,19 @@ import { Typography } from 'components/share/Typography'
 
 import { inputs as INPUTS } from './Login.constants'
 import styles from './Login.module.scss'
+import * as React from 'react'
 
 const Login = () => {
   const [values, setValues] = useState({
-    username: '',
-    email: '',
-    birthday: '',
-    password: '',
-    confirmPassword: '',
+    email: '' as string,
+    password: '' as string,
   })
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
   }
 
-  const onChange = (e) => {
+  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setValues({ ...values, [e.target.name]: e.target.value })
   }
 
@@ -35,14 +33,8 @@ const Login = () => {
           <Typography variant="Header2XL" className={styles.formTitle}>
             Register
           </Typography>
-
           {INPUTS.map((input) => (
-            <FormInput
-              key={input.id}
-              {...input}
-              value={values[input.name]}
-              onChange={onChange}
-            />
+            <FormInput key={input.id} {...input} onChange={onChange} />
           ))}
           <button className={styles.buttonLogin}>Submit</button>
         </form>

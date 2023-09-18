@@ -1,4 +1,4 @@
-const Jslab = ({ color }) => (
+const Jslab = ({ color }: { color: string }) => (
   <svg
     width="99"
     height="34"

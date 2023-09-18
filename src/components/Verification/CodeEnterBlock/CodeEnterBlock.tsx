@@ -19,7 +19,7 @@ export const CodeEnterBlock = () => {
       <Typography variant="ParagraphL">
         Enter the 6-digit code that we sent to your email address {emailAddress}
       </Typography>
-      <form className={styles.codeForm} onSubmit={registerUser}>
+      <form className={styles.codeForm}>
         <MuiOtpInput
           className={styles.codeOtpInput}
           value={code}

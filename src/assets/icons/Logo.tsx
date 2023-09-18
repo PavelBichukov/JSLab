@@ -1,4 +1,4 @@
-const Logo = ({ color }) => (
+const Logo = ({ color }: { color: string }) => (
   <svg
     width="56"
     height="64"

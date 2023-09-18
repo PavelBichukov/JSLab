@@ -2,7 +2,15 @@ import { Typography } from 'components/share/Typography'
 
 import styles from './Rate.module.scss'
 
-const Rate = ({ title, description, options }) => (
+const Rate = ({
+  title,
+  description,
+  options,
+}: {
+  title: string
+  description: string
+  options: string[]
+}) => (
   <div className={styles.mainCard}>
     <Typography variant="HeaderM">{title}</Typography>
     <div className={styles.cardDescription}>
