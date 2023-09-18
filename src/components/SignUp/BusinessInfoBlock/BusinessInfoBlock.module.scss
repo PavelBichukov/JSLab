@@ -5,6 +5,15 @@
   gap: 8px;
   padding-right: 230px;
   height: 100%;
+  @media (max-width: 1200px){
+    padding-right: 150px;
+  }
+  @media (max-width: 920px){
+    padding-right: 80px;
+  }
+  @media (max-width: 600px) {
+    padding-right: 0px;
+  }
 }
 
 .subTittle {

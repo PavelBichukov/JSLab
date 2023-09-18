@@ -28,6 +28,16 @@
     background-color: rgba(80, 87, 107, 1);
     border-radius: 3px;
   }
+  @media (max-width: 1200px){
+    padding-right: 150px;
+  }
+  @media (max-width: 920px){
+    padding-right: 80px;
+  }
+  @media (max-width: 767px) {
+    max-height: 300px;
+    padding-right: 15px;
+  }
 }
 
 .checkBoxBlock {
@@ -62,6 +72,15 @@
     text-decoration: underline;
     font-weight: 600;
   }
+  @media (max-width: 1200px){
+    padding-right: 150px;
+  }
+  @media (max-width: 920px){
+    padding-right: 80px;
+  }
+  @media (max-width: 767px) {
+    padding-right: 15px;
+  }
 }
 
 .buttonsBlock {
@@ -74,6 +93,15 @@
   padding-top: 37px;
   & button {
     flex: 1;
+  }
+  @media (max-width: 1200px){
+    padding-right: 150px;
+  }
+  @media (max-width: 920px){
+    padding-right: 80px;
+  }
+  @media (max-width: 767px) {
+    padding-right: 15px;
   }
 }
 
