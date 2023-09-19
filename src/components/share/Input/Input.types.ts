@@ -6,5 +6,5 @@ export interface IInputProps extends ComponentProps<'input'> {
   label: string
   labelClassName?: string
   onChange?: ChangeEventHandler<HTMLInputElement>
-  id?: string
+  id: string
 }
