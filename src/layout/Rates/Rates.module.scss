@@ -1,9 +1,10 @@
-.mainRates{
+.mainRates {
   width: 100%;
   background-color: #EBF1F4;
-  height: 744px;
+  height: auto;
 }
-.ratesTitle{
+
+.ratesTitle {
   color: var(--light-mode-brand-black-14151-a, #14151A);
   text-align: center;
   font-family: Metropolis, sans-serif;
@@ -13,8 +14,13 @@
   line-height: 40px;
   padding-top: 64px;
 }
-.ratesCards{
-  padding: 64px 19% 0;
+
+.ratesCards {
   display: flex;
-  gap: 16px;
+  flex-wrap: wrap;
+  gap: 15px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 64px;
+  padding: 0 17% 3%;
 }

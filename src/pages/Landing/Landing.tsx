@@ -4,8 +4,10 @@ import styles from './Landing.module.scss'
 
 const Landing = () => {
   return (
-    <div>
-      <Header />
+    <div className={styles.landingMain}>
+      <div>
+        <Header />
+      </div>
       <div>
         <Banner />
         <div className={styles.bannerMission}>
@@ -19,7 +21,9 @@ const Landing = () => {
       <div id="rates">
         <Rates />
       </div>
-      <Footer />
+      <div>
+        <Footer />
+      </div>
     </div>
   )
 }
