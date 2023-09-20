@@ -1,7 +1,8 @@
-.btnContainer{
+.btnContainer {
   background: inherit;
 }
-.loginButton{
+
+.loginButton {
   border-radius: 22px;
   border: 2px solid var(--light-mode-white-ffffff, #FFF);
   background: #000;
@@ -21,8 +22,10 @@
   line-height: 24px;
   margin-right: 16px;
   cursor: pointer;
+  margin-bottom: 10px;
 }
-.signupButton{
+
+.signupButton {
   border-radius: 22px;
   background: var(--light-mode-white-ffffff, #FFF);
   padding: 10px 24px;

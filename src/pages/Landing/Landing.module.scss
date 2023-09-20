@@ -5,11 +5,13 @@
 .bannerMission {
   background: #EBF1F4;
   width: 100%;
-  height: 120px;
+  //height: 120px;
+  height: auto;
 }
 
 .bannerMissionText {
   padding-top: 42px;
+  padding-bottom: 42px;
   font-family: Metropolis, sans-serif;
   font-size: 24px;
   font-weight: 500;

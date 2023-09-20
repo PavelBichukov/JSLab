@@ -29,3 +29,16 @@
   margin-bottom: 50px;
 }
 
+@media screen and (max-width: 695px) {
+  .main {
+    padding: 0 10% 0;
+  }
+}
+
+@media screen and (max-width: 577px) {
+  .buttons {
+    margin: 25px 0 25px 45px;
+    gap: 10px
+  }
+}
+
