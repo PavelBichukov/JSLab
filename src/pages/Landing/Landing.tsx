@@ -5,18 +5,18 @@ import styles from './Landing.module.scss'
 const Landing = () => {
   return (
     <div className={styles.landingMain}>
-      <div>
-        <Header />
-      </div>
-      <div>
-        <Banner />
-        <div className={styles.bannerMission}>
-          <p className={styles.bannerMissionText}>
-            <span className={styles.bannerMissionSmart}>Our Mission</span> is to
-            transform the way fuel is delivered to everything in the world.
-          </p>
-        </div>
-      </div>
+      {/*<div>*/}
+      {/*  <Header />*/}
+      {/*</div>*/}
+      {/*<div>*/}
+      {/*  <Banner />*/}
+      {/*  <div className={styles.bannerMission}>*/}
+      {/*    <p className={styles.bannerMissionText}>*/}
+      {/*      <span className={styles.bannerMissionSmart}>Our Mission</span> is to*/}
+      {/*      transform the way fuel is delivered to everything in the world.*/}
+      {/*    </p>*/}
+      {/*  </div>*/}
+      {/*</div>*/}
       <Team />
       <div id="rates">
         <Rates />
