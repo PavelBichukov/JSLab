@@ -1,6 +1,7 @@
 import { Typography } from 'components/share/Typography'
 
 import styles from './EmailEnterBlock.module.scss'
+import { CustomSelect } from 'src/components/share'
 
 export const EmailBlock = () => {
   return (
@@ -22,6 +23,7 @@ export const EmailBlock = () => {
           />
           <label htmlFor="email">Your email address</label>
         </div>
+        <CustomSelect/>
         <button className={styles.emailContinueButton} type="submit">
           Continue
         </button>
