@@ -1,15 +1,18 @@
-import { useState } from 'react'
-import { AiOutlineCloseCircle } from 'react-icons/ai'
+import { MouseEventHandler, useState } from 'react'
+import * as React from 'react'
 import { Link } from 'react-router-dom'
 
-import FormInput from 'components/share/FormInput/FormInput'
+import { FormInput } from 'components/share'
 import { Typography } from 'components/share/Typography'
+import { inputs as INPUTS } from 'src/pages/Log In/Login.constants'
 
-import { inputs as INPUTS } from './Login.constants'
 import styles from './Login.module.scss'
-import * as React from 'react'
 
-const Login = () => {
+export default function Modal({
+  onClose,
+}: {
+  onClose: MouseEventHandler<HTMLAnchorElement> | undefined
+}) {
   const [values, setValues] = useState({
     email: '' as string,
     password: '' as string,
@@ -22,13 +25,12 @@ const Login = () => {
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setValues({ ...values, [e.target.name]: e.target.value })
   }
-
   return (
-    <div className={styles.app}>
-      <div className={styles.mainForm}>
+    <div className={styles.modal}>
+      <div className={styles.modalStyles}>
         <form onSubmit={handleSubmit}>
-          <Link to="/" className={styles.closeIcon}>
-            <AiOutlineCloseCircle />
+          <Link to="/" className={styles.closeText} onClick={onClose}>
+            &lt; Back
           </Link>
           <Typography variant="Header2XL" className={styles.formTitle}>
             Register
@@ -38,16 +40,14 @@ const Login = () => {
           ))}
           <button className={styles.buttonLogin}>Submit</button>
         </form>
-      </div>
-      <div>
-        <Typography variant="Header2XL" className={styles.createText}>
-          Created with ❤️ in <span className={styles.spanText}>&nbsp;i</span>
-          Tech
-          <span className={styles.spanText}>Art</span>
-        </Typography>
+        <div>
+          <Typography variant="Header2XL" className={styles.createText}>
+            Created with ❤️ in <span className={styles.spanText}>&nbsp;i</span>
+            Tech
+            <span className={styles.spanText}>Art</span>
+          </Typography>
+        </div>
       </div>
     </div>
   )
 }
-
-export default Login
