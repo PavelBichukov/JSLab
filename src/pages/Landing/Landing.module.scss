@@ -1,3 +1,5 @@
+@import '../../App.scss';
+
 .landingMain {
   min-width: 414px;
   position: relative;
@@ -5,7 +7,7 @@
 }
 
 .bannerMission {
-  background: #EBF1F4;
+  background: $light-gray;
   width: 100%;
   height: auto;
 }
@@ -19,7 +21,7 @@
   line-height: 36px;
   letter-spacing: 0;
   text-align: center;
-  color: #14151A;
+  color: $brand-black;
 }
 
 .bannerMissionSmart {
@@ -29,5 +31,5 @@
   line-height: 36px;
   letter-spacing: 0;
   text-align: center;
-  color: #4CC3FF;
+  color: $brand-blue;
 }

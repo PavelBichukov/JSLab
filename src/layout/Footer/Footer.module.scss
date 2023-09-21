@@ -1,8 +1,10 @@
+@import '../../App.scss';
+
 .mainFooter {
   min-width: 414px;
   width: 100%;
   height: auto;
-  background: #EBF1F4;
+  background: $light-gray;
   padding-left: 20%;
   padding-right: 19%;
   overflow-x: hidden;
@@ -33,8 +35,8 @@
 hr.hrStyle {
   border: 0;
   height: 1px;
-  background: #E1E5ED;
-  color: #E1E5ED
+  background: $medium-gray;
+  color: $medium-gray;
 }
 
 .footPartFooter {
@@ -59,7 +61,7 @@ hr.hrStyle {
 }
 
 a {
-  color: #14151A;
+  color: $brand-black;
   cursor: pointer;
 }
 
