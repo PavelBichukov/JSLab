@@ -17,8 +17,8 @@
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: $white;
-  width: 500px;
-  height: 500px;
+  width: 27%;
+  height: auto;
   z-index: 1000;
   border-radius: 20px;
 }
@@ -49,11 +49,18 @@
 
 .createText {
   margin-top: 5px;
-  display: flex;
-  justify-content: center;
+  text-align: center;
+  display: block;
+  padding-bottom: 15px;
 }
 
 .spanText {
   color: red;
-  display: block
+  display: inline;
+}
+
+@media screen and (max-width: 1000px) {
+  .modalStyles {
+    width: 70%;
+  }
 }
