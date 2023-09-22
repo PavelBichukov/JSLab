@@ -1,60 +1,120 @@
-import DefaultSelect, {components as selectComponents} from 'react-select'
+import cn from 'classnames'
+import DefaultSelect, { components as selectComponents } from 'react-select'
 
-// import './Select.scss'
+import { Typography } from 'src/components/share/Typography'
+import { ReactComponent as Chevron } from 'assets/icons/ChevronDownIcon.svg'
+
 import styles from './Select.module.scss'
-import { Typography } from '../Typography'
 
-
-
-const options = [
-  { value: 'california', label: 'California' },
-  { value: 'kansas', label: 'Kansas' },
-  { value: 'washington', label: 'Washington' },
-  { value: 'montana', label: 'Montana' },
-  { value: 'maryland', label: 'Maryland' },
-  { value: 'ohio', label: 'Ohio' },
-  { value: 'oklahoma', label: 'Oklahoma' },
-]
-
-const Placeholder = ({innerProps, children}) =>{
-  return
-    <Typography 
-    {...innerProps}
-    className={styles.test}
-    variant='ParagraphL'>
-
-      {children}
-    </Typography>
-}
-
-const MenuList = (props) => {
-  return
-  <selectComponents.MenuList 
-  {...props}
-  className = {styles.menuList}/>
-}
-
-
-export const CustomSelect = () => {
-  const components = {
-    Placeholder,
-    MenuList
-  }
+const Control = ({ menuIsOpen, ...restProps }:any) => {
   return (
-    <div className="select-container">
-      <DefaultSelect
-        classNamePrefix="select"
-        options={options}
-        placeholder="ST"
-        maxMenuHeight={135}
-        isSearchable={false}
-        inputId="id"
-        onChange={(e) => console.log(e?.value)}
-        {...components}
-        unstyled = {true}
-      />
-    </div>
+    <selectComponents.Control
+      {...restProps}
+      className={cn(styles.control, { [styles.controlActive]: menuIsOpen })}
+    />
   )
 }
 
-export default CustomSelect
+const DropdownIndicator = (props: any) => {
+  const { menuIsOpen } = props.selectProps
+  return (
+    <Chevron
+      className={cn(styles.indicator, { [styles.indicatorActive]: menuIsOpen })}
+    />
+  )
+}
+
+const Placeholder = ({ innerProps, searchable }: any) => (
+  <Typography
+    {...innerProps}
+    variant="ParagraphL"
+    className={cn(styles.placeholder, {
+      [styles.placeholderSearchable]: searchable,
+    })}
+  >
+    ST
+  </Typography>
+)
+
+const ValueContainer = ({ children }: any) => <>{children}</>
+
+const SingleValue = ({ innerProps, children, searchable }: any) => {
+  return (
+    <Typography
+      {...innerProps}
+      className={cn(styles.value, { [styles.searchableValue]: searchable })}
+      variant="ParagraphL"
+    >
+      {children}
+    </Typography>
+  )
+}
+
+const MenuList = (props: any) => {
+  return <selectComponents.MenuList {...props} className={styles.menuList} />
+}
+
+const Option = (props: any) => {
+  const { innerProps, label, children, optionRenderer } = props
+  if (optionRenderer) {
+    return optionRenderer({ data: label, innerProps })
+  }
+  return (
+    <Typography {...innerProps} className={styles.option} variant="ParagraphL">
+      {children}
+    </Typography>
+  )
+}
+
+const NoOptionsMessage = ({ innerProps }: any) => (
+  <Typography {...innerProps} className={styles.noOption} variant="ParagraphL">
+    No options...
+  </Typography>
+)
+
+const Input = ({ props }: any) => (
+  <selectComponents.Input {...props} className={styles.input} />
+)
+
+const Select = ({ options, onChange }: any) => {
+  const components = {
+    Control,
+    DropdownIndicator,
+    Placeholder,
+    SingleValue,
+    MenuList,
+    Input,
+    Option,
+    NoOptionsMessage,
+    ValueContainer,
+    IndicatorSeparator: null,
+  }
+
+  const commonProps = {
+    components,
+    unstyled: true,
+  }
+
+  return (
+    <DefaultSelect
+      {...commonProps}
+      isSearchable={false}
+      options={options}
+      className={cn(styles.container)}
+      menuPlacement="auto"
+      maxMenuHeight={150}
+      menuShouldBlockScroll
+      onChange={(e: any) => onChange(e?.value)}
+    />
+  )
+}
+
+Select.defaultProps = {
+  variant: 'outlined',
+  type: 'default',
+  mode: 'portal',
+  searchable: false,
+  multi: false,
+}
+
+export default Select
