@@ -1,5 +1,6 @@
+import Login from 'components/share/Login/Login'
+
 import Landing from './Landing/Landing'
-import Login from './Log In/Login'
 import SignUp from './Sign Up/SignUp'
 import Testing from './Testing/Testing'
 

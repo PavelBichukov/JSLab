@@ -2,9 +2,8 @@ import { useState } from 'react'
 import { createPortal } from 'react-dom'
 import { Link } from 'react-router-dom'
 
-import { Login } from 'src/pages'
-
 import styles from './HeaderBtns.module.scss'
+import { Login } from '../index'
 
 const HeaderBtns = () => {
   const [showModal, setShowModal] = useState(false)

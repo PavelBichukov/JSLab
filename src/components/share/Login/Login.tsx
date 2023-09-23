@@ -4,15 +4,15 @@ import { Link } from 'react-router-dom'
 
 import { FormInput } from 'components/share'
 import { Typography } from 'components/share/Typography'
-import { inputs as INPUTS } from 'src/pages/Log In/Login.constants'
 
+import { inputs as INPUTS } from './Login.constants'
 import styles from './Login.module.scss'
 
-export default function Modal({
+const Login = ({
   onClose,
 }: {
   onClose: MouseEventHandler<HTMLAnchorElement> | undefined
-}) {
+}) => {
   const [values, setValues] = useState({
     email: '' as string,
     password: '' as string,
@@ -51,3 +51,4 @@ export default function Modal({
     </div>
   )
 }
+export default Login
