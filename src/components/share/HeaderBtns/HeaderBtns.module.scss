@@ -1,16 +1,19 @@
-.btnContainer{
+@import '../../../App.scss';
+
+.btnContainer {
   background: inherit;
 }
-.loginButton{
+
+.loginButton {
   border-radius: 22px;
-  border: 2px solid var(--light-mode-white-ffffff, #FFF);
-  background: #000;
+  border: 2px solid $white;
+  background: $black;
   width: 120px;
   height: 44px;
   padding: 8px 24px 12px 24px;
   justify-content: center;
   align-items: center;
-  color: var(--light-mode-white-ffffff, #FFF);
+  color: $white;
   text-align: center;
   font-family: Metropolis, sans-serif;
   font-size: 14px;
@@ -21,17 +24,19 @@
   line-height: 24px;
   margin-right: 16px;
   cursor: pointer;
+  margin-bottom: 10px;
 }
-.signupButton{
+
+.signupButton {
   border-radius: 22px;
-  background: var(--light-mode-white-ffffff, #FFF);
+  background: $white;
   padding: 10px 24px;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 10px;
   flex: 1 0 0;
-  color: var(--light-mode-brand-black-14151-a, #14151A);
+  color: $brand-black;
   text-align: center;
   font-family: Metropolis, sans-serif;
   font-size: 14px;

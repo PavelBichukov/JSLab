@@ -1,24 +1,35 @@
-.bannerMission{
-  background: #EBF1F4;
-  width: 100%;
-  height: 120px;
+@import '../../App.scss';
+
+.landingMain {
+  min-width: 414px;
+  position: relative;
+  z-index: 1;
 }
-.bannerMissionText{
+
+.bannerMission {
+  background: $light-gray;
+  width: 100%;
+  height: auto;
+}
+
+.bannerMissionText {
   padding-top: 42px;
+  padding-bottom: 42px;
   font-family: Metropolis, sans-serif;
   font-size: 24px;
   font-weight: 500;
   line-height: 36px;
   letter-spacing: 0;
   text-align: center;
-  color: #14151A;
+  color: $brand-black;
 }
-.bannerMissionSmart{
+
+.bannerMissionSmart {
   font-family: Metropolis, sans-serif;
   font-size: 24px;
   font-weight: 700;
   line-height: 36px;
   letter-spacing: 0;
   text-align: center;
-  color: #4CC3FF;
+  color: $brand-blue;
 }
