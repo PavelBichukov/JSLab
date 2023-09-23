@@ -6,7 +6,7 @@ import { ReactComponent as Chevron } from 'assets/icons/ChevronDownIcon.svg'
 
 import styles from './Select.module.scss'
 
-const Control = ({ menuIsOpen, ...restProps }:any) => {
+const Control = ({ menuIsOpen, ...restProps }: any) => {
   return (
     <selectComponents.Control
       {...restProps}
@@ -24,7 +24,7 @@ const DropdownIndicator = (props: any) => {
   )
 }
 
-const Placeholder = ({ innerProps, searchable }: any) => (
+const Placeholder = ({ innerProps, children, searchable }: any) => (
   <Typography
     {...innerProps}
     variant="ParagraphL"
@@ -32,7 +32,7 @@ const Placeholder = ({ innerProps, searchable }: any) => (
       [styles.placeholderSearchable]: searchable,
     })}
   >
-    ST
+    {children}
   </Typography>
 )
 
@@ -54,8 +54,7 @@ const MenuList = (props: any) => {
   return <selectComponents.MenuList {...props} className={styles.menuList} />
 }
 
-const Option = (props: any) => {
-  const { innerProps, label, children, optionRenderer } = props
+const Option = ({ innerProps, label, children, optionRenderer }: any) => {
   if (optionRenderer) {
     return optionRenderer({ data: label, innerProps })
   }
@@ -76,7 +75,7 @@ const Input = ({ props }: any) => (
   <selectComponents.Input {...props} className={styles.input} />
 )
 
-const Select = ({ options, onChange }: any) => {
+const Select = ({ options, placeholder, onChange }: any) => {
   const components = {
     Control,
     DropdownIndicator,
@@ -104,6 +103,7 @@ const Select = ({ options, onChange }: any) => {
       menuPlacement="auto"
       maxMenuHeight={150}
       menuShouldBlockScroll
+      placeholder={placeholder}
       onChange={(e: any) => onChange(e?.value)}
     />
   )
