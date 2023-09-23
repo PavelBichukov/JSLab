@@ -1,9 +1,11 @@
+@import '../../App.scss';
+
 .mainTeam {
   overflow-x: hidden;
 }
 
 .teamTitle {
-  color: var(--light-mode-brand-black-14151-a, #14151A);
+  color: $brand-black;
   text-align: center;
   font-family: Metropolis, sans-serif;
   font-size: 32px;

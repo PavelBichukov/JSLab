@@ -1,12 +1,14 @@
+@import '../../App.scss';
+
 .mainRates {
   width: 100%;
-  background-color: #EBF1F4;
+  background-color: $light-gray;
   height: auto;
   overflow-x: hidden;
 }
 
 .ratesTitle {
-  color: var(--light-mode-brand-black-14151-a, #14151A);
+  color: $brand-black;
   text-align: center;
   font-family: Metropolis, sans-serif;
   font-size: 32px;
