@@ -1,0 +1,50 @@
+.control {
+  margin-top: -50px;
+  border-bottom: 2px solid rgba(171, 178, 194, 1);
+  transition: all 0.2s ease-out;
+  &:hover {
+    border-color: rgba(20, 21, 26, 1);
+  }
+}
+
+.controlActive {
+  border-bottom: 2px solid rgba(20, 21, 26, 1);
+}
+
+.placeholder {
+  color: rgba(80, 87, 107, 1);
+}
+
+.indicator {
+  cursor: pointer;
+  transition: all 0.3s ease-out;
+}
+
+.indicatorActive {
+  transform: rotate(180deg);
+}
+
+.menuList {
+  margin-top: 8px;
+  border-radius: 16px;
+  box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.16);
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.option {
+  padding: 15px 10px;
+  cursor: pointer;
+  &:hover {
+    background-color: rgba(245, 246, 250, 1);
+  }
+}
+
+.noOption {
+  padding: 15px 10px;
+}
+
+.optionActive {
+  font-weight: 600;
+}
