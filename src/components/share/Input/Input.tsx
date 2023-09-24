@@ -1,11 +1,12 @@
-import { IInputProps } from './Input.types'
-import { ReactComponent as EyeIcon } from 'assets/icons/Eye.svg'
-import { ReactComponent as ClosedEyeIcon } from 'assets/icons/ClosedEye.svg'
 import cn from 'classnames'
+import { useState } from 'react'
+
+import { ReactComponent as ClosedEyeIcon } from 'assets/icons/ClosedEye.svg'
+import { ReactComponent as EyeIcon } from 'assets/icons/Eye.svg'
+import { Typography } from 'components/share/Typography'
 
 import styles from './Input.module.scss'
-import { useState } from 'react'
-import { Typography } from 'components/share/Typography'
+import { IInputProps } from './Input.types'
 
 export const Input = ({
   variant,
