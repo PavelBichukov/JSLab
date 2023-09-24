@@ -20,47 +20,47 @@
   }
 }
 
-.emailInputBox {
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  & label {
-    position: absolute;
-    height: 100%;
-    top: 17px;
-    color: rgba(80, 87, 107, 1);
-    font-family: 'Metropolis', sans-serif;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 24px;
-    cursor: text;
-    transition: 0.3s;
-  }
-}
+// .emailInputBox {
+//   display: flex;
+//   flex-direction: column;
+//   position: relative;
+//   & label {
+//     position: absolute;
+//     // height: 100%;
+//     top: 17px;
+//     color: rgba(80, 87, 107, 1);
+//     font-family: 'Metropolis', sans-serif;
+//     font-weight: 400;
+//     font-size: 16px;
+//     line-height: 24px;
+//     cursor: text;
+//     transition: 0.3s;
+//   }
+// }
 
-.emailFormInput {
-  border: none;
-  border-bottom: 1px solid rgba(171, 178, 194, 1);
-  margin-bottom: -1px;
-  color: rgba(80, 87, 107, 1);
-  font-family: 'Metropolis', sans-serif;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 24px;
-  padding: 5px 0px;
-  width: 100%;
-  &:focus {
-    outline: none;
-    border-color: rgba(20, 21, 26, 1);
-  }
-  &:focus + label,
-  &:not(:placeholder-shown) + label {
-    transform: translateY(-25px);
-    cursor: default;
-    font-size: 12px;
-    line-height: 16px;
-  }
-}
+// .emailFormInput {
+//   border: none;
+//   border-bottom: 1px solid rgba(171, 178, 194, 1);
+//   margin-bottom: -1px;
+//   color: rgba(80, 87, 107, 1);
+//   font-family: 'Metropolis', sans-serif;
+//   font-weight: 400;
+//   font-size: 16px;
+//   line-height: 24px;
+//   padding: 5px 0px;
+//   width: 100%;
+//   &:focus {
+//     outline: none;
+//     border-color: rgba(20, 21, 26, 1);
+//   }
+//   &:focus + label,
+//   &:not(:placeholder-shown) + label {
+//     transform: translateY(-25px);
+//     cursor: default;
+//     font-size: 12px;
+//     line-height: 16px;
+//   }
+// }
 
 .emailContinueButton {
   border: none;
@@ -78,4 +78,14 @@
 
 .emailAgreement {
   text-align: center;
+}
+
+.errorMessage{
+  padding: 10px;
+  color: red;
+  background-color: #f387877a;
+  border-radius: 8px;
+  &::before{
+    content: '⚠ ';
+  }
 }

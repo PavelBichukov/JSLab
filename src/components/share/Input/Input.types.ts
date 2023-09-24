@@ -1,6 +1,7 @@
-import { ChangeEventHandler, ComponentProps } from 'react'
+import { ChangeEventHandler, ComponentProps, RefObject } from 'react'
 
 export interface IInputProps extends ComponentProps<'input'> {
+  innerRef?:any,
   variant: string
   className?: string
   label: string
