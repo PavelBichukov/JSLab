@@ -48,3 +48,39 @@
   height: 44px;
   cursor: pointer;
 }
+
+.closeText {
+  margin-left: 15px;
+  line-height: 28px;
+  font-size: 18px;
+}
+
+.formTitle {
+  text-align: center;
+}
+
+.buttonLogin {
+  width: 90%;
+  height: 50px;
+  padding: 10px;
+  border: none;
+  background-color: $black;
+  color: $white;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 18px;
+  cursor: pointer;
+  margin: 15px 5% 30px;
+}
+
+.createText {
+  margin-top: 5px;
+  text-align: center;
+  display: block;
+  padding-bottom: 15px;
+}
+
+.spanText {
+  color: red;
+  display: inline;
+}
