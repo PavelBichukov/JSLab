@@ -3,8 +3,7 @@ import * as React from 'react'
 import { Link } from 'react-router-dom'
 
 import styles from './HeaderBtns.module.scss'
-import { FormInput } from '../index'
-import { inputs as INPUTS } from '../Login/Login.constants'
+import { Input } from '../index'
 import Modals from '../Modal/Modals'
 import { Typography } from '../Typography'
 
@@ -44,9 +43,13 @@ const HeaderBtns = () => {
           <Typography variant="Header2XL" className={styles.formTitle}>
             Register
           </Typography>
-          {INPUTS.map((input) => (
-            <FormInput key={input.id} {...input} onChange={onChange} />
-          ))}
+          <Input variant="email" id="email" label="Email" onChange={onChange} />
+          <Input
+            variant="password"
+            id="password"
+            label="Password"
+            onChange={onChange}
+          />
           <button className={styles.buttonLogin}>Submit</button>
         </form>
         <div>

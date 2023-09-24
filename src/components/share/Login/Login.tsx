@@ -2,7 +2,6 @@ import { MouseEventHandler, useState } from 'react'
 import * as React from 'react'
 import { Link } from 'react-router-dom'
 
-import { FormInput } from 'components/share'
 import { Typography } from 'components/share/Typography'
 
 import { inputs as INPUTS } from './Login.constants'
@@ -35,9 +34,9 @@ const Login = ({
           <Typography variant="Header2XL" className={styles.formTitle}>
             Register
           </Typography>
-          {INPUTS.map((input) => (
-            <FormInput key={input.id} {...input} onChange={onChange} />
-          ))}
+          {/*{INPUTS.map((input) => (*/}
+          {/*  <FormInput key={input.id} {...input} onChange={onChange} />*/}
+          {/*))}*/}
           <button className={styles.buttonLogin}>Submit</button>
         </form>
         <div>
