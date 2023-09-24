@@ -1,19 +1,19 @@
 import { Typography } from 'components/share/Typography'
 
 import styles from './EmailEnterBlock.module.scss'
-import { useForm, Controller } from 'react-hook-form';
-import { Input } from 'src/components/share';
+import { useForm, Controller } from 'react-hook-form'
+import { Input } from 'src/components/share'
 
 export const EmailBlock = () => {
-  const { 
+  const {
     control,
-    formState: {
-      errors,
-    },
-    handleSubmit 
-  } = useForm();
+    formState: { errors, isValid },
+    handleSubmit,
+  } = useForm({
+    mode: 'onBlur',
+  })
 
-  const onSubmit = (data:any) => {
+  const onSubmit = (data: any) => {
     console.log(JSON.stringify(data))
   }
 
@@ -26,35 +26,40 @@ export const EmailBlock = () => {
       </Typography>
       <form className={styles.emailForm} onSubmit={handleSubmit(onSubmit)}>
         <div className={styles.emailInputBox}>
-        <Controller
-        defaultValue = {''}
-        name="email"
-        control={control}
-        rules={{ 
-          required: 'Field is required!',
-          pattern: {
-            value: /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/,
-            message: "Invalid email address!"
-          } }}
-        render={({field}) => 
-        <Input
-        {...field}
-        ref={null}
-        innerRef={field.ref}
-        variant = 'email'
-        label = 'Your email address'
-        id = 'email'
-        ></Input>}
-        />
-          {
-            errors?.email &&
+          <Controller
+            defaultValue={''}
+            name="email"
+            control={control}
+            rules={{
+              required: 'Field is required!',
+              pattern: {
+                value: /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/,
+                message: 'Invalid email address!',
+              },
+            }}
+            render={({ field }) => (
+              <Input
+                {...field}
+                ref={null}
+                innerRef={field.ref}
+                variant="email"
+                label="Your email address"
+                id="email"
+              ></Input>
+            )}
+          />
+          {errors?.email && (
             <p className={styles.errorMessage}>
               {errors?.email?.message as string}
               {errors?.pattern?.message as string}
             </p>
-          }
+          )}
         </div>
-        <button className={styles.emailContinueButton} type="submit">
+        <button
+          className={styles.emailContinueButton}
+          type="submit"
+          disabled={!isValid}
+        >
           Continue
         </button>
       </form>
