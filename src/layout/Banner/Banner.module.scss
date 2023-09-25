@@ -46,24 +46,11 @@ a {
 
 .bannerButton {
   margin-top: 80px;
-  display: flex;
-  width: 384px;
   height: 56px;
-  padding: 16px 113px;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  border-radius: 16px;
-  background: $white;
-  color: $brand-black;
-  text-align: center;
-  font-family: Metropolis, sans-serif;
   font-size: 18px;
   font-style: normal;
   font-weight: 700;
   line-height: 24px;
-  cursor: pointer;
 }
 
 @media screen and (max-width: 800px) {
@@ -73,5 +60,8 @@ a {
   }
   .smartText {
     font-size: 30px;
+  }
+  .bannerButton {
+    width: 100%;
   }
 }

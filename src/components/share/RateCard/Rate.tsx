@@ -1,6 +1,6 @@
-import { Typography } from 'components/share/Typography'
-
 import styles from './Rate.module.scss'
+import Button from '../Button/Button'
+import { Typography } from '../Typography'
 
 const Rate = ({
   title,
@@ -25,7 +25,15 @@ const Rate = ({
         ))}
       </ul>
     </div>
-    <button className={styles.cardButton}>Select</button>
+    <Button
+      className={styles.cardButton}
+      type="button"
+      size="medium"
+      mode="defaultBlack"
+      variant="secondary"
+    >
+      Select
+    </Button>
   </div>
 )
 export default Rate

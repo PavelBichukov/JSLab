@@ -2,6 +2,8 @@ import { useState } from 'react'
 import * as React from 'react'
 import { Link } from 'react-router-dom'
 
+import Button from 'components/share/Button/Button'
+
 import styles from './HeaderBtns.module.scss'
 import { Input } from '../index'
 import Modals from '../Modal/Modals'
@@ -24,11 +26,26 @@ const HeaderBtns = () => {
 
   return (
     <div className={styles.btnContainer}>
-      <button className={styles.loginButton} onClick={() => setIsOpen(true)}>
+      <Button
+        className={styles.loginButton}
+        type="button"
+        size="small"
+        mode="outlinedBlack"
+        variant="primary"
+        onClick={() => setIsOpen(true)}
+      >
         Log in
-      </button>
+      </Button>
       <Link to="/signup">
-        <button className={styles.signupButton}>Sign up</button>
+        <Button
+          className={styles.signupButton}
+          type="button"
+          size="small"
+          mode="defaultWhite"
+          variant="primary"
+        >
+          Sign up
+        </Button>
       </Link>
       <Modals isOpen={modalIsOpen} closeModal={closeModal}>
         <form>
@@ -45,7 +62,15 @@ const HeaderBtns = () => {
             label="Password"
             onChange={onChange}
           />
-          <button className={styles.buttonLogin}>Submit</button>
+          <Button
+            className={styles.buttonLogin}
+            type="button"
+            size="large"
+            mode="defaultBlack"
+            variant="secondary"
+          >
+            Submit
+          </Button>
         </form>
         <div>
           <Typography variant="Header2XL" className={styles.createText}>
