@@ -3,9 +3,10 @@ import cn from 'classnames'
 import styles from './Button.module.scss'
 
 const MODES = {
-  default: styles.defaultMode,
-  outlinedWhite: styles.outlinedModeWhite,
-  outlinedBlack: styles.outlinedModeBlack,
+  defaultWhite: styles.defaultWhite,
+  defaultBlack: styles.defaultBlack,
+  outlinedWhite: styles.outlinedWhite,
+  outlinedBlack: styles.outlinedBlack,
 }
 
 const VARIANTS = {
@@ -14,30 +15,23 @@ const VARIANTS = {
 }
 
 const SIZES = {
-  sm: styles.sm,
-  md: styles.md,
-  lg: styles.lg,
-}
-
-const COLORS = {
-  white: styles.whiteColor,
-  black: styles.blackColor,
+  small: styles.small,
+  medium: styles.medium,
+  large: styles.large,
 }
 
 const Button = ({
   className,
   type,
-  size,
-  color,
   mode,
   variant,
+  size,
   children,
   ...restProps
 }: {
   className: any
-  type: string
+  type: 'submit' | 'reset' | 'button' | undefined
   size: string
-  color: string
   mode: string
   variant: string
   children?: any
@@ -45,13 +39,7 @@ const Button = ({
   <button
     {...restProps}
     type={type}
-    className={cn(
-      MODES[mode],
-      VARIANTS[variant],
-      SIZES[size],
-      COLORS[color],
-      className
-    )}
+    className={cn(MODES[mode], VARIANTS[variant], SIZES[size], className)}
   >
     {children}
   </button>
