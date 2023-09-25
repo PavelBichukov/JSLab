@@ -56,7 +56,7 @@ export const BusinessInfoBlock = () => {
             <FormController
               name="yearsOfOperation"
               control={control}
-              haveError ={errors?.checkBox}
+              haveError={errors?.checkBox}
               rules={{
                 required: 'Field is required!',
               }}
@@ -66,7 +66,7 @@ export const BusinessInfoBlock = () => {
                   ref={null}
                   options={yearsOptions}
                   placeholder="Years of Operation"
-                  haveError = {errors?.checkBox}
+                  haveError={errors?.checkBox}
                 />
               )}
             />
@@ -98,13 +98,12 @@ export const BusinessInfoBlock = () => {
                 <input
                   {...field}
                   className={cn(styles.input, {
-                    [styles.inputError]: errors?.checkBox ,
+                    [styles.inputError]: errors?.checkBox,
                   })}
                   ref={null}
                   type="checkbox"
                   id="checkbox"
                   name="checkbox"
-                  onClick={() => console.log(!!errors?.checkBox)}
                 />
               )}
             />
@@ -116,12 +115,14 @@ export const BusinessInfoBlock = () => {
         </div>
         <div className={styles.buttonsBlock}>
           <button
-            className={cn(styles.button, styles.buttonBack)}
+            className={cn(styles.formButton, styles.buttonBack)}
             type="button"
           >
             Back
           </button>
-          <button className={styles.button} type="submit">
+          <button className={cn(styles.formButton, {
+            [styles.formButtonDisabled]: !isValid,
+          })} type="submit">
             Finished
           </button>
         </div>

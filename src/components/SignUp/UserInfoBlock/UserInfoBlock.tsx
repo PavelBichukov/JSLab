@@ -1,3 +1,4 @@
+import cn from 'classnames'
 import { useForm, Controller } from 'react-hook-form'
 
 import { Typography } from 'src/components/share/Typography'
@@ -8,7 +9,7 @@ import styles from './UserInfoBlock.module.scss'
 export const UserInfoBlock = () => {
   const {
     control,
-    formState: {isValid },
+    formState: { isValid },
     handleSubmit,
   } = useForm({
     mode: 'onBlur',
@@ -86,7 +87,7 @@ export const UserInfoBlock = () => {
           <FormController
             name="password"
             control={control}
-            errorClassName = {styles.passwordError}
+            errorClassName={styles.passwordError}
             rules={{
               required: 'Field is required!',
               pattern: {
@@ -106,7 +107,13 @@ export const UserInfoBlock = () => {
             )}
           />
         </div>
-        <button className={styles.formButton}>Continue</button>
+        <button
+          className={cn(styles.formButton, {
+            [styles.formButtonDisabled]: !isValid,
+          })}
+        >
+          Continue
+        </button>
       </form>
     </div>
   )

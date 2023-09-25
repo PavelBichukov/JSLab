@@ -45,7 +45,7 @@
   font-size: 18px;
   line-height: 24px;
   cursor: pointer;
-  &:disabled {
+  &.formButtonDisabled {
     color: rgba(171, 178, 194, 1);
     background-color: rgba(225, 229, 237, 1);
     cursor: auto;
@@ -53,5 +53,5 @@
 }
 
 .passwordError{
-  top: 60px;
+  top: 55px;
 }

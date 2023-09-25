@@ -5,7 +5,14 @@ import { Typography } from 'src/components/share/Typography'
 
 import styles from './FormController.module.scss'
 
-const FormController = ({ name, control, rules, render, errorClassName, rootClassName} :any) => {
+const FormController = ({
+  name,
+  control,
+  rules,
+  render,
+  errorClassName,
+  rootClassName,
+}: any) => {
   return (
     <Controller
       name={name}
@@ -15,7 +22,10 @@ const FormController = ({ name, control, rules, render, errorClassName, rootClas
         <div className={cn(styles.root, rootClassName)}>
           {render({ field, fieldState, formState })}
           {fieldState.error && (
-            <Typography className={cn(styles.error, errorClassName)}>
+            <Typography
+              className={cn(styles.error, errorClassName)}
+              variant="ParagraphM"
+            >
               {fieldState.error?.message as string}
             </Typography>
           )}
