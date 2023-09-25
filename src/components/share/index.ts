@@ -5,6 +5,7 @@ import TeamCard from './TeamCard/TeamCard'
 import Input from './Input/Input'
 import Login from './Login/Login'
 import Select from './Select/Select'
+import FormController from './FormController/FormController'
 
-export { FormInput, HeaderBtns, RateCard, TeamCard, Input, Login, Select }
+export { FormInput, HeaderBtns, RateCard, TeamCard, Input, Login, Select, FormController }
 

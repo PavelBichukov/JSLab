@@ -7,6 +7,10 @@
   }
 }
 
+.controlError{
+  border-color: red;
+}
+
 .controlActive {
   border-bottom: 2px solid rgba(20, 21, 26, 1);
 }
@@ -27,6 +31,7 @@
 .menuList {
   margin-top: 8px;
   border-radius: 16px;
+  background-color: rgba(255, 255, 255, 1);
   box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.16);
   &::-webkit-scrollbar {
     display: none;

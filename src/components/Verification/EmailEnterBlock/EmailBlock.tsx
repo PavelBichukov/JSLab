@@ -1,8 +1,10 @@
+import { useForm, Controller } from 'react-hook-form'
+
 import { Typography } from 'components/share/Typography'
+import { Input } from 'src/components/share'
 
 import styles from './EmailEnterBlock.module.scss'
-import { useForm, Controller } from 'react-hook-form'
-import { Input } from 'src/components/share'
+
 
 export const EmailBlock = () => {
   const {

@@ -1,19 +1,23 @@
-import { useState } from 'react'
+import { useForm, Controller } from 'react-hook-form'
 
 import { Typography } from 'src/components/share/Typography'
-import { Input } from 'src/components/share'
-
-import { useForm, Controller } from 'react-hook-form'
+import { Input, FormController } from 'src/components/share'
 
 import styles from './UserInfoBlock.module.scss'
 
 export const UserInfoBlock = () => {
   const {
     control,
-    formState: { errors, isValid },
+    formState: {isValid },
     handleSubmit,
   } = useForm({
     mode: 'onBlur',
+    defaultValues: {
+      legalFirstName: '',
+      lastName: '',
+      email: '',
+      password: '',
+    },
   })
 
   const onSubmit = (data: any) => {
@@ -27,54 +31,39 @@ export const UserInfoBlock = () => {
       </Typography>
       <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
         <div>
-          <Controller
-            defaultValue={''}
-            name="firstName"
+          <FormController
+            name="legalFirstName"
             control={control}
             rules={{
               required: 'Field is required!',
             }}
-            render={({ field }) => (
+            render={({ field }: any) => (
               <Input
                 {...field}
                 ref={null}
-                innerRef={field.ref}
                 variant="text"
                 label="Legal First Name"
-                id="firstName"
-              ></Input>
+                id="legalFirstName"
+              />
             )}
           />
-          {errors?.firstName && (
-            <p className={styles.errorMessage}>
-              {errors?.firstName?.message as string}
-            </p>
-          )}
-          <Controller
-            defaultValue={''}
+          <FormController
             name="lastName"
             control={control}
             rules={{
               required: 'Field is required!',
             }}
-            render={({ field }) => (
+            render={({ field }: any) => (
               <Input
                 {...field}
                 ref={null}
-                innerRef={field.ref}
                 variant="text"
                 label="Legal Last Name"
                 id="lastName"
-              ></Input>
+              />
             )}
           />
-          {errors?.lastName && (
-            <p className={styles.errorMessage}>
-              {errors?.lastName?.message as string}
-            </p>
-          )}
-          <Controller
-            defaultValue={''}
+          <FormController
             name="email"
             control={control}
             rules={{
@@ -84,27 +73,20 @@ export const UserInfoBlock = () => {
                 message: 'Invalid email address!',
               },
             }}
-            render={({ field }) => (
+            render={({ field }: any) => (
               <Input
                 {...field}
                 ref={null}
-                innerRef={field.ref}
                 variant="email"
                 label="Email Address"
                 id="email"
-              ></Input>
+              />
             )}
           />
-          {errors?.email && (
-            <p className={styles.errorMessage}>
-              {errors?.email?.message as string}
-              {errors?.pattern?.message as string}
-            </p>
-          )}
-          <Controller
-            defaultValue={''}
+          <FormController
             name="password"
             control={control}
+            errorClassName = {styles.passwordError}
             rules={{
               required: 'Field is required!',
               pattern: {
@@ -113,26 +95,18 @@ export const UserInfoBlock = () => {
                   'Password must contain: a lower case letter, a upper case letter, a number, minimum 6 characters',
               },
             }}
-            render={({ field }) => (
+            render={({ field }: any) => (
               <Input
                 {...field}
                 ref={null}
-                innerRef={field.ref}
                 variant="password"
                 label="Password"
                 id="password"
-              ></Input>
+              />
             )}
           />
-          {errors?.password && (
-            <p className={styles.errorMessage}>
-              {errors?.password?.message as string}
-            </p>
-          )}
         </div>
-        <button className={styles.formButton} disabled={!isValid}>
-          Continue
-        </button>
+        <button className={styles.formButton}>Continue</button>
       </form>
     </div>
   )

@@ -52,12 +52,6 @@
   }
 }
 
-.errorMessage {
-  padding: 10px;
-  color: red;
-  background-color: #f387877a;
-  border-radius: 8px;
-  &::before {
-    content: '⚠ ';
-  }
+.passwordError{
+  top: 60px;
 }

@@ -123,3 +123,14 @@
   color: rgba(50, 54, 66, 1);
   background-color: transparent;
 }
+
+.errorMessage {
+  padding: 10px;
+  color: red;
+  background-color: #f387877a;
+  border-radius: 8px;
+  max-width: 60%;
+  &::before {
+    content: '⚠ ';
+  }
+}

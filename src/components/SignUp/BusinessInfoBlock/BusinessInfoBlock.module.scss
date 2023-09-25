@@ -75,44 +75,10 @@
 .selectsGroup {
   display: flex;
   flex-direction: column;
-  gap: 48px;
-  padding-top: 28px;
-  & select {
-    border: none;
-    appearance: none;
-    border-bottom: 1px solid rgba(171, 178, 194, 1);
-    margin-bottom: -1px;
-    font-family: 'Metropolis', sans-serif;
-    font-weight: 400;
-    font-size: 16px;
-    height: 30px;
-    cursor: pointer;
-    &:focus {
-      outline: none;
-    }
-  }
+  gap: 70px;
+  padding-top: 70px;
 }
 
-.selectBox {
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  width: 100%;
-  & label {
-    position: absolute;
-    bottom: 30px;
-    font-family: 'Metropolis', sans-serif;
-    font-weight: 400;
-    font-size: 12px;
-    line-height: 16px;
-  }
-  &::after {
-    position: absolute;
-    content: url(src/assets/icons/ChevronDownIcon.svg);
-    right: 0;
-    top: 5px;
-  }
-}
 
 .checkBoxBlock {
   width: 100%;
@@ -120,7 +86,7 @@
   gap: 16px;
   padding-top: 60px;
   color: rgba(50, 54, 66, 1);
-  & input {
+  & .input {
     background-color: white;
     border: 1px solid;
     align-self: start;
@@ -144,6 +110,10 @@
   & a {
     text-decoration: underline;
     font-weight: 600;
+  }
+  .inputError{
+    border-color: red;
+    box-shadow: 0px 0px 8px 0px rgba(243, 24, 16, 0.562);
   }
 }
 
@@ -176,4 +146,12 @@
 .buttonBack {
   color: rgba(50, 54, 66, 1);
   background-color: transparent;
+}
+
+.errorMessage{
+  color: red;
+}
+
+.checkBoxError{
+  display: none;
 }

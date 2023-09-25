@@ -1,59 +1,116 @@
 import cn from 'classnames'
+
+import { useForm } from 'react-hook-form'
+
 import { Typography } from 'src/components/share/Typography'
+import { Input, Select, FormController } from 'src/components/share'
+
+import { yearsOptions, businessTypeOptions } from './BusinessInfo.constants'
 
 import styles from './BusinessInfoBlock.module.scss'
 
 export const BusinessInfoBlock = () => {
+  const {
+    control,
+    formState: { isValid, errors },
+    handleSubmit,
+  } = useForm({
+    mode: 'onChange',
+    defaultValues: {
+      businessName: '',
+      yearsOfOperation: '',
+      businessType: '',
+      checkBox: '',
+    },
+  })
+
+  const onSubmit = (data: any) => {
+    console.log(JSON.stringify(data))
+  }
+
   return (
     <div className={styles.main}>
       <Typography variant="HeaderM">Tell us about your business</Typography>
       <Typography variant="ParagraphL" className={styles.subTittle}>
         We’ll use this information to verify your organization.
       </Typography>
-      <form className={styles.formBlock}>
+      <form className={styles.formBlock} onSubmit={handleSubmit(onSubmit)}>
         <div>
-          <div className={styles.businessInputBox}>
-            <input
-              className={styles.businessFormInput}
-              type="text"
-              name="businessName"
-              id="businessName"
-              placeholder=""
-              onChange={(e) => console.log(e.target.value)}
-            />
-            <label htmlFor="businessName">Business Legal Name</label>
-          </div>
+          <FormController
+            name="businessName"
+            control={control}
+            rules={{
+              required: 'Field is required!',
+            }}
+            render={({ field }: any) => (
+              <Input
+                {...field}
+                ref={null}
+                variant="text"
+                label="Business Legal Name"
+                id="businessName"
+              />
+            )}
+          />
           <div className={styles.selectsGroup}>
-            <div className={styles.selectBox}>
-              <label htmlFor="years">Years of Operation</label>
-              <select
-                name="years"
-                id="years"
-                onChange={(e) => console.log(e.target.value)}
-              >
-                <option value="Between 11-20">Between 11-20</option>
-                <option value="Between 20-23">Between 20-23</option>
-                <option value="Between 00-11">Between 00-11</option>
-              </select>
-            </div>
-            <div className={styles.selectBox}>
-              <label htmlFor="businessType">Business Type</label>
-              <select
-                name="businessType"
-                id="businessType"
-                onChange={(e) => console.log(e.target.value)}
-              >
-                <option value="Corporations">Corporations</option>
-                <option value="Partnerships">Partnerships</option>
-                <option value="LLC">LLC</option>
-              </select>
-            </div>
+            <FormController
+              name="yearsOfOperation"
+              control={control}
+              haveError ={errors?.checkBox}
+              rules={{
+                required: 'Field is required!',
+              }}
+              render={({ field }: any) => (
+                <Select
+                  {...field}
+                  ref={null}
+                  options={yearsOptions}
+                  placeholder="Years of Operation"
+                  haveError = {errors?.checkBox}
+                />
+              )}
+            />
+            <FormController
+              name="businessType"
+              control={control}
+              rules={{
+                required: 'Field is required!',
+              }}
+              render={({ field }: any) => (
+                <Select
+                  {...field}
+                  ref={null}
+                  options={businessTypeOptions}
+                  placeholder="Business type"
+                />
+              )}
+            />
           </div>
           <div className={styles.checkBoxBlock}>
-            <input type="checkbox" id="checkbox" name="checkbox" />
+            <FormController
+              name="checkBox"
+              control={control}
+              errorClassName={styles.checkBoxError}
+              rules={{
+                required: 'Field is required!',
+              }}
+              render={({ field }: any) => (
+                <input
+                  {...field}
+                  className={cn(styles.input, {
+                    [styles.inputError]: errors?.checkBox ,
+                  })}
+                  ref={null}
+                  type="checkbox"
+                  id="checkbox"
+                  name="checkbox"
+                  onClick={() => console.log(!!errors?.checkBox)}
+                />
+              )}
+            />
             <Typography variant="ParagraphL">
               I am an authorized representative with authority to create an
-              business account for my organization. Paragraph
+              business account for my organization.
             </Typography>
           </div>
         </div>

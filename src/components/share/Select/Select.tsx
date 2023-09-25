@@ -6,11 +6,12 @@ import { ReactComponent as Chevron } from 'assets/icons/ChevronDownIcon.svg'
 
 import styles from './Select.module.scss'
 
-const Control = ({ menuIsOpen, ...restProps }: any) => {
+const Control = ({ menuIsOpen, hasValue, isValid, haveError, ...restProps }: any) => {
   return (
     <selectComponents.Control
       {...restProps}
-      className={cn(styles.control, { [styles.controlActive]: menuIsOpen })}
+      hasValue={hasValue}
+      className={cn(styles.control, { [styles.controlError]: haveError })}
     />
   )
 }
@@ -38,7 +39,11 @@ const Placeholder = ({ innerProps, children, searchable }: any) => (
 
 const ValueContainer = ({ children }: any) => <>{children}</>
 
-const SingleValue = ({ innerProps, children, searchable }: any) => {
+const SingleValue = ({ innerProps, children, searchable,valueRenderer, data }: any) => {
+  if (valueRenderer) {
+    return valueRenderer({ data: data.label, innerProps });
+  }
+
   return (
     <Typography
       {...innerProps}
@@ -58,6 +63,7 @@ const Option = ({ innerProps, label, children, optionRenderer }: any) => {
   if (optionRenderer) {
     return optionRenderer({ data: label, innerProps })
   }
+  
   return (
     <Typography {...innerProps} className={styles.option} variant="ParagraphL">
       {children}
@@ -75,15 +81,22 @@ const Input = ({ props }: any) => (
   <selectComponents.Input {...props} className={styles.input} />
 )
 
-const Select = ({ options, placeholder, onChange }: any) => {
+const Select = ({ options, placeholder, optionRenderer, valueRenderer, onChange}: any) => {
   const components = {
-    Control,
+    Control: (props:any) => <Control {...props} />,
     DropdownIndicator,
-    Placeholder,
-    SingleValue,
+    Placeholder: (props:any) => <Placeholder {...props} />,
+    SingleValue: (valueProps:any) => (
+      <SingleValue
+        {...valueProps}
+        valueRenderer={valueRenderer}
+      />
+    ),
     MenuList,
-    Input,
-    Option,
+    Input: (props:any) => <Input {...props} />,
+    Option: (optionProps:any) => (
+      <Option {...optionProps} optionRenderer={optionRenderer} />
+    ),
     NoOptionsMessage,
     ValueContainer,
     IndicatorSeparator: null,
@@ -104,7 +117,7 @@ const Select = ({ options, placeholder, onChange }: any) => {
       maxMenuHeight={150}
       menuShouldBlockScroll
       placeholder={placeholder}
-      onChange={(e: any) => onChange(e?.value)}
+      onChange={onChange}
     />
   )
 }

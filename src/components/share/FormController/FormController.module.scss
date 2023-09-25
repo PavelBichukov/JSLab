@@ -1,0 +1,14 @@
+.error{
+  color: red;
+  bottom: 0;
+  position: absolute;
+}
+
+.root{
+  margin-top: 4px;
+  position: relative;
+  padding-bottom: 10px;
+  &:first-of-type{
+    margin-top: 0;
+  }
+}
