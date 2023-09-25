@@ -6,15 +6,13 @@ import { ReactComponent as Chevron } from 'assets/icons/ChevronDownIcon.svg'
 
 import styles from './Select.module.scss'
 
-const Control = ({ menuIsOpen, hasValue, isValid, haveError, ...restProps }: any) => {
-  return (
-    <selectComponents.Control
-      {...restProps}
-      hasValue={hasValue}
-      className={cn(styles.control, { [styles.controlError]: haveError })}
-    />
-  )
-}
+const Control = ({ menuIsOpen, hasValue, isValid, ...restProps }: any) => (
+  <selectComponents.Control
+    {...restProps}
+    hasValue={hasValue}
+    className={cn(styles.control, { [styles.controlActive]: menuIsOpen })}
+  />
+)
 
 const DropdownIndicator = (props: any) => {
   const { menuIsOpen } = props.selectProps
@@ -39,9 +37,15 @@ const Placeholder = ({ innerProps, children, searchable }: any) => (
 
 const ValueContainer = ({ children }: any) => <>{children}</>
 
-const SingleValue = ({ innerProps, children, searchable,valueRenderer, data }: any) => {
+const SingleValue = ({
+  innerProps,
+  children,
+  searchable,
+  valueRenderer,
+  data,
+}: any) => {
   if (valueRenderer) {
-    return valueRenderer({ data: data.label, innerProps });
+    return valueRenderer({ data: data.label, innerProps })
   }
 
   return (
@@ -63,7 +67,7 @@ const Option = ({ innerProps, label, children, optionRenderer }: any) => {
   if (optionRenderer) {
     return optionRenderer({ data: label, innerProps })
   }
-  
+
   return (
     <Typography {...innerProps} className={styles.option} variant="ParagraphL">
       {children}
@@ -81,20 +85,23 @@ const Input = ({ props }: any) => (
   <selectComponents.Input {...props} className={styles.input} />
 )
 
-const Select = ({ options, placeholder, optionRenderer, valueRenderer, onChange}: any) => {
+const Select = ({
+  options,
+  placeholder,
+  optionRenderer,
+  valueRenderer,
+  onChange,
+}: any) => {
   const components = {
-    Control: (props:any) => <Control {...props} />,
+    Control: (props: any) => <Control {...props} />,
     DropdownIndicator,
-    Placeholder: (props:any) => <Placeholder {...props} />,
-    SingleValue: (valueProps:any) => (
-      <SingleValue
-        {...valueProps}
-        valueRenderer={valueRenderer}
-      />
+    Placeholder: (props: any) => <Placeholder {...props} />,
+    SingleValue: (valueProps: any) => (
+      <SingleValue {...valueProps} valueRenderer={valueRenderer} />
     ),
     MenuList,
-    Input: (props:any) => <Input {...props} />,
-    Option: (optionProps:any) => (
+    Input: (props: any) => <Input {...props} />,
+    Option: (optionProps: any) => (
       <Option {...optionProps} optionRenderer={optionRenderer} />
     ),
     NoOptionsMessage,
