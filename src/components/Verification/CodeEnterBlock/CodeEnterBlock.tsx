@@ -36,9 +36,9 @@ export const CodeEnterBlock = () => {
           autoFocus
         />
         {error && (
-          <p className={styles.errorMessage}>
+          <Typography className={styles.errorMessage} variant="ParagraphM">
             The code you entered does not match the one sent to your email. Check input is correct
-          </p>
+          </Typography>
         )}
         <button
           className={styles.codeEnterContinueButton}

@@ -56,7 +56,6 @@ export const BusinessInfoBlock = () => {
             <FormController
               name="yearsOfOperation"
               control={control}
-              haveError={errors?.checkBox}
               rules={{
                 required: 'Field is required!',
               }}
@@ -66,7 +65,6 @@ export const BusinessInfoBlock = () => {
                   ref={null}
                   options={yearsOptions}
                   placeholder="Years of Operation"
-                  haveError={errors?.checkBox}
                 />
               )}
             />
@@ -120,9 +118,12 @@ export const BusinessInfoBlock = () => {
           >
             Back
           </button>
-          <button className={cn(styles.formButton, {
-            [styles.formButtonDisabled]: !isValid,
-          })} type="submit">
+          <button
+            className={cn(styles.formButton, {
+              [styles.formButtonDisabled]: !isValid,
+            })}
+            type="submit"
+          >
             Finished
           </button>
         </div>

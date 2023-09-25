@@ -62,14 +62,8 @@
 }
 
 .errorMessage{
-  padding: 10px;
   color: red;
-  background-color: #f387877a;
-  border-radius: 8px;
   margin-bottom: auto;
   margin-top: 10px;
-  &::before{
-    content: '⚠ ';
-  }
 }
 

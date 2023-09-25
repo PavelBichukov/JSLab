@@ -1,18 +1,22 @@
-import { useForm, Controller } from 'react-hook-form'
+import cn from 'classnames'
+
+import { useForm } from 'react-hook-form'
 
 import { Typography } from 'components/share/Typography'
-import { Input } from 'src/components/share'
+import { Input, FormController } from 'src/components/share'
 
 import styles from './EmailEnterBlock.module.scss'
-
 
 export const EmailBlock = () => {
   const {
     control,
-    formState: { errors, isValid },
+    formState: { isValid },
     handleSubmit,
   } = useForm({
     mode: 'onBlur',
+    defaultValues: {
+      email: '',
+    },
   })
 
   const onSubmit = (data: any) => {
@@ -28,8 +32,7 @@ export const EmailBlock = () => {
       </Typography>
       <form className={styles.emailForm} onSubmit={handleSubmit(onSubmit)}>
         <div className={styles.emailInputBox}>
-          <Controller
-            defaultValue={''}
+          <FormController
             name="email"
             control={control}
             rules={{
@@ -39,28 +42,22 @@ export const EmailBlock = () => {
                 message: 'Invalid email address!',
               },
             }}
-            render={({ field }) => (
+            render={({ field }: any) => (
               <Input
                 {...field}
                 ref={null}
-                innerRef={field.ref}
                 variant="email"
                 label="Your email address"
                 id="email"
-              ></Input>
+              />
             )}
           />
-          {errors?.email && (
-            <p className={styles.errorMessage}>
-              {errors?.email?.message as string}
-              {errors?.pattern?.message as string}
-            </p>
-          )}
         </div>
         <button
-          className={styles.emailContinueButton}
+          className={cn(styles.formButton, {
+            [styles.formButtonDisabled]: !isValid,
+          })}
           type="submit"
-          disabled={!isValid}
         >
           Continue
         </button>
