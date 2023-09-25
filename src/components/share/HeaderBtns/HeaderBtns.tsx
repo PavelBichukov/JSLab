@@ -30,12 +30,7 @@ const HeaderBtns = () => {
       <Link to="/signup">
         <button className={styles.signupButton}>Sign up</button>
       </Link>
-      <Modals
-        isOpen={modalIsOpen}
-        onRequestClose={closeModal}
-        closeModal={closeModal}
-        modalIsOpen={modalIsOpen}
-      >
+      <Modals isOpen={modalIsOpen} closeModal={closeModal}>
         <form>
           <Link to="/" className={styles.closeText} onClick={closeModal}>
             &lt; Back

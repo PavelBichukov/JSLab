@@ -23,4 +23,5 @@ export interface ITypographyProps {
   children?: any
   className?: string
   component?: string
+  htmlFor?: string
 }

@@ -1,5 +1,3 @@
-import * as React from 'react'
-
 import { Typography } from 'components/share/Typography'
 
 import styles from './Rate.module.scss'
