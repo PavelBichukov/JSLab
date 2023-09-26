@@ -3,7 +3,7 @@ import cn from 'classnames'
 import { useForm } from 'react-hook-form'
 
 import { Typography } from 'components/share/Typography'
-import { Input, FormController } from 'src/components/share'
+import { Input, FormController, Button } from 'src/components/share'
 
 import styles from './EmailEnterBlock.module.scss'
 
@@ -53,14 +53,15 @@ export const EmailBlock = () => {
             )}
           />
         </div>
-        <button
-          className={cn(styles.formButton, {
-            [styles.formButtonDisabled]: !isValid,
-          })}
+        <Button
+          className={styles.formButton}
           type="submit"
+          mode={isValid ? 'defaultBlack' : 'disabled'}
+          variant="secondary"
+          size="large"
         >
           Continue
-        </button>
+        </Button>
       </form>
       <Typography variant="ParagraphS" className={styles.emailAgreement}>
         By tapping Continue, you confirm that you are authorized to use the

@@ -2,6 +2,7 @@ import { MuiOtpInput } from 'mui-one-time-password-input'
 import { useState } from 'react'
 
 import { Typography } from 'components/share/Typography'
+import { Button } from 'src/components/share'
 
 import styles from './CodeEnterBlock.module.scss'
 
@@ -37,17 +38,20 @@ export const CodeEnterBlock = () => {
         />
         {error && (
           <Typography className={styles.errorMessage} variant="ParagraphM">
-            The code you entered does not match the one sent to your email. Check input is correct
+            The code you entered does not match the one sent to your email.
+            Check input is correct
           </Typography>
         )}
-        <button
-          className={styles.codeEnterContinueButton}
-          type="button"
-          disabled={!(code.length === 6)}
+        <Button
+          className={styles.formButton}
+          type="submit"
+          mode={code.length === 6 ? 'defaultBlack' : 'disabled'}
+          variant="secondary"
+          size="large"
           onClick={handleSubmit}
         >
           Continue
-        </button>
+        </Button>
       </div>
     </div>
   )

@@ -1,8 +1,7 @@
-import cn from 'classnames'
-import { useForm, Controller } from 'react-hook-form'
+import { useForm } from 'react-hook-form'
 
 import { Typography } from 'src/components/share/Typography'
-import { Input, FormController } from 'src/components/share'
+import { Input, FormController, Button } from 'src/components/share'
 
 import styles from './UserInfoBlock.module.scss'
 
@@ -107,13 +106,15 @@ export const UserInfoBlock = () => {
             )}
           />
         </div>
-        <button
-          className={cn(styles.formButton, {
-            [styles.formButtonDisabled]: !isValid,
-          })}
+        <Button
+          className={styles.formButton}
+          type="submit"
+          mode={isValid ? 'defaultBlack' : 'disabled'}
+          variant='"secondary"'
+          size="large"
         >
           Continue
-        </button>
+        </Button>
       </form>
     </div>
   )

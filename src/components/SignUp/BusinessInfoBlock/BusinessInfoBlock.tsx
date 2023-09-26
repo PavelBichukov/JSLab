@@ -1,9 +1,13 @@
-import cn from 'classnames'
-
 import { useForm } from 'react-hook-form'
 
 import { Typography } from 'src/components/share/Typography'
-import { Input, Select, FormController, Checkbox } from 'src/components/share'
+import {
+  Input,
+  Select,
+  FormController,
+  Checkbox,
+  Button,
+} from 'src/components/share'
 
 import { yearsOptions, businessTypeOptions } from './BusinessInfo.constants'
 
@@ -108,20 +112,24 @@ export const BusinessInfoBlock = () => {
           </div>
         </div>
         <div className={styles.buttonsBlock}>
-          <button
-            className={cn(styles.formButton, styles.buttonBack)}
+          <Button
+            className={styles.buttonBack}
             type="button"
+            mode="outlinedWhite"
+            variant="secondary"
+            size="small"
           >
             Back
-          </button>
-          <button
-            className={cn(styles.formButton, {
-              [styles.formButtonDisabled]: !isValid,
-            })}
+          </Button>
+          <Button
+            className={styles.buttonFinished}
             type="submit"
+            mode={isValid ? 'defaultBlack' : 'disabled'}
+            variant="secondary"
+            size="small"
           >
             Finished
-          </button>
+          </Button>
         </div>
       </form>
     </div>

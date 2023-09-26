@@ -3,7 +3,7 @@ import cn from 'classnames'
 import { useForm } from 'react-hook-form'
 
 import { Typography } from 'src/components/share/Typography'
-import { FormController, Checkbox } from 'src/components/share'
+import { FormController, Checkbox, Button } from 'src/components/share'
 
 import styles from './TermsAndConditions.module.scss'
 
@@ -71,32 +71,32 @@ export const TermsAndConditions = () => {
       </Typography>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className={styles.checkBoxBlock}>
-        <FormController
-              name="termsCheckBox"
-              control={control}
-              errorClassName={styles.checkBoxError}
-              rules={{
-                required: 'Field is required!',
-              }}
-              render={({ field }: any) => (
-                // <input
-                //   {...field}
-                //   className={cn(styles.input, {
-                //     [styles.inputError]: errors?.termsCheckBox,
-                //   })}
-                //   ref={null}
-                //   type="checkbox"
-                //   id="checkbox"
-                //   name="checkbox"
-                // />
-                <Checkbox
+          <FormController
+            name="termsCheckBox"
+            control={control}
+            errorClassName={styles.checkBoxError}
+            rules={{
+              required: 'Field is required!',
+            }}
+            render={({ field }: any) => (
+              // <input
+              //   {...field}
+              //   className={cn(styles.input, {
+              //     [styles.inputError]: errors?.termsCheckBox,
+              //   })}
+              //   ref={null}
+              //   type="checkbox"
+              //   id="checkbox"
+              //   name="checkbox"
+              // />
+              <Checkbox
                 {...field}
                 ref={null}
                 id="termsCheckBox"
-                hasError = {!!errors?.termsCheckBox}
-                />
-              )}
-            />
+                hasError={!!errors?.termsCheckBox}
+              />
+            )}
+          />
           <Typography variant="ParagraphL">
             {'I agree to JSLab '}
             <a href="#">Terms & Conditions</a>
@@ -105,17 +105,24 @@ export const TermsAndConditions = () => {
           </Typography>
         </div>
         <div className={styles.buttonsBlock}>
-          <button
-            className={cn(styles.formButton, styles.buttonBack)}
+          <Button
+            className={styles.buttonBack}
             type="button"
+            mode="outlinedWhite"
+            variant="secondary"
+            size="small"
           >
             Back
-          </button>
-          <button className={cn(styles.formButton, {
-            [styles.formButtonDisabled]: !isValid,
-          })}  type="submit">
+          </Button>
+          <Button
+            className={styles.buttonFinished}
+            type="submit"
+            mode={isValid ? 'defaultBlack' : 'disabled'}
+            variant="secondary"
+            size="small"
+          >
             Finished
-          </button>
+          </Button>
         </div>
       </form>
     </div>
