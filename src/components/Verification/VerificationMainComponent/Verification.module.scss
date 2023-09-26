@@ -1,7 +1,8 @@
 .container {
   max-width: 1920px;
+  height: auto;
   margin: 0 auto;
-  padding: 30px 15px 0px;
+  padding: 50px 15px 0 15px;
 }
 
 .headerButtons {
@@ -12,6 +13,7 @@
   max-width: 1184px;
   margin: 0 auto;
   padding-bottom: 30px;
+  padding-right: 10px;
 }
 
 .headerButton {
@@ -26,9 +28,12 @@
   line-height: 24px;
 }
 
-.signUpButton {
-  background-color: rgba(255, 255, 255, 1);
-  color: rgba(0, 0, 0, 1);
+.buttonSignUp {
+  height: 44px;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 24px;
+  letter-spacing: 0;
 }
 
 .verificationBlock {
@@ -88,6 +93,7 @@
   text-decoration: underline 0.5px rgba(20, 21, 26, 1);
   position: relative;
   cursor: pointer;
+
   &::before {
     content: url(src/assets/icons/chevron-left-icon.svg);
     vertical-align: middle;
@@ -115,6 +121,7 @@
 
 .listitem {
   color: rgba(20, 21, 26, 1);
+
   &:before {
     content: url(src/assets/icons/bullet-point-icon.svg);
     vertical-align: text-bottom;
@@ -127,6 +134,7 @@
   display: flex;
   align-items: center;
   justify-content: space-around;
+
   & button {
     cursor: pointer;
     border: none;

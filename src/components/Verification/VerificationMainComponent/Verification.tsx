@@ -1,5 +1,6 @@
 import cn from 'classnames'
 import { useState } from 'react'
+import * as React from 'react'
 import { Link } from 'react-router-dom'
 
 import { Typography } from 'components/share/Typography'
@@ -8,6 +9,7 @@ import { IBenefitsList } from 'src/types/types'
 
 import { benefitsLists } from './Verification.constants'
 import styles from './Verification.module.scss'
+import Button from '../../share/Button/Button'
 
 export const VerificationMainComponent = () => {
   const [currentStep, setCurrenStep] = useState(1)
@@ -15,13 +17,29 @@ export const VerificationMainComponent = () => {
   return (
     <div className={styles.container}>
       <div className={styles.headerButtons}>
-        <Link to="/" className={styles.closeIcon}>
-          <button className={styles.headerButton}>Log In</button>
+        <Link to="/login">
+          <Button
+            className={styles.headerButton}
+            type="button"
+            size="small"
+            mode="outlinedBlack"
+            variant="primary"
+            onClick={() => console.log('clicked')}
+          >
+            Log in
+          </Button>
         </Link>
-        <Link to="/" className={cn(styles.button, styles.buttonSignUp)}>
-          <button className={cn(styles.headerButton, styles.signUpButton)}>
-            Sign Up
-          </button>
+        <Link to="/signup">
+          <Button
+            className={styles.buttonSignUp}
+            type="button"
+            size="small"
+            mode="defaultWhite"
+            variant="primary"
+            onClick={() => console.log('clicked')}
+          >
+            Sign up
+          </Button>
         </Link>
       </div>
       <div className={styles.verificationBlock}>
