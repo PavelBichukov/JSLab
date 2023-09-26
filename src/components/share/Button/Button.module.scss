@@ -24,6 +24,13 @@
   border: 2px solid $white;
 }
 
+.disabled {
+  background: $medium-gray;
+  color: $medium-gray-2;
+  border: none;
+  cursor: auto;
+}
+
 .primary {
   border-radius: 22px;
   font-family: Metropolis, sans-serif;

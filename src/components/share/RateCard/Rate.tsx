@@ -31,6 +31,7 @@ const Rate = ({
       size="medium"
       mode="defaultBlack"
       variant="secondary"
+      onClick={() => console.log('clicked')}
     >
       Select
     </Button>

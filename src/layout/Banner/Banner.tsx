@@ -25,6 +25,7 @@ const Banner = () => {
             size="large"
             mode="defaultWhite"
             variant="secondary"
+            onClick={() => console.log('clicked')}
           >
             Get started today
           </Button>

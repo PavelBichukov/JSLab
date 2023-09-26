@@ -1,4 +1,5 @@
 import cn from 'classnames'
+import { MouseEventHandler } from 'react'
 
 import styles from './Button.module.scss'
 
@@ -7,6 +8,7 @@ const MODES = {
   defaultBlack: styles.defaultBlack,
   outlinedWhite: styles.outlinedWhite,
   outlinedBlack: styles.outlinedBlack,
+  disabled: styles.disabled,
 }
 
 const VARIANTS = {
@@ -27,6 +29,7 @@ const Button = ({
   variant,
   size,
   children,
+  onClick,
   ...restProps
 }: {
   className: any
@@ -34,12 +37,19 @@ const Button = ({
   size: string
   mode: string
   variant: string
+  onClick: MouseEventHandler<HTMLButtonElement> | undefined
   children?: any
 }) => (
   <button
     {...restProps}
     type={type}
-    className={cn(MODES[mode], VARIANTS[variant], SIZES[size], className)}
+    onClick={onClick}
+    className={cn(
+      (MODES as any)[mode]!,
+      (VARIANTS as any)[variant]!,
+      (SIZES as any)[size]!,
+      className
+    )}
   >
     {children}
   </button>

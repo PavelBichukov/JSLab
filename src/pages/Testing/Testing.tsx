@@ -1,9 +1,5 @@
 import { QueryClient, QueryClientProvider, useQuery } from 'react-query'
 
-import Button from 'components/share/Button/Button'
-
-import styles from './Testing.module.scss'
-
 const queryClient = new QueryClient()
 
 const Testing = () => (
@@ -22,15 +18,6 @@ function Example() {
   return (
     <div>
       <h1>Get started</h1>
-      <Button
-        className={styles.textButton}
-        type="button"
-        size="small"
-        mode="outlinedBlack"
-        variant="primary"
-      >
-        Log in
-      </Button>
       {typeof data === 'undefined' ? (
         <p>Loading...</p>
       ) : (

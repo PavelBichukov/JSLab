@@ -1,7 +1,7 @@
+import { MuiOtpInput } from 'mui-one-time-password-input'
 import { useState } from 'react'
 
 import { Typography } from 'components/share/Typography'
-import { MuiOtpInput } from 'mui-one-time-password-input'
 
 import styles from './CodeEnterBlock.module.scss'
 
