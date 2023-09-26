@@ -44,7 +44,7 @@ export const BusinessInfoBlock = () => {
             name="businessName"
             control={control}
             rules={{
-              required: 'Field is required!',
+              required: 'Business Legal Name is required!',
             }}
             render={({ field }: any) => (
               <Input
@@ -58,10 +58,11 @@ export const BusinessInfoBlock = () => {
           />
           <div className={styles.selectsGroup}>
             <FormController
+              errorClassName={styles.selectError}
               name="yearsOfOperation"
               control={control}
               rules={{
-                required: 'Field is required!',
+                required: 'Years of Operation is required!',
               }}
               render={({ field }: any) => (
                 <Select
@@ -73,10 +74,11 @@ export const BusinessInfoBlock = () => {
               )}
             />
             <FormController
+              errorClassName={styles.selectError}
               name="businessType"
               control={control}
               rules={{
-                required: 'Field is required!',
+                required: 'Business type is required!',
               }}
               render={({ field }: any) => (
                 <Select
@@ -90,9 +92,9 @@ export const BusinessInfoBlock = () => {
           </div>
           <div className={styles.checkBoxBlock}>
             <FormController
+              errorClassName={styles.checkBoxError}
               name="checkboxBusiness"
               control={control}
-              errorClassName={styles.checkBoxError}
               rules={{
                 required: 'Field is required!',
               }}
