@@ -9,6 +9,7 @@ import styles from './Input.module.scss'
 import { IInputProps } from './Input.types'
 
 export const Input = ({
+  innerRef,
   variant,
   className,
   onChange,
@@ -28,6 +29,7 @@ export const Input = ({
         placeholder=""
         id={id}
         onChange={onChange}
+        ref = {innerRef}
       />
       <Typography
         className={labelClassName}

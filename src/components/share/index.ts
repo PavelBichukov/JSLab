@@ -3,5 +3,7 @@ import Input from './Input/Input'
 import Modal from './Modal/Modals'
 import RateCard from './RateCard/Rate'
 import TeamCard from './TeamCard/TeamCard'
+import Select from './Select/Select'
+import FormController from './FormController/FormController'
 
-export { RateCard, TeamCard, Input, Modal, Button }
+export { RateCard, TeamCard, Input, Select, FormController, Modal, Button }

@@ -5,10 +5,10 @@
   justify-content: space-between;
   text-align: left;
   padding-right: 230px;
-  @media (max-width: 1200px){
+  @media (max-width: 1200px) {
     padding-right: 150px;
   }
-  @media (max-width: 920px){
+  @media (max-width: 920px) {
     padding-right: 80px;
   }
   @media (max-width: 600px) {
@@ -33,57 +33,6 @@
   }
 }
 
-.inputBox {
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  padding: 20px 0px;
-  & label {
-    position: absolute;
-    top: 35px;
-    color: rgba(80, 87, 107, 1);
-    font-family: 'Metropolis', sans-serif;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 24px;
-    cursor: text;
-    transition: 0.3s;
-  }
-  & .eyeIcon {
-    cursor: pointer;
-    position: absolute;
-    right: 0;
-    top: 40%;
-  }
-  & .eyeIconHidden{
-    display: none;
-  }
-}
-
-.formInput {
-  border: none;
-  border-bottom: 1px solid rgba(171, 178, 194, 1);
-  margin-bottom: -1px;
-  color: rgba(80, 87, 107, 1);
-  font-family: 'Metropolis', sans-serif;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 24px;
-  padding: 5px 0px;
-  width: 100%;
-  &:focus {
-    outline: none;
-    border-color: rgba(20, 21, 26, 1);
-  }
-  &:focus + label,
-  &:not(:placeholder-shown) + label {
-    transform: translateY(-25px);
-    cursor: default;
-    font-size: 12px;
-    line-height: 16px;
-  }
-}
-
 .formButton {
   border: none;
   text-decoration: none;
@@ -96,4 +45,13 @@
   font-size: 18px;
   line-height: 24px;
   cursor: pointer;
+  &.formButtonDisabled {
+    color: rgba(171, 178, 194, 1);
+    background-color: rgba(225, 229, 237, 1);
+    cursor: auto;
+  }
+}
+
+.passwordError{
+  top: 55px;
 }

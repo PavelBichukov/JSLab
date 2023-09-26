@@ -6,11 +6,19 @@ import { Typography } from 'components/share/Typography'
 import styles from './CodeEnterBlock.module.scss'
 
 export const CodeEnterBlock = () => {
-  const emailAddress = 'email.com'
   const [code, setCode] = useState('' as string)
+  const [error, setError] = useState(false)
+
+  const emailAddress = 'email.com'
+  const correctCode = '123456'
+  const isCorrectCode = code === correctCode
 
   const handleChange = (newValue: string) => {
     setCode(newValue)
+  }
+
+  const handleSubmit = () => {
+    isCorrectCode ? (console.log(code), setError(false)) : setError(true)
   }
 
   return (
@@ -19,7 +27,7 @@ export const CodeEnterBlock = () => {
       <Typography variant="ParagraphL">
         Enter the 6-digit code that we sent to your email address {emailAddress}
       </Typography>
-      <form className={styles.codeForm}>
+      <div className={styles.codeForm}>
         <MuiOtpInput
           className={styles.codeOtpInput}
           value={code}
@@ -27,10 +35,20 @@ export const CodeEnterBlock = () => {
           length={6}
           autoFocus
         />
-        <button className={styles.codeEnterContinueButton} type="submit">
+        {error && (
+          <Typography className={styles.errorMessage} variant="ParagraphM">
+            The code you entered does not match the one sent to your email. Check input is correct
+          </Typography>
+        )}
+        <button
+          className={styles.codeEnterContinueButton}
+          type="button"
+          disabled={!(code.length === 6)}
+          onClick={handleSubmit}
+        >
           Continue
         </button>
-      </form>
+      </div>
     </div>
   )
 }
