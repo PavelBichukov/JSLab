@@ -2,7 +2,8 @@
   display: flex;
   flex-direction: column;
   position: relative;
-  padding: 10px 0px;
+  padding: 20px 0;
+  
   & label {
     position: absolute;
     top: 25px;
@@ -10,12 +11,14 @@
     cursor: text;
     transition: 0.3s;
   }
+
   & .eyeIcon {
     cursor: pointer;
     position: absolute;
     right: 0;
     top: 40%;
   }
+
   & .eyeIconHidden {
     display: none;
   }
@@ -30,12 +33,14 @@
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
-  padding: 5px 0px;
+  padding: 15px 0px;
   width: 100%;
+
   &:focus {
     outline: none;
     border-color: rgba(20, 21, 26, 1);
   }
+
   &:focus + label,
   &:not(:placeholder-shown) + label {
     transform: translateY(-25px);

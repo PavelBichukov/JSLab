@@ -1,11 +1,9 @@
-import FormInput from './FormInput/FormInput'
-import HeaderBtns from './HeaderBtns/HeaderBtns'
+import Button from './Button/Button'
+import Input from './Input/Input'
+import Modal from './Modal/Modals'
 import RateCard from './RateCard/Rate'
 import TeamCard from './TeamCard/TeamCard'
-import Input from './Input/Input'
-import Login from './Login/Login'
 import Select from './Select/Select'
 import FormController from './FormController/FormController'
 
-export { FormInput, HeaderBtns, RateCard, TeamCard, Input, Login, Select, FormController }
-
+export { RateCard, TeamCard, Input, Select, FormController, Modal, Button }

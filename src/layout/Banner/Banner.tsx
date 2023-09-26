@@ -1,3 +1,4 @@
+import Button from 'components/share/Button/Button'
 import { Typography } from 'components/share/Typography'
 
 import styles from './Banner.module.scss'
@@ -18,7 +19,16 @@ const Banner = () => {
       </div>
       <div className={styles.buttonContainer}>
         <a href="#rates">
-          <button className={styles.bannerButton}>Get started today</button>
+          <Button
+            className={styles.bannerButton}
+            type="button"
+            size="large"
+            mode="defaultWhite"
+            variant="secondary"
+            onClick={() => console.log('clicked')}
+          >
+            Get started today
+          </Button>
         </a>
       </div>
     </div>

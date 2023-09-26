@@ -1,7 +1,7 @@
+import cn from 'classnames'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 
-import cn from 'classnames'
 import { Typography } from 'components/share/Typography'
 import { CodeEnterBlock, EmailBlock, SuccessBlock } from 'src/components'
 import { IBenefitsList } from 'src/types/types'
