@@ -1,5 +1,6 @@
+/* eslint-disable prettier/prettier */
 import { MuiOtpInput } from 'mui-one-time-password-input'
-import { useState } from 'react'
+import { Controller, useForm } from 'react-hook-form'
 
 import { Typography } from 'components/share/Typography'
 import { Button } from 'src/components/share'
@@ -7,19 +8,22 @@ import { Button } from 'src/components/share'
 import styles from './CodeEnterBlock.module.scss'
 
 export const CodeEnterBlock = () => {
-  const [code, setCode] = useState('' as string)
-  const [error, setError] = useState(false)
-
   const emailAddress = 'email.com'
   const correctCode = '123456'
-  const isCorrectCode = code === correctCode
 
-  const handleChange = (newValue: string) => {
-    setCode(newValue)
-  }
+  const {
+    control,
+    handleSubmit,
+    formState: { isValid, errors },
+  } = useForm({
+    mode: 'onBlur',
+    defaultValues: {
+      otp: '',
+    },
+  })
 
-  const handleSubmit = () => {
-    isCorrectCode ? (console.log(code), setError(false)) : setError(true)
+  const onSubmit = (data) => {
+    console.log(JSON.stringify(data))
   }
 
   return (
@@ -28,31 +32,48 @@ export const CodeEnterBlock = () => {
       <Typography variant="ParagraphL">
         Enter the 6-digit code that we sent to your email address {emailAddress}
       </Typography>
-      <div className={styles.codeForm}>
-        <MuiOtpInput
-          className={styles.codeOtpInput}
-          value={code}
-          onChange={handleChange}
-          length={6}
-          autoFocus
+      <form className={styles.codeForm} onSubmit={handleSubmit(onSubmit)}>
+        <Controller
+          name="otp"
+          control={control}
+          rules={{
+            required: 'Code Enter is required!',
+            validate: (value) => value === correctCode,
+          }}
+          render={({ field, fieldState }) => (
+            <div>
+              <MuiOtpInput
+                className={styles.codeOtpInput}
+                {...field}
+                length={6}
+                autoFocus
+              />
+              {fieldState.error ? (
+                <Typography
+                  className={styles.errorMessage}
+                  variant="ParagraphM"
+                >
+                  {fieldState.error?.type === 'required'
+                    ? fieldState.error?.message
+                    : `The code you entered does not match the one sent to your email.
+                Check input is correct`}
+                </Typography>
+              ) : null}
+            </div>
+          )}
         />
-        {error && (
-          <Typography className={styles.errorMessage} variant="ParagraphM">
-            The code you entered does not match the one sent to your email.
-            Check input is correct
-          </Typography>
-        )}
         <Button
           className={styles.formButton}
           type="submit"
-          mode={code.length === 6 ? 'defaultBlack' : 'disabled'}
+          mode={isValid ? 'defaultBlack' : 'disabled'}
           variant="secondary"
           size="large"
-          onClick={handleSubmit}
+          onClick={() => console.log(errors)}
+          disabled={!isValid}
         >
           Continue
         </Button>
-      </div>
+      </form>
     </div>
   )
 }
