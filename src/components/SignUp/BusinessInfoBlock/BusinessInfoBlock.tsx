@@ -3,7 +3,7 @@ import cn from 'classnames'
 import { useForm } from 'react-hook-form'
 
 import { Typography } from 'src/components/share/Typography'
-import { Input, Select, FormController } from 'src/components/share'
+import { Input, Select, FormController, Checkbox } from 'src/components/share'
 
 import { yearsOptions, businessTypeOptions } from './BusinessInfo.constants'
 
@@ -20,7 +20,7 @@ export const BusinessInfoBlock = () => {
       businessName: '',
       yearsOfOperation: '',
       businessType: '',
-      checkBox: '',
+      checkboxBusiness: '',
     },
   })
 
@@ -86,22 +86,18 @@ export const BusinessInfoBlock = () => {
           </div>
           <div className={styles.checkBoxBlock}>
             <FormController
-              name="checkBox"
+              name="checkboxBusiness"
               control={control}
               errorClassName={styles.checkBoxError}
               rules={{
                 required: 'Field is required!',
               }}
               render={({ field }: any) => (
-                <input
+                <Checkbox
                   {...field}
-                  className={cn(styles.input, {
-                    [styles.inputError]: errors?.checkBox,
-                  })}
                   ref={null}
-                  type="checkbox"
-                  id="checkbox"
-                  name="checkbox"
+                  id="checkboxBusiness"
+                  hasError={!!errors?.checkboxBusiness}
                 />
               )}
             />

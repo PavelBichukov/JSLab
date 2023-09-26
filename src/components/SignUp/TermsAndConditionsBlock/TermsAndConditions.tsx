@@ -3,7 +3,7 @@ import cn from 'classnames'
 import { useForm } from 'react-hook-form'
 
 import { Typography } from 'src/components/share/Typography'
-import { FormController } from 'src/components/share'
+import { FormController, Checkbox } from 'src/components/share'
 
 import styles from './TermsAndConditions.module.scss'
 
@@ -20,7 +20,7 @@ export const TermsAndConditions = () => {
   })
 
   const onSubmit = () => {
-    console.log('checkbox is checked')
+    console.log('Terms checkbox is checked')
   }
 
   return (
@@ -79,15 +79,21 @@ export const TermsAndConditions = () => {
                 required: 'Field is required!',
               }}
               render={({ field }: any) => (
-                <input
-                  {...field}
-                  className={cn(styles.input, {
-                    [styles.inputError]: errors?.termsCheckBox,
-                  })}
-                  ref={null}
-                  type="checkbox"
-                  id="checkbox"
-                  name="checkbox"
+                // <input
+                //   {...field}
+                //   className={cn(styles.input, {
+                //     [styles.inputError]: errors?.termsCheckBox,
+                //   })}
+                //   ref={null}
+                //   type="checkbox"
+                //   id="checkbox"
+                //   name="checkbox"
+                // />
+                <Checkbox
+                {...field}
+                ref={null}
+                id="termsCheckBox"
+                hasError = {!!errors?.termsCheckBox}
                 />
               )}
             />

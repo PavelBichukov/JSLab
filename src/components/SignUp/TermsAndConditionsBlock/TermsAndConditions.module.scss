@@ -51,12 +51,14 @@
   & .input {
     background-color: wite;
     border: 1px solid;
+    width: 30px;
+    height: 30px;
     align-self: start;
     border-radius: 8px;
     margin: 0;
     position: relative;
     cursor: pointer;
-    transition: 0.2s;
+    transition: all 0.2s ease-out;
     transform: scale(0.8);
     &::before {
       position: absolute;
