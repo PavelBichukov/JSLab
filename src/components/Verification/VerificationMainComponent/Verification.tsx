@@ -1,11 +1,9 @@
-import cn from 'classnames'
 import { useState } from 'react'
 import * as React from 'react'
 import { Link } from 'react-router-dom'
 
 import { Typography } from 'components/share/Typography'
 import { CodeEnterBlock, EmailBlock, SuccessBlock } from 'src/components'
-import { IBenefitsList } from 'src/types/types'
 
 import { benefitsLists } from './Verification.constants'
 import styles from './Verification.module.scss'
@@ -44,7 +42,7 @@ export const VerificationMainComponent = () => {
       </div>
       <div className={styles.verificationBlock}>
         <section className={styles.sideSection}>
-          <Link to="/" className={styles.closeIcon}>
+          <Link to="/">
             <button className={styles.backButton}>Back</button>
           </Link>
           <div className={styles.sideSectionText}>
@@ -57,14 +55,12 @@ export const VerificationMainComponent = () => {
               credit card fees,while increasing traffic to their location.
             </Typography>
             <ul className={styles.benefitsList}>
-              {benefitsLists.map((item: IBenefitsList) => (
-                <Typography
-                  variant="ParagraphL"
-                  className={styles.listitem}
-                  key={item.id}
-                >
-                  {item.name}
-                </Typography>
+              {benefitsLists.map((item) => (
+                <li key={item.id} className={styles.cardListElement}>
+                  <Typography variant="ParagraphL" className={styles.listitem}>
+                    {item.name}
+                  </Typography>
+                </li>
               ))}
             </ul>
             <div className={styles.buttonsBlock}>
