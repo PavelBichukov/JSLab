@@ -49,8 +49,8 @@ const HeaderBtns = () => {
       </Link>
       <Modals isOpen={modalIsOpen} closeModal={closeModal}>
         <form>
-          <Link to="/" className={styles.closeText} onClick={closeModal}>
-            &lt; Back
+          <Link to="/" onClick={closeModal}>
+            <button className={styles.backButton}>Back</button>
           </Link>
           <Typography variant="Header2XL" className={styles.formTitle}>
             Register

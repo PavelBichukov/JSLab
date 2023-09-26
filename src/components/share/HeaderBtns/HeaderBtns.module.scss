@@ -23,12 +23,6 @@
   height: 44px;
 }
 
-.closeText {
-  margin-left: 5px;
-  line-height: 28px;
-  font-size: 18px;
-}
-
 .formTitle {
   text-align: center;
 }
@@ -52,6 +46,26 @@
 .spanText {
   color: red;
   display: inline;
+}
+
+.backButton {
+  font-family: 'Metropolis', sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 16px;
+  padding-bottom: 22px;
+  background: none;
+  vertical-align: text-top;
+  border: none;
+  text-decoration: underline 0.5px rgba(20, 21, 26, 1);
+  position: relative;
+  cursor: pointer;
+
+  &::before {
+    content: url(src/assets/icons/chevron-left-icon.svg);
+    vertical-align: middle;
+    position: relative;
+  }
 }
 
 @media screen and (max-width: 800px) {
