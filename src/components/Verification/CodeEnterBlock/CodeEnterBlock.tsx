@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 import { MuiOtpInput } from 'mui-one-time-password-input'
 import { Controller, useForm } from 'react-hook-form'
 

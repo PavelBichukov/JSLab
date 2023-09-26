@@ -79,16 +79,6 @@ export const TermsAndConditions = () => {
               required: 'Field is required!',
             }}
             render={({ field }: any) => (
-              // <input
-              //   {...field}
-              //   className={cn(styles.input, {
-              //     [styles.inputError]: errors?.termsCheckBox,
-              //   })}
-              //   ref={null}
-              //   type="checkbox"
-              //   id="checkbox"
-              //   name="checkbox"
-              // />
               <Checkbox
                 {...field}
                 ref={null}
