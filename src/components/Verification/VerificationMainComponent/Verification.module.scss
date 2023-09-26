@@ -6,7 +6,7 @@
   margin: 0 auto;
   padding: 50px 15px 0 15px;
   background: $blue-gray;
-  overflow-y: hidden;
+  min-height: 622px;
 }
 
 .headerButtons {
@@ -43,6 +43,7 @@
 .verificationBlock {
   max-width: 1184px;
   max-height: 80vh;
+  min-height: 490px;
   background-color: rgba(255, 255, 255, 1);
   display: flex;
   margin: 0 auto;
@@ -121,11 +122,18 @@
   list-style-image: url('../../../assets/icons/dotForList.png');
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 2vh;
   @media (max-width: 1180px) {
     gap: 15px;
   }
   @media (max-width: 600px) {
+    display: none;
+  }
+  @media (max-height: 731px) {
+    padding-top: 0;
+    gap: 2px;
+  }
+  @media (max-height: 679px) {
     display: none;
   }
 }
