@@ -5,6 +5,7 @@
   max-width: 1920px;
   background: $blue-gray;
   height: 100vh;
+  overflow-y: hidden;
 }
 
 .headerButtons {
@@ -36,13 +37,21 @@
 
 .contentContainer {
   background: $white;
-  width: 61.7%;
+  width: 90%;
+  max-width: 1184px;
   height: auto;
   margin: 0 auto;
   display: flex;
   padding: 22px 20px;
   border-radius: 24px;
   box-shadow: 0 0 4px -1px rgba(34, 60, 80, 0.2);
+  overflow-y: hidden;
+  @media screen and (max-width: 1316px) {
+    width: 95%;
+  }
+  @media screen and (max-width: 1242px) {
+    width: 98%;
+  }
 }
 
 .formContainer {
