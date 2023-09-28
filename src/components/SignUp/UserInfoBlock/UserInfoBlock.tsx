@@ -1,7 +1,7 @@
 import { useForm } from 'react-hook-form'
 
+import { Button, FormController, Input } from 'src/components/share'
 import { Typography } from 'src/components/share/Typography'
-import { Input, FormController, Button } from 'src/components/share'
 
 import styles from './UserInfoBlock.module.scss'
 
@@ -112,6 +112,7 @@ export const UserInfoBlock = () => {
           mode={isValid ? 'defaultBlack' : 'disabled'}
           variant="secondary"
           size="large"
+          onClick={() => console.log('clicked')}
         >
           Continue
         </Button>

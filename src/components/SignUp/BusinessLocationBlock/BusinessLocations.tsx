@@ -3,8 +3,8 @@ import { useForm } from 'react-hook-form'
 import { Button, FormController, Input, Select } from 'src/components/share'
 import { Typography } from 'src/components/share/Typography'
 
-import { stateOptions } from './BusinessLocationConstans'
 import styles from './BusinessLocation.module.scss'
+import { stateOptions } from './BusinessLocationConstans'
 
 const BusinessLocation = () => {
   const {
@@ -142,6 +142,7 @@ const BusinessLocation = () => {
             mode={isValid ? 'defaultBlack' : 'disabled'}
             variant="secondary"
             size="small"
+            onClick={() => console.log('clicked')}
           >
             Finished
           </Button>

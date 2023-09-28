@@ -21,7 +21,7 @@ export const CodeEnterBlock = () => {
     },
   })
 
-  const onSubmit = (data) => {
+  const onSubmit = (data: any) => {
     console.log(JSON.stringify(data))
   }
 
@@ -68,7 +68,6 @@ export const CodeEnterBlock = () => {
           variant="secondary"
           size="large"
           onClick={() => console.log(errors)}
-          disabled={!isValid}
         >
           Continue
         </Button>

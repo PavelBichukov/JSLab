@@ -1,16 +1,15 @@
 import { useForm } from 'react-hook-form'
 
-import { Typography } from 'src/components/share/Typography'
 import {
+  Button,
+  Checkbox,
+  FormController,
   Input,
   Select,
-  FormController,
-  Checkbox,
-  Button,
 } from 'src/components/share'
+import { Typography } from 'src/components/share/Typography'
 
-import { yearsOptions, businessTypeOptions } from './BusinessInfo.constants'
-
+import { businessTypeOptions, yearsOptions } from './BusinessInfo.constants'
 import styles from './BusinessInfoBlock.module.scss'
 
 export const BusinessInfoBlock = () => {
@@ -120,6 +119,7 @@ export const BusinessInfoBlock = () => {
             mode="outlinedWhite"
             variant="secondary"
             size="small"
+            onClick={() => console.log('clicked')}
           >
             Back
           </Button>
@@ -129,6 +129,7 @@ export const BusinessInfoBlock = () => {
             mode={isValid ? 'defaultBlack' : 'disabled'}
             variant="secondary"
             size="small"
+            onClick={() => console.log('clicked')}
           >
             Finished
           </Button>

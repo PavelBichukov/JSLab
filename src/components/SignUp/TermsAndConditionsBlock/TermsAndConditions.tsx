@@ -1,9 +1,7 @@
-import cn from 'classnames'
-
 import { useForm } from 'react-hook-form'
 
+import { Button, Checkbox, FormController } from 'src/components/share'
 import { Typography } from 'src/components/share/Typography'
-import { FormController, Checkbox, Button } from 'src/components/share'
 
 import styles from './TermsAndConditions.module.scss'
 
@@ -101,6 +99,7 @@ export const TermsAndConditions = () => {
             mode="outlinedWhite"
             variant="secondary"
             size="small"
+            onClick={() => console.log('clicked')}
           >
             Back
           </Button>
@@ -110,6 +109,7 @@ export const TermsAndConditions = () => {
             mode={isValid ? 'defaultBlack' : 'disabled'}
             variant="secondary"
             size="small"
+            onClick={() => console.log('clicked')}
           >
             Finished
           </Button>
