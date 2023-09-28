@@ -59,11 +59,7 @@
   width: 100%;
   display: flex;
   gap: 16px;
-  padding-top: 60px;
   color: rgba(50, 54, 66, 1);
-  @media (max-width: 1350px) {
-    padding-top: 30px;
-  }
 }
 
 .buttonsBlock {
@@ -72,12 +68,8 @@
   align-items: center;
   justify-content: space-between;
   gap: 16px;
-  padding-top: 30px;
   & button {
     flex: 1;
-  }
-  @media (max-width: 1350px) {
-    padding-top: 15px;
   }
 }
 

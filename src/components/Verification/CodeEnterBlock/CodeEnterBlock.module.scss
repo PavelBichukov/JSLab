@@ -9,17 +9,26 @@
 
 .codeForm {
   flex: 2;
+  max-width: 400px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   padding-top: 48px;
   width: 100%;
-  @media (max-width: 600px) {
-    gap: 40px;
+  @media (max-width: 1068px) {
+    max-width: 900px;
+    padding-top: 15px;
+    gap: 15px;
+  }
+  @media (max-width: 768px) {
+    max-width: 700px;
+    padding-top: 15px;
+    gap: 15px;
   }
 }
 
 .codeOtpInput {
+  gap: 5px;
   input {
     font-family: 'Metropolis', sans-serif;
     font-weight: 400;
@@ -27,6 +36,10 @@
     line-height: 48px;
     border-image: none;
     border-bottom: 2px solid transparent;
+    @media (max-width: 1060px) {
+      font-size: 16px;
+      line-height: 30px;
+    }
     &:focus {
       border-bottom: 2px solid rgba(20, 21, 26, 1);
     }
@@ -49,9 +62,8 @@
   line-height: 24px;
 }
 
-.errorMessage{
+.errorMessage {
   color: red;
   margin-bottom: auto;
   margin-top: 10px;
 }
-
