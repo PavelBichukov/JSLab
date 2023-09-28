@@ -1,13 +1,13 @@
-import cn from 'classnames'
 import { useState } from 'react'
+import * as React from 'react'
 import { Link } from 'react-router-dom'
 
 import { Typography } from 'components/share/Typography'
 import { CodeEnterBlock, EmailBlock, SuccessBlock } from 'src/components'
-import { IBenefitsList } from 'src/types/types'
 
 import { benefitsLists } from './Verification.constants'
 import styles from './Verification.module.scss'
+import Button from '../../share/Button/Button'
 
 export const VerificationMainComponent = () => {
   const [currentStep, setCurrenStep] = useState(1)
@@ -15,18 +15,34 @@ export const VerificationMainComponent = () => {
   return (
     <div className={styles.container}>
       <div className={styles.headerButtons}>
-        <Link to="/" className={styles.closeIcon}>
-          <button className={styles.headerButton}>Log In</button>
+        <Link to="/login">
+          <Button
+            className={styles.headerButton}
+            type="button"
+            size="small"
+            mode="outlinedBlack"
+            variant="primary"
+            onClick={() => console.log('clicked')}
+          >
+            Log in
+          </Button>
         </Link>
-        <Link to="/" className={cn(styles.button, styles.buttonSignUp)}>
-          <button className={cn(styles.headerButton, styles.signUpButton)}>
-            Sign Up
-          </button>
+        <Link to="/signup">
+          <Button
+            className={styles.buttonSignUp}
+            type="button"
+            size="small"
+            mode="defaultWhite"
+            variant="primary"
+            onClick={() => console.log('clicked')}
+          >
+            Sign up
+          </Button>
         </Link>
       </div>
       <div className={styles.verificationBlock}>
         <section className={styles.sideSection}>
-          <Link to="/" className={styles.closeIcon}>
+          <Link to="/">
             <button className={styles.backButton}>Back</button>
           </Link>
           <div className={styles.sideSectionText}>
@@ -39,14 +55,12 @@ export const VerificationMainComponent = () => {
               credit card fees,while increasing traffic to their location.
             </Typography>
             <ul className={styles.benefitsList}>
-              {benefitsLists.map((item: IBenefitsList) => (
-                <Typography
-                  variant="ParagraphL"
-                  className={styles.listitem}
-                  key={item.id}
-                >
-                  {item.name}
-                </Typography>
+              {benefitsLists.map((item) => (
+                <li key={item.id} className={styles.cardListElement}>
+                  <Typography variant="ParagraphL" className={styles.listitem}>
+                    {item.name}
+                  </Typography>
+                </li>
               ))}
             </ul>
             <div className={styles.buttonsBlock}>

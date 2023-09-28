@@ -1,8 +1,8 @@
 import cn from 'classnames'
-
 import { useForm } from 'react-hook-form'
 
 import { Typography } from 'components/share/Typography'
+
 import { Input, FormController, Button } from 'src/components/share'
 
 import styles from './EmailEnterBlock.module.scss'

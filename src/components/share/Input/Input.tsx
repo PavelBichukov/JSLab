@@ -29,7 +29,7 @@ export const Input = ({
         placeholder=""
         id={id}
         onChange={onChange}
-        ref = {innerRef}
+        ref={innerRef}
       />
       <Typography
         className={labelClassName}
