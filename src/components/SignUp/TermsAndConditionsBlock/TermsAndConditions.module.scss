@@ -11,7 +11,7 @@
 }
 
 .formBlock {
-  width: 600px;
+  max-width: 600px;
 }
 
 .textInfo {
@@ -31,8 +31,10 @@
   }
   @media (max-width: 1200px) {
     padding-right: 150px;
+    margin-top: 15px;
+    height: 30vh;
   }
-  @media (max-width: 920px) {
+  @media (max-width: 968px) {
     padding-right: 80px;
   }
   @media (max-width: 767px) {
