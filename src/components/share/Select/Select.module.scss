@@ -1,6 +1,6 @@
 .control {
   margin-top: -50px;
-  border-bottom: 2px solid rgba(171, 178, 194, 1);
+  border-bottom: 1px solid rgba(171, 178, 194, 1);
   transition: all 0.2s ease-out;
   position: relative;
   &:hover {
@@ -13,7 +13,7 @@
 }
 
 .controlActive {
-  border-bottom: 2px solid rgba(20, 21, 26, 1);
+  border-bottom: 1px solid rgba(20, 21, 26, 1);
 }
 
 .placeholderTest{

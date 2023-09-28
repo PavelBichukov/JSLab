@@ -1,9 +1,13 @@
-import cn from 'classnames'
-
 import { useForm } from 'react-hook-form'
 
 import { Typography } from 'src/components/share/Typography'
-import { Input, Select, FormController } from 'src/components/share'
+import {
+  Input,
+  Select,
+  FormController,
+  Checkbox,
+  Button,
+} from 'src/components/share'
 
 import { yearsOptions, businessTypeOptions } from './BusinessInfo.constants'
 
@@ -20,7 +24,7 @@ export const BusinessInfoBlock = () => {
       businessName: '',
       yearsOfOperation: '',
       businessType: '',
-      checkBox: '',
+      checkboxBusiness: '',
     },
   })
 
@@ -40,7 +44,7 @@ export const BusinessInfoBlock = () => {
             name="businessName"
             control={control}
             rules={{
-              required: 'Field is required!',
+              required: 'Business Legal Name is required!',
             }}
             render={({ field }: any) => (
               <Input
@@ -54,10 +58,11 @@ export const BusinessInfoBlock = () => {
           />
           <div className={styles.selectsGroup}>
             <FormController
+              errorClassName={styles.selectError}
               name="yearsOfOperation"
               control={control}
               rules={{
-                required: 'Field is required!',
+                required: 'Years of Operation is required!',
               }}
               render={({ field }: any) => (
                 <Select
@@ -69,10 +74,11 @@ export const BusinessInfoBlock = () => {
               )}
             />
             <FormController
+              errorClassName={styles.selectError}
               name="businessType"
               control={control}
               rules={{
-                required: 'Field is required!',
+                required: 'Business type is required!',
               }}
               render={({ field }: any) => (
                 <Select
@@ -86,22 +92,18 @@ export const BusinessInfoBlock = () => {
           </div>
           <div className={styles.checkBoxBlock}>
             <FormController
-              name="checkBox"
-              control={control}
               errorClassName={styles.checkBoxError}
+              name="checkboxBusiness"
+              control={control}
               rules={{
                 required: 'Field is required!',
               }}
               render={({ field }: any) => (
-                <input
+                <Checkbox
                   {...field}
-                  className={cn(styles.input, {
-                    [styles.inputError]: errors?.checkBox,
-                  })}
                   ref={null}
-                  type="checkbox"
-                  id="checkbox"
-                  name="checkbox"
+                  id="checkboxBusiness"
+                  hasError={!!errors?.checkboxBusiness}
                 />
               )}
             />
@@ -112,20 +114,24 @@ export const BusinessInfoBlock = () => {
           </div>
         </div>
         <div className={styles.buttonsBlock}>
-          <button
-            className={cn(styles.formButton, styles.buttonBack)}
+          <Button
+            className={styles.buttonBack}
             type="button"
+            mode="outlinedWhite"
+            variant="secondary"
+            size="small"
           >
             Back
-          </button>
-          <button
-            className={cn(styles.formButton, {
-              [styles.formButtonDisabled]: !isValid,
-            })}
+          </Button>
+          <Button
+            className={styles.buttonFinished}
             type="submit"
+            mode={isValid ? 'defaultBlack' : 'disabled'}
+            variant="secondary"
+            size="small"
           >
             Finished
-          </button>
+          </Button>
         </div>
       </form>
     </div>

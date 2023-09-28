@@ -5,5 +5,7 @@ import Modal from './Modal/Modals'
 import RateCard from './RateCard/Rate'
 import Select from './Select/Select'
 import TeamCard from './TeamCard/TeamCard'
+import Checkbox from './Checkbox/Checbox'
 
-export { RateCard, TeamCard, Input, Select, FormController, Modal, Button }
+export { RateCard, TeamCard, Input, Select, FormController, Modal, Button, Checkbox }
+

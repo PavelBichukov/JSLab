@@ -2,7 +2,8 @@ import cn from 'classnames'
 import { useForm } from 'react-hook-form'
 
 import { Typography } from 'components/share/Typography'
-import { FormController, Input } from 'src/components/share'
+
+import { Input, FormController, Button } from 'src/components/share'
 
 import styles from './EmailEnterBlock.module.scss'
 
@@ -35,7 +36,7 @@ export const EmailBlock = () => {
             name="email"
             control={control}
             rules={{
-              required: 'Field is required!',
+              required: 'Email address is required!',
               pattern: {
                 value: /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/,
                 message: 'Invalid email address!',
@@ -52,14 +53,15 @@ export const EmailBlock = () => {
             )}
           />
         </div>
-        <button
-          className={cn(styles.formButton, {
-            [styles.formButtonDisabled]: !isValid,
-          })}
+        <Button
+          className={styles.formButton}
           type="submit"
+          mode={isValid ? 'defaultBlack' : 'disabled'}
+          variant="secondary"
+          size="large"
         >
           Continue
-        </button>
+        </Button>
       </form>
       <Typography variant="ParagraphS" className={styles.emailAgreement}>
         By tapping Continue, you confirm that you are authorized to use the

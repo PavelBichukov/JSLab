@@ -1,8 +1,7 @@
-import cn from 'classnames'
-import { useForm, Controller } from 'react-hook-form'
+import { useForm } from 'react-hook-form'
 
 import { Typography } from 'src/components/share/Typography'
-import { Input, FormController } from 'src/components/share'
+import { Input, FormController, Button } from 'src/components/share'
 
 import styles from './UserInfoBlock.module.scss'
 
@@ -36,7 +35,7 @@ export const UserInfoBlock = () => {
             name="legalFirstName"
             control={control}
             rules={{
-              required: 'Field is required!',
+              required: 'Fierst Name is required!',
             }}
             render={({ field }: any) => (
               <Input
@@ -52,7 +51,7 @@ export const UserInfoBlock = () => {
             name="lastName"
             control={control}
             rules={{
-              required: 'Field is required!',
+              required: 'Last Name is required!',
             }}
             render={({ field }: any) => (
               <Input
@@ -68,7 +67,7 @@ export const UserInfoBlock = () => {
             name="email"
             control={control}
             rules={{
-              required: 'Field is required!',
+              required: 'Email address is required!',
               pattern: {
                 value: /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/,
                 message: 'Invalid email address!',
@@ -89,7 +88,7 @@ export const UserInfoBlock = () => {
             control={control}
             errorClassName={styles.passwordError}
             rules={{
-              required: 'Field is required!',
+              required: 'Password is required!',
               pattern: {
                 value: /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}$/,
                 message:
@@ -107,13 +106,15 @@ export const UserInfoBlock = () => {
             )}
           />
         </div>
-        <button
-          className={cn(styles.formButton, {
-            [styles.formButtonDisabled]: !isValid,
-          })}
+        <Button
+          className={styles.formButton}
+          type="submit"
+          mode={isValid ? 'defaultBlack' : 'disabled'}
+          variant="secondary"
+          size="large"
         >
           Continue
-        </button>
+        </Button>
       </form>
     </div>
   )
