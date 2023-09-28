@@ -1,7 +1,7 @@
 import { useState } from 'react'
 
 import cn from 'classnames'
-import { BusinessInfoBlock, TermsAndConditions, UserInfoBlock,  } from 'src/components'
+import { BusinessInfoBlock, TermsAndConditions, UserInfoBlock, BusinessLocation} from 'src/components'
 import { Typography } from 'src/components/share/Typography'
 
 import { progressBarConstants } from './progressBarConstants'
@@ -34,7 +34,7 @@ export const SignUpMainComponent = () => {
         <div className={styles.formBlock}>
         {currentStep === 1 && <UserInfoBlock/>}
         {currentStep === 2 && <BusinessInfoBlock/>}
-        {currentStep === 3 && <TermsAndConditions/>}
+        {currentStep === 3 && <BusinessLocation/>}
         {currentStep === 4 && <TermsAndConditions/>}          
         </div>
       </div>
