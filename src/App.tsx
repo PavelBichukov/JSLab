@@ -1,9 +1,12 @@
 import { Route, Routes } from 'react-router-dom'
 
-import Login from 'components/Login/Login'
-import { Landing, SignUp, Testing } from 'src/pages/index'
-
-import SignUpContinue from './pages/Sign Up Continue/SignUpContinue'
+import {
+  Landing,
+  Login,
+  SignUp,
+  SignUpContinue,
+  Testing,
+} from 'src/pages/index'
 
 function App() {
   return (

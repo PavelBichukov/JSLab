@@ -1,8 +1,7 @@
 import { MuiOtpInput } from 'mui-one-time-password-input'
 import { Controller, useForm } from 'react-hook-form'
 
-import { Typography } from 'components/share/Typography'
-import { Button } from 'src/components/share'
+import { Button, Typography } from 'components/share'
 
 import styles from './CodeEnterBlock.module.scss'
 

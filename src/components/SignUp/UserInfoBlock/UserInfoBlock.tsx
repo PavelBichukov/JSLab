@@ -1,7 +1,6 @@
 import { useForm } from 'react-hook-form'
 
-import { Button, FormController, Input } from 'src/components/share'
-import { Typography } from 'src/components/share/Typography'
+import { Button, FormController, Input, Typography } from 'components/share'
 
 import styles from './UserInfoBlock.module.scss'
 
@@ -35,7 +34,7 @@ export const UserInfoBlock = () => {
             name="legalFirstName"
             control={control}
             rules={{
-              required: 'Fierst Name is required!',
+              required: 'First Name is required!',
             }}
             render={({ field }: any) => (
               <Input

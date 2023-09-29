@@ -1,5 +1,4 @@
-import Button from 'components/share/Button/Button'
-import { Typography } from 'components/share/Typography'
+import { Button, Typography } from 'components/share'
 
 import styles from './Banner.module.scss'
 

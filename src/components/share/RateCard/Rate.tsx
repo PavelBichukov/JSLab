@@ -1,6 +1,6 @@
+import { Button, Typography } from 'components/share'
+
 import styles from './Rate.module.scss'
-import Button from '../Button/Button'
-import { Typography } from '../Typography'
 
 const Rate = ({
   title,

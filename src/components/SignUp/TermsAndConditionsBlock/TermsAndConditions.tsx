@@ -1,7 +1,6 @@
 import { useForm } from 'react-hook-form'
 
-import { Button, Checkbox, FormController } from 'src/components/share'
-import { Typography } from 'src/components/share/Typography'
+import { Button, Checkbox, FormController, Typography } from 'components/share'
 
 import styles from './TermsAndConditions.module.scss'
 

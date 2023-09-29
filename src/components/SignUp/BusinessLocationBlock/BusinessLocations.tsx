@@ -1,7 +1,12 @@
 import { useForm } from 'react-hook-form'
 
-import { Button, FormController, Input, Select } from 'src/components/share'
-import { Typography } from 'src/components/share/Typography'
+import {
+  Button,
+  FormController,
+  Input,
+  Select,
+  Typography,
+} from 'components/share'
 
 import styles from './BusinessLocation.module.scss'
 import { stateOptions } from './BusinessLocationConstans'

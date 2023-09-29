@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 
 import Jslab from 'assets/icons/Jslab'
 import Logo from 'assets/icons/Logo'
-import { Typography } from 'components/share/Typography'
+import { Typography } from 'components/share'
 import AppStoreImg from 'src/assets/images/AppStore.png'
 import PlayMarkerImg from 'src/assets/images/GooglePlay.png'
 

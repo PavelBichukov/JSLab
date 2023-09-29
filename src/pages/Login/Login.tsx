@@ -1,11 +1,9 @@
 import { useForm } from 'react-hook-form'
 import { Link } from 'react-router-dom'
 
-import { FormController, Input } from 'components/share'
-import { Typography } from 'components/share/Typography'
+import { Button, FormController, Input, Typography } from 'components/share'
 
 import styles from './Login.module.scss'
-import Button from '../share/Button/Button'
 
 const Login = () => {
   const {

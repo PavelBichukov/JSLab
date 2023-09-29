@@ -1,8 +1,8 @@
 import cn from 'classnames'
 import DefaultSelect, { components as selectComponents } from 'react-select'
 
-import { Typography } from 'src/components/share/Typography'
 import { ReactComponent as Chevron } from 'assets/icons/ChevronDownIcon.svg'
+import { Typography } from 'components/share'
 
 import styles from './Select.module.scss'
 
@@ -36,7 +36,7 @@ const Placeholder = ({ innerProps, children, searchable }: any) => (
 )
 
 const ValueContainer = ({ children }: any) => <>{children}</>
-
+//todo add types
 const SingleValue = ({
   innerProps,
   children,

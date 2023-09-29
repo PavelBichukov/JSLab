@@ -1,7 +1,7 @@
-import { Controller } from 'react-hook-form'
 import cn from 'classnames'
+import { Controller } from 'react-hook-form'
 
-import { Typography } from 'src/components/share/Typography'
+import { Typography } from 'components/share'
 
 import styles from './FormController.module.scss'
 

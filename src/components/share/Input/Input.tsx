@@ -3,7 +3,7 @@ import { useState } from 'react'
 
 import { ReactComponent as ClosedEyeIcon } from 'assets/icons/ClosedEye.svg'
 import { ReactComponent as EyeIcon } from 'assets/icons/Eye.svg'
-import { Typography } from 'components/share/Typography'
+import { Typography } from 'components/share'
 
 import styles from './Input.module.scss'
 import { IInputProps } from './Input.types'
@@ -25,6 +25,7 @@ export const Input = ({
       <input
         {...restProps}
         className={cn(styles.input, className)}
+        //todo
         type={variant === 'password' && showPass ? 'text' : variant}
         placeholder=""
         id={id}

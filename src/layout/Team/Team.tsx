@@ -1,4 +1,4 @@
-import TeamCard from 'components/share/TeamCard/TeamCard'
+import { TeamCard } from 'components/share'
 
 import { teams as TEAMS } from './Team.constants'
 import styles from './Team.module.scss'

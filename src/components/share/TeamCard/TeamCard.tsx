@@ -1,6 +1,6 @@
 import { MdEmail } from 'react-icons/md'
 
-import { Typography } from 'components/share/Typography'
+import { Typography } from 'components/share'
 
 import styles from './TeamCard.module.scss'
 

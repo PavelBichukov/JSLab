@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 
 import Jslab from 'assets/icons/Jslab'
 import Logo from 'assets/icons/Logo'
-import Button from 'components/share/Button/Button'
+import { Button } from 'components/share'
 
 import styles from './Header.module.scss'
 

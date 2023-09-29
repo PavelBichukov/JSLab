@@ -6,8 +6,8 @@ import {
   FormController,
   Input,
   Select,
-} from 'src/components/share'
-import { Typography } from 'src/components/share/Typography'
+  Typography,
+} from 'components/share'
 
 import { businessTypeOptions, yearsOptions } from './BusinessInfo.constants'
 import styles from './BusinessInfoBlock.module.scss'

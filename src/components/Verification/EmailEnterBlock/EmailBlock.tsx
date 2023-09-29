@@ -1,7 +1,6 @@
 import { useForm } from 'react-hook-form'
 
-import { Typography } from 'components/share/Typography'
-import { Button, FormController, Input } from 'src/components/share'
+import { Button, FormController, Input, Typography } from 'components/share'
 
 import styles from './EmailEnterBlock.module.scss'
 

@@ -1,12 +1,11 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 
-import { Typography } from 'components/share/Typography'
+import { Button, Typography } from 'components/share'
 import { CodeEnterBlock, EmailBlock, SuccessBlock } from 'src/components'
 
 import { benefitsLists } from './Verification.constants'
 import styles from './Verification.module.scss'
-import Button from '../../share/Button/Button'
 
 export const VerificationMainComponent = () => {
   const [currentStep, setCurrenStep] = useState(1)
