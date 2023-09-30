@@ -9,7 +9,7 @@ import {
 } from 'components/share'
 
 import styles from './BusinessLocation.module.scss'
-import { stateOptions } from './BusinessLocationConstans'
+import { stateOptions } from './BusinessLocation.constants'
 
 const BusinessLocation = () => {
   const {
