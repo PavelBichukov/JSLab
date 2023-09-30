@@ -1,0 +1,73 @@
+.control {
+  margin-top: -50px;
+  border-bottom: 1px solid rgba(171, 178, 194, 1);
+  transition: all 0.2s ease-out;
+  position: relative;
+  &:hover {
+    border-color: rgba(20, 21, 26, 1);
+  }
+}
+
+.controlError{
+  border-color: red;
+}
+
+.controlActive {
+  border-bottom: 1px solid rgba(20, 21, 26, 1);
+}
+
+.placeholderTest{
+  position: absolute;
+  top: 10px;
+  font-size: 16px;
+  transition: 0.3s;
+}
+.placeholderTestHasValue{
+  transition: 0.3s;
+  transform: translateY(-25px);
+}
+
+.placeholder {
+  color: rgba(80, 87, 107, 1);
+}
+
+.placeholderHasValue{
+  position: absolute;
+  bottom: 40px;
+  font-size: 14px;
+}
+
+.indicator {
+  cursor: pointer;
+  transition: all 0.3s ease-out;
+}
+
+.indicatorActive {
+  transform: rotate(180deg);
+}
+
+.menuList {
+  margin-top: 8px;
+  border-radius: 16px;
+  background-color: rgba(255, 255, 255, 1);
+  box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.16);
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.option {
+  padding: 15px 10px;
+  cursor: pointer;
+  &:hover {
+    background-color: rgba(245, 246, 250, 1);
+  }
+}
+
+.noOption {
+  padding: 15px 10px;
+}
+
+.optionActive {
+  font-weight: 600;
+}

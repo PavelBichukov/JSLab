@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom'
 
-import Jslab from 'assets/icons/Jslab.jsx'
-import Logo from 'assets/icons/Logo.jsx'
-import { Typography } from 'components/share/Typography'
+import Jslab from 'assets/icons/Jslab'
+import Logo from 'assets/icons/Logo'
+import { Typography } from 'components/share'
 import AppStoreImg from 'src/assets/images/AppStore.png'
 import PlayMarkerImg from 'src/assets/images/GooglePlay.png'
 
@@ -23,10 +23,18 @@ const Footer = () => (
         </Link>
       </div>
       <div className={styles.platforms}>
-        <a href="https://www.apple.com/by/app-store/" target="_blank">
+        <a
+          href="https://www.apple.com/by/app-store/"
+          target="_blank"
+          rel="noreferrer"
+        >
           <img src={AppStoreImg} alt="App Store" />
         </a>
-        <a href="https://play.google.com/store/games" target="_blank">
+        <a
+          href="https://play.google.com/store/games"
+          target="_blank"
+          rel="noreferrer"
+        >
           <img src={PlayMarkerImg} alt="Google Play" />
         </a>
       </div>
@@ -35,7 +43,12 @@ const Footer = () => (
     <div className={styles.footPartFooter}>
       <div className={styles.footerIcons}>
         {LOGOS.map((logo) => (
-          <a key={logo.imgSrc} href={logo.href} target="_blank">
+          <a
+            key={logo.imgSrc}
+            href={logo.href}
+            target="_blank"
+            rel="noreferrer"
+          >
             <img src={logo.imgSrc} alt={logo.imgSrc} />
           </a>
         ))}

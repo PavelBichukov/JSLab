@@ -1,32 +1,38 @@
-.mainCard{
+@import '../../../App.scss';
+
+.mainCard {
   width: 384px;
-  border: 2px solid #EBF1F4;
+  border: 2px solid $medium-gray;
   border-radius: 24px;
   margin-top: 10px;
 }
-.imgCard{
+
+.imgCard {
   padding: 2px;
   width: 100%;
   height: auto;
   border-radius: 24px;
   image-rendering: high-quality;
 }
-.cardName{
-  color: #14151A;
+
+.cardName {
+  color: $brand-black;
   display: flex;
   justify-content: center;
 }
-.cardJobTitle{
-  color: var(--light-mode-brand-black-14151-a, #14151A);
+
+.cardJobTitle {
+  color: $brand-black;
   text-align: center;
   font-weight: 400;
 }
-.cardEmail{
+
+.cardEmail {
   margin-top: 4px;
   display: flex;
   justify-content: center;
   gap: 3px;
-  color: var(--light-mode-brand-black-14151-a, #14151A);
+  color: $brand-black;
   font-family: Metropolis, sans-serif;
   font-size: 20px;
   font-style: normal;

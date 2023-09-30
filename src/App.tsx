@@ -1,8 +1,12 @@
 import { Route, Routes } from 'react-router-dom'
 
-import { Landing, Login, SignUp, Testing } from 'src/pages/index'
-
-import SignUpContinue from './pages/Sign Up Continue/SignUpContinue'
+import {
+  Landing,
+  Login,
+  SignUp,
+  SignUpContinue,
+  Testing,
+} from 'src/pages/index'
 
 function App() {
   return (
@@ -15,4 +19,5 @@ function App() {
     </Routes>
   )
 }
+
 export default App

@@ -6,4 +6,11 @@
   justify-content: center;
   gap: 24px;
   padding-bottom: 60px;
+  min-width: 378px;
+  @media (max-width: 840px) {
+    min-width: 300px;
+  }
+  @media (max-width: 840px) {
+    min-width: none;
+  }
 }

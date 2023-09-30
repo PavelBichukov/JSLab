@@ -1,8 +1,16 @@
-import { Typography } from 'components/share/Typography'
+import { Button, Typography } from 'components/share'
 
 import styles from './Rate.module.scss'
 
-const Rate = ({ title, description, options }) => (
+const Rate = ({
+  title,
+  description,
+  options,
+}: {
+  title: string
+  description: string
+  options: string[]
+}) => (
   <div className={styles.mainCard}>
     <Typography variant="HeaderM">{title}</Typography>
     <div className={styles.cardDescription}>
@@ -17,8 +25,16 @@ const Rate = ({ title, description, options }) => (
         ))}
       </ul>
     </div>
-    <button className={styles.cardButton}>Select</button>
+    <Button
+      className={styles.cardButton}
+      type="button"
+      size="medium"
+      mode="defaultBlack"
+      variant="secondary"
+      onClick={() => console.log('clicked')}
+    >
+      Select
+    </Button>
   </div>
 )
-
 export default Rate

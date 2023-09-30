@@ -1,0 +1,51 @@
+.inputBox {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding: 15px 0;
+
+  & label {
+    position: absolute;
+    top: 25px;
+    color: rgba(80, 87, 107, 1);
+    cursor: text;
+    transition: 0.3s;
+  }
+
+  & .eyeIcon {
+    cursor: pointer;
+    position: absolute;
+    right: 0;
+    top: 40%;
+  }
+
+  & .eyeIconHidden {
+    display: none;
+  }
+}
+
+.input {
+  border: none;
+  border-bottom: 1px solid rgba(171, 178, 194, 1);
+  margin-bottom: -1px;
+  color: rgba(20, 21, 26, 1);
+  font-family: 'Metropolis', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  padding: 5px 0;
+  width: 100%;
+
+  &:focus {
+    outline: none;
+    border-color: rgba(20, 21, 26, 1);
+  }
+
+  &:focus + label,
+  &:not(:placeholder-shown) + label {
+    transform: translateY(-25px);
+    cursor: default;
+    font-size: 12px;
+    line-height: 16px;
+  }
+}

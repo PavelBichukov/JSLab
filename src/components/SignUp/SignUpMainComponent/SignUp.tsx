@@ -1,8 +1,13 @@
+import cn from 'classnames'
 import { useState } from 'react'
 
-import cn from 'classnames'
-import { BusinessInfoBlock, TermsAndConditions, UserInfoBlock,  } from 'src/components'
-import { Typography } from 'src/components/share/Typography'
+import { Typography } from 'components/share'
+import {
+  BusinessInfoBlock,
+  BusinessLocation,
+  TermsAndConditions,
+  UserInfoBlock,
+} from 'src/components'
 
 import { progressBarConstants } from './progressBarConstants'
 import styles from './SignUpMainComponent.module.scss'
@@ -32,10 +37,10 @@ export const SignUpMainComponent = () => {
           </div>
         </section>
         <div className={styles.formBlock}>
-        {currentStep === 1 && <UserInfoBlock/>}
-        {currentStep === 2 && <BusinessInfoBlock/>}
-        {currentStep === 3 && <TermsAndConditions/>}
-        {currentStep === 4 && <TermsAndConditions/>}          
+          {currentStep === 1 && <UserInfoBlock />}
+          {currentStep === 2 && <BusinessInfoBlock />}
+          {currentStep === 3 && <BusinessLocation />}
+          {currentStep === 4 && <TermsAndConditions />}
         </div>
       </div>
     </div>

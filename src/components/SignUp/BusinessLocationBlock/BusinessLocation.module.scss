@@ -1,0 +1,80 @@
+@import '../../../App.scss';
+
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 8px;
+  padding-right: 230px;
+  height: 100%;
+  @media (max-width: 1200px) {
+    padding-right: 150px;
+  }
+  @media (max-width: 920px) {
+    padding-right: 80px;
+  }
+  @media (max-width: 700px) {
+    padding-right: 30px;
+  }
+}
+
+.subTittle {
+  color: $darker-gray;
+  max-width: 300px;
+}
+
+.formBlock {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.cityStateBox {
+  display: flex;
+  align-items: center;
+  gap: 5%;
+}
+
+.city {
+  flex: 2;
+}
+
+.state {
+  flex: 1;
+  padding-top: 55px;
+}
+
+.buttonsBlock {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  & button {
+    flex: 1;
+  }
+}
+
+.buttonBack {
+  padding: 15px;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 24px;
+  border-width: 1.5px;
+}
+
+.buttonFinished {
+  padding: 15px;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 24px;
+  border: 1.5px solid $medium-gray;
+}
+
+.stateError {
+  top: 47px;
+  max-width: 115px;
+}

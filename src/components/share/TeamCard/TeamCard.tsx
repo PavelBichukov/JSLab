@@ -1,10 +1,20 @@
 import { MdEmail } from 'react-icons/md'
 
-import { Typography } from 'components/share/Typography'
+import { Typography } from 'components/share'
 
 import styles from './TeamCard.module.scss'
 
-const TeamCard = ({ imgSrc, name, jobTitle, email }) => (
+const TeamCard = ({
+  imgSrc,
+  name,
+  jobTitle,
+  email,
+}: {
+  imgSrc: string
+  name: string
+  jobTitle: string
+  email: string
+}) => (
   <div className={styles.mainCard}>
     <img src={imgSrc} alt={name} className={styles.imgCard} />
     <Typography variant="HeaderM" className={styles.cardName}>

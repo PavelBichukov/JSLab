@@ -1,5 +1,11 @@
-.teamTitle{
-  color: var(--light-mode-brand-black-14151-a, #14151A);
+@import '../../App.scss';
+
+.mainTeam {
+  overflow-x: hidden;
+}
+
+.teamTitle {
+  color: $brand-black;
   text-align: center;
   font-family: Metropolis, sans-serif;
   font-size: 32px;
@@ -9,7 +15,8 @@
   margin-top: 40px;
   padding-bottom: 10px;
 }
-.teamCards{
+
+.teamCards {
   display: flex;
   flex-wrap: wrap;
   gap: 15px;

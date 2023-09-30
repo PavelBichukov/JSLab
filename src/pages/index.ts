@@ -1,6 +1,7 @@
 import Landing from './Landing/Landing'
-import Login from './Log In/Login'
+import Login from './Login/Login'
 import SignUp from './Sign Up/SignUp'
+import SignUpContinue from './Sign Up Continue/SignUpContinue'
 import Testing from './Testing/Testing'
 
-export { Landing, Login, SignUp, Testing }
+export { Landing, SignUp, Testing, Login, SignUpContinue }

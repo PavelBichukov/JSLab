@@ -1,8 +1,25 @@
-import { Typography } from 'components/share/Typography'
+import { useForm } from 'react-hook-form'
+
+import { Button, FormController, Input, Typography } from 'components/share'
 
 import styles from './EmailEnterBlock.module.scss'
 
 export const EmailBlock = () => {
+  const {
+    control,
+    formState: { isValid },
+    handleSubmit,
+  } = useForm({
+    mode: 'onBlur',
+    defaultValues: {
+      email: '',
+    },
+  })
+
+  const onSubmit = (data: any) => {
+    console.log(JSON.stringify(data))
+  }
+
   return (
     <div className={styles.emailBlock}>
       <Typography variant="HeaderM">What’s your email address?</Typography>
@@ -10,21 +27,39 @@ export const EmailBlock = () => {
         We’ll send you a six-digit code. It expires 10 minutes after your
         request.
       </Typography>
-      <form className={styles.emailForm}>
+      <form className={styles.emailForm} onSubmit={handleSubmit(onSubmit)}>
         <div className={styles.emailInputBox}>
-          <input
-            className={styles.emailFormInput}
-            type="email"
+          <FormController
             name="email"
-            id="email"
-            placeholder=""
-            onChange={(e) => console.log(e.target.value)}
+            control={control}
+            rules={{
+              required: 'Email address is required!',
+              pattern: {
+                value: /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/,
+                message: 'Invalid email address!',
+              },
+            }}
+            render={({ field }: any) => (
+              <Input
+                {...field}
+                ref={null}
+                variant="email"
+                label="Your email address"
+                id="email"
+              />
+            )}
           />
-          <label htmlFor="email">Your email address</label>
         </div>
-        <button className={styles.emailContinueButton} type="submit">
+        <Button
+          className={styles.formButton}
+          type="submit"
+          mode={isValid ? 'defaultBlack' : 'disabled'}
+          variant="secondary"
+          size="large"
+          onClick={() => console.log('clicked')}
+        >
           Continue
-        </button>
+        </Button>
       </form>
       <Typography variant="ParagraphS" className={styles.emailAgreement}>
         By tapping Continue, you confirm that you are authorized to use the

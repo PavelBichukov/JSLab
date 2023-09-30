@@ -1,57 +1,67 @@
+@import '../../App.scss';
+
 a {
   text-decoration: none;
 }
-.mainBanner{
+
+.mainBanner {
   background-image: url("../../assets/images/pattern.png");
   max-width: 1920px;
   height: 800px;
 }
-.pattern{
-  width: 680px;
+
+.pattern {
+  width: 100%;
   height: 144px;
-  margin-right: 31%;
+  display: flex;
+  justify-content: center;
 }
-.patternText{
+
+.mainText {
+  display: flex;
+  justify-content: center;
+}
+
+.patternText {
   display: block;
-  width: 680px;
-  height: 144px;
-  font-family: Metropolis, sans-serif;
-  font-size: 40px;
   font-weight: 400;
-  line-height: 48px;
+  width: 37%;
+  height: auto;
   letter-spacing: 0;
-  text-align: left;
-  color: #FFFFFF;
-  margin-left: 33%;
+  color: $white;
   margin-top: 144px;
 }
-.smartText{
-  color: var(--Hyperfuel-Blue, #4CC3FF);
-  font-family: Metropolis, sans-serif;
-  font-size: 40px;
+
+.smartText {
+  color: $brand-blue;
   font-style: normal;
   font-weight: 600;
-  line-height: 48px;
 }
-.bannerButton{
-  margin-top: 80px;
-  margin-left: 40%;
+
+.buttonContainer {
+  width: 100%;
   display: flex;
-  width: 384px;
-  height: 56px;
-  padding: 16px 115px;
-  flex-direction: column;
   justify-content: center;
-  align-items: center;
-  gap: 10px;
-  border-radius: 16px;
-  background: var(--light-mode-white-ffffff, #FFF);
-  color: var(--dark-mode-brand-black-14151-a, #14151A);
-  text-align: center;
-  font-family: Metropolis, sans-serif;
+}
+
+.bannerButton {
+  margin-top: 80px;
+  height: 56px;
   font-size: 18px;
   font-style: normal;
   font-weight: 700;
   line-height: 24px;
-  cursor: pointer;
+}
+
+@media screen and (max-width: 800px) {
+  .patternText {
+    font-size: 30px;
+    width: 75%;
+  }
+  .smartText {
+    font-size: 30px;
+  }
+  .bannerButton {
+    width: 100%;
+  }
 }

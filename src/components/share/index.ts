@@ -1,6 +1,21 @@
-import FormInput from './FormInput/FormInput'
-import HeaderBtns from './HeaderBtns/HeaderBtns'
+import Button from './Button/Button'
+import Checkbox from './Checkbox/Checbox'
+import FormController from './FormController/FormController'
+import Input from './Input/Input'
+import Modal from './Modal/Modal'
 import RateCard from './RateCard/Rate'
+import Select from './Select/Select'
 import TeamCard from './TeamCard/TeamCard'
+import Typography from './Typography/Typography'
 
-export { FormInput, HeaderBtns, RateCard, TeamCard }
+export {
+  RateCard,
+  TeamCard,
+  Input,
+  Select,
+  FormController,
+  Modal,
+  Button,
+  Checkbox,
+  Typography,
+}
