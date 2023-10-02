@@ -1,11 +1,18 @@
 import { MuiOtpInput } from 'mui-one-time-password-input'
 import { Controller, useForm } from 'react-hook-form'
+import { useAppDispatch, useAppSelector } from 'src/utils/redux-hooks/hooks'
 
 import { Button, Typography } from 'components/share'
+
+
+import { setCurrentStep } from 'src/store/slices/signUpSlice'
 
 import styles from './CodeEnterBlock.module.scss'
 
 export const CodeEnterBlock = () => {
+  const dispatch = useAppDispatch()
+  const currentStep = useAppSelector((state) => state.signUpStep.currentStep)
+
   const emailAddress = 'email.com'
   const correctCode = '123456'
 
@@ -22,6 +29,7 @@ export const CodeEnterBlock = () => {
 
   const onSubmit = (data: any) => {
     console.log(JSON.stringify(data))
+    dispatch(setCurrentStep(currentStep + 1))
   }
 
   return (

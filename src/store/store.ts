@@ -1,7 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit'
 
+import signUpStepsReducer from './slices/signUpSlice'
+
 const store = configureStore({
-  reducer: {},
+  reducer: {
+    signUpStep: signUpStepsReducer,
+  },
 })
 
 export default store

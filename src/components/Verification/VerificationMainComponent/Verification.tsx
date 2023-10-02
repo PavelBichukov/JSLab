@@ -1,4 +1,5 @@
-import { useState } from 'react'
+import { useAppSelector } from 'src/utils/redux-hooks/hooks'
+
 import { Link } from 'react-router-dom'
 
 import { Button, Typography } from 'components/share'
@@ -8,7 +9,7 @@ import { benefitsLists } from './Verification.constants'
 import styles from './Verification.module.scss'
 
 export const VerificationMainComponent = () => {
-  const [currentStep, setCurrenStep] = useState(1)
+  const currentStep = useAppSelector((state) => state.signUpStep.currentStep)
 
   return (
     <div className={styles.container}>
@@ -61,24 +62,6 @@ export const VerificationMainComponent = () => {
                 </li>
               ))}
             </ul>
-            <div className={styles.buttonsBlock}>
-              <button
-                onClick={() =>
-                  setCurrenStep(currentStep > 1 ? currentStep - 1 : currentStep)
-                }
-              >
-                ‹
-              </button>
-              <button
-                onClick={() =>
-                  setCurrenStep(
-                    currentStep >= 3 ? currentStep : currentStep + 1
-                  )
-                }
-              >
-                ›
-              </button>
-            </div>
           </div>
         </section>
         <div className={styles.formBlock}>

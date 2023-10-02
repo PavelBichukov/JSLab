@@ -1,10 +1,17 @@
 import { useForm } from 'react-hook-form'
+import { useAppDispatch, useAppSelector } from 'src/utils/redux-hooks/hooks'
 
 import { Button, FormController, Input, Typography } from 'components/share'
 
+import { setCurrentStep } from 'src/store/slices/signUpSlice'
+
 import styles from './EmailEnterBlock.module.scss'
 
+
 export const EmailBlock = () => {
+  const dispatch = useAppDispatch()
+  const currentStep = useAppSelector((state) => state.signUpStep.currentStep)
+
   const {
     control,
     formState: { isValid },
@@ -18,6 +25,7 @@ export const EmailBlock = () => {
 
   const onSubmit = (data: any) => {
     console.log(JSON.stringify(data))
+    dispatch(setCurrentStep(currentStep + 1))
   }
 
   return (
