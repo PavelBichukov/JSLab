@@ -1,10 +1,16 @@
+import axios from 'axios'
 import { useForm } from 'react-hook-form'
 
 import { Button, FormController, Input, Typography } from 'components/share'
 
 import styles from './EmailEnterBlock.module.scss'
 
-export const EmailBlock = () => {
+export const EmailBlock = ({
+  currentStep,
+  setCurrentStep,
+  email,
+  setEmail,
+}) => {
   const {
     control,
     formState: { isValid },
@@ -16,8 +22,28 @@ export const EmailBlock = () => {
     },
   })
 
-  const onSubmit = (data: any) => {
-    console.log(JSON.stringify(data))
+  const onSubmit = async (data: any, e: any) => {
+    e.preventDefault()
+    try {
+      await axios
+        .post('http://localhost:5000/user/signup', {
+          data,
+        })
+        .then((res) => {
+          if (res?.data?.status === 'PENDING') {
+            setEmail(email + data.email)
+            setCurrentStep(currentStep + 1)
+          } else if (res?.data?.status == 'FAILED') {
+            alert('User already exists')
+          }
+        })
+        .catch((e) => {
+          alert('wrong details')
+          console.log(e)
+        })
+    } catch (e) {
+      console.log(e)
+    }
   }
 
   return (
@@ -28,7 +54,7 @@ export const EmailBlock = () => {
         request.
       </Typography>
       <form className={styles.emailForm} onSubmit={handleSubmit(onSubmit)}>
-        <div className={styles.emailInputBox}>
+        <div>
           <FormController
             name="email"
             control={control}

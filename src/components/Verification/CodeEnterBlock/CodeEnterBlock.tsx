@@ -1,3 +1,4 @@
+import axios from 'axios'
 import { MuiOtpInput } from 'mui-one-time-password-input'
 import { Controller, useForm } from 'react-hook-form'
 
@@ -5,10 +6,7 @@ import { Button, Typography } from 'components/share'
 
 import styles from './CodeEnterBlock.module.scss'
 
-export const CodeEnterBlock = () => {
-  const emailAddress = 'email.com'
-  const correctCode = '123456'
-
+export const CodeEnterBlock = ({ currentStep, setCurrentStep, email }) => {
   const {
     control,
     handleSubmit,
@@ -20,15 +18,35 @@ export const CodeEnterBlock = () => {
     },
   })
 
-  const onSubmit = (data: any) => {
-    console.log(JSON.stringify(data))
+  const onSubmit = async (data: any, e: any) => {
+    e.preventDefault()
+    data.email = email
+    try {
+      await axios
+        .post('http://localhost:5000/user/verifyOTP', {
+          data,
+        })
+        .then((res) => {
+          if (res?.data?.status === 'VERIFIED') {
+            setCurrentStep(currentStep + 1)
+          } else if (res?.data?.status == 'FAILED') {
+            alert('Incorrect code!')
+          }
+        })
+        .catch((e) => {
+          alert('Something go wrong!')
+          console.log(e)
+        })
+    } catch (e) {
+      console.log(e)
+    }
   }
 
   return (
     <div className={styles.codeEnterBlock}>
       <Typography variant="HeaderM"> Confirm your email address? </Typography>
       <Typography variant="ParagraphL">
-        Enter the 6-digit code that we sent to your email address {emailAddress}
+        Enter the 6-digit code that we sent to your email address {email}
       </Typography>
       <form className={styles.codeForm} onSubmit={handleSubmit(onSubmit)}>
         <Controller
@@ -36,7 +54,6 @@ export const CodeEnterBlock = () => {
           control={control}
           rules={{
             required: 'Code Enter is required!',
-            validate: (value) => value === correctCode,
           }}
           render={({ field, fieldState }) => (
             <div>
@@ -50,12 +67,7 @@ export const CodeEnterBlock = () => {
                 <Typography
                   className={styles.errorMessage}
                   variant="ParagraphM"
-                >
-                  {fieldState.error?.type === 'required'
-                    ? fieldState.error?.message
-                    : `The code you entered does not match the one sent to your email.
-                Check input is correct`}
-                </Typography>
+                ></Typography>
               ) : null}
             </div>
           )}
