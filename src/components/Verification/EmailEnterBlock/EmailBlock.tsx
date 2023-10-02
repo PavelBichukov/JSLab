@@ -24,7 +24,7 @@ export const EmailBlock = () => {
   })
 
   const onSubmit = (data: any) => {
-    console.log(JSON.stringify(data))
+    console.log(data)
     dispatch(setCurrentStep(currentStep + 1))
   }
 

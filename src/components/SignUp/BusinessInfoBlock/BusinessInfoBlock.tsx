@@ -1,4 +1,5 @@
 import { useForm } from 'react-hook-form'
+import { useAppDispatch, useAppSelector } from 'src/utils/redux-hooks/hooks'
 
 import {
   Button,
@@ -10,9 +11,15 @@ import {
 } from 'components/share'
 
 import { businessTypeOptions, yearsOptions } from './BusinessInfo.constants'
+
+import { setCurrentStep } from 'src/store/slices/signUpSlice'
+
 import styles from './BusinessInfoBlock.module.scss'
 
 export const BusinessInfoBlock = () => {
+  const dispatch = useAppDispatch()
+  const currentStep = useAppSelector((state) => state.signUpStep.currentStep)
+
   const {
     control,
     formState: { isValid, errors },
@@ -28,7 +35,8 @@ export const BusinessInfoBlock = () => {
   })
 
   const onSubmit = (data: any) => {
-    console.log(JSON.stringify(data))
+    console.log(data)
+    dispatch(setCurrentStep(currentStep + 1))
   }
 
   return (
