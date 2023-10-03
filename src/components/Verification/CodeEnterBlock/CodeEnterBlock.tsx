@@ -1,8 +1,8 @@
-import axios from 'axios'
 import { MuiOtpInput } from 'mui-one-time-password-input'
 import { Controller, useForm } from 'react-hook-form'
 
 import { Button, Typography } from 'components/share'
+import { verifyOTP } from 'src/api/api'
 
 import styles from './CodeEnterBlock.module.scss'
 
@@ -10,6 +10,7 @@ export const CodeEnterBlock = ({ currentStep, setCurrentStep, email }) => {
   const {
     control,
     handleSubmit,
+    setError,
     formState: { isValid, errors },
   } = useForm({
     mode: 'onBlur',
@@ -20,28 +21,26 @@ export const CodeEnterBlock = ({ currentStep, setCurrentStep, email }) => {
 
   const onSubmit = async (data: any, e: any) => {
     e.preventDefault()
-    data.email = email
+    const nextData = { ...data, email }
     try {
-      await axios
-        .post('http://localhost:5000/user/verifyOTP', {
-          data,
-        })
-        .then((res) => {
-          if (res?.data?.status === 'VERIFIED') {
-            setCurrentStep(currentStep + 1)
-          } else if (res?.data?.status == 'FAILED') {
-            alert('Incorrect code!')
-          }
-        })
-        .catch((e) => {
-          alert('Something go wrong!')
-          console.log(e)
-        })
-    } catch (e) {
-      console.log(e)
+      const response = await verifyOTP(nextData)
+      const status = await response?.data?.status
+      if (status === 'VERIFIED') {
+        setCurrentStep((currentStep) => currentStep + 1)
+      } else {
+        throw new Error('Incorrect code!')
+      }
+    } catch (error) {
+      console.log(error)
+      // if (error.message === 'Incorrect code!') {
+      //   alert('Incorrect code!')
+      // } else {
+      //   alert('Something went wrong!')
+      //   console.error(error)
+      // }
     }
   }
-
+  // console.log(`errors: ${errors}`)
   return (
     <div className={styles.codeEnterBlock}>
       <Typography variant="HeaderM"> Confirm your email address? </Typography>
