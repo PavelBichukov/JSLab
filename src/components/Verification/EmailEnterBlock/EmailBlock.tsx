@@ -1,7 +1,7 @@
 import { useForm } from 'react-hook-form'
 
 import { Button, FormController, Input, Typography } from 'components/share'
-import { signUpEmail, verifyOTP } from 'src/api/api'
+import { signUpEmail } from 'src/api/api'
 
 import styles from './EmailEnterBlock.module.scss'
 
@@ -13,7 +13,9 @@ export const EmailBlock = ({
 }) => {
   const {
     control,
-    formState: { isValid },
+    setError,
+    register,
+    formState: { isValid, errors },
     handleSubmit,
   } = useForm({
     mode: 'onBlur',
@@ -30,40 +32,24 @@ export const EmailBlock = ({
       if (status === 'PENDING') {
         setEmail(email + data.email)
         setCurrentStep((currentStep) => currentStep + 1)
-      } else if (status === 'FAILED') {
-        alert('User already exists')
       } else {
-        throw new Error('Incorrect code!')
+        throw new Error(response.data.message)
       }
     } catch (error) {
-      console.log(error)
-      // if (error.message === 'Incorrect code!') {
-      //   alert('Incorrect code!')
-      // } else {
-      //   alert('Something went wrong!')
-      //   console.error(error)
-      // }
+      console.log(error.message)
+      if (error.message === 'User with the provided email already exists') {
+        setError('root.serverError', {
+          type: 'FAILED',
+          message: 'User with the provided email already exists',
+        })
+      } else {
+        setError('root.serverError', {
+          type: 'FAILED',
+          message: 'Oops... Something go wrong',
+        })
+        console.error(error)
+      }
     }
-    //   try {
-    //     await axios
-    //       .post(`${import.meta.env.VITE_HOST_DEV}/user/signup`, {
-    //         data,
-    //       })
-    //       .then((res) => {
-    //         if (res?.data?.status === 'PENDING') {
-    //           setEmail(email + data.email)
-    //           setCurrentStep(currentStep + 1)
-    //         } else if (res?.data?.status == 'FAILED') {
-    //           alert('User already exists')
-    //         }
-    //       })
-    //       .catch((e) => {
-    //         alert('wrong details')
-    //         console.log(e)
-    //       })
-    //   } catch (e) {
-    //     console.log(e)
-    //   }
   }
 
   return (
@@ -78,6 +64,7 @@ export const EmailBlock = ({
           <FormController
             name="email"
             control={control}
+            {...register('email')}
             rules={{
               required: 'Email address is required!',
               pattern: {
@@ -86,13 +73,25 @@ export const EmailBlock = ({
               },
             }}
             render={({ field }: any) => (
-              <Input
-                {...field}
-                ref={null}
-                variant="email"
-                label="Your email address"
-                id="email"
-              />
+              <div>
+                <Input
+                  {...field}
+                  ref={null}
+                  variant="email"
+                  label="Your email address"
+                  id="email"
+                />
+                {errors.root ? (
+                  <Typography
+                    className={styles.errorMessage}
+                    variant="ParagraphM"
+                  >
+                    {errors?.root?.serverError.type === 'FAILED' && (
+                      <p>{errors?.root?.serverError.message}</p>
+                    )}
+                  </Typography>
+                ) : null}
+              </div>
             )}
           />
         </div>
