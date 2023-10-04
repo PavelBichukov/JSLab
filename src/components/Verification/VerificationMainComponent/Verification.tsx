@@ -9,7 +9,8 @@ import { benefitsLists } from './Verification.constants'
 import styles from './Verification.module.scss'
 
 export const VerificationMainComponent = () => {
-  const currentStep = useAppSelector((state) => state.signUpStep.currentStep)
+  const [currentStep, setCurrentStep] = useState(1)
+  const [email, setEmail] = useState('')
 
   return (
     <div className={styles.container}>
@@ -62,11 +63,45 @@ export const VerificationMainComponent = () => {
                 </li>
               ))}
             </ul>
+            <div className={styles.buttonsBlock}>
+              <button
+                onClick={() =>
+                  setCurrentStep(
+                    currentStep > 1 ? currentStep - 1 : currentStep
+                  )
+                }
+              >
+                ‹
+              </button>
+              <button
+                onClick={() =>
+                  setCurrentStep(
+                    currentStep >= 3 ? currentStep : currentStep + 1
+                  )
+                }
+              >
+                ›
+              </button>
+            </div>
+
           </div>
         </section>
         <div className={styles.formBlock}>
-          {currentStep === 1 && <EmailBlock />}
-          {currentStep === 2 && <CodeEnterBlock />}
+          {currentStep === 1 && (
+            <EmailBlock
+              currentStep={currentStep}
+              setCurrentStep={setCurrentStep}
+              email={email}
+              setEmail={setEmail}
+            />
+          )}
+          {currentStep === 2 && (
+            <CodeEnterBlock
+              currentStep={currentStep}
+              setCurrentStep={setCurrentStep}
+              email={email}
+            />
+          )}
           {currentStep === 3 && <SuccessBlock />}
         </div>
       </div>
