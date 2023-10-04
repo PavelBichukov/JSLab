@@ -1,5 +1,4 @@
-import { useAppSelector } from 'src/utils/redux-hooks/hooks'
-
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
 
 import { Button, Typography } from 'components/share'
@@ -63,7 +62,7 @@ export const VerificationMainComponent = () => {
                 </li>
               ))}
             </ul>
-            <div className={styles.buttonsBlock}>
+            <div>
               <button
                 onClick={() =>
                   setCurrentStep(
@@ -83,7 +82,6 @@ export const VerificationMainComponent = () => {
                 ›
               </button>
             </div>
-
           </div>
         </section>
         <div className={styles.formBlock}>
