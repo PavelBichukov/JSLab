@@ -1,4 +1,5 @@
-import { useState } from 'react'
+import { useAppSelector } from 'src/utils/redux-hooks/hooks'
+
 import { Link } from 'react-router-dom'
 
 import { Button, Typography } from 'components/share'
@@ -82,6 +83,7 @@ export const VerificationMainComponent = () => {
                 ›
               </button>
             </div>
+
           </div>
         </section>
         <div className={styles.formBlock}>

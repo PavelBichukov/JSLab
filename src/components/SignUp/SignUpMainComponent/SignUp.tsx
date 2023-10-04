@@ -1,5 +1,5 @@
 import cn from 'classnames'
-import { useState } from 'react'
+import { useAppSelector } from 'src/utils/redux-hooks/hooks'
 
 import { Typography } from 'components/share'
 import {
@@ -13,7 +13,7 @@ import { progressBarConstants } from './progressBarConstants'
 import styles from './SignUpMainComponent.module.scss'
 
 export const SignUpMainComponent = () => {
-  const [currentStep, setCurrenStep] = useState(1)
+  const currentStep = useAppSelector((state) => state.signUpStep.currentStep)
 
   return (
     <div className={styles.container}>
@@ -26,10 +26,9 @@ export const SignUpMainComponent = () => {
                   [styles.progressBarItemActive]: currentStep >= item.id,
                 })}
                 key={item.id}
-                onClick={() => setCurrenStep(item.id)}
               >
                 <div className={styles.circleNumber}>
-                  <Typography variant="LabelL">{item.id}</Typography>
+                  <Typography variant="LabelL">{item.id-2}</Typography>
                 </div>
                 <Typography variant="ParagraphL">{item.name}</Typography>
               </div>
@@ -37,10 +36,10 @@ export const SignUpMainComponent = () => {
           </div>
         </section>
         <div className={styles.formBlock}>
-          {currentStep === 1 && <UserInfoBlock />}
-          {currentStep === 2 && <BusinessInfoBlock />}
-          {currentStep === 3 && <BusinessLocation />}
-          {currentStep === 4 && <TermsAndConditions />}
+          {currentStep === 3 && <UserInfoBlock />}
+          {currentStep === 4 && <BusinessInfoBlock />}
+          {currentStep === 5 && <BusinessLocation />}
+          {currentStep === 6 && <TermsAndConditions />}
         </div>
       </div>
     </div>

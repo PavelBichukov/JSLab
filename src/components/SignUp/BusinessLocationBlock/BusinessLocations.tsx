@@ -1,4 +1,5 @@
 import { useForm } from 'react-hook-form'
+import { useAppDispatch, useAppSelector } from 'src/utils/redux-hooks/hooks'
 
 import {
   Button,
@@ -8,10 +9,17 @@ import {
   Typography,
 } from 'components/share'
 
-import styles from './BusinessLocation.module.scss'
 import { stateOptions } from './BusinessLocation.constants'
 
+import { setCurrentStep } from 'src/store/slices/signUpSlice'
+
+import styles from './BusinessLocation.module.scss'
+
+
 const BusinessLocation = () => {
+  const dispatch = useAppDispatch()
+  const currentStep = useAppSelector((state) => state.signUpStep.currentStep)
+
   const {
     control,
     getValues,
@@ -29,7 +37,8 @@ const BusinessLocation = () => {
   })
 
   const onSubmit = (data: any) => {
-    console.log(JSON.stringify(data))
+    console.log(data)
+    dispatch(setCurrentStep(currentStep + 1))
   }
 
   return (

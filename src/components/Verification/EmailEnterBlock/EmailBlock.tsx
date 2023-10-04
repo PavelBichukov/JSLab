@@ -1,7 +1,10 @@
 import { useForm } from 'react-hook-form'
+import { useAppDispatch, useAppSelector } from 'src/utils/redux-hooks/hooks'
 
 import { Button, FormController, Input, Typography } from 'components/share'
 import { signUpEmail } from 'src/api/api'
+
+import { setCurrentStep } from 'src/store/slices/signUpSlice'
 
 import styles from './EmailEnterBlock.module.scss'
 
@@ -11,6 +14,7 @@ export const EmailBlock = ({
   email,
   setEmail,
 }) => {
+
   const {
     control,
     setError,
