@@ -1,7 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit'
 
-import signUpStepsReducer from './slices/signUpSlice'
-import userReducer from './slices/userInfoSlice'
+import signUpStepsReducer from './signUp'
+import userReducer from './user'
 
 const store = configureStore({
   reducer: {

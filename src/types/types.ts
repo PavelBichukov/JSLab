@@ -1,5 +1,5 @@
 export interface IBenefitsList {
-  id: number
+  key: string,
   name: string,
   type?: string,
 }

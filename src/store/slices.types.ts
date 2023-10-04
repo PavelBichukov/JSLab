@@ -1,5 +1,5 @@
 export interface IStepsState {
-  currentStep: number
+  currentStep: string
 }
 
 export interface IUserInfo {

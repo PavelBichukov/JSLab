@@ -1,15 +1,15 @@
 import { useForm } from 'react-hook-form'
 import { useAppDispatch, useAppSelector } from 'src/utils/redux-hooks/hooks'
 
-import { Button, FormController, Input, Typography } from 'components/share'
+import { SIGN_UP_STEPS } from 'src/constants/signUpSteps'
 
-import { setCurrentStep } from 'src/store/slices/signUpSlice'
+import { Button, FormController, Input, Typography } from 'components/share'
+import { setCurrentStep } from 'src/store/signUp'
 
 import styles from './UserInfoBlock.module.scss'
 
 export const UserInfoBlock = () => {
   const dispatch = useAppDispatch()
-  const currentStep = useAppSelector((state) => state.signUpStep.currentStep)
 
   const {
     control,
@@ -27,7 +27,7 @@ export const UserInfoBlock = () => {
 
   const onSubmit = (data: any) => {
     console.log(data)
-    dispatch(setCurrentStep(currentStep + 1))
+    dispatch(setCurrentStep(SIGN_UP_STEPS.BUSINESS_INFO))
   }
   return (
     <div className={styles.userInfoBlock}>

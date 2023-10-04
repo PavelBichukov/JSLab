@@ -1,10 +1,16 @@
 import { useForm } from 'react-hook-form'
+import { useAppDispatch, useAppSelector } from 'src/utils/redux-hooks/hooks'
+
+import { SIGN_UP_STEPS } from 'src/constants/signUpSteps'
 
 import { Button, Checkbox, FormController, Typography } from 'components/share'
+import { setCurrentStep } from 'src/store/signUp'
 
 import styles from './TermsAndConditions.module.scss'
 
 export const TermsAndConditions = () => {
+  const dispatch = useAppDispatch()
+
   const {
     control,
     handleSubmit,
@@ -98,7 +104,7 @@ export const TermsAndConditions = () => {
             mode="outlinedWhite"
             variant="secondary"
             size="small"
-            onClick={() => console.log('clicked')}
+            onClick={() => dispatch(setCurrentStep(SIGN_UP_STEPS.BUSINESS_LOCATION))}
           >
             Back
           </Button>

@@ -1,16 +1,18 @@
+import { SIGN_UP_STEPS } from 'src/constants/signUpSteps'
+
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
-import { IStepsState } from './slices.types'
+import { IStepsState } from '../slices.types'
 
 const initialState = {
-  currentStep: 1,
+  currentStep: SIGN_UP_STEPS.EMAIL,
 } as IStepsState
 
 const signUpSlice = createSlice({
   name: 'steps',
   initialState,
   reducers: {
-    setCurrentStep: (state, action: PayloadAction<number>) => {
+    setCurrentStep: (state, action: PayloadAction<string>) => {
       state.currentStep = action.payload
     },
   },

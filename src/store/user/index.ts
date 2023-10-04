@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
-import { IUserInfo } from './slices.types'
+import { IUserInfo } from '../slices.types'
 
 const initialState = {
   legalFistName: '',

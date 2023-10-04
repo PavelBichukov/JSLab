@@ -1,6 +1,8 @@
 import { useForm } from 'react-hook-form'
 import { useAppDispatch, useAppSelector } from 'src/utils/redux-hooks/hooks'
 
+import { SIGN_UP_STEPS } from 'src/constants/signUpSteps'
+
 import {
   Button,
   Checkbox,
@@ -12,13 +14,12 @@ import {
 
 import { businessTypeOptions, yearsOptions } from './BusinessInfo.constants'
 
-import { setCurrentStep } from 'src/store/slices/signUpSlice'
+import { setCurrentStep } from 'src/store/signUp'
 
 import styles from './BusinessInfoBlock.module.scss'
 
 export const BusinessInfoBlock = () => {
   const dispatch = useAppDispatch()
-  const currentStep = useAppSelector((state) => state.signUpStep.currentStep)
 
   const {
     control,
@@ -36,7 +37,7 @@ export const BusinessInfoBlock = () => {
 
   const onSubmit = (data: any) => {
     console.log(data)
-    dispatch(setCurrentStep(currentStep + 1))
+    dispatch(setCurrentStep(SIGN_UP_STEPS.BUSINESS_LOCATION))
   }
 
   return (
@@ -127,7 +128,7 @@ export const BusinessInfoBlock = () => {
             mode="outlinedWhite"
             variant="secondary"
             size="small"
-            onClick={() => console.log('clicked')}
+            onClick={() => dispatch(setCurrentStep(SIGN_UP_STEPS.SUCCESS))}
           >
             Back
           </Button>

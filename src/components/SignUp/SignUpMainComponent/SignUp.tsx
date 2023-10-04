@@ -1,5 +1,6 @@
+import { SIGN_UP_STEPS } from 'src/constants/signUpSteps'
+
 import cn from 'classnames'
-import { useAppSelector } from 'src/utils/redux-hooks/hooks'
 
 import { Typography } from 'components/share'
 import {
@@ -8,13 +9,33 @@ import {
   TermsAndConditions,
   UserInfoBlock,
 } from 'src/components'
+import { useAppSelector } from 'src/utils/redux-hooks/hooks'
 
 import { progressBarConstants } from './progressBarConstants'
+import { getStepIndex } from './SignUp.helpers'
 import styles from './SignUpMainComponent.module.scss'
+
+const _renderStep = (step: string) => {
+  switch (step) {
+    case SIGN_UP_STEPS.SUCCESS: {
+      return <UserInfoBlock />
+    }
+    case SIGN_UP_STEPS.BUSINESS_INFO: {
+      return <BusinessInfoBlock />
+    }
+    case SIGN_UP_STEPS.BUSINESS_LOCATION: {
+      return <BusinessLocation />
+    }
+    case SIGN_UP_STEPS.TERMS_AND_CONDITIONS: {
+      return <TermsAndConditions />
+    }
+    default:
+      ;<></>
+  }
+}
 
 export const SignUpMainComponent = () => {
   const currentStep = useAppSelector((state) => state.signUpStep.currentStep)
-
   return (
     <div className={styles.container}>
       <div className={styles.signUpBlock}>
@@ -23,12 +44,15 @@ export const SignUpMainComponent = () => {
             {progressBarConstants.map((item) => (
               <div
                 className={cn(styles.progressBarItem, {
-                  [styles.progressBarItemActive]: currentStep >= item.id,
+                  [styles.progressBarItemActive]:
+                    getStepIndex(item.key) <= getStepIndex(currentStep),
                 })}
-                key={item.id}
+                key={item.key}
               >
                 <div className={styles.circleNumber}>
-                  <Typography variant="LabelL">{item.id-2}</Typography>
+                  <Typography variant="LabelL">
+                    {getStepIndex(item.key)}
+                  </Typography>
                 </div>
                 <Typography variant="ParagraphL">{item.name}</Typography>
               </div>
@@ -36,10 +60,7 @@ export const SignUpMainComponent = () => {
           </div>
         </section>
         <div className={styles.formBlock}>
-          {currentStep === 3 && <UserInfoBlock />}
-          {currentStep === 4 && <BusinessInfoBlock />}
-          {currentStep === 5 && <BusinessLocation />}
-          {currentStep === 6 && <TermsAndConditions />}
+          {_renderStep(currentStep)}
         </div>
       </div>
     </div>

@@ -1,6 +1,8 @@
 import { useForm } from 'react-hook-form'
 import { useAppDispatch, useAppSelector } from 'src/utils/redux-hooks/hooks'
 
+import { SIGN_UP_STEPS } from 'src/constants/signUpSteps'
+
 import {
   Button,
   FormController,
@@ -11,14 +13,12 @@ import {
 
 import { stateOptions } from './BusinessLocation.constants'
 
-import { setCurrentStep } from 'src/store/slices/signUpSlice'
+import { setCurrentStep } from 'src/store/signUp'
 
 import styles from './BusinessLocation.module.scss'
 
-
 const BusinessLocation = () => {
   const dispatch = useAppDispatch()
-  const currentStep = useAppSelector((state) => state.signUpStep.currentStep)
 
   const {
     control,
@@ -38,7 +38,7 @@ const BusinessLocation = () => {
 
   const onSubmit = (data: any) => {
     console.log(data)
-    dispatch(setCurrentStep(currentStep + 1))
+    dispatch(setCurrentStep(SIGN_UP_STEPS.TERMS_AND_CONDITIONS))
   }
 
   return (
@@ -146,7 +146,7 @@ const BusinessLocation = () => {
             mode="outlinedWhite"
             variant="secondary"
             size="small"
-            onClick={() => console.log(getValues())}
+            onClick={() => dispatch(setCurrentStep(SIGN_UP_STEPS.BUSINESS_INFO))}
           >
             Back
           </Button>
