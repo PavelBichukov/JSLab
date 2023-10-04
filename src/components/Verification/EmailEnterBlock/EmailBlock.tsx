@@ -28,12 +28,13 @@ export const EmailBlock = ({
     e.preventDefault()
     try {
       const response = await signUpEmail(data)
-      const status = await response?.data?.status
+      console.log(data)
+      const { status, message } = response && response.data
       if (status === 'PENDING') {
         setEmail(email + data.email)
         setCurrentStep((currentStep) => currentStep + 1)
       } else {
-        throw new Error(response.data.message)
+        throw new Error(message)
       }
     } catch (error) {
       console.log(error.message)
@@ -47,7 +48,6 @@ export const EmailBlock = ({
           type: 'FAILED',
           message: 'Oops... Something go wrong',
         })
-        console.error(error)
       }
     }
   }

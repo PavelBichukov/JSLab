@@ -4,14 +4,9 @@ import { Controller, useForm } from 'react-hook-form'
 import { Button, Typography } from 'components/share'
 import { verifyOTP } from 'src/api/api'
 
-
-import { setCurrentStep } from 'src/store/slices/signUpSlice'
-
 import styles from './CodeEnterBlock.module.scss'
 
-
 export const CodeEnterBlock = ({ currentStep, setCurrentStep, email }) => {
-
   const {
     control,
     handleSubmit,
@@ -24,7 +19,6 @@ export const CodeEnterBlock = ({ currentStep, setCurrentStep, email }) => {
       otp: '',
     },
   })
-
   const onSubmit = async (data: any, e: any) => {
     e.preventDefault()
     const nextData = { ...data, email }
@@ -51,13 +45,12 @@ export const CodeEnterBlock = ({ currentStep, setCurrentStep, email }) => {
         console.error(error)
       }
     }
-
   }
   return (
     <div className={styles.codeEnterBlock}>
       <Typography variant="HeaderM"> Confirm your email address? </Typography>
       <Typography variant="ParagraphL">
-        Enter the 6-digit code that we sent to your email address {email}
+        Enter the 6-digit code that we sent to your email address
       </Typography>
       <form className={styles.codeForm} onSubmit={handleSubmit(onSubmit)}>
         <Controller
