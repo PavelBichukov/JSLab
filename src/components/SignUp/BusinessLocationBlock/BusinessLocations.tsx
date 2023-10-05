@@ -1,7 +1,4 @@
 import { useForm } from 'react-hook-form'
-import { useAppDispatch, useAppSelector } from 'src/utils/redux-hooks/hooks'
-
-import { SIGN_UP_STEPS } from 'src/constants/signUpSteps'
 
 import {
   Button,
@@ -10,19 +7,21 @@ import {
   Select,
   Typography,
 } from 'components/share'
+import { signUpLocation } from 'src/api/api'
+import { SIGN_UP_STEPS } from 'src/constants/signUpSteps'
+import { setCurrentStep } from 'src/store/signUp'
+import { useAppDispatch, useAppSelector } from 'src/utils/redux-hooks/hooks'
 
 import { stateOptions } from './BusinessLocation.constants'
-
-import { setCurrentStep } from 'src/store/signUp'
-
 import styles from './BusinessLocation.module.scss'
 
 const BusinessLocation = () => {
   const dispatch = useAppDispatch()
+  const email = useAppSelector((state) => state.user.email)
 
   const {
     control,
-    getValues,
+    setError,
     formState: { isValid },
     handleSubmit,
   } = useForm({
@@ -36,9 +35,32 @@ const BusinessLocation = () => {
     },
   })
 
-  const onSubmit = (data: any) => {
+  const onSubmit = async (data: any, e: any) => {
     console.log(data)
-    dispatch(setCurrentStep(SIGN_UP_STEPS.TERMS_AND_CONDITIONS))
+    const nextData = { ...data, email }
+    e.preventDefault()
+    try {
+      const response = await signUpLocation(nextData)
+      const { status, message } = response && response.data
+      if (status === 'UPDATED') {
+        dispatch(setCurrentStep(SIGN_UP_STEPS.TERMS_AND_CONDITIONS))
+      } else {
+        throw new Error(message)
+      }
+    } catch (error) {
+      console.log(error.message)
+      if (error.message === 'User with the provided email already exists') {
+        setError('root.serverError', {
+          type: 'FAILED',
+          message: 'User with the provided email already exists',
+        })
+      } else {
+        setError('root.serverError', {
+          type: 'FAILED',
+          message: 'Oops... Something go wrong',
+        })
+      }
+    }
   }
 
   return (
@@ -48,7 +70,7 @@ const BusinessLocation = () => {
         Search using your business street address or enter manually.
       </Typography>
       <form className={styles.formBlock} onSubmit={handleSubmit(onSubmit)}>
-        <div className={styles.inputsBox}>
+        <div className={styles}>
           <FormController
             name="streetAddress"
             control={control}
@@ -146,7 +168,9 @@ const BusinessLocation = () => {
             mode="outlinedWhite"
             variant="secondary"
             size="small"
-            onClick={() => dispatch(setCurrentStep(SIGN_UP_STEPS.BUSINESS_INFO))}
+            onClick={() =>
+              dispatch(setCurrentStep(SIGN_UP_STEPS.BUSINESS_INFO))
+            }
           >
             Back
           </Button>

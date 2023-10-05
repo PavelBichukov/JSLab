@@ -18,6 +18,20 @@ export const signUpContinue = async (data) => {
   )
 }
 
+export const signUpBusiness = async (data) => {
+  return await axios.post(
+    `${import.meta.env.VITE_HOST_DEV}/user/signup-business`,
+    data
+  )
+}
+
+export const signUpLocation = async (data) => {
+  return await axios.post(
+    `${import.meta.env.VITE_HOST_DEV}/user/signup-location`,
+    data
+  )
+}
+
 export const login = async (data) => {
   return await axios.post(`${import.meta.env.VITE_HOST_DEV}/user/login`, data)
 }
