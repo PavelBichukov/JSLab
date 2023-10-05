@@ -1,14 +1,16 @@
 import { useForm } from 'react-hook-form'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 import { Button, FormController, Input, Typography } from 'components/share'
+import { login } from 'src/api/api'
 
 import styles from './Login.module.scss'
 
 const Login = () => {
   const {
     control,
-    formState: { isValid },
+    setError,
+    formState: { isValid, errors },
     handleSubmit,
   } = useForm({
     mode: 'onBlur',
@@ -16,8 +18,32 @@ const Login = () => {
       email: '',
     },
   })
-  const onSubmit = (data: any) => {
-    console.log(JSON.stringify(data))
+  const navigate = useNavigate()
+  const onSubmit = async (data: any, e: any) => {
+    e.preventDefault()
+    try {
+      const response = await login(data)
+      const { status, message } = response && response.data
+      console.log(status)
+      if (status === 'SUCCESS') {
+        navigate('/home')
+      } else {
+        throw new Error(message)
+      }
+    } catch (error) {
+      console.log(error.message)
+      if (error.message === 'User with the provided email already exists') {
+        setError('root.serverError', {
+          type: 'FAILED',
+          message: 'User with the provided email already exists',
+        })
+      } else {
+        setError('root.serverError', {
+          type: 'FAILED',
+          message: 'Oops... Something go wrong',
+        })
+      }
+    }
   }
   return (
     <div className={styles.loginContainer}>
