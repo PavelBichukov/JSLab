@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom'
 
 import { Button, Typography } from 'components/share'
-import { SIGN_UP_STEPS } from 'src/constants/signUpSteps'
 import { CodeEnterBlock, EmailBlock, SuccessBlock } from 'src/components'
+import { SIGN_UP_STEPS } from 'src/constants/signUpSteps'
 import { useAppSelector } from 'src/utils/redux-hooks/hooks'
 
 import { benefitsLists } from './Verification.constants'
@@ -20,7 +20,7 @@ const _renderStep = (step: string) => {
       return <SuccessBlock />
     }
     default:
-    <></>
+      ;<></>
   }
 }
 
@@ -80,9 +80,7 @@ export const VerificationMainComponent = () => {
             </ul>
           </div>
         </section>
-        <div className={styles.formBlock}>
-          {_renderStep(currentStep)}
-        </div>
+        <div className={styles.formBlock}>{_renderStep(currentStep)}</div>
       </div>
     </div>
   )

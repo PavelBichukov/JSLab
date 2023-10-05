@@ -1,17 +1,16 @@
 import { useForm } from 'react-hook-form'
 
 import { Button, FormController, Input, Typography } from 'components/share'
-import { SIGN_UP_STEPS } from 'src/constants/signUpSteps'
 import { signUpEmail } from 'src/api/api'
+import { SIGN_UP_STEPS } from 'src/constants/signUpSteps'
 import { setCurrentStep } from 'src/store/signUp'
 import { setEmail } from 'src/store/user'
-import { useAppDispatch, useAppSelector } from 'src/utils/redux-hooks/hooks'
+import { useAppDispatch } from 'src/utils/redux-hooks/hooks'
 
 import styles from './EmailEnterBlock.module.scss'
 
 export const EmailBlock = () => {
   const dispatch = useAppDispatch()
-  const email = useAppSelector((state) => state.user.email)
   const {
     control,
     setError,
@@ -27,7 +26,6 @@ export const EmailBlock = () => {
 
   const onSubmit = async (data: any, e: any) => {
     e.preventDefault()
-    console.log(data)
     try {
       const response = await signUpEmail(data)
       const { status, message } = response && response.data

@@ -1,10 +1,9 @@
 import { MuiOtpInput } from 'mui-one-time-password-input'
 import { Controller, useForm } from 'react-hook-form'
 
-
 import { Button, Typography } from 'components/share'
-import { SIGN_UP_STEPS } from 'src/constants/signUpSteps'
 import { verifyOTP } from 'src/api/api'
+import { SIGN_UP_STEPS } from 'src/constants/signUpSteps'
 import { setCurrentStep } from 'src/store/signUp'
 import { useAppDispatch, useAppSelector } from 'src/utils/redux-hooks/hooks'
 
@@ -27,16 +26,14 @@ export const CodeEnterBlock = () => {
   })
   const onSubmit = async (data: any, e: any) => {
     e.preventDefault()
-    console.log(email)
     const nextData = { ...data, email }
     try {
       const response = await verifyOTP(nextData)
-      console.log(response)
-      const status = await response.data.status
+      const { status, message } = response && response.data
       if (status === 'VERIFIED') {
         dispatch(setCurrentStep(SIGN_UP_STEPS.SUCCESS))
       } else {
-        throw new Error(response.data.message)
+        throw new Error(message)
       }
     } catch (error) {
       console.log(error.message)
