@@ -1,5 +1,3 @@
-import { SIGN_UP_STEPS } from 'src/constants/signUpSteps'
-
 import cn from 'classnames'
 
 import { Typography } from 'components/share'
@@ -9,6 +7,7 @@ import {
   TermsAndConditions,
   UserInfoBlock,
 } from 'src/components'
+import { SIGN_UP_STEPS } from 'src/constants/signUpSteps'
 import { useAppSelector } from 'src/utils/redux-hooks/hooks'
 
 import { progressBarConstants } from './progressBarConstants'
@@ -59,9 +58,7 @@ export const SignUpMainComponent = () => {
             ))}
           </div>
         </section>
-        <div className={styles.formBlock}>
-          {_renderStep(currentStep)}
-        </div>
+        <div className={styles.formBlock}>{_renderStep(currentStep)}</div>
       </div>
     </div>
   )
