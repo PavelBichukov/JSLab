@@ -1,3 +1,4 @@
+import debounce from 'lodash.debounce'
 import { useForm } from 'react-hook-form'
 
 import {
@@ -22,6 +23,9 @@ const BusinessLocation = () => {
   const {
     control,
     setError,
+    getValues,
+    setValue,
+    setFocus,
     formState: { isValid },
     handleSubmit,
   } = useForm({
@@ -34,6 +38,42 @@ const BusinessLocation = () => {
       zipCode: '',
     },
   })
+
+  const loadOptions = (
+    inputValue: string,
+    callback: (options: { value: string; label: string }[]) => void
+  ) => {
+    fetch(`https://geocode.maps.co/search?q=${inputValue}`)
+      .then((resp) => {
+        return resp.json()
+      })
+      .then((data) => {
+        const options = [] as { value: string; label: string }[]
+        data.forEach((item) =>
+          options.push({
+            value: item.display_name.split(',')[0],
+            label: item.display_name,
+          })
+        )
+        callback(options)
+      })
+  }
+
+  const setValues = () => {
+    const locationValue = getValues('streetAddress') as unknown as {
+      value: string
+      label: string
+    }
+    setValue('city', locationValue?.label?.split(', ')[2])
+    // setValue(
+    //   'state',
+    //   stateOptions.find(
+    //     (option: { value: string; label: string }) =>
+    //       option.value === locationValue?.label?.split(', ')[4]
+    //   )
+    // )
+    setValue('zipCode', locationValue?.label?.split(', ')[5])
+  }
 
   const onSubmit = async (data: any, e: any) => {
     console.log(data)
@@ -70,20 +110,24 @@ const BusinessLocation = () => {
         Search using your business street address or enter manually.
       </Typography>
       <form className={styles.formBlock} onSubmit={handleSubmit(onSubmit)}>
-        <div className={styles}>
+        <div className={styles.inputs}>
           <FormController
+            errorClassName={styles.streetError}
             name="streetAddress"
             control={control}
             rules={{
               required: 'Street address is required!',
             }}
             render={({ field }: any) => (
-              <Input
+              <Select
                 {...field}
                 ref={null}
-                variant="text"
-                label="Street Address"
-                id="streetAddress"
+                type="async"
+                searchable="true"
+                placeholder="Street Address"
+                loadOptions={debounce(loadOptions, 500)}
+                cacheOptions
+                onBlur={setValues()}
               />
             )}
           />
@@ -114,6 +158,7 @@ const BusinessLocation = () => {
               render={({ field }: any) => (
                 <Input
                   {...field}
+                  innerRef={field.ref}
                   ref={null}
                   variant="text"
                   label="City"
@@ -153,6 +198,7 @@ const BusinessLocation = () => {
             render={({ field }: any) => (
               <Input
                 {...field}
+                innerRef={field.ref}
                 ref={null}
                 variant="text"
                 label="Zip"
@@ -180,7 +226,7 @@ const BusinessLocation = () => {
             mode={isValid ? 'defaultBlack' : 'disabled'}
             variant="secondary"
             size="small"
-            onClick={() => console.log('clicked')}
+            onClick={() => setFocus('city')}
           >
             Finished
           </Button>

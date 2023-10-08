@@ -1,5 +1,6 @@
 import cn from 'classnames'
 import DefaultSelect, { components as selectComponents } from 'react-select'
+import AsyncSelect from 'react-select/async'
 
 import { ReactComponent as Chevron } from 'assets/icons/ChevronDownIcon.svg'
 import { Typography } from 'components/share'
@@ -15,10 +16,10 @@ const Control = ({ menuIsOpen, hasValue, isValid, ...restProps }: any) => (
 )
 
 const DropdownIndicator = (props: any) => {
-  const { menuIsOpen } = props.selectProps
+  const { menuIsOpen, isSearchable } = props.selectProps
   return (
     <Chevron
-      className={cn(styles.indicator, { [styles.indicatorActive]: menuIsOpen })}
+      className={cn(styles.indicator, { [styles.indicatorActive]: menuIsOpen }, { [styles.indicatorHidden]: isSearchable })}
     />
   )
 }
@@ -43,6 +44,7 @@ const SingleValue = ({
   searchable,
   valueRenderer,
   data,
+  type,
 }: any) => {
   if (valueRenderer) {
     return valueRenderer({ data: data.label, innerProps })
@@ -54,7 +56,7 @@ const SingleValue = ({
       className={cn(styles.value, { [styles.searchableValue]: searchable })}
       variant="ParagraphL"
     >
-      {children}
+      {type === 'async' ? children : children.split(',')[0]}
     </Typography>
   )
 }
@@ -75,15 +77,26 @@ const Option = ({ innerProps, label, children, optionRenderer }: any) => {
   )
 }
 
+const LoadingMessage = ({ innerProps }: any) => (
+  <Typography {...innerProps} className={styles.noOption} variant="ParagraphL">
+    Loading...
+  </Typography>
+)
+
 const NoOptionsMessage = ({ innerProps }: any) => (
   <Typography {...innerProps} className={styles.noOption} variant="ParagraphL">
     No options...
   </Typography>
 )
 
-const Input = ({ props }: any) => (
+const Input = ({ searchable, ...props }: any) => (
   <selectComponents.Input {...props} className={styles.input} />
 )
+
+const TYPES = {
+  default: DefaultSelect,
+  async: AsyncSelect,
+}
 
 const Select = ({
   options,
@@ -91,6 +104,10 @@ const Select = ({
   optionRenderer,
   valueRenderer,
   onChange,
+  type,
+  searchable,
+  loadOptions,
+  defaultValue
 }: any) => {
   const components = {
     Control: (props: any) => <Control {...props} />,
@@ -105,9 +122,12 @@ const Select = ({
       <Option {...optionProps} optionRenderer={optionRenderer} />
     ),
     NoOptionsMessage,
+    LoadingMessage,
     ValueContainer,
     IndicatorSeparator: null,
   }
+
+  const SelectComponent = TYPES[type]
 
   const commonProps = {
     components,
@@ -115,16 +135,18 @@ const Select = ({
   }
 
   return (
-    <DefaultSelect
+    <SelectComponent
       {...commonProps}
-      isSearchable={false}
+      isSearchable={searchable}
       options={options}
+      loadOptions={loadOptions}
       className={cn(styles.container)}
       menuPlacement="auto"
       maxMenuHeight={150}
       menuShouldBlockScroll
       placeholder={placeholder}
       onChange={onChange}
+      defaultValue = {defaultValue}
     />
   )
 }
