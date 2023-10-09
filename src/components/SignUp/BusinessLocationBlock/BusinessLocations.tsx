@@ -26,7 +26,6 @@ const BusinessLocation = () => {
     setError,
     getValues,
     setValue,
-    setFocus,
     formState: { isValid },
     handleSubmit,
   } = useForm({
@@ -208,7 +207,7 @@ const BusinessLocation = () => {
             mode={isValid ? 'defaultBlack' : 'disabled'}
             variant="secondary"
             size="small"
-            onClick={() => setFocus('city')}
+            onClick={() => console.log('clicked')}
           >
             Finished
           </Button>
