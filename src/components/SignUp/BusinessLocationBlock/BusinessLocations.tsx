@@ -14,6 +14,7 @@ import { setCurrentStep } from 'src/store/signUp'
 import { useAppDispatch, useAppSelector } from 'src/utils/redux-hooks/hooks'
 
 import { stateOptions } from './BusinessLocation.constants'
+import { loadOptions } from './BusinessLocation.helpers'
 import styles from './BusinessLocation.module.scss'
 
 const BusinessLocation = () => {
@@ -39,39 +40,19 @@ const BusinessLocation = () => {
     },
   })
 
-  const loadOptions = (
-    inputValue: string,
-    callback: (options: { value: string; label: string }[]) => void
-  ) => {
-    fetch(`https://geocode.maps.co/search?q=${inputValue}`)
-      .then((resp) => {
-        return resp.json()
-      })
-      .then((data) => {
-        const options = [] as { value: string; label: string }[]
-        data.forEach((item) =>
-          options.push({
-            value: item.display_name.split(',')[0],
-            label: item.display_name,
-          })
-        )
-        callback(options)
-      })
-  }
-
   const setValues = () => {
     const locationValue = getValues('streetAddress') as unknown as {
       value: string
       label: string
     }
     setValue('city', locationValue?.label?.split(', ')[2])
-    // setValue(
-    //   'state',
-    //   stateOptions.find(
-    //     (option: { value: string; label: string }) =>
-    //       option.value === locationValue?.label?.split(', ')[4]
-    //   )
-    // )
+    setValue(
+      'state',
+      stateOptions.find(
+        (option: { value: string; label: string }) =>
+          option.value === locationValue?.label?.split(', ')[4]
+      )
+    )
     setValue('zipCode', locationValue?.label?.split(', ')[5])
   }
 
@@ -125,9 +106,10 @@ const BusinessLocation = () => {
                 type="async"
                 searchable="true"
                 placeholder="Street Address"
-                loadOptions={debounce(loadOptions, 500)}
+                loadOptions={debounce(loadOptions, 800)}
                 cacheOptions
                 onBlur={setValues()}
+                value={field.value}
               />
             )}
           />

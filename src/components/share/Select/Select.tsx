@@ -7,7 +7,7 @@ import { Typography } from 'components/share'
 
 import styles from './Select.module.scss'
 
-const Control = ({ menuIsOpen, hasValue, isValid, ...restProps }: any) => (
+const Control = ({ menuIsOpen, hasValue, ...restProps }: any) => (
   <selectComponents.Control
     {...restProps}
     hasValue={hasValue}
@@ -19,7 +19,11 @@ const DropdownIndicator = (props: any) => {
   const { menuIsOpen, isSearchable } = props.selectProps
   return (
     <Chevron
-      className={cn(styles.indicator, { [styles.indicatorActive]: menuIsOpen }, { [styles.indicatorHidden]: isSearchable })}
+      className={cn(
+        styles.indicator,
+        { [styles.indicatorActive]: menuIsOpen },
+        { [styles.indicatorHidden]: isSearchable }
+      )}
     />
   )
 }
@@ -107,8 +111,19 @@ const Select = ({
   type,
   searchable,
   loadOptions,
-  defaultValue
-}: any) => {
+  defaultValue,
+  ...restProps
+}: {
+  options: { value: string; label: string }[]
+  placeholder: string
+  optionRenderer: any
+  valueRenderer: any
+  onChange: () => void
+  type: string
+  searchable: boolean
+  loadOptions: () => void
+  defaultValue: { value: string; label: string }
+}) => {
   const components = {
     Control: (props: any) => <Control {...props} />,
     DropdownIndicator,
@@ -137,6 +152,7 @@ const Select = ({
   return (
     <SelectComponent
       {...commonProps}
+      {...restProps}
       isSearchable={searchable}
       options={options}
       loadOptions={loadOptions}
@@ -146,7 +162,7 @@ const Select = ({
       menuShouldBlockScroll
       placeholder={placeholder}
       onChange={onChange}
-      defaultValue = {defaultValue}
+      defaultValue={defaultValue}
     />
   )
 }
