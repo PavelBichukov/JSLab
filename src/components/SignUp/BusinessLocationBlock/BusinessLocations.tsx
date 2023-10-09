@@ -70,7 +70,7 @@ const BusinessLocation = () => {
         Search using your business street address or enter manually.
       </Typography>
       <form className={styles.formBlock} onSubmit={handleSubmit(onSubmit)}>
-        <div className={styles}>
+        <div>
           <FormController
             name="streetAddress"
             control={control}

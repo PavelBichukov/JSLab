@@ -60,7 +60,6 @@ export const EmailBlock = () => {
       <form className={styles.emailForm} onSubmit={handleSubmit(onSubmit)}>
         <div>
           <FormController
-            name="email"
             control={control}
             {...register('email')}
             rules={{

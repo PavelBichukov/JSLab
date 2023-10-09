@@ -59,7 +59,6 @@ export const CodeEnterBlock = () => {
       </Typography>
       <form className={styles.codeForm} onSubmit={handleSubmit(onSubmit)}>
         <Controller
-          name="otp"
           control={control}
           {...register('otp')}
           rules={{
