@@ -8,13 +8,12 @@ import {
   Select,
   Typography,
 } from 'components/share'
-import { signUpLocation } from 'src/api/api'
+import { loadOptions, signUpLocation } from 'src/api/api'
 import { SIGN_UP_STEPS } from 'src/constants/signUpSteps'
 import { setCurrentStep } from 'src/store/signUp'
 import { useAppDispatch, useAppSelector } from 'src/utils/redux-hooks/hooks'
 
 import { stateOptions } from './BusinessLocation.constants'
-import { loadOptions } from './BusinessLocation.helpers'
 import styles from './BusinessLocation.module.scss'
 
 const BusinessLocation = () => {
