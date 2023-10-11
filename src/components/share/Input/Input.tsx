@@ -27,7 +27,7 @@ export const Input = ({
         className={cn(styles.input, className)}
         //todo
         type={variant === 'password' && showPass ? 'text' : variant}
-        placeholder=""
+        placeholder=" "
         id={id}
         onChange={onChange}
         ref={innerRef}

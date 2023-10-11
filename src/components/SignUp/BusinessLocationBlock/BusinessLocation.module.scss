@@ -32,6 +32,10 @@
   width: 100%;
 }
 
+.inputs{
+  padding-top: 50px;
+}
+
 .cityStateBox {
   display: flex;
   align-items: center;
@@ -72,6 +76,10 @@
   font-size: 18px;
   line-height: 24px;
   border: 1.5px solid $medium-gray;
+}
+
+.streetError{
+  top: 43px;
 }
 
 .stateError {
