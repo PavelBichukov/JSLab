@@ -1,5 +1,4 @@
 import { SIGN_UP_STEPS } from 'src/constants/signUpSteps'
-
 import { IBenefitsList } from 'src/types/types'
 
 export const progressBarConstants: IBenefitsList[] = [
