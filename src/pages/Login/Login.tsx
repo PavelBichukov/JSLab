@@ -10,7 +10,7 @@ const Login = () => {
   const {
     control,
     setError,
-    formState: { isValid, errors },
+    formState: { isValid },
     handleSubmit,
   } = useForm({
     mode: 'onBlur',

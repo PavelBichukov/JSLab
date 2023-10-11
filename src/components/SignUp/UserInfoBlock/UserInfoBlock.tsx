@@ -14,8 +14,7 @@ export const UserInfoBlock = () => {
   const {
     control,
     setError,
-    register,
-    formState: { isValid, errors },
+    formState: { isValid },
     handleSubmit,
   } = useForm({
     mode: 'onBlur',
