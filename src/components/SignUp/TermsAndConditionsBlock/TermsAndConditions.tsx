@@ -21,7 +21,6 @@ export const TermsAndConditions = () => {
       termsCheckBox: '',
     },
   })
-
   const onSubmit = () => {
     console.log('Terms checkbox is checked')
     navigate('/')

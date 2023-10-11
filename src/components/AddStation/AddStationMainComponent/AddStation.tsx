@@ -1,50 +1,51 @@
 import cn from 'classnames'
 
 import { Typography } from 'components/share'
-import {
-  BusinessInfoBlock,
-  BusinessLocation,
-  TermsAndConditions,
-  UserInfoBlock,
-} from 'src/components'
+import { StationTypeBlock } from 'src/components/AddStation'
+import styles from 'src/components/SignUp/SignUpMainComponent/SignUpMainComponent.module.scss'
 import { ADD_STATION_STEPS } from 'src/constants/addStationSteps'
 import { getStepIndex } from 'src/utils'
 import { useAppSelector } from 'src/utils/redux-hooks/hooks'
 
-import styles from './AddStationMainComponent.module.scss'
 import { progressBarConstants } from './progressBarConstants'
 
 const _renderStep = (step: string) => {
   switch (step) {
     case ADD_STATION_STEPS.STATION_TYPE: {
-      return <UserInfoBlock />
+      return <StationTypeBlock />
     }
     case ADD_STATION_STEPS.GENERAL_INFORMATION: {
-      return <BusinessInfoBlock />
+      return <StationTypeBlock />
     }
     case ADD_STATION_STEPS.STATION_AMENITIES: {
-      return <BusinessLocation />
+      return <StationTypeBlock />
     }
     case ADD_STATION_STEPS.CONNECT_YOUR_BANK: {
-      return <TermsAndConditions />
+      return <StationTypeBlock />
     }
     case ADD_STATION_STEPS.CONNECT_YOUR_SYSTEM: {
-      return <TermsAndConditions />
+      return <StationTypeBlock />
     }
     case ADD_STATION_STEPS.FINALIZE: {
-      return <TermsAndConditions />
+      return <StationTypeBlock />
     }
     default:
-      ;<></>
+      return <StationTypeBlock />
   }
 }
 
 export const AddStationMainComponent = () => {
-  const currentStep = useAppSelector((state) => state.signUpStep.currentStep)
+  const currentStep = useAppSelector(
+    (state) => state.addStationStep.currentStep
+  )
+  console.log(currentStep)
   return (
     <div className={styles.container}>
       <div className={styles.signUpBlock}>
         <section className={styles.sideSection}>
+          <Typography variant="HeaderM" className={styles.headerStation}>
+            Add a Station
+          </Typography>
           <div className={styles.progressBar}>
             {progressBarConstants.map((item) => (
               <div

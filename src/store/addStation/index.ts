@@ -1,14 +1,14 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit'
 
-import { SIGN_UP_STEPS } from 'src/constants/signUpSteps'
+import { ADD_STATION_STEPS } from 'src/constants/addStationSteps'
 
 import { IStepsState } from '../slices.types'
 
 const initialState = {
-  currentStep: SIGN_UP_STEPS.EMAIL,
+  currentStep: ADD_STATION_STEPS.STATION_TYPE,
 } as IStepsState
 
-const signUpSlice = createSlice({
+const addStationSlice = createSlice({
   name: 'steps',
   initialState,
   reducers: {
@@ -17,6 +17,6 @@ const signUpSlice = createSlice({
     },
   },
 })
-export const { setCurrentStep } = signUpSlice.actions
+export const { setCurrentStep } = addStationSlice.actions
 
-export default signUpSlice.reducer
+export default addStationSlice.reducer
