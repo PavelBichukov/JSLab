@@ -7,25 +7,31 @@ import {
   TermsAndConditions,
   UserInfoBlock,
 } from 'src/components'
-import { SIGN_UP_STEPS } from 'src/constants/signUpSteps'
+import { ADD_STATION_STEPS } from 'src/constants/addStationSteps'
 import { getStepIndex } from 'src/utils'
 import { useAppSelector } from 'src/utils/redux-hooks/hooks'
 
+import styles from './AddStationMainComponent.module.scss'
 import { progressBarConstants } from './progressBarConstants'
-import styles from './SignUpMainComponent.module.scss'
 
 const _renderStep = (step: string) => {
   switch (step) {
-    case SIGN_UP_STEPS.SUCCESS: {
+    case ADD_STATION_STEPS.STATION_TYPE: {
       return <UserInfoBlock />
     }
-    case SIGN_UP_STEPS.BUSINESS_INFO: {
+    case ADD_STATION_STEPS.GENERAL_INFORMATION: {
       return <BusinessInfoBlock />
     }
-    case SIGN_UP_STEPS.BUSINESS_LOCATION: {
+    case ADD_STATION_STEPS.STATION_AMENITIES: {
       return <BusinessLocation />
     }
-    case SIGN_UP_STEPS.TERMS_AND_CONDITIONS: {
+    case ADD_STATION_STEPS.CONNECT_YOUR_BANK: {
+      return <TermsAndConditions />
+    }
+    case ADD_STATION_STEPS.CONNECT_YOUR_SYSTEM: {
+      return <TermsAndConditions />
+    }
+    case ADD_STATION_STEPS.FINALIZE: {
       return <TermsAndConditions />
     }
     default:
@@ -33,7 +39,7 @@ const _renderStep = (step: string) => {
   }
 }
 
-export const SignUpMainComponent = () => {
+export const AddStationMainComponent = () => {
   const currentStep = useAppSelector((state) => state.signUpStep.currentStep)
   return (
     <div className={styles.container}>
@@ -65,4 +71,4 @@ export const SignUpMainComponent = () => {
   )
 }
 
-export default SignUpMainComponent
+export default AddStationMainComponent
