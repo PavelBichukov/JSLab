@@ -1,4 +1,4 @@
-import { MainLayout } from 'components/share'
+import { MainLayout} from 'components/share'
 
 import styles from './Home.module.scss'
 
