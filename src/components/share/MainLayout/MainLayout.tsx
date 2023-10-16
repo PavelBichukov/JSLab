@@ -7,7 +7,10 @@ import styles from './MainLayout.module.scss'
 import { ILayoutProps } from './MainLayout.types'
 
 const MainLayout = ({
+  innerClassName,
+  actionsClassName,
   mainClassName,
+  headerClassName,
   tittle,
   adornment,
   children,
@@ -15,15 +18,21 @@ const MainLayout = ({
 }: ILayoutProps) => (
   <div className={styles.container}>
     <SideBar />
-    <div className={styles.inner}>
-      <div className={styles.header}>
+    <div className={cn(styles.inner, innerClassName)}>
+      <div className={cn(styles.header, headerClassName)}>
         <div className={styles.headerText}>
           <Typography variant="HeaderM">{tittle}</Typography>
           {adornment && (
-            <Typography className={styles.headerAdornment} variant="ParagraphL">{adornment}</Typography>
+            <Typography className={styles.headerAdornment} variant="ParagraphL">
+              {adornment}
+            </Typography>
           )}
         </div>
-        {headerActions && <div>{headerActions}</div>}
+        {headerActions && (
+          <div className={cn(styles.headerActions, actionsClassName)}>
+            {headerActions}
+          </div>
+        )}
       </div>
       <div className={cn(styles.main, mainClassName)}>{children}</div>
     </div>
