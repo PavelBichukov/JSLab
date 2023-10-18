@@ -1,16 +1,10 @@
 import { useForm } from 'react-hook-form'
 
-import { Button, FormController, Input, Typography } from 'components/share'
-import { useAppDispatch } from 'src/utils/redux-hooks/hooks'
+import { Typography } from 'components/share'
 
 export const StationTypeBlock = () => {
-  const dispatch = useAppDispatch()
-
   const {
-    control,
-    setError,
     formState: { isValid },
-    handleSubmit,
   } = useForm({
     mode: 'onBlur',
     defaultValues: {
@@ -23,7 +17,7 @@ export const StationTypeBlock = () => {
 
   return (
     <div>
-      <Typography variant="HeaderM">Welcome to JSLab</Typography>
+      <Typography variant="HeaderM">Welcome to JSLab {isValid}</Typography>
     </div>
   )
 }

@@ -2,12 +2,12 @@ import { Banner, Footer, Header, Rates, Team } from 'src/layout/index'
 
 import styles from './Landing.module.scss'
 
-const Landing = () => {
+const Landing = ({ onGetStartedClick }: any) => {
   return (
     <div className={styles.landingMain}>
       <Header />
       <div>
-        <Banner />
+        <Banner onGetStartedClick={onGetStartedClick} />
         <div className={styles.bannerMission}>
           <p className={styles.bannerMissionText}>
             <span className={styles.bannerMissionSmart}>Our Mission</span> is to

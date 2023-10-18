@@ -1,7 +1,7 @@
 @import '../../../App.scss';
 
-.modal {
-  position: fixed;
+.small {
+  position: relative;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -10,7 +10,18 @@
   height: auto;
   z-index: 1000;
   border-radius: 24px;
-  padding: 48px;
+}
+
+.medium {
+  position: relative;
+  top: 100px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: $white;
+  width: 1184px;
+  height: auto;
+  z-index: 1000;
+  border-radius: 24px;
 }
 
 .overlay {
@@ -22,6 +33,12 @@
   bottom: 0;
   background-color: rgba(0, 0, 0, .16);
   z-index: 1000;
+}
+
+.closeButton {
+  position: absolute;
+  top: 10px;
+  right: 10px;
 }
 
 @media screen and (max-width: 800px) {

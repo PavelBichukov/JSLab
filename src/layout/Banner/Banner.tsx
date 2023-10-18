@@ -2,7 +2,7 @@ import { Button, Typography } from 'components/share'
 
 import styles from './Banner.module.scss'
 
-const Banner = () => {
+const Banner = ({ onGetStartedClick }: any) => {
   return (
     <div className={styles.mainBanner}>
       <div className={styles.pattern}></div>
@@ -24,7 +24,7 @@ const Banner = () => {
             size="large"
             mode="defaultWhite"
             variant="secondary"
-            onClick={() => console.log('clicked')}
+            onClick={onGetStartedClick}
           >
             Get started today
           </Button>
