@@ -1,0 +1,45 @@
+@import '../../../App.scss';
+
+.buttonBlock {
+  width: 100%;
+  padding-top: 48px;
+  color: rgba(50, 54, 66, 1);
+
+  .inputError {
+    border-color: red;
+    box-shadow: 0 0 8px 0 rgba(243, 24, 16, 0.562);
+  }
+}
+
+.btnError {
+  display: none;
+}
+
+.buttonSelect {
+  height: 56px;
+}
+
+.buttonSelectActive {
+  height: 56px;
+  border: 3px solid $brand-black;
+}
+
+.buttonContinue {
+  height: 44px;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 24px;
+}
+
+.buttonDisabled {
+  height: 56px;
+  margin: 14px 0 24px 0;
+  cursor: not-allowed;
+}
+
+.btnParagraph {
+  margin-top: 24px;
+  color: $darker-gray;
+  width: 384px;
+  padding-bottom: 26vh;
+}

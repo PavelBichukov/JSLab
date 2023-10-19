@@ -82,7 +82,7 @@ const Login = () => {
             <button className={styles.backButton}>Back</button>
           </Link>
           <Typography variant="Header2XL" className={styles.formTitle}>
-            Register
+            Login
           </Typography>
           <div className={styles.controllerContainer}>
             <FormController

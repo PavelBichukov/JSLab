@@ -9,6 +9,7 @@ const MODES = {
   outlinedWhite: styles.outlinedWhite,
   outlinedBlack: styles.outlinedBlack,
   whiteShadow: styles.whiteShadow,
+  whiteShadowDisabled: styles.whiteShadowDisabled,
   disabled: styles.disabled,
 }
 
