@@ -1,0 +1,100 @@
+.signUpBlock {
+  max-width: 1184px;
+  height: 80vh;
+  background-color: rgba(255, 255, 255, 1);
+  display: flex;
+  margin: 0 auto;
+  border-radius: 24px;
+  box-shadow: 0 0 4px -1px rgba(34, 60, 80, 0.2);
+  @media (max-width: 768px) {
+    flex-direction: column;
+    height: auto;
+  }
+}
+
+.sideSection {
+  max-width: 372px;
+  border-right: 1px solid rgba(225, 229, 237, 1);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  padding: 72px 80px 0 64px;
+  @media (max-width: 1200px) {
+    flex: 2;
+    padding: 72px 15px 0 15px;
+  }
+  @media (max-width: 768px) {
+    border: none;
+    padding: 15px;
+  }
+}
+
+.progressBar {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  min-width: 270px;
+  @media (max-width: 768px) {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+.progressBarItem {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  color: rgba(110, 118, 138, 1);
+  cursor: pointer;
+
+  & p {
+    @media (max-width: 768px) {
+      display: none;
+    }
+  }
+}
+
+.progressBarItemActive {
+  color: rgba(20, 21, 26, 1);
+
+  .circleNumber {
+    border: 1px solid rgba(20, 21, 26, 1);
+    background-color: rgba(20, 21, 26, 1);
+
+    & * {
+      color: rgba(255, 255, 255, 1);
+    }
+  }
+}
+
+.circleNumber {
+  color: rgba(80, 87, 107, 1);
+  border: 1px solid;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.2s;
+}
+
+.headerStation {
+  padding-bottom: 51px;
+}
+
+.formBlock {
+  flex: 3;
+  padding: 72px 8px 32px 204px;
+  @media (max-width: 1200px) {
+    padding: 72px 8px 32px 160px;
+  }
+  @media (max-width: 1050px) {
+    padding: 30px 8px 32px 80px;
+  }
+  @media (max-width: 600px) {
+    padding: 15px 15px;
+  }
+}

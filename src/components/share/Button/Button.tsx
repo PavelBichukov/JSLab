@@ -8,6 +8,7 @@ const MODES = {
   defaultBlack: styles.defaultBlack,
   outlinedWhite: styles.outlinedWhite,
   outlinedBlack: styles.outlinedBlack,
+  whiteShadow: styles.whiteShadow,
   disabled: styles.disabled,
 }
 

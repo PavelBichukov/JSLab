@@ -24,6 +24,12 @@
   border: 2px solid $white;
 }
 
+.whiteShadow {
+  background: $white;
+  color: $brand-black;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.16), 0 1px 2px 1px rgba(0, 0, 0, 0.12);
+}
+
 .disabled {
   background: $medium-gray;
   color: $medium-gray-2;
