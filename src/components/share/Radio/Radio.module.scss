@@ -1,0 +1,64 @@
+@import '../../../App.scss';
+
+.container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  //margin-bottom: 12px;
+  margin-top: 34px;
+  cursor: pointer;
+  color: $brand-black;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 24px;
+  width: 24px;
+  background-color: $white;
+  border-radius: 50%;
+  border: 1px solid $brand-black;
+}
+
+.textStyle {
+  margin-left: 13px;
+}
+
+.subTextStyle {
+  margin-left: 13px;
+  margin-top: 5px;
+}
+
+.container input:checked ~ .checkmark {
+  background-color: $brand-black;
+}
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+.container .checkmark:after {
+  top: 7px;
+  left: 7px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: $white;
+}
