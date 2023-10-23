@@ -17,18 +17,20 @@
 .textInfo {
   max-height: 40vh;
   overflow-y: scroll;
-  overflow-y: overlay;
   margin-top: 48px;
   padding-right: 230px;
   color: rgba(80, 87, 107, 1);
+
   &::-webkit-scrollbar {
     background-color: transparent;
     width: 6px;
   }
+
   &::-webkit-scrollbar-thumb {
     background-color: rgba(80, 87, 107, 1);
     border-radius: 3px;
   }
+
   @media (max-width: 1200px) {
     padding-right: 150px;
     margin-top: 15px;
@@ -50,14 +52,17 @@
   padding-right: 230px;
   padding-top: 19px;
   color: rgba(50, 54, 66, 1);
+
   & a {
     text-decoration: underline;
     font-weight: 600;
   }
+
   .inputError {
     border-color: red;
     box-shadow: 0px 0px 8px 0px rgba(243, 24, 16, 0.562);
   }
+
   @media (max-width: 1200px) {
     padding-right: 150px;
   }
@@ -68,6 +73,7 @@
     padding-right: 15px;
   }
 }
+
 .checkBoxError {
   display: none;
 }
@@ -80,9 +86,11 @@
   gap: 16px;
   padding-right: 230px;
   padding-top: 37px;
+
   & button {
     flex: 1;
   }
+
   @media (max-width: 1200px) {
     padding-right: 150px;
   }

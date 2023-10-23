@@ -1,5 +1,6 @@
 import cn from 'classnames'
 
+import { GeneralInfoBlock } from 'components/AddStation/GeneralInfoBlock'
 import { Modal, Typography } from 'components/share'
 import { StationTypeBlock } from 'src/components/AddStation'
 import { ADD_STATION_STEPS } from 'src/constants/addStationSteps'
@@ -16,7 +17,7 @@ const _renderStep = (step: string) => {
       return <StationTypeBlock />
     }
     case ADD_STATION_STEPS.GENERAL_INFORMATION: {
-      return <StationTypeBlock />
+      return <GeneralInfoBlock />
     }
     case ADD_STATION_STEPS.STATION_AMENITIES: {
       return <StationTypeBlock />
