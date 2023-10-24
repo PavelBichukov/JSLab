@@ -27,8 +27,8 @@ export const StationTypeBlock = () => {
     setIsActive((current) => !current)
   }
   return (
-    <div>
-      <Typography variant="HeaderM">Select a Station Type</Typography>
+    <div className={styles.mainBlock}>
+      <Typography variant="HeaderS">Select a Station Type</Typography>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className={styles.buttonBlock}>
           <FormController

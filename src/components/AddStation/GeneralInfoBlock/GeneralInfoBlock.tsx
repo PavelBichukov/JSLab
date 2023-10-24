@@ -60,7 +60,7 @@ const GeneralInfoBlock = () => {
     <div>
       <form className={styles.formBlock} onSubmit={handleSubmit(onSubmit)}>
         <div className={styles.mainBlock}>
-          <Typography variant="HeaderM">General Information</Typography>
+          <Typography variant="HeaderS">General Information</Typography>
           <div className={styles.stationsDropDown}>
             <FormController
               name="stationBrand"
@@ -114,9 +114,13 @@ const GeneralInfoBlock = () => {
                 />
               )}
             />
+            <Typography variant="HeaderXS" className={styles.headerEnter}>
+              Enter Your Address Manually
+            </Typography>
             <FormController
               name="phoneNumber"
               control={control}
+              rootClassName={styles.numberStyle}
               rules={{
                 required: 'Phone Number is required!',
               }}
@@ -134,13 +138,17 @@ const GeneralInfoBlock = () => {
               name="emailAddress"
               control={control}
               rules={{
-                required: 'Email Address is required!',
+                required: 'Email address is required!',
+                pattern: {
+                  value: /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/,
+                  message: 'Invalid email address!',
+                },
               }}
               render={({ field }: any) => (
                 <Input
                   {...field}
                   ref={null}
-                  variant="text"
+                  variant="email"
                   label="Email Address"
                   id="emailAddress"
                 />

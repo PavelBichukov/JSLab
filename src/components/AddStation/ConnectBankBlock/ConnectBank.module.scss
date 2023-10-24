@@ -7,7 +7,6 @@
   gap: 16px;
   justify-content: space-between;
   width: 100%;
-  padding-left: 47px;
 }
 
 .mainBlock {
@@ -56,22 +55,16 @@
 }
 
 .stationsDropDown {
-  padding-top: 70px;
+  padding: 70px 0 0 47px;
   display: flex;
   flex-direction: column;
   overflow-y: visible;
 }
 
-.dropDownStreet {
-  padding-top: 70px;
-  overflow-y: visible;
+.titleSelect {
+  margin-top: 50px;
 }
 
-.headerEnter {
-  margin: 0 auto;
-  border-bottom: 1px solid #14151A;
-}
-
-.numberStyle {
-  margin-top: 20px;
+.paymentMethod {
+  padding-left: 47px;
 }

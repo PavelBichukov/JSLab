@@ -1,5 +1,6 @@
 import cn from 'classnames'
 
+import { ConnectBank } from 'components/AddStation/ConnectBankBlock'
 import { GeneralInfoBlock } from 'components/AddStation/GeneralInfoBlock'
 import { Modal, Typography } from 'components/share'
 import { StationTypeBlock } from 'src/components/AddStation'
@@ -20,10 +21,10 @@ const _renderStep = (step: string) => {
       return <GeneralInfoBlock />
     }
     case ADD_STATION_STEPS.STATION_AMENITIES: {
-      return <StationTypeBlock />
+      return <ConnectBank />
     }
     case ADD_STATION_STEPS.CONNECT_YOUR_BANK: {
-      return <StationTypeBlock />
+      return <ConnectBank />
     }
     case ADD_STATION_STEPS.CONNECT_YOUR_SYSTEM: {
       return <StationTypeBlock />
