@@ -33,7 +33,7 @@ const BusinessLocation = () => {
       streetAddress: '',
       secondaryStreetAddress: '',
       city: '',
-      state: '',
+      state: '' as any,
       zipCode: '',
     },
   })

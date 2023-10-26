@@ -142,7 +142,7 @@ const Select = ({
     IndicatorSeparator: null,
   }
 
-  const SelectComponent = TYPES[type]
+  const SelectComponent = (TYPES as any)[type]!
 
   const commonProps = {
     components,
@@ -168,11 +168,11 @@ const Select = ({
 }
 
 Select.defaultProps = {
-  variant: 'outlined',
-  type: 'default',
-  mode: 'portal',
-  searchable: false,
-  multi: false,
+    variant: 'outlined',
+    type: 'default',
+    mode: 'portal',
+    searchable: false,
+    multi: false,
 }
 
 export default Select

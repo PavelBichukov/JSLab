@@ -1,3 +1,4 @@
+import AddStation from './Add Station/AddStation'
 import Home from './Home Page/Home'
 import Landing from './Landing/Landing'
 import Login from './Login/Login'
@@ -8,5 +9,4 @@ import Stations from './Stations/Stations'
 import Transactions from './Transactions/Transactions'
 import Payments from './Payments/Payments'
 
-
-export { Landing, SignUp, Testing, Login, SignUpContinue, Home, Stations, Transactions, Payments }
+export { Landing, SignUp, Testing, Login, SignUpContinue, Home, Stations, Transactions, Payments, AddStation }

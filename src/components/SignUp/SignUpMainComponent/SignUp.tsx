@@ -8,10 +8,10 @@ import {
   UserInfoBlock,
 } from 'src/components'
 import { SIGN_UP_STEPS } from 'src/constants/signUpSteps'
+import { getStepIndex } from 'src/utils'
 import { useAppSelector } from 'src/utils/redux-hooks/hooks'
 
 import { progressBarConstants } from './progressBarConstants'
-import { getStepIndex } from './SignUp.helpers'
 import styles from './SignUpMainComponent.module.scss'
 
 const _renderStep = (step: string) => {
@@ -44,13 +44,14 @@ export const SignUpMainComponent = () => {
               <div
                 className={cn(styles.progressBarItem, {
                   [styles.progressBarItemActive]:
-                    getStepIndex(item.key) <= getStepIndex(currentStep),
+                    getStepIndex(item.key, progressBarConstants) <=
+                    getStepIndex(currentStep, progressBarConstants),
                 })}
                 key={item.key}
               >
                 <div className={styles.circleNumber}>
                   <Typography variant="LabelL">
-                    {getStepIndex(item.key)}
+                    {getStepIndex(item.key, progressBarConstants)}
                   </Typography>
                 </div>
                 <Typography variant="ParagraphL">{item.name}</Typography>

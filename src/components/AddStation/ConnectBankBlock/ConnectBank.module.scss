@@ -1,0 +1,70 @@
+@import '../../../App.scss';
+
+.formBlock {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.mainBlock {
+  max-height: 64vh;
+  overflow-y: scroll;
+  padding-right: 200px;
+
+  &::-webkit-scrollbar {
+    background-color: transparent;
+    width: 6px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: rgba(80, 87, 107, 1);
+    border-radius: 3px;
+  }
+}
+
+.buttonsBlock {
+  width: 100%;
+  padding-top: 20px;
+  padding-right: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+
+  & button {
+    flex: 1;
+  }
+}
+
+.buttonBack {
+  height: 44px;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 24px;
+  border-width: 1.5px;
+}
+
+.buttonFinished {
+  height: 44px;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 24px;
+}
+
+.stationsDropDown {
+  padding: 70px 0 0 47px;
+  display: flex;
+  flex-direction: column;
+  overflow-y: visible;
+}
+
+.titleSelect {
+  margin-top: 50px;
+}
+
+.paymentMethod {
+  padding-left: 47px;
+}
