@@ -56,6 +56,10 @@ const GeneralInfoBlock = () => {
     console.log('Next')
     dispatch(setCurrentStep(ADD_STATION_STEPS.STATION_AMENITIES))
   }
+
+  const onBack = () => {
+    dispatch(setCurrentStep(ADD_STATION_STEPS.STATION_TYPE))
+  }
   return (
     <div>
       <form className={styles.formBlock} onSubmit={handleSubmit(onSubmit)}>
@@ -163,9 +167,7 @@ const GeneralInfoBlock = () => {
             mode="outlinedWhite"
             variant="primary"
             size="small"
-            onClick={() =>
-              dispatch(setCurrentStep(ADD_STATION_STEPS.STATION_TYPE))
-            }
+            onClick={onBack}
           >
             Back
           </Button>

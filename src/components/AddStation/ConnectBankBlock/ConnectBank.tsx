@@ -33,6 +33,10 @@ export const ConnectBank = () => {
     console.log('Next')
     dispatch(setCurrentStep(ADD_STATION_STEPS.CONNECT_YOUR_SYSTEM))
   }
+
+  const onBack = () => {
+    dispatch(setCurrentStep(ADD_STATION_STEPS.STATION_AMENITIES))
+  }
   return (
     <div>
       <form className={styles.formBlock} onSubmit={handleSubmit(onSubmit)}>
@@ -98,9 +102,7 @@ export const ConnectBank = () => {
             mode="outlinedWhite"
             variant="primary"
             size="small"
-            onClick={() =>
-              dispatch(setCurrentStep(ADD_STATION_STEPS.STATION_AMENITIES))
-            }
+            onClick={onBack}
           >
             Back
           </Button>
