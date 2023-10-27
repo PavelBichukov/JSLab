@@ -121,6 +121,15 @@ const GeneralInfoBlock = () => {
             <Typography variant="HeaderXS" className={styles.headerEnter}>
               Enter Your Address Manually
             </Typography>
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d75187.42993526722!2d27.577917969263755!3d53.92095589358667!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46dbd13162d13f3b%3A0x9a5e9239cb7ae356!2sAyaks!5e0!3m2!1sen!2sby!4v1698384340699!5m2!1sen!2sby"
+              width="400"
+              height="350"
+              style={{ border: '0', marginTop: '30px', borderRadius: '20px' }}
+              allowFullScreen=""
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            ></iframe>
             <FormController
               name="phoneNumber"
               control={control}

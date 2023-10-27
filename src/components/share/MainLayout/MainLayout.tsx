@@ -11,7 +11,7 @@ const MainLayout = ({
   actionsClassName,
   mainClassName,
   headerClassName,
-  tittle,
+  title,
   adornment,
   children,
   headerActions,
@@ -21,7 +21,7 @@ const MainLayout = ({
     <div className={cn(styles.inner, innerClassName)}>
       <div className={cn(styles.header, headerClassName)}>
         <div className={styles.headerText}>
-          <Typography variant="HeaderM">{tittle}</Typography>
+          <Typography variant="HeaderM">{title}</Typography>
           {adornment && (
             <Typography className={styles.headerAdornment} variant="ParagraphL">
               {adornment}

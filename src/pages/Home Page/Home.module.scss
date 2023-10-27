@@ -5,3 +5,23 @@
   height: 100vh;
 }
 
+.headerElement {
+  text-align: center;
+  padding-bottom: 48px;
+}
+
+.paragraphElement {
+  color: $darker-gray;
+  padding-bottom: 15px;
+}
+
+.secondParagraph {
+  color: $darker-gray;
+  padding-bottom: 64px;
+}
+
+.mainButton {
+  height: 44px;
+  font-weight: 600;
+}
+

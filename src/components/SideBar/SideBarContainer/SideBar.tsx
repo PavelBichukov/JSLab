@@ -47,11 +47,11 @@ const SideBar = () => {
           Menu
         </Typography>
         {MENU_ITEMS.map(
-          (item: { icon: string; tittle: string; route: string }) => (
+          (item: { icon: string; title: string; route: string }) => (
             <SideBarItem
-              key={item.tittle}
+              key={item.title}
               icon={item.icon}
-              tittle={item.tittle}
+              title={item.title}
               route={item.route}
               collapsed={collapsed}
               pathname={currentPath.pathname}
@@ -61,11 +61,11 @@ const SideBar = () => {
       </div>
       <div className={styles.additionalItems}>
         {ADDITIONAL_ITEMS.map(
-          (item: { icon: string; tittle: string; route: string }) => (
+          (item: { icon: string; title: string; route: string }) => (
             <SideBarItem
-              key={item.tittle}
+              key={item.title}
               icon={item.icon}
-              tittle={item.tittle}
+              tittle={item.title}
               route={item.route}
               collapsed={collapsed}
               pathname={currentPath.pathname}
@@ -74,14 +74,14 @@ const SideBar = () => {
         )}
       </div>
       <div className={styles.user}>
-        <UserIcon/>
+        <UserIcon />
         {!collapsed && (
           <>
             <div className={styles.userInfo}>
-          <Typography variant='LabelL'>User Name</Typography>
-          <Typography variant='ParagraphS'>User Role</Typography>
-      </div>
-      <DotsIcon className={styles.userDotsIcon}/>
+              <Typography variant="LabelL">User Name</Typography>
+              <Typography variant="ParagraphS">User Role</Typography>
+            </div>
+            <DotsIcon className={styles.userDotsIcon} />
           </>
         )}
       </div>

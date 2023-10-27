@@ -18,13 +18,13 @@ import { IIcons } from './SideBarItems.types'
 
 const SideBarItem = ({
   icon,
-  tittle,
+  title,
   route,
   collapsed,
   pathname,
 }: {
   icon: string
-  tittle: string
+  title: string
   route: string
   collapsed: boolean
   pathname: string
@@ -56,7 +56,7 @@ const SideBarItem = ({
       <Icon />
       {!collapsed && (
         <Typography className={styles.tittle} variant="LabelM">
-          {tittle}
+          {title}
         </Typography>
       )}
     </NavLink>

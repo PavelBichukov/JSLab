@@ -1,57 +1,57 @@
 export const MENU_ITEMS = [
   {
     icon: 'dashboard',
-    tittle: 'Dashboard',
+    title: 'Dashboard',
     route: '/home',
   },
   {
     icon: 'stations',
-    tittle: 'Stations',
+    title: 'Stations',
     route: '/stations',
   },
   {
     icon: 'transactions',
-    tittle: 'Transactions',
+    title: 'Transactions',
     route: '/transactions',
   },
   {
     icon: 'payments',
-    tittle: 'Payments',
+    title: 'Payments',
     route: '/payments',
   },
   {
     icon: 'campaigns',
-    tittle: 'Campaigns',
+    title: 'Campaigns',
     route: '/campaigns',
   },
   {
     icon: 'people',
-    tittle: 'People',
+    title: 'People',
     route: '/analytics',
   },
   {
     icon: 'analytics',
-    tittle: 'Analytics',
+    title: 'Analytics',
     route: '/analytics',
   },
-] as { icon: string; tittle: string; route: string }[]
+] as { icon: string; title: string; route: string }[]
 
 export const ADDITIONAL_ITEMS = [
   {
     icon: 'notifications',
-    tittle: 'Notifications',
+    title: 'Notifications',
     route: '/notifications',
   },
 
   {
     icon: 'settings',
-    tittle: 'Settings',
+    title: 'Settings',
     route: '/settings',
   },
 
   {
     icon: 'supports',
-    tittle: 'Supports',
+    title: 'Supports',
     route: '/supports',
   },
-] as { icon: string; tittle: string; route: string }[]
+] as { icon: string; title: string; route: string }[]
