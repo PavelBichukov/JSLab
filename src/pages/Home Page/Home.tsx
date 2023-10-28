@@ -1,11 +1,16 @@
 import { Button, MainLayout, Modal, Typography } from 'components/share'
+import { AddStationMainComponent } from 'src/components'
 import { useModal } from 'src/hooks/useModal'
 
 import styles from './Home.module.scss'
 
 const Home = () => {
   const [isOpenSmall, openModalSmall, closeModalSmall] = useModal()
-
+  const [isOpenBig, openModalBig, closeModalBig] = useModal()
+  const openModalHandler = () => {
+    closeModalSmall()
+    openModalBig()
+  }
   return (
     <div className={styles.main}>
       <MainLayout title="Home">
@@ -33,10 +38,18 @@ const Home = () => {
             variant="secondary"
             size="large"
             className={styles.mainButton}
-            onClick={() => console.log('clicked')}
+            onClick={openModalHandler}
           >
             Get Started
           </Button>
+        </Modal>
+        <Modal
+          isOpen={isOpenBig}
+          onModalClose={closeModalBig}
+          withCloseButton={false}
+          variant="medium"
+        >
+          <AddStationMainComponent />
         </Modal>
       </MainLayout>
     </div>
