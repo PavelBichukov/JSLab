@@ -31,6 +31,9 @@ const GeneralInfoBlock = () => {
       stationBrand: '',
       stationName: '',
       streetAddress: '',
+      city: '',
+      state: '' as any,
+      zipCode: '',
       phoneNumber: '',
       emailAddress: '',
     },
@@ -126,7 +129,7 @@ const GeneralInfoBlock = () => {
               width="400"
               height="350"
               style={{ border: '0', marginTop: '30px', borderRadius: '20px' }}
-              allowFullScreen=""
+              allowFullScreen={false}
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
             ></iframe>

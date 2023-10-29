@@ -41,34 +41,32 @@ export const AddStationMainComponent = () => {
     (state) => state.addStationStep.currentStep
   )
   return (
-    <div>
-      <div className={styles.signUpBlock}>
-        <section className={styles.sideSection}>
-          <Typography variant="HeaderM" className={styles.headerStation}>
-            Add a Station
-          </Typography>
-          <div className={styles.progressBar}>
-            {progressBarConstants.map((item) => (
-              <div
-                className={cn(styles.progressBarItem, {
-                  [styles.progressBarItemActive]:
-                    getStepIndex(item.key, progressBarConstants) <=
-                    getStepIndex(currentStep, progressBarConstants),
-                })}
-                key={item.key}
-              >
-                <div className={styles.circleNumber}>
-                  <Typography variant="LabelL">
-                    {getStepIndex(item.key, progressBarConstants)}
-                  </Typography>
-                </div>
-                <Typography variant="ParagraphL">{item.name}</Typography>
+    <div className={styles.signUpBlock}>
+      <section className={styles.sideSection}>
+        <Typography variant="HeaderM" className={styles.headerStation}>
+          Add a Station
+        </Typography>
+        <div className={styles.progressBar}>
+          {progressBarConstants.map((item) => (
+            <div
+              className={cn(styles.progressBarItem, {
+                [styles.progressBarItemActive]:
+                  getStepIndex(item.key, progressBarConstants) <=
+                  getStepIndex(currentStep, progressBarConstants),
+              })}
+              key={item.key}
+            >
+              <div className={styles.circleNumber}>
+                <Typography variant="LabelL">
+                  {getStepIndex(item.key, progressBarConstants)}
+                </Typography>
               </div>
-            ))}
-          </div>
-        </section>
-        <div className={styles.formBlock}>{_renderStep(currentStep)}</div>
-      </div>
+              <Typography variant="ParagraphL">{item.name}</Typography>
+            </div>
+          ))}
+        </div>
+      </section>
+      <div className={styles.formBlock}>{_renderStep(currentStep)}</div>
     </div>
   )
 }

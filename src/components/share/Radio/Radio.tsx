@@ -1,5 +1,3 @@
-import cn from 'classnames'
-
 import { Typography } from 'components/share'
 
 import styles from './Radio.module.scss'

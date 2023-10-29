@@ -29,7 +29,7 @@ const SideBarItem = ({
   collapsed: boolean
   pathname: string
 }) => {
-  const TYPES = {
+  const TYPES: any = {
     analytics: AnalyticsIcon,
     campaigns: CampaignsIcon,
     dashboard: DashBoardIcon,

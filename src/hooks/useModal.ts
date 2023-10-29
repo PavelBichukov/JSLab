@@ -8,5 +8,5 @@ export const useModal = () => {
   const closeModal = () => {
     return setOpen(false)
   }
-  return [open, openModal, closeModal]
+  return [open, openModal, closeModal] as const
 }

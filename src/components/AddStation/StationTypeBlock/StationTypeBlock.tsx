@@ -38,9 +38,8 @@ export const StationTypeBlock = () => {
             rules={{
               required: true,
             }}
-            render={({ field: { onBlur } }: any) => (
+            render={() => (
               <Button
-                onBlur={onBlur}
                 type="button"
                 className={
                   isActive ? styles.buttonSelectActive : styles.buttonSelect
@@ -61,6 +60,7 @@ export const StationTypeBlock = () => {
               mode="whiteShadowDisabled"
               variant="secondary"
               size="large"
+              onClick={() => console.log('click')}
             >
               <Typography variant="LabelL">Electric (Coming Soon)</Typography>
             </Button>
@@ -70,6 +70,7 @@ export const StationTypeBlock = () => {
               mode="whiteShadowDisabled"
               variant="secondary"
               size="large"
+              onClick={() => console.log('click')}
             >
               <Typography variant="LabelL">Both (Coming Soon)</Typography>
             </Button>
@@ -89,7 +90,6 @@ export const StationTypeBlock = () => {
           onClick={() =>
             dispatch(setCurrentStep(ADD_STATION_STEPS.GENERAL_INFORMATION))
           }
-          disabled={!isActive}
         >
           Continue
         </Button>

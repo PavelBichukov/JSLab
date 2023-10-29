@@ -52,6 +52,7 @@ const Button = ({
       (SIZES as any)[size]!,
       className
     )}
+    disabled={mode == 'disabled'}
   >
     {children}
   </button>

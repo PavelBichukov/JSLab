@@ -8,7 +8,6 @@ import { ILayoutProps } from './MainLayout.types'
 
 const MainLayout = ({
   innerClassName,
-  actionsClassName,
   mainClassName,
   headerClassName,
   title,
@@ -28,11 +27,7 @@ const MainLayout = ({
             </Typography>
           )}
         </div>
-        {headerActions && (
-          <div className={cn(styles.headerActions, actionsClassName)}>
-            {headerActions}
-          </div>
-        )}
+        {headerActions && <div>{headerActions}</div>}
       </div>
       <div className={cn(styles.main, mainClassName)}>{children}</div>
     </div>

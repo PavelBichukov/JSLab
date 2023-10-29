@@ -7,12 +7,12 @@ import { ReactComponent as DotsIcon } from 'assets/icons/side-bar-icons/moreVert
 import { ReactComponent as SearchIcon } from 'assets/icons/side-bar-icons/search.svg'
 import { ReactComponent as UserIcon } from 'assets/icons/side-bar-icons/userLogo.svg'
 import { Typography } from 'components/share'
-import SideBarItem from 'src/components/SideBar/SideBarItem/SideBarItem'
+import { SideBarItem } from 'src/components'
 
 import { ADDITIONAL_ITEMS, MENU_ITEMS } from './SideBar.constantns'
 import styles from './SideBar.module.scss'
 
-const SideBar = () => {
+export const SideBar = () => {
   const [collapsed, setCollapsed] = useState(true)
   const currentPath = useLocation()
 
@@ -27,11 +27,7 @@ const SideBar = () => {
         />
       </div>
       <div className={styles.searchBox}>
-        <SearchIcon
-          className={cn(styles.searchIcon, {
-            [styles.searchIconCollapsed]: collapsed,
-          })}
-        />
+        <SearchIcon className={cn(styles.searchIcon)} />
         {!collapsed && (
           <input
             className={styles.searchInput}
@@ -65,7 +61,7 @@ const SideBar = () => {
             <SideBarItem
               key={item.title}
               icon={item.icon}
-              tittle={item.title}
+              title={item.title}
               route={item.route}
               collapsed={collapsed}
               pathname={currentPath.pathname}

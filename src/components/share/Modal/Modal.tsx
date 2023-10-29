@@ -1,5 +1,4 @@
 import cn from 'classnames'
-import { MouseEventHandler } from 'react'
 import * as ReactModal from 'react-modal'
 
 import styles from './Modal.module.scss'
@@ -12,21 +11,19 @@ const Modal = ({
   isOpen,
   children,
   onModalClose,
-  className,
   variant,
   withCloseButton,
 }: {
-  isOpen: boolean
+  isOpen: any
   children?: any
-  onModalClose: MouseEventHandler<HTMLButtonElement> | undefined
-  className: any
+  onModalClose: any
   variant: string
   withCloseButton: boolean
 }) => (
   <ReactModal
     isOpen={isOpen}
     onRequestClose={onModalClose}
-    className={cn((VARIANTS as any)[variant]!, className)}
+    className={cn((VARIANTS as any)[variant]!)}
     overlayClassName={styles.overlay}
     contentLabel="Modal"
     appElement={document.querySelector('#root') as HTMLElement}
