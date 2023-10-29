@@ -1,5 +1,5 @@
 import cn from 'classnames'
-import * as ReactModal from 'react-modal'
+import Modal from 'react-modal'
 
 import styles from './Modal.module.scss'
 
@@ -7,20 +7,20 @@ const VARIANTS = {
   small: styles.small,
   medium: styles.medium,
 }
-const Modal = ({
+const CustomModal = ({
   isOpen,
   children,
   onModalClose,
   variant,
   withCloseButton,
 }: {
-  isOpen: any
+  isOpen: boolean
   children?: any
   onModalClose: any
   variant: string
   withCloseButton: boolean
 }) => (
-  <ReactModal
+  <Modal
     isOpen={isOpen}
     onRequestClose={onModalClose}
     className={cn((VARIANTS as any)[variant]!)}
@@ -34,7 +34,7 @@ const Modal = ({
       </button>
     )}
     {children}
-  </ReactModal>
+  </Modal>
 )
 
-export default Modal
+export default CustomModal

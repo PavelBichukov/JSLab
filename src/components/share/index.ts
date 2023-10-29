@@ -21,5 +21,5 @@ export {
   Checkbox,
   Typography,
   Radio,
-  MainLayout
+  MainLayout,
 }
