@@ -4,3 +4,9 @@ export const paymentMethods = [
   { value: 'Ewallets', label: 'Ewallets' },
   { value: 'Cryptocurrency', label: 'Cryptocurrency' },
 ]
+
+export const accountType = [
+  { value: 'Checking', label: 'Checking' },
+  { value: 'Verified', label: 'Verified' },
+  { value: 'Pending', label: 'Pending' },
+]

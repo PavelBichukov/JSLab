@@ -27,8 +27,7 @@
 
 .buttonsBlock {
   width: 100%;
-  padding-top: 20px;
-  padding-right: 200px;
+  padding: 0 200px 0 47px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -67,4 +66,29 @@
 
 .paymentMethod {
   padding-left: 47px;
+}
+
+.titleEnter {
+  padding-top: 64px;
+}
+
+.underSelectPart {
+  padding-left: 47px;
+}
+
+.accountNickname {
+  padding: 24px 0 65px 0;
+}
+
+.infoContainer {
+  display: flex;
+  background-color: $light-gray;
+  padding: 16px 24px;
+  border-radius: 8px;
+  margin-bottom: 72px;
+}
+
+.infoText {
+  padding-left: 16px;
+  color: $darker-gray;
 }

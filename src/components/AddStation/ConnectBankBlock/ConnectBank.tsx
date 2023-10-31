@@ -1,9 +1,13 @@
 import { useForm } from 'react-hook-form'
 
-import { paymentMethods } from 'components/AddStation/ConnectBankBlock/ConnectBank.constants'
+import {
+  accountType,
+  paymentMethods,
+} from 'components/AddStation/ConnectBankBlock/ConnectBank.constants'
 import {
   Button,
   FormController,
+  Input,
   Radio,
   Select,
   Typography,
@@ -26,6 +30,10 @@ export const ConnectBank = () => {
     defaultValues: {
       paymentMethod: '',
       instant: '',
+      accountNickname: '',
+      accountType: '',
+      routingNumber: '',
+      accountNumber: '',
     },
   })
 
@@ -94,6 +102,89 @@ export const ConnectBank = () => {
               />
             )}
           />
+          <div className={styles.underSelectPart}>
+            <Typography variant="HeaderS" className={styles.titleEnter}>
+              Enter Your Bank Information
+            </Typography>
+            <FormController
+              name="accountNickname"
+              control={control}
+              rootClassName={styles.accountNickname}
+              rules={{
+                required: 'Account Nickname is required!',
+              }}
+              render={({ field }: any) => (
+                <Input
+                  {...field}
+                  ref={null}
+                  variant="text"
+                  label="Account Nickname"
+                  id="accountNickname"
+                />
+              )}
+            />
+            <FormController
+              name="accountType"
+              control={control}
+              rules={{
+                required: 'Account Type is required!',
+              }}
+              render={({ field }: any) => (
+                <Select
+                  {...field}
+                  ref={null}
+                  options={accountType}
+                  placeholder="Account Type"
+                />
+              )}
+            />
+            <FormController
+              name="routingNumber"
+              control={control}
+              rules={{
+                required: 'Routing Number is required!',
+              }}
+              render={({ field }: any) => (
+                <Input
+                  {...field}
+                  ref={null}
+                  variant="password"
+                  label="Routing Number"
+                  id="routingNumber"
+                />
+              )}
+            />
+            <FormController
+              name="accountNumber"
+              control={control}
+              rules={{
+                required: 'Account Number is required!',
+              }}
+              render={({ field }: any) => (
+                <Input
+                  {...field}
+                  ref={null}
+                  variant="password"
+                  label="Account Number"
+                  id="accountNumber"
+                />
+              )}
+            />
+            <div className={styles.infoContainer}>
+              <img
+                src="src/assets/icons/info.png"
+                alt="info"
+                width="24"
+                height="24"
+              />
+              <Typography variant="ParagraphS" className={styles.infoText}>
+                In order for your account to be active, a bank account must be
+                verified. You will receive 2 deposits into the account
+                specified. Upon receipt - enter these values into your station
+                details.
+              </Typography>
+            </div>
+          </div>
         </div>
         <div className={styles.buttonsBlock}>
           <Button
