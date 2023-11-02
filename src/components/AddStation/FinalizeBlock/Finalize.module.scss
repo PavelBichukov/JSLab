@@ -1,0 +1,46 @@
+@import '../../../App.scss';
+
+.mainContainer {
+  padding: 0 216px 0 47px;
+}
+
+.paragraph {
+  padding: 24px 0 16px 0;
+  color: $darker-gray;
+}
+
+.labelContainer {
+  padding: 32px 90px 0 0;
+}
+
+.labelTitle {
+  font-weight: 600;
+  color: $darker-gray;
+}
+
+.subLabelTitle {
+  display: block;
+  margin-top: 8px;
+  color: $brand-black;
+}
+
+.labelsContainer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.print {
+  padding-top: 59px;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration-line: underline;
+}
+
+.secondParagraph {
+  color: $darker-gray;
+  padding: 40px 0;
+}
+
+.mainButton {
+  height: 44px;
+}

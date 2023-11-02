@@ -3,6 +3,7 @@ import cn from 'classnames'
 import {
   ConnectBank,
   ConnectSystem,
+  Finalize,
   GeneralInfoBlock,
   StationTypeBlock,
 } from 'components/AddStation'
@@ -26,13 +27,13 @@ const _renderStep = (step: string) => {
       return <ConnectBank />
     }
     case ADD_STATION_STEPS.CONNECT_YOUR_BANK: {
-      return <ConnectSystem />
+      return <ConnectBank />
     }
     case ADD_STATION_STEPS.CONNECT_YOUR_SYSTEM: {
       return <ConnectSystem />
     }
     case ADD_STATION_STEPS.FINALIZE: {
-      return <StationTypeBlock />
+      return <Finalize />
     }
     default:
       return <StationTypeBlock />
