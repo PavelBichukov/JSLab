@@ -1,0 +1,63 @@
+@import '../../../App.scss';
+
+.mainBlockContainer {
+  padding: 0 200px 0 47px;
+}
+
+.dropDownPOS {
+  padding-top: 85px;
+}
+
+.downloadTitle {
+  padding-top: 70px;
+}
+
+.paragraph {
+  padding-top: 24px;
+  color: $darker-gray;
+}
+
+.buttonStyles {
+  margin-top: 24px;
+  height: 56px;
+  font-family: Metropolis, sans-serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 24px;
+}
+
+.paragraphNeed {
+  margin-top: 48px;
+  color: $brand-black;
+  cursor: pointer;
+  text-decoration-line: underline;
+}
+
+.buttonsBlock {
+  width: 100%;
+  padding: 210px 200px 0 47px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+
+  & button {
+    flex: 1;
+  }
+}
+
+.buttonBack {
+  height: 44px;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 24px;
+  border-width: 1.5px;
+}
+
+.buttonFinished {
+  height: 44px;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 24px;
+}

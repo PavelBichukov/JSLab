@@ -85,10 +85,15 @@
   background-color: $light-gray;
   padding: 16px 24px;
   border-radius: 8px;
+  margin-top: 25px;
   margin-bottom: 72px;
 }
 
 .infoText {
   padding-left: 16px;
   color: $darker-gray;
+}
+
+.routingNumber {
+  padding: 0;
 }

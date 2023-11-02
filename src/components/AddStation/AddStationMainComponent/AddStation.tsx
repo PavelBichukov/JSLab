@@ -1,9 +1,12 @@
 import cn from 'classnames'
 
-import { ConnectBank } from 'components/AddStation/ConnectBankBlock'
-import { GeneralInfoBlock } from 'components/AddStation/GeneralInfoBlock'
+import {
+  ConnectBank,
+  ConnectSystem,
+  GeneralInfoBlock,
+  StationTypeBlock,
+} from 'components/AddStation'
 import { Typography } from 'components/share'
-import { StationTypeBlock } from 'src/components/AddStation'
 import { ADD_STATION_STEPS } from 'src/constants/addStationSteps'
 import { getStepIndex } from 'src/utils'
 import { useAppSelector } from 'src/utils/redux-hooks/hooks'
@@ -23,10 +26,10 @@ const _renderStep = (step: string) => {
       return <ConnectBank />
     }
     case ADD_STATION_STEPS.CONNECT_YOUR_BANK: {
-      return <ConnectBank />
+      return <ConnectSystem />
     }
     case ADD_STATION_STEPS.CONNECT_YOUR_SYSTEM: {
-      return <StationTypeBlock />
+      return <ConnectSystem />
     }
     case ADD_STATION_STEPS.FINALIZE: {
       return <StationTypeBlock />

@@ -141,6 +141,7 @@ export const ConnectBank = () => {
             <FormController
               name="routingNumber"
               control={control}
+              rootClassName={styles.routingNumber}
               rules={{
                 required: 'Routing Number is required!',
               }}
