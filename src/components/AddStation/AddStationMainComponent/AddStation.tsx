@@ -5,6 +5,7 @@ import {
   ConnectSystem,
   Finalize,
   GeneralInfoBlock,
+  StationAmenities,
   StationTypeBlock,
 } from 'components/AddStation'
 import { Typography } from 'components/share'
@@ -24,7 +25,7 @@ const _renderStep = (step: string) => {
       return <GeneralInfoBlock />
     }
     case ADD_STATION_STEPS.STATION_AMENITIES: {
-      return <ConnectBank />
+      return <StationAmenities />
     }
     case ADD_STATION_STEPS.CONNECT_YOUR_BANK: {
       return <ConnectBank />
