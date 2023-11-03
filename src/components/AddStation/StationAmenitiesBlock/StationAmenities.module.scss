@@ -1,0 +1,62 @@
+@import '../../../App.scss';
+
+.mainContainer {
+  padding: 0 206px 0 47px;
+}
+
+.labelBlock {
+  display: flex;
+  margin-top: 20px;
+}
+
+.paragraphLabel {
+  display: inline;
+  padding: 3px 0 0 16px;
+}
+
+.paragraphLabelDisabled {
+  font-size: 14px;
+  display: inline;
+  padding: 3px 0 0 16px;
+  color: $darker-gray;
+}
+
+.buttonsBlock {
+  width: 100%;
+  padding: 60px 206px 0 47px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+
+  & button {
+    flex: 1;
+  }
+}
+
+.buttonBack {
+  height: 44px;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 24px;
+  border-width: 1.5px;
+}
+
+.buttonFinished {
+  height: 44px;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 24px;
+}
+
+.subDiv {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 40px;
+}
+
+.subLabelBlock {
+  display: flex;
+  margin-top: 20px;
+  width: 165px;
+}
