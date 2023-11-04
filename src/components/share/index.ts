@@ -2,7 +2,9 @@ import Button from './Button/Button'
 import Checkbox from './Checkbox/Checkbox'
 import FormController from './FormController/FormController'
 import Input from './Input/Input'
+import Location from './Location/Location'
 import MainLayout from './MainLayout/MainLayout'
+import Map from './Map/Map'
 import Modal from './Modal/Modal'
 import Radio from './Radio/Radio'
 import RateCard from './RateCard/Rate'
@@ -22,4 +24,6 @@ export {
   Typography,
   Radio,
   MainLayout,
+  Map,
+  Location,
 }

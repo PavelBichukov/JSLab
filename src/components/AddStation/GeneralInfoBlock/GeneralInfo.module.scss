@@ -39,6 +39,12 @@
   }
 }
 
+.subTitle {
+  padding: 12px 0 5px 14px;
+  color: $darker-gray;
+}
+
+
 .buttonBack {
   height: 44px;
   font-weight: 600;
@@ -69,8 +75,4 @@
 .headerEnter {
   margin: 0 auto;
   border-bottom: 1px solid #14151A;
-}
-
-.numberStyle {
-  margin-top: 20px;
 }
