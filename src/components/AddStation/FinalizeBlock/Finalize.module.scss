@@ -1,7 +1,40 @@
 @import '../../../App.scss';
 
 .mainContainer {
-  padding: 0 216px 0 47px;
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  justify-content: space-between;
+  width: 100%;
+  height: auto;
+  padding-left: 47px;
+  @media (max-width: 1094px) {
+    padding-left: 10px;
+  }
+}
+
+.subContainer {
+  max-height: 66vh;
+  padding-right: 216px;
+  overflow-y: scroll;
+
+  &::-webkit-scrollbar {
+    background-color: transparent;
+    width: 6px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: rgba(80, 87, 107, 1);
+    border-radius: 3px;
+  }
+
+  @media (max-width: 1284px) {
+    padding-right: 146px;
+  }
+  @media (max-width: 976px) {
+    padding-right: 86px;
+  }
 }
 
 .paragraph {
@@ -43,4 +76,10 @@
 
 .mainButton {
   height: 44px;
+  @media (max-width: 900px) {
+    margin: 0 auto;
+  }
+  @media (max-width: 472px) {
+    width: 90%;
+  }
 }

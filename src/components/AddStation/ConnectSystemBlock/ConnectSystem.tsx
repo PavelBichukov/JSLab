@@ -32,7 +32,7 @@ export const ConnectSystem = () => {
   }
   return (
     <div>
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form className={styles.formBlock} onSubmit={handleSubmit(onSubmit)}>
         <div className={styles.mainBlockContainer}>
           <Typography variant="HeaderS">Select Your POS System</Typography>
           <div className={styles.dropDownPOS}>

@@ -7,11 +7,16 @@
   gap: 16px;
   justify-content: space-between;
   width: 100%;
+  height: auto;
   padding-left: 47px;
+  @media (max-width: 1106px) {
+    padding-left: 10px;
+    width: 85%;
+  }
 }
 
 .mainBlock {
-  max-height: 64vh;
+  height: 64vh;
   overflow-y: scroll;
   padding-right: 200px;
 
@@ -24,6 +29,13 @@
     background-color: rgba(80, 87, 107, 1);
     border-radius: 3px;
   }
+
+  @media (max-width: 1303px) {
+    padding-right: 100px;
+  }
+  @media (max-width: 1106px) {
+    padding-right: 100px;
+  }
 }
 
 .buttonsBlock {
@@ -33,9 +45,14 @@
   align-items: center;
   justify-content: space-between;
   gap: 16px;
+  padding-bottom: 10px;
 
   & button {
     flex: 1;
+  }
+
+  @media (max-width: 1303px) {
+    padding-right: 100px;
   }
 }
 

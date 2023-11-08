@@ -2,6 +2,18 @@
 
 .mainContainer {
   padding: 0 206px 0 47px;
+  height: 60vh;
+  overflow-y: scroll;
+
+  &::-webkit-scrollbar {
+    background-color: transparent;
+    width: 6px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: rgba(80, 87, 107, 1);
+    border-radius: 3px;
+  }
 }
 
 .labelBlock {
@@ -31,6 +43,10 @@
 
   & button {
     flex: 1;
+  }
+
+  @media (max-width: 1000px) {
+    padding-top: 10px;
   }
 }
 

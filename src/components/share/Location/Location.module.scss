@@ -4,6 +4,11 @@
 
 .latLng {
   display: flex;
+  flex-wrap: wrap;
   gap: 50px;
   margin-top: 20px;
+  @media (max-width: 1213px) {
+    gap: 10px;
+    margin-top: 10px;
+  }
 }
