@@ -4,6 +4,9 @@ import { useState } from 'react'
 
 import { Location } from 'components/share'
 
+import styles from './Map.module.scss'
+
+
 const Map = ({
   lat,
   lng,
@@ -33,10 +36,7 @@ const Map = ({
       mapOptions={mapOptions}
       mapContainer={mapContainer}
     >
-      <div
-        ref={(node) => setMapContainer(node)}
-        style={{ height: '400px', width: '400px' }}
-      />
+      <div ref={(node) => setMapContainer(node)} className={styles.mainMap} />
       <Location lat={lat} lng={lng} setLat={setLat} setLng={setLng} />
     </GoogleMapsProvider>
   ) : (

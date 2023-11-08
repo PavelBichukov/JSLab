@@ -28,7 +28,9 @@ export const StationTypeBlock = () => {
   }
   return (
     <div className={styles.mainBlock}>
-      <Typography variant="HeaderS">Select a Station Type</Typography>
+      <Typography variant="HeaderS" className={styles.title}>
+        Select a Station Type
+      </Typography>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className={styles.buttonBlock}>
           <FormController

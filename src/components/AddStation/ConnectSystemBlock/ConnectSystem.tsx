@@ -1,11 +1,11 @@
 import { useForm } from 'react-hook-form'
 
-import { posSystems } from 'components/AddStation/ConnectSystemBlock/ConnectSystem.constants'
 import { Button, FormController, Select, Typography } from 'components/share'
 import { ADD_STATION_STEPS } from 'src/constants/addStationSteps'
 import { setCurrentStep } from 'src/store/signUp'
 import { useAppDispatch } from 'src/utils/redux-hooks/hooks'
 
+import { posSystems } from './ConnectSystem.constants'
 import styles from './ConnectSystem.module.scss'
 
 export const ConnectSystem = () => {

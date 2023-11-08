@@ -1,10 +1,6 @@
 import { useForm } from 'react-hook-form'
 
 import {
-  accountType,
-  paymentMethods,
-} from 'components/AddStation/ConnectBankBlock/ConnectBank.constants'
-import {
   Button,
   FormController,
   Input,
@@ -16,6 +12,7 @@ import { ADD_STATION_STEPS } from 'src/constants/addStationSteps'
 import { setCurrentStep } from 'src/store/signUp'
 import { useAppDispatch } from 'src/utils/redux-hooks/hooks'
 
+import { accountType, paymentMethods } from './ConnectBank.constants'
 import styles from './ConnectBank.module.scss'
 
 export const ConnectBank = () => {

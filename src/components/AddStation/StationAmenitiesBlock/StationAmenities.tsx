@@ -1,14 +1,14 @@
 import { useState } from 'react'
 
-import {
-  stationAmenities,
-  subStoreAmenities,
-} from 'components/AddStation/StationAmenitiesBlock/StationAmenities.constants'
 import { Button, Checkbox, Typography } from 'components/share'
 import { ADD_STATION_STEPS } from 'src/constants/addStationSteps'
 import { setCurrentStep } from 'src/store/signUp'
 import { useAppDispatch } from 'src/utils/redux-hooks/hooks'
 
+import {
+  stationAmenities,
+  subStoreAmenities,
+} from './StationAmenities.constants'
 import styles from './StationAmenities.module.scss'
 
 export const StationAmenities = () => {
@@ -30,10 +30,6 @@ export const StationAmenities = () => {
   }
 
   const onNext = () => {
-    console.log(
-      'Полиция повязала группу мошенников, продающих дипломы в метро.\n' +
-        '«Нам пришлось их отпустить» - заявил профессор экономических наук сержант Иванов.'
-    )
     dispatch(setCurrentStep(ADD_STATION_STEPS.CONNECT_YOUR_BANK))
   }
 
