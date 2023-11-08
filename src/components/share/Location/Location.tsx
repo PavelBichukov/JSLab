@@ -5,9 +5,19 @@ import { Input } from 'components/share'
 
 import styles from './Location.module.scss'
 
-const Location = ({ lat, lng, setLng, setLat }) => {
+const Location = ({
+  lat,
+  lng,
+  setLng,
+  setLat,
+}: {
+  lat: number
+  lng: number
+  setLng: any
+  setLat: any
+}) => {
   const map = useGoogleMap()
-  const markerRef = useRef()
+  const markerRef: any = useRef()
 
   useEffect(() => {
     if (!map) return

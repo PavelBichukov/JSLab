@@ -1,16 +1,18 @@
 @import '../../../App.scss';
 
-.container{
+.container {
   max-width: 1920px;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
+  min-height: 750px;
   position: relative;
 }
 
-.inner{
+.inner {
   height: 100%;
+
   flex: 1;
   margin: auto;
   display: flex;
@@ -19,7 +21,7 @@
   box-sizing: border-box;
 }
 
-.header{
+.header {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -27,17 +29,17 @@
   min-height: 60px;
 }
 
-.headerText{
+.headerText {
   display: flex;
   align-items: baseline;
   gap: 16px;
 }
 
-.headerAdornment{
+.headerAdornment {
   color: $darker-gray;
 }
 
-.main{
+.main {
   background-color: $white;
   border-radius: 16px;
   flex: 1;

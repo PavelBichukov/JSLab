@@ -12,11 +12,11 @@ import {
 import styles from './StationAmenities.module.scss'
 
 export const StationAmenities = () => {
-  const [perks, setPerks] = useState([])
+  const [perks, setPerks] = useState<string[]>([])
   const [check, setCheck] = useState(false)
   const dispatch = useAppDispatch()
 
-  const handleCbClick = (ev) => {
+  const handleCbClick = (ev: any) => {
     const { checked, name } = ev.target
     if (checked) {
       setPerks([...perks, name])

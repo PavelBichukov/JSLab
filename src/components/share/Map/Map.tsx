@@ -6,7 +6,6 @@ import { Location } from 'components/share'
 
 import styles from './Map.module.scss'
 
-
 const Map = ({
   lat,
   lng,
@@ -18,7 +17,7 @@ const Map = ({
   setLat: any
   setLng: any
 }) => {
-  const [mapContainer, setMapContainer] = useState(null)
+  const [mapContainer, setMapContainer] = useState<any>()
   const mapOptions = {
     zoom: 12,
     center: {
@@ -36,7 +35,10 @@ const Map = ({
       mapOptions={mapOptions}
       mapContainer={mapContainer}
     >
-      <div ref={(node) => setMapContainer(node)} className={styles.mainMap} />
+      <div
+        ref={(node): any => setMapContainer(node)}
+        className={styles.mainMap}
+      />
       <Location lat={lat} lng={lng} setLat={setLat} setLng={setLng} />
     </GoogleMapsProvider>
   ) : (
