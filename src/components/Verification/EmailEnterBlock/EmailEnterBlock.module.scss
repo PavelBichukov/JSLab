@@ -33,10 +33,13 @@
 }
 
 .errorMessage {
+  display: flex;
+  gap: 5px;
   padding: 10px;
   color: red;
   background-color: #f387877a;
   border-radius: 8px;
+
   &::before {
     content: '⚠ ';
   }

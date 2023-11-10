@@ -35,6 +35,7 @@ module.exports = {
         'import'
     ],
     "rules": {
+        "prettier/prettier" : 0,
         "react/react-in-jsx-scope": "off",
         'sort-imports': [
             'error',

@@ -1,10 +1,16 @@
 import { useForm } from 'react-hook-form'
+import { useNavigate } from 'react-router-dom'
 
 import { Button, Checkbox, FormController, Typography } from 'components/share'
+import { SIGN_UP_STEPS } from 'src/constants/signUpSteps'
+import { setCurrentStep } from 'src/store/signUp'
+import { useAppDispatch } from 'src/utils/redux-hooks/hooks'
 
 import styles from './TermsAndConditions.module.scss'
 
 export const TermsAndConditions = () => {
+  const dispatch = useAppDispatch()
+  const navigate = useNavigate()
   const {
     control,
     handleSubmit,
@@ -15,9 +21,9 @@ export const TermsAndConditions = () => {
       termsCheckBox: '',
     },
   })
-
   const onSubmit = () => {
     console.log('Terms checkbox is checked')
+    navigate('/')
   }
 
   return (
@@ -98,7 +104,9 @@ export const TermsAndConditions = () => {
             mode="outlinedWhite"
             variant="secondary"
             size="small"
-            onClick={() => console.log('clicked')}
+            onClick={() =>
+              dispatch(setCurrentStep(SIGN_UP_STEPS.BUSINESS_LOCATION))
+            }
           >
             Back
           </Button>

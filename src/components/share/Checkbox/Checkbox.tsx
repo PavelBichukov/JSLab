@@ -1,6 +1,6 @@
 import cn from 'classnames'
 
-import styles from './/Checkbox.module.scss'
+import styles from './Checkbox.module.scss'
 import { ICheckboxProps } from './Chekbox.types'
 
 const Checkbox = ({

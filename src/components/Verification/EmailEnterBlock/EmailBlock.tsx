@@ -1,13 +1,21 @@
 import { useForm } from 'react-hook-form'
 
 import { Button, FormController, Input, Typography } from 'components/share'
+import { signUpEmail } from 'src/api/api'
+import { SIGN_UP_STEPS } from 'src/constants/signUpSteps'
+import { setCurrentStep } from 'src/store/signUp'
+import { setEmail } from 'src/store/user'
+import { useAppDispatch } from 'src/utils/redux-hooks/hooks'
 
 import styles from './EmailEnterBlock.module.scss'
 
 export const EmailBlock = () => {
+  const dispatch = useAppDispatch()
   const {
     control,
-    formState: { isValid },
+    setError,
+    register,
+    formState: { isValid, errors },
     handleSubmit,
   } = useForm({
     mode: 'onBlur',
@@ -16,10 +24,32 @@ export const EmailBlock = () => {
     },
   })
 
-  const onSubmit = (data: any) => {
-    console.log(JSON.stringify(data))
+  const onSubmit = async (data: any, e: any) => {
+    e.preventDefault()
+    try {
+      const response = await signUpEmail(data)
+      const { status, message } = response && response.data
+      if (status === 'PENDING') {
+        dispatch(setEmail(data.email))
+        dispatch(setCurrentStep(SIGN_UP_STEPS.OTP_CODE))
+      } else {
+        throw new Error(message)
+      }
+    } catch (error) {
+      console.log(error.message)
+      if (error.message === 'User with the provided email already exists') {
+        setError('root.serverError', {
+          type: 'FAILED',
+          message: 'User with the provided email already exists',
+        })
+      } else {
+        setError('root.serverError', {
+          type: 'FAILED',
+          message: 'Oops... Something go wrong',
+        })
+      }
+    }
   }
-
   return (
     <div className={styles.emailBlock}>
       <Typography variant="HeaderM">What’s your email address?</Typography>
@@ -28,10 +58,10 @@ export const EmailBlock = () => {
         request.
       </Typography>
       <form className={styles.emailForm} onSubmit={handleSubmit(onSubmit)}>
-        <div className={styles.emailInputBox}>
+        <div>
           <FormController
-            name="email"
             control={control}
+            {...register('email')}
             rules={{
               required: 'Email address is required!',
               pattern: {
@@ -40,13 +70,25 @@ export const EmailBlock = () => {
               },
             }}
             render={({ field }: any) => (
-              <Input
-                {...field}
-                ref={null}
-                variant="email"
-                label="Your email address"
-                id="email"
-              />
+              <div>
+                <Input
+                  {...field}
+                  ref={null}
+                  variant="email"
+                  label="Your email address"
+                  id="email"
+                />
+                {errors.root ? (
+                  <Typography
+                    className={styles.errorMessage}
+                    variant="ParagraphM"
+                  >
+                    {errors?.root?.serverError.type === 'FAILED' && (
+                      <p>{errors?.root?.serverError.message}</p>
+                    )}
+                  </Typography>
+                ) : null}
+              </div>
             )}
           />
         </div>

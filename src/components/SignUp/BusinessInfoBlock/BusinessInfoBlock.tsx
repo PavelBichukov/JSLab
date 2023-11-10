@@ -8,13 +8,21 @@ import {
   Select,
   Typography,
 } from 'components/share'
+import { signUpBusiness } from 'src/api/api'
+import { SIGN_UP_STEPS } from 'src/constants/signUpSteps'
+import { setCurrentStep } from 'src/store/signUp'
+import { useAppDispatch, useAppSelector } from 'src/utils/redux-hooks/hooks'
 
 import { businessTypeOptions, yearsOptions } from './BusinessInfo.constants'
 import styles from './BusinessInfoBlock.module.scss'
 
 export const BusinessInfoBlock = () => {
+  const dispatch = useAppDispatch()
+  const email = useAppSelector((state) => state.user.email)
+
   const {
     control,
+    setError,
     formState: { isValid, errors },
     handleSubmit,
   } = useForm({
@@ -27,8 +35,32 @@ export const BusinessInfoBlock = () => {
     },
   })
 
-  const onSubmit = (data: any) => {
-    console.log(JSON.stringify(data))
+  const onSubmit = async (data: any, e: any) => {
+    console.log(data)
+    const nextData = { ...data, email }
+    e.preventDefault()
+    try {
+      const response = await signUpBusiness(nextData)
+      const { status, message } = response && response.data
+      if (status === 'UPDATED') {
+        dispatch(setCurrentStep(SIGN_UP_STEPS.BUSINESS_LOCATION))
+      } else {
+        throw new Error(message)
+      }
+    } catch (error) {
+      console.log(error.message)
+      if (error.message === 'User with the provided email already exists') {
+        setError('root.serverError', {
+          type: 'FAILED',
+          message: 'User with the provided email already exists',
+        })
+      } else {
+        setError('root.serverError', {
+          type: 'FAILED',
+          message: 'Oops... Something go wrong',
+        })
+      }
+    }
   }
 
   return (
@@ -119,7 +151,7 @@ export const BusinessInfoBlock = () => {
             mode="outlinedWhite"
             variant="secondary"
             size="small"
-            onClick={() => console.log('clicked')}
+            onClick={() => dispatch(setCurrentStep(SIGN_UP_STEPS.SUCCESS))}
           >
             Back
           </Button>

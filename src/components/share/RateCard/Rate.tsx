@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom'
+
 import { Button, Typography } from 'components/share'
 
 import styles from './Rate.module.scss'
@@ -25,16 +27,18 @@ const Rate = ({
         ))}
       </ul>
     </div>
-    <Button
-      className={styles.cardButton}
-      type="button"
-      size="medium"
-      mode="defaultBlack"
-      variant="secondary"
-      onClick={() => console.log('clicked')}
-    >
-      Select
-    </Button>
+    <Link to="/login">
+      <Button
+        className={styles.cardButton}
+        type="button"
+        size="medium"
+        mode="defaultBlack"
+        variant="secondary"
+        onClick={() => console.log('clicked')}
+      >
+        Select
+      </Button>
+    </Link>
   </div>
 )
 export default Rate

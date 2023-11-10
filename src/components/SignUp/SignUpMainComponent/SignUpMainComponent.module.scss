@@ -1,7 +1,7 @@
 .container {
   max-width: 1920px;
   margin: 0 auto;
-  padding: 124px 15px 0px;
+  padding: 124px 15px 0;
   height: 100vh;
   @media (max-width: 600px) {
     padding: 64px 15px 30px;
@@ -15,7 +15,7 @@
   display: flex;
   margin: 0 auto;
   border-radius: 24px;
-  box-shadow: 0px 0px 4px -1px rgba(34, 60, 80, 0.2);
+  box-shadow: 0 0 4px -1px rgba(34, 60, 80, 0.2);
   @media (max-width: 768px) {
     flex-direction: column;
     height: auto;
@@ -30,7 +30,7 @@
   flex-direction: column;
   align-items: flex-start;
   text-align: left;
-  padding: 72px 80px 0px 40px;
+  padding: 72px 80px 0 64px;
   @media (max-width: 1200px) {
     flex: 2;
     padding: 72px 15px 0px 15px;
@@ -58,6 +58,7 @@
   gap: 16px;
   color: rgba(110, 118, 138, 1);
   cursor: pointer;
+
   & p {
     @media (max-width: 768px) {
       display: none;
@@ -67,9 +68,11 @@
 
 .progressBarItemActive {
   color: rgba(20, 21, 26, 1);
+
   .circleNumber {
     border: 1px solid rgba(20, 21, 26, 1);
     background-color: rgba(20, 21, 26, 1);
+
     & * {
       color: rgba(255, 255, 255, 1);
     }
@@ -86,6 +89,10 @@
   align-items: center;
   justify-content: center;
   transition: 0.2s;
+}
+
+.headerStation {
+  padding-bottom: 51px;
 }
 
 .formBlock {

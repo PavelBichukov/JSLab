@@ -146,21 +146,6 @@
   color: $brand-black;
 }
 
-.buttonsBlock {
-  padding-top: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  & button {
-    cursor: pointer;
-    border: none;
-    text-decoration: none;
-    background: none;
-  }
-  @media (max-width: 768px) {
-    padding-top: 0;
-  }
-}
 
 .formBlock {
   padding: 72px 230px 32px 204px;

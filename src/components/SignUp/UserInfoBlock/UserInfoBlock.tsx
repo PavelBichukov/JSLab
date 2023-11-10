@@ -1,26 +1,56 @@
 import { useForm } from 'react-hook-form'
 
 import { Button, FormController, Input, Typography } from 'components/share'
+import { signUpContinue } from 'src/api/api'
+import { SIGN_UP_STEPS } from 'src/constants/signUpSteps'
+import { setCurrentStep } from 'src/store/signUp'
+import { useAppDispatch } from 'src/utils/redux-hooks/hooks'
 
 import styles from './UserInfoBlock.module.scss'
 
 export const UserInfoBlock = () => {
+  const dispatch = useAppDispatch()
+
   const {
     control,
+    setError,
     formState: { isValid },
     handleSubmit,
   } = useForm({
     mode: 'onBlur',
     defaultValues: {
-      legalFirstName: '',
+      firstName: '',
       lastName: '',
       email: '',
       password: '',
     },
   })
 
-  const onSubmit = (data: any) => {
-    console.log(JSON.stringify(data))
+  const onSubmit = async (data: any, e: any) => {
+    console.log(data)
+    e.preventDefault()
+    try {
+      const response = await signUpContinue(data)
+      const { status, message } = response && response.data
+      if (status === 'UPDATED') {
+        dispatch(setCurrentStep(SIGN_UP_STEPS.BUSINESS_INFO))
+      } else {
+        throw new Error(message)
+      }
+    } catch (error) {
+      console.log(error.message)
+      if (error.message === 'User with the provided email already exists') {
+        setError('root.serverError', {
+          type: 'FAILED',
+          message: 'User with the provided email already exists',
+        })
+      } else {
+        setError('root.serverError', {
+          type: 'FAILED',
+          message: 'Oops... Something go wrong',
+        })
+      }
+    }
   }
   return (
     <div className={styles.userInfoBlock}>
@@ -31,7 +61,7 @@ export const UserInfoBlock = () => {
       <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
         <div>
           <FormController
-            name="legalFirstName"
+            name="firstName"
             control={control}
             rules={{
               required: 'First Name is required!',
@@ -42,7 +72,7 @@ export const UserInfoBlock = () => {
                 ref={null}
                 variant="text"
                 label="Legal First Name"
-                id="legalFirstName"
+                id="firstName"
               />
             )}
           />

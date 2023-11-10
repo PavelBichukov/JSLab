@@ -17,6 +17,7 @@
     "@reduxjs/toolkit": "^1.9.5",
     "axios": "^1.5.0",
     "classnames": "^2.3.2",
+    "lodash.debounce": "^4.0.8",
     "mui-one-time-password-input": "^2.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -30,6 +31,7 @@
     "vite-plugin-svgr": "^3.2.0"
   },
   "devDependencies": {
+    "@types/lodash.debounce": "^4.0.7",
     "@types/react": "^18.2.15",
     "@types/react-dom": "^18.2.7",
     "@types/react-modal": "^3.16.0",
@@ -46,6 +48,7 @@
     "eslint-plugin-react-refresh": "^0.4.3",
     "eslint-plugin-simple-import-sort": "^10.0.0",
     "prettier": "^3.0.3",
+    "react-error-overlay": "^6.0.9",
     "sass": "^1.66.1",
     "typescript": "^5.0.2",
     "vite": "^4.4.5"

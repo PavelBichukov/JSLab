@@ -1,8 +1,9 @@
+import { SIGN_UP_STEPS } from 'src/constants/signUpSteps'
 import { IBenefitsList } from 'src/types/types'
 
 export const progressBarConstants: IBenefitsList[] = [
-  { id: 1, name: 'Personal Information' },
-  { id: 2, name: 'Business Information' },
-  { id: 3, name: 'Business Address' },
-  { id: 4, name: 'Terms and Conditions' },
+  { key: SIGN_UP_STEPS.SUCCESS, name: 'Personal Information' },
+  { key: SIGN_UP_STEPS.BUSINESS_INFO, name: 'Business Information' },
+  { key: SIGN_UP_STEPS.BUSINESS_LOCATION, name: 'Business Address' },
+  { key: SIGN_UP_STEPS.TERMS_AND_CONDITIONS, name: 'Terms and Conditions' },
 ]

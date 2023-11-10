@@ -1,3 +1,4 @@
+import debounce from 'lodash.debounce'
 import { useForm } from 'react-hook-form'
 
 import {
@@ -7,14 +8,23 @@ import {
   Select,
   Typography,
 } from 'components/share'
+import { loadOptions, signUpLocation } from 'src/api/api'
+import { SIGN_UP_STEPS } from 'src/constants/signUpSteps'
+import { setCurrentStep } from 'src/store/signUp'
+import { useAppDispatch, useAppSelector } from 'src/utils/redux-hooks/hooks'
 
-import styles from './BusinessLocation.module.scss'
 import { stateOptions } from './BusinessLocation.constants'
+import styles from './BusinessLocation.module.scss'
 
 const BusinessLocation = () => {
+  const dispatch = useAppDispatch()
+  const email = useAppSelector((state) => state.user.email)
+
   const {
     control,
+    setError,
     getValues,
+    setValue,
     formState: { isValid },
     handleSubmit,
   } = useForm({
@@ -23,13 +33,53 @@ const BusinessLocation = () => {
       streetAddress: '',
       secondaryStreetAddress: '',
       city: '',
-      state: '',
+      state: '' as any,
       zipCode: '',
     },
   })
 
-  const onSubmit = (data: any) => {
-    console.log(JSON.stringify(data))
+  const setValues = () => {
+    const locationValue = getValues('streetAddress') as unknown as {
+      value: string
+      label: string
+    }
+    setValue('city', locationValue?.label?.split(', ')[2])
+    setValue(
+      'state',
+      stateOptions.find(
+        (option: { value: string; label: string }) =>
+          option.value === locationValue?.label?.split(', ')[4]
+      )
+    )
+    setValue('zipCode', locationValue?.label?.split(', ')[5])
+  }
+
+  const onSubmit = async (data: any, e: any) => {
+    console.log(data)
+    const nextData = { ...data, email }
+    e.preventDefault()
+    try {
+      const response = await signUpLocation(nextData)
+      const { status, message } = response && response.data
+      if (status === 'UPDATED') {
+        dispatch(setCurrentStep(SIGN_UP_STEPS.TERMS_AND_CONDITIONS))
+      } else {
+        throw new Error(message)
+      }
+    } catch (error) {
+      console.log(error.message)
+      if (error.message === 'User with the provided email already exists') {
+        setError('root.serverError', {
+          type: 'FAILED',
+          message: 'User with the provided email already exists',
+        })
+      } else {
+        setError('root.serverError', {
+          type: 'FAILED',
+          message: 'Oops... Something go wrong',
+        })
+      }
+    }
   }
 
   return (
@@ -39,20 +89,25 @@ const BusinessLocation = () => {
         Search using your business street address or enter manually.
       </Typography>
       <form className={styles.formBlock} onSubmit={handleSubmit(onSubmit)}>
-        <div className={styles.inputsBox}>
+        <div className={styles.inputs}>
           <FormController
+            errorClassName={styles.streetError}
             name="streetAddress"
             control={control}
             rules={{
               required: 'Street address is required!',
             }}
             render={({ field }: any) => (
-              <Input
+              <Select
                 {...field}
                 ref={null}
-                variant="text"
-                label="Street Address"
-                id="streetAddress"
+                type="async"
+                searchable="true"
+                placeholder="Street Address"
+                loadOptions={debounce(loadOptions, 800)}
+                cacheOptions
+                onBlur={setValues()}
+                value={field.value}
               />
             )}
           />
@@ -83,6 +138,7 @@ const BusinessLocation = () => {
               render={({ field }: any) => (
                 <Input
                   {...field}
+                  innerRef={field.ref}
                   ref={null}
                   variant="text"
                   label="City"
@@ -122,6 +178,7 @@ const BusinessLocation = () => {
             render={({ field }: any) => (
               <Input
                 {...field}
+                innerRef={field.ref}
                 ref={null}
                 variant="text"
                 label="Zip"
@@ -137,7 +194,9 @@ const BusinessLocation = () => {
             mode="outlinedWhite"
             variant="secondary"
             size="small"
-            onClick={() => console.log(getValues())}
+            onClick={() =>
+              dispatch(setCurrentStep(SIGN_UP_STEPS.BUSINESS_INFO))
+            }
           >
             Back
           </Button>

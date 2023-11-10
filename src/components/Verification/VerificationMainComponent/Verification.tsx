@@ -1,14 +1,31 @@
-import { useState } from 'react'
 import { Link } from 'react-router-dom'
 
 import { Button, Typography } from 'components/share'
 import { CodeEnterBlock, EmailBlock, SuccessBlock } from 'src/components'
+import { SIGN_UP_STEPS } from 'src/constants/signUpSteps'
+import { useAppSelector } from 'src/utils/redux-hooks/hooks'
 
 import { benefitsLists } from './Verification.constants'
 import styles from './Verification.module.scss'
 
+const _renderStep = (step: string) => {
+  switch (step) {
+    case SIGN_UP_STEPS.EMAIL: {
+      return <EmailBlock />
+    }
+    case SIGN_UP_STEPS.OTP_CODE: {
+      return <CodeEnterBlock />
+    }
+    case SIGN_UP_STEPS.SUCCESS: {
+      return <SuccessBlock />
+    }
+    default:
+      ;<></>
+  }
+}
+
 export const VerificationMainComponent = () => {
-  const [currentStep, setCurrenStep] = useState(1)
+  const currentStep = useAppSelector((state) => state.signUpStep.currentStep)
 
   return (
     <div className={styles.container}>
@@ -54,38 +71,16 @@ export const VerificationMainComponent = () => {
             </Typography>
             <ul className={styles.benefitsList}>
               {benefitsLists.map((item) => (
-                <li key={item.id} className={styles.cardListElement}>
+                <li key={item.key} className={styles.cardListElement}>
                   <Typography variant="ParagraphL" className={styles.listitem}>
                     {item.name}
                   </Typography>
                 </li>
               ))}
             </ul>
-            <div className={styles.buttonsBlock}>
-              <button
-                onClick={() =>
-                  setCurrenStep(currentStep > 1 ? currentStep - 1 : currentStep)
-                }
-              >
-                ‹
-              </button>
-              <button
-                onClick={() =>
-                  setCurrenStep(
-                    currentStep >= 3 ? currentStep : currentStep + 1
-                  )
-                }
-              >
-                ›
-              </button>
-            </div>
           </div>
         </section>
-        <div className={styles.formBlock}>
-          {currentStep === 1 && <EmailBlock />}
-          {currentStep === 2 && <CodeEnterBlock />}
-          {currentStep === 3 && <SuccessBlock />}
-        </div>
+        <div className={styles.formBlock}>{_renderStep(currentStep)}</div>
       </div>
     </div>
   )

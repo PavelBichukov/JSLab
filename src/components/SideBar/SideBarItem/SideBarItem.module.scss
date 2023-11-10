@@ -1,0 +1,39 @@
+@import '../../../App.scss';
+
+.item {
+  padding: 12px 16px 12px 16px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  border-left:4px solid transparent;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease-out;
+  width: 232px;
+  &:hover{
+    background-color: $light-gray;
+  }
+}
+
+.itemCollapsed{
+  width: auto
+}
+
+.tittle{
+  cursor: pointer;
+  color: $brand-black;
+  transition: 0.3s;
+}
+
+.tittleCollapsed{
+  display: none;
+}
+
+.itemActive {
+  background-color: $medium-gray;
+  border-left:4px solid $brand-blue;
+  &:hover{
+    background-color: $medium-gray;
+  }
+}
