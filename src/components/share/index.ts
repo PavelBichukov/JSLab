@@ -1,6 +1,7 @@
 import Button from './Button/Button'
 import Checkbox from './Checkbox/Checkbox'
 import FormController from './FormController/FormController'
+import HomeCard from './HomeCard/HomeCard'
 import Input from './Input/Input'
 import Location from './Location/Location'
 import MainLayout from './MainLayout/MainLayout'
@@ -26,4 +27,5 @@ export {
   MainLayout,
   Map,
   Location,
+  HomeCard,
 }

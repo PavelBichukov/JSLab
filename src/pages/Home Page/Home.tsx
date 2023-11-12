@@ -1,5 +1,6 @@
 import { Button, MainLayout, Modal, Typography } from 'components/share'
 import { AddStationMainComponent } from 'src/components'
+import { MyStationCard } from 'src/components/HomeCards'
 import { useModal } from 'src/hooks/useModal'
 
 import styles from './Home.module.scss'
@@ -14,8 +15,10 @@ const Home = () => {
   return (
     <div className={styles.main}>
       <MainLayout title="Home">
-        <h3>Home</h3>
-        {!isOpenSmall ? openModalSmall() : console.log('no')}
+        <div className={styles.container}>
+          <MyStationCard />
+        </div>
+        {/*{!isOpenSmall ? openModalSmall() : console.log('no')}*/}
         <Modal
           isOpen={isOpenSmall}
           onModalClose={closeModalSmall}

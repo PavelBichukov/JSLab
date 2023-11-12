@@ -12,12 +12,11 @@
 
 .inner {
   height: 100%;
-
   flex: 1;
   margin: auto;
   display: flex;
   flex-direction: column;
-  padding: 50px 150px 100px;
+  padding: 38px 150px 100px;
   box-sizing: border-box;
 }
 
@@ -37,11 +36,4 @@
 
 .headerAdornment {
   color: $darker-gray;
-}
-
-.main {
-  background-color: $white;
-  border-radius: 16px;
-  flex: 1;
-  text-align: center;
 }

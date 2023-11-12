@@ -1,0 +1,17 @@
+@import '../../../App.scss';
+
+.primary {
+  width: 393px;
+  height: 420px;
+  border-radius: 24px;
+  background-color: $white;
+  padding: 24px;
+}
+
+.secondary {
+  width: 393px;
+  height: 201px;
+  border-radius: 24px;
+  background-color: $white;
+  padding: 24px;
+}
