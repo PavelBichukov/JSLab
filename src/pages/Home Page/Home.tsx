@@ -1,8 +1,11 @@
 import { Button, MainLayout, Modal, Typography } from 'components/share'
 import { AddStationMainComponent } from 'src/components'
 import {
+  AverageCard,
   MyStationCard,
+  NewsCard,
   PaymentsCard,
+  RecommendedCard,
   TransactionsCard,
 } from 'src/components/HomeCards'
 import { useModal } from 'src/hooks/useModal'
@@ -23,6 +26,9 @@ const Home = () => {
           <MyStationCard />
           <PaymentsCard />
           <TransactionsCard />
+          <AverageCard />
+          <RecommendedCard />
+          <NewsCard />
         </div>
         {/*{!isOpenSmall ? openModalSmall() : console.log('no')}*/}
         <Modal
