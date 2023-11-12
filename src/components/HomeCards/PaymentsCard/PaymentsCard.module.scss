@@ -1,0 +1,23 @@
+@import '../../../App.scss';
+
+.headerLine {
+  display: flex;
+  justify-content: space-between;
+}
+
+.textContainer {
+  text-align: center;
+}
+
+.headerPrice {
+  margin-top: 132px;
+}
+
+.deposited {
+  margin-top: 8px;
+}
+
+.nextPayment {
+  margin-top: 120px;
+  color: $darker-gray;
+}

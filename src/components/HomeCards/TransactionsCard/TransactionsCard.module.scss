@@ -1,0 +1,37 @@
+@import '../../../App.scss';
+
+.headerContainer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.subHeaderContainer {
+  display: flex;
+  margin-top: 16px;
+  gap: 12px;
+  color: $darker-gray;
+}
+
+.subHeaderSelected {
+  color: $brand-black;
+  border-bottom: 2px solid $brand-black;
+  padding-bottom: 4px;
+}
+
+.footerContainer {
+  display: flex;
+}
+
+.header {
+  margin: 23px 0 20px 0;
+}
+
+.number {
+  color: #34C759;
+  font-weight: 600;
+}
+
+.nextPayment {
+  color: $darker-gray;
+  margin-left: 16px;
+}

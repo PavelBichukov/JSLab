@@ -1,6 +1,10 @@
 import { Button, MainLayout, Modal, Typography } from 'components/share'
 import { AddStationMainComponent } from 'src/components'
-import { MyStationCard } from 'src/components/HomeCards'
+import {
+  MyStationCard,
+  PaymentsCard,
+  TransactionsCard,
+} from 'src/components/HomeCards'
 import { useModal } from 'src/hooks/useModal'
 
 import styles from './Home.module.scss'
@@ -17,6 +21,8 @@ const Home = () => {
       <MainLayout title="Home">
         <div className={styles.container}>
           <MyStationCard />
+          <PaymentsCard />
+          <TransactionsCard />
         </div>
         {/*{!isOpenSmall ? openModalSmall() : console.log('no')}*/}
         <Modal

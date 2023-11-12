@@ -3,6 +3,7 @@ import Checkbox from './Checkbox/Checkbox'
 import FormController from './FormController/FormController'
 import HomeCard from './HomeCard/HomeCard'
 import Input from './Input/Input'
+import LineChart from './LineChart/LineChart'
 import Location from './Location/Location'
 import MainLayout from './MainLayout/MainLayout'
 import Map from './Map/Map'
@@ -28,4 +29,5 @@ export {
   Map,
   Location,
   HomeCard,
+  LineChart,
 }
