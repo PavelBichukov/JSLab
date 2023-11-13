@@ -8,6 +8,7 @@
   height: 100vh;
   min-height: 750px;
   position: relative;
+  overflow-y: hidden;
 }
 
 .inner {
@@ -16,7 +17,7 @@
   margin: auto;
   display: flex;
   flex-direction: column;
-  padding: 38px 150px 100px;
+  padding: 38px 100px 100px;
   box-sizing: border-box;
 }
 
