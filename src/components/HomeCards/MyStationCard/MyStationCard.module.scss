@@ -11,6 +11,13 @@
   font-weight: 600;
 }
 
+.stationImage {
+  width: 345px;
+  @media (max-width: 500px) {
+    width: 290px;
+  }
+}
+
 .changeTypo {
   color: $brand-black;
   font-weight: 600;

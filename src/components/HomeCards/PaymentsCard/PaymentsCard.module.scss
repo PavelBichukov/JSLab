@@ -18,6 +18,9 @@
 }
 
 .nextPayment {
-  margin-top: 120px;
+  margin-top: 13vh;
   color: $medium-gray-2;
+  @media (max-width: 450px) {
+    margin-top: 8vh;
+  }
 }
