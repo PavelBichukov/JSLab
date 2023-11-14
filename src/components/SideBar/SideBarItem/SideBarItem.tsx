@@ -22,12 +22,14 @@ const SideBarItem = ({
   route,
   collapsed,
   pathname,
+  setHelp,
 }: {
   icon: string
   title: string
   route: string
   collapsed: boolean
   pathname: string
+  setHelp?: any
 }) => {
   const TYPES: any = {
     analytics: AnalyticsIcon,
@@ -45,21 +47,41 @@ const SideBarItem = ({
   const Icon = TYPES[icon]
 
   return (
-    <NavLink
-      className={cn(
-        styles.item,
-        { [styles.itemActive]: pathname === route },
-        { [styles.itemCollapsed]: collapsed }
+    <div>
+      {title != 'Supports' ? (
+        <NavLink
+          className={cn(
+            styles.item,
+            { [styles.itemActive]: pathname === route },
+            { [styles.itemCollapsed]: collapsed }
+          )}
+          to={route}
+        >
+          <Icon />
+          {!collapsed && (
+            <Typography className={styles.tittle} variant="LabelM">
+              {title}
+            </Typography>
+          )}
+        </NavLink>
+      ) : (
+        <div
+          className={cn(
+            styles.item,
+            { [styles.itemActive]: pathname === route },
+            { [styles.itemCollapsed]: collapsed }
+          )}
+          onClick={setHelp}
+        >
+          <Icon />
+          {!collapsed && (
+            <Typography className={styles.tittle} variant="LabelM">
+              {title}
+            </Typography>
+          )}
+        </div>
       )}
-      to={route}
-    >
-      <Icon />
-      {!collapsed && (
-        <Typography className={styles.tittle} variant="LabelM">
-          {title}
-        </Typography>
-      )}
-    </NavLink>
+    </div>
   )
 }
 
