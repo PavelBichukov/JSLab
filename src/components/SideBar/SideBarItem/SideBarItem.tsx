@@ -61,7 +61,7 @@ const SideBarItem = ({
         >
           <Icon />
           {!collapsed && !help && (
-            <Typography className={styles.tittle} variant="LabelM">
+            <Typography className={styles.title} variant="LabelM">
               {title}
             </Typography>
           )}
@@ -77,7 +77,7 @@ const SideBarItem = ({
         >
           <Icon />
           {!collapsed && !help && (
-            <Typography className={styles.tittle} variant="LabelM">
+            <Typography className={styles.title} variant="LabelM">
               {title}
             </Typography>
           )}
