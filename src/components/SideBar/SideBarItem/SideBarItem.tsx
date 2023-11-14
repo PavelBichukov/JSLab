@@ -22,14 +22,16 @@ const SideBarItem = ({
   route,
   collapsed,
   pathname,
-  setHelp,
+  help,
+  toggleHelp,
 }: {
   icon: string
   title: string
   route: string
   collapsed: boolean
   pathname: string
-  setHelp?: any
+  help: boolean
+  toggleHelp?: any
 }) => {
   const TYPES: any = {
     analytics: AnalyticsIcon,
@@ -58,7 +60,7 @@ const SideBarItem = ({
           to={route}
         >
           <Icon />
-          {!collapsed && (
+          {!collapsed && !help && (
             <Typography className={styles.tittle} variant="LabelM">
               {title}
             </Typography>
@@ -71,10 +73,10 @@ const SideBarItem = ({
             { [styles.itemActive]: pathname === route },
             { [styles.itemCollapsed]: collapsed }
           )}
-          onClick={setHelp}
+          onClick={toggleHelp}
         >
           <Icon />
-          {!collapsed && (
+          {!collapsed && !help && (
             <Typography className={styles.tittle} variant="LabelM">
               {title}
             </Typography>
