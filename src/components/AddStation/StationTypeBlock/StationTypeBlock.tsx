@@ -2,9 +2,11 @@ import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 
 import { Button, FormController, Typography } from 'components/share'
+import { addStation } from 'src/api/api'
 import { ADD_STATION_STEPS } from 'src/constants/addStationSteps'
 import { setCurrentStep } from 'src/store/signUp'
-import { useAppDispatch } from 'src/utils/redux-hooks/hooks'
+import { setStationID } from 'src/store/user'
+import { useAppDispatch, useAppSelector } from 'src/utils/redux-hooks/hooks'
 
 import styles from './StationTypeBlock.module.scss'
 
@@ -12,7 +14,9 @@ export const StationTypeBlock = () => {
   const dispatch = useAppDispatch()
   const [isActive, setIsActive] = useState(false)
 
-  const { control, handleSubmit } = useForm({
+  const email = useAppSelector((state) => state.user.email)
+
+  const { control, handleSubmit, setError } = useForm({
     mode: 'onBlur',
     defaultValues: {
       termsCheckBox: '',
@@ -26,6 +30,37 @@ export const StationTypeBlock = () => {
   const handleClick = () => {
     setIsActive((current) => !current)
   }
+
+  const handleSendRequest = async () => {
+    try{
+      const response = await addStation(
+        {"stationType" : "Gasoline",
+          "userEmail" : email
+        }
+      )
+      const { status, message } = response && response.data
+      if(status === 'UPDATED') {
+        dispatch(setCurrentStep(ADD_STATION_STEPS.GENERAL_INFORMATION))
+        setStationID(message.id)
+      } else {
+        throw new Error(message)
+      }
+    } catch (error) {
+      if(error.message === 'Empty station type field') {
+        setError('root.serverError', {
+          type: 'FAILED',
+          message: 'Empty station type field',
+        })
+      } else {
+        setError('root.serverError', {
+          type: 'FAILED',
+          message: 'Oops... Something go wrong',
+        })
+      }
+    }
+  }
+
+
   return (
     <div className={styles.mainBlock}>
       <Typography variant="HeaderS" className={styles.title}>
@@ -90,7 +125,7 @@ export const StationTypeBlock = () => {
           size="large"
           className={styles.buttonContinue}
           onClick={() =>
-            dispatch(setCurrentStep(ADD_STATION_STEPS.GENERAL_INFORMATION))
+            handleSendRequest()
           }
         >
           Continue

@@ -62,3 +62,38 @@ export const loadOptions = (
       alert(error.message)
     })
 }
+
+export const addStation = async (data: {stationType : string, userEmail : string}) => {
+  return await axios.post(
+    `${import.meta.env.VITE_HOST_DEV}/addStation/stationType`,
+    data
+  )
+}
+
+export const addStationGeneralInformation = async (data: any) => {
+  return await axios.post(
+    `${import.meta.env.VITE_HOST_DEV}/addStation/stationGeneralInfo`,
+    data
+  )
+}
+
+export const addStationAmenities = async (data: any) => {
+  return await axios.post(
+    `${import.meta.env.VITE_HOST_DEV}/addStation/stationAmenities`,
+    data
+  )
+}
+
+export const addStationPaymentMethod = async (data: any) => {
+  return await axios.post(
+    `${import.meta.env.VITE_HOST_DEV}/addStation/stationPaymentMethod`,
+    data
+  )
+}
+
+export const addStationPOSSystem = async (data: any) => {
+  return await axios.post(
+    `${import.meta.env.VITE_HOST_DEV}/addStation/stationPOSSystem`,
+    data
+  )
+}
