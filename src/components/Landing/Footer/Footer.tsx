@@ -2,9 +2,9 @@ import { Link } from 'react-router-dom'
 
 import Jslab from 'assets/icons/Jslab'
 import Logo from 'assets/icons/Logo'
+import AppStoreImg from 'assets/images/AppStore.png'
+import PlayMarkerImg from 'assets/images/GooglePlay.png'
 import { Typography } from 'components/share'
-import AppStoreImg from 'src/assets/images/AppStore.png'
-import PlayMarkerImg from 'src/assets/images/GooglePlay.png'
 
 import { labels as LABELS, socialNetworks as LOGOS } from './Footer.constants'
 import styles from './Footer.module.scss'

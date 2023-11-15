@@ -1,11 +1,11 @@
-@import '../../App.scss';
+@import '../../../App';
 
 a {
   text-decoration: none;
 }
 
 .mainBanner {
-  background-image: url("../../assets/images/pattern.png");
+  background-image: url("assets/images/pattern.png");
   max-width: 1920px;
   height: 800px;
 }

@@ -1,28 +1,38 @@
-import { Button, MainLayout } from 'components/share'
+import { Button, MainLayout, Modal } from 'components/share'
+import { AddStationMainComponent } from 'src/components'
+import { useModal } from 'src/hooks/useModal'
 
 import styles from './Stations.module.scss'
 
-const Stations = () => (
-  <div className={styles.main}>
-    <MainLayout
-      title="Stations"
-      headerActions={
-        <Button
-          type="button"
-          size="small"
-          mode="defaultBlack"
-          variant="primary"
-          className={styles.buttonMain}
-          onClick={() => console.log('click')}
+const Stations = () => {
+  const [isOpenBig, openModalBig, closeModalBig] = useModal()
+  return (
+    <div className={styles.main}>
+      <MainLayout
+        title="Stations"
+        headerActions={
+          <Button
+            type="button"
+            size="medium"
+            mode="defaultBlack"
+            variant="primary"
+            className={styles.buttonMain}
+            onClick={openModalBig}
+          >
+            Add a station
+          </Button>
+        }
+      >
+        <Modal
+          isOpen={isOpenBig}
+          onModalClose={closeModalBig}
+          withCloseButton={false}
+          variant="medium"
         >
-          Test
-        </Button>
-      }
-    >
-      <div>
-        <h2>Stations</h2>
-      </div>
-    </MainLayout>
-  </div>
-)
+          <AddStationMainComponent />
+        </Modal>
+      </MainLayout>
+    </div>
+  )
+}
 export default Stations
