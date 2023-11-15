@@ -18,7 +18,7 @@ export const ConnectSystem = () => {
     control,
     formState: { isValid },
     handleSubmit,
-    setError
+    setError,
   } = useForm({
     mode: 'onChange',
     defaultValues: {
@@ -26,18 +26,19 @@ export const ConnectSystem = () => {
     },
   })
   const onSubmit = async (data: any) => {
-    try{
+    try {
       const response = await addStationPOSSystem({
-        posSystem : data.posSystem.value, id: stationID
+        posSystem: data.posSystem.value,
+        id: stationID,
       })
       const { status, message } = response && response.data
-      if(status === 'UPDATED') {
+      if (status === 'UPDATED') {
         dispatch(setCurrentStep(ADD_STATION_STEPS.FINALIZE))
       } else {
         throw new Error(message)
       }
     } catch (error) {
-      if(error.message === 'Empty POS system field') {
+      if (error.message === 'Empty POS system field') {
         setError('root.serverError', {
           type: 'FAILED',
           message: 'Empty POS system field',

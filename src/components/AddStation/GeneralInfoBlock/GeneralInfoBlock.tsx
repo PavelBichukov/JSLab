@@ -32,7 +32,7 @@ const GeneralInfoBlock = () => {
     setValue,
     formState: { isValid },
     handleSubmit,
-    setError
+    setError,
   } = useForm({
     mode: 'onChange',
     defaultValues: {
@@ -66,18 +66,19 @@ const GeneralInfoBlock = () => {
   }
 
   const onSubmit = async (data: any) => {
-    try{
+    try {
       const response = await addStationGeneralInformation({
-        ...data, id: stationID
+        ...data,
+        id: stationID,
       })
       const { status, message } = response && response.data
-      if(status === 'UPDATED') {
+      if (status === 'UPDATED') {
         dispatch(setCurrentStep(ADD_STATION_STEPS.STATION_AMENITIES))
       } else {
         throw new Error(message)
       }
     } catch (error) {
-      if(error.message === 'Empty station information fields') {
+      if (error.message === 'Empty station information fields') {
         setError('root.serverError', {
           type: 'FAILED',
           message: 'Empty station information fields',

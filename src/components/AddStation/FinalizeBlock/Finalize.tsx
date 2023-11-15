@@ -1,8 +1,49 @@
+import { useEffect, useState } from 'react'
+
 import { Button, Typography } from 'components/share'
+import { getStationInfo } from 'src/api/api'
+import { useAppSelector } from 'src/utils/redux-hooks/hooks'
 
 import styles from './Finalize.module.scss'
 
 export const Finalize = () => {
+  const [stationInfo, setStationInfo] = useState({
+    stationBrand: '',
+    stationName: '',
+    merchantID: '',
+    latitude: '',
+    longitude: '',
+  })
+
+  const { stationBrand, stationName, merchantID, latitude, longitude } =
+    stationInfo
+
+  const stationID = useAppSelector((state) => state.user.stationID)
+
+  useEffect(() => {
+    const getInfo = async () => {
+      try {
+        const response = await getStationInfo(stationID)
+        const { status, data, message } = response && response.data
+        if (status === 'UPDATED') {
+          setStationInfo((stationInfo) => ({
+            ...stationInfo,
+            stationBrand: data.stationBrand,
+            stationName: data.stationName,
+            merchantID: data.stationId.slice(0, 5),
+            latitude: data.latitude,
+            longitude: data.longitude,
+          }))
+        } else {
+          alert(message)
+        }
+      } catch (error) {
+        alert('Oops... Something go wrong')
+      }
+    }
+    getInfo()
+  }, [])
+
   return (
     <div className={styles.mainContainer}>
       <div className={styles.subContainer}>
@@ -17,7 +58,7 @@ export const Finalize = () => {
             Station name
           </Typography>
           <Typography variant="LabelL" className={styles.subLabelTitle}>
-            Shell Station #218
+            {`${stationBrand} Station - "${stationName}"`}
           </Typography>
         </div>
         <div className={styles.labelsContainer}>
@@ -26,7 +67,7 @@ export const Finalize = () => {
               Merchant ID
             </Typography>
             <Typography variant="LabelL" className={styles.subLabelTitle}>
-              SHEL - 0218
+              {`SHEL - ${merchantID}`}
             </Typography>
           </div>
           <div className={styles.labelContainer}>
@@ -44,7 +85,7 @@ export const Finalize = () => {
               Latitude
             </Typography>
             <Typography variant="LabelL" className={styles.subLabelTitle}>
-              32.802774
+              {latitude}
             </Typography>
           </div>
           <div className={styles.labelContainer}>
@@ -52,7 +93,7 @@ export const Finalize = () => {
               Longitude
             </Typography>
             <Typography variant="LabelL" className={styles.subLabelTitle}>
-              -96.800143
+              {longitude}
             </Typography>
           </div>
         </div>

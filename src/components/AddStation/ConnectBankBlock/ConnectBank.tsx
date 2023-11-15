@@ -25,7 +25,7 @@ export const ConnectBank = () => {
     control,
     formState: { isValid },
     handleSubmit,
-    setError
+    setError,
   } = useForm({
     mode: 'onChange',
     defaultValues: {
@@ -39,18 +39,19 @@ export const ConnectBank = () => {
   })
 
   const onSubmit = async (data: any) => {
-    try{
+    try {
       const response = await addStationPaymentMethod({
-        ...data, id: stationID
+        ...data,
+        id: stationID,
       })
       const { status, message } = response && response.data
-      if(status === 'UPDATED') {
+      if (status === 'UPDATED') {
         dispatch(setCurrentStep(ADD_STATION_STEPS.CONNECT_YOUR_SYSTEM))
       } else {
         throw new Error(message)
       }
     } catch (error) {
-      if(error.message === 'Empty payment method fields') {
+      if (error.message === 'Empty payment method fields') {
         setError('root.serverError', {
           type: 'FAILED',
           message: 'Empty payment method fields',

@@ -32,21 +32,20 @@ export const StationTypeBlock = () => {
   }
 
   const handleSendRequest = async () => {
-    try{
-      const response = await addStation(
-        {"stationType" : "Gasoline",
-          "userEmail" : email
-        }
-      )
+    try {
+      const response = await addStation({
+        stationType: 'Gasoline',
+        userEmail: email,
+      })
       const { status, message } = response && response.data
-      if(status === 'UPDATED') {
+      if (status === 'UPDATED') {
         dispatch(setStationID(message.id))
         dispatch(setCurrentStep(ADD_STATION_STEPS.GENERAL_INFORMATION))
       } else {
         throw new Error(message)
       }
     } catch (error) {
-      if(error.message === 'Empty station type field') {
+      if (error.message === 'Empty station type field') {
         setError('root.serverError', {
           type: 'FAILED',
           message: 'Empty station type field',
@@ -59,7 +58,6 @@ export const StationTypeBlock = () => {
       }
     }
   }
-
 
   return (
     <div className={styles.mainBlock}>
@@ -124,9 +122,7 @@ export const StationTypeBlock = () => {
           variant="primary"
           size="large"
           className={styles.buttonContinue}
-          onClick={() =>
-            handleSendRequest()
-          }
+          onClick={() => handleSendRequest()}
         >
           Continue
         </Button>

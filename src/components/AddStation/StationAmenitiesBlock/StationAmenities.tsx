@@ -34,21 +34,21 @@ export const StationAmenities = () => {
 
   const onNext = async (e: any) => {
     e.preventDefault()
-    try{
+    try {
       const response = await addStationAmenities({
-        stationAmenities : perks,
-        id: stationID
+        stationAmenities: perks,
+        id: stationID,
       })
       const { status, message } = response && response.data
-      if(status === 'UPDATED') {
+      if (status === 'UPDATED') {
         dispatch(setCurrentStep(ADD_STATION_STEPS.CONNECT_YOUR_BANK))
       } else {
-        alert (message)
+        alert(message)
       }
     } catch (error) {
       alert(error.message)
+    }
   }
-}
 
   return (
     <div>
