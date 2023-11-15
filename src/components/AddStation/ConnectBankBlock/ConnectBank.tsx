@@ -8,9 +8,10 @@ import {
   Select,
   Typography,
 } from 'components/share'
+import { addStationPaymentMethod } from 'src/api/api'
 import { ADD_STATION_STEPS } from 'src/constants/addStationSteps'
 import { setCurrentStep } from 'src/store/signUp'
-import { useAppDispatch } from 'src/utils/redux-hooks/hooks'
+import { useAppDispatch, useAppSelector } from 'src/utils/redux-hooks/hooks'
 
 import { accountType, paymentMethods } from './ConnectBank.constants'
 import styles from './ConnectBank.module.scss'
@@ -18,10 +19,13 @@ import styles from './ConnectBank.module.scss'
 export const ConnectBank = () => {
   const dispatch = useAppDispatch()
 
+  const stationID = useAppSelector((state) => state.user.stationID)
+
   const {
     control,
     formState: { isValid },
     handleSubmit,
+    setError
   } = useForm({
     mode: 'onChange',
     defaultValues: {
@@ -34,9 +38,30 @@ export const ConnectBank = () => {
     },
   })
 
-  const onSubmit = () => {
-    console.log('Next')
-    dispatch(setCurrentStep(ADD_STATION_STEPS.CONNECT_YOUR_SYSTEM))
+  const onSubmit = async (data: any) => {
+    try{
+      const response = await addStationPaymentMethod({
+        ...data, id: stationID
+      })
+      const { status, message } = response && response.data
+      if(status === 'UPDATED') {
+        dispatch(setCurrentStep(ADD_STATION_STEPS.CONNECT_YOUR_SYSTEM))
+      } else {
+        throw new Error(message)
+      }
+    } catch (error) {
+      if(error.message === 'Empty payment method fields') {
+        setError('root.serverError', {
+          type: 'FAILED',
+          message: 'Empty payment method fields',
+        })
+      } else {
+        setError('root.serverError', {
+          type: 'FAILED',
+          message: 'Oops... Something go wrong',
+        })
+      }
+    }
   }
 
   const onBack = () => {
