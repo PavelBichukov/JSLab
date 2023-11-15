@@ -1,9 +1,10 @@
 import { useForm } from 'react-hook-form'
 
 import { Button, FormController, Select, Typography } from 'components/share'
+import { addStationPOSSystem } from 'src/api/api'
 import { ADD_STATION_STEPS } from 'src/constants/addStationSteps'
 import { setCurrentStep } from 'src/store/signUp'
-import { useAppDispatch } from 'src/utils/redux-hooks/hooks'
+import { useAppDispatch, useAppSelector } from 'src/utils/redux-hooks/hooks'
 
 import { posSystems } from './ConnectSystem.constants'
 import styles from './ConnectSystem.module.scss'
@@ -11,18 +12,43 @@ import styles from './ConnectSystem.module.scss'
 export const ConnectSystem = () => {
   const dispatch = useAppDispatch()
 
+  const stationID = useAppSelector((state) => state.user.stationID)
+
   const {
     control,
     formState: { isValid },
     handleSubmit,
+    setError
   } = useForm({
     mode: 'onChange',
     defaultValues: {
       posSystem: '',
     },
   })
-  const onSubmit = () => {
-    dispatch(setCurrentStep(ADD_STATION_STEPS.FINALIZE))
+  const onSubmit = async (data: any) => {
+    try{
+      const response = await addStationPOSSystem({
+        posSystem : data.posSystem.value, id: stationID
+      })
+      const { status, message } = response && response.data
+      if(status === 'UPDATED') {
+        dispatch(setCurrentStep(ADD_STATION_STEPS.FINALIZE))
+      } else {
+        throw new Error(message)
+      }
+    } catch (error) {
+      if(error.message === 'Empty POS system field') {
+        setError('root.serverError', {
+          type: 'FAILED',
+          message: 'Empty POS system field',
+        })
+      } else {
+        setError('root.serverError', {
+          type: 'FAILED',
+          message: 'Oops... Something go wrong',
+        })
+      }
+    }
   }
   const onBack = () => {
     dispatch(setCurrentStep(ADD_STATION_STEPS.CONNECT_YOUR_BANK))
