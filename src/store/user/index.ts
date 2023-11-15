@@ -35,6 +35,7 @@ const userInfoSlice = createSlice({
       state.isAuthorized = action.payload
     },
     setStationID: (state, action: PayloadAction<string>) => {
+      console.log(action.payload)
       state.stationID = action.payload
     },
   },

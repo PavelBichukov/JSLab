@@ -11,16 +11,19 @@ import {
   Typography,
 } from 'components/share'
 import { stateOptions } from 'components/SignUp/BusinessLocationBlock/BusinessLocation.constants'
-import { loadOptions } from 'src/api/api'
+import { addStationGeneralInformation, loadOptions } from 'src/api/api'
 import { ADD_STATION_STEPS } from 'src/constants/addStationSteps'
 import { setCurrentStep } from 'src/store/signUp'
-import { useAppDispatch } from 'src/utils/redux-hooks/hooks'
+import { useAppDispatch, useAppSelector } from 'src/utils/redux-hooks/hooks'
 
 import { stationOptions } from './GeneralInfo.constants'
 import styles from './GeneralInfo.module.scss'
 
 const GeneralInfoBlock = () => {
   const dispatch = useAppDispatch()
+
+  const stationID = useAppSelector((state) => state.user.stationID)
+
   const [lat, setLat] = useState(53.88383)
   const [lng, setLng] = useState(27.5387)
   const {
@@ -29,6 +32,7 @@ const GeneralInfoBlock = () => {
     setValue,
     formState: { isValid },
     handleSubmit,
+    setError
   } = useForm({
     mode: 'onChange',
     defaultValues: {
@@ -61,9 +65,30 @@ const GeneralInfoBlock = () => {
     setValue('zipCode', locationValue?.label?.split(', ')[5])
   }
 
-  const onSubmit = () => {
-    console.log('Next')
-    dispatch(setCurrentStep(ADD_STATION_STEPS.STATION_AMENITIES))
+  const onSubmit = async (data: any) => {
+    try{
+      const response = await addStationGeneralInformation({
+        ...data, id: stationID
+      })
+      const { status, message } = response && response.data
+      if(status === 'UPDATED') {
+        dispatch(setCurrentStep(ADD_STATION_STEPS.STATION_AMENITIES))
+      } else {
+        throw new Error(message)
+      }
+    } catch (error) {
+      if(error.message === 'Empty station information fields') {
+        setError('root.serverError', {
+          type: 'FAILED',
+          message: 'Empty station information fields',
+        })
+      } else {
+        setError('root.serverError', {
+          type: 'FAILED',
+          message: 'Oops... Something go wrong',
+        })
+      }
+    }
   }
 
   const onBack = () => {

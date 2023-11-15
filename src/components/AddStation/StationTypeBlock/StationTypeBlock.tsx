@@ -40,8 +40,8 @@ export const StationTypeBlock = () => {
       )
       const { status, message } = response && response.data
       if(status === 'UPDATED') {
+        dispatch(setStationID(message.id))
         dispatch(setCurrentStep(ADD_STATION_STEPS.GENERAL_INFORMATION))
-        setStationID(message.id)
       } else {
         throw new Error(message)
       }
