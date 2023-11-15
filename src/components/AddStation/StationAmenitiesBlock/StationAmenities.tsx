@@ -1,9 +1,10 @@
 import { useState } from 'react'
 
 import { Button, Checkbox, Typography } from 'components/share'
+import { addStationAmenities } from 'src/api/api'
 import { ADD_STATION_STEPS } from 'src/constants/addStationSteps'
 import { setCurrentStep } from 'src/store/signUp'
-import { useAppDispatch } from 'src/utils/redux-hooks/hooks'
+import { useAppDispatch, useAppSelector } from 'src/utils/redux-hooks/hooks'
 
 import {
   stationAmenities,
@@ -15,6 +16,8 @@ export const StationAmenities = () => {
   const [perks, setPerks] = useState<string[]>([])
   const [check, setCheck] = useState(false)
   const dispatch = useAppDispatch()
+
+  const stationID = useAppSelector((state) => state.user.stationID)
 
   const handleCbClick = (ev: any) => {
     const { checked, name } = ev.target
@@ -29,9 +32,23 @@ export const StationAmenities = () => {
     dispatch(setCurrentStep(ADD_STATION_STEPS.GENERAL_INFORMATION))
   }
 
-  const onNext = () => {
-    dispatch(setCurrentStep(ADD_STATION_STEPS.CONNECT_YOUR_BANK))
+  const onNext = async (e: any) => {
+    e.preventDefault()
+    try{
+      const response = await addStationAmenities({
+        stationAmenities : perks,
+        id: stationID
+      })
+      const { status, message } = response && response.data
+      if(status === 'UPDATED') {
+        dispatch(setCurrentStep(ADD_STATION_STEPS.CONNECT_YOUR_BANK))
+      } else {
+        alert (message)
+      }
+    } catch (error) {
+      alert(error.message)
   }
+}
 
   return (
     <div>
