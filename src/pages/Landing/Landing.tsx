@@ -1,4 +1,4 @@
-import { Banner, Footer, Header, Rates, Team } from 'src/layout/index'
+import { Banner, Footer, Header, Rates, Team } from 'components/Landing'
 
 import styles from './Landing.module.scss'
 

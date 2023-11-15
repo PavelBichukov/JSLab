@@ -1,8 +1,8 @@
-import imgAnton from 'src/assets/images/anton.png'
-import imgDasha from 'src/assets/images/dasha.png'
-import imgDenis from 'src/assets/images/denis.png'
-import imgNikita from 'src/assets/images/mikita.png'
-import imgPavel from 'src/assets/images/pavel.png'
+import imgAnton from 'assets/images/anton.png'
+import imgDasha from 'assets/images/dasha.png'
+import imgDenis from 'assets/images/denis.png'
+import imgNikita from 'assets/images/mikita.png'
+import imgPavel from 'assets/images/pavel.png'
 
 export const teams = [
   {
