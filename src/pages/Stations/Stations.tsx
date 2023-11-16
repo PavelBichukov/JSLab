@@ -1,4 +1,5 @@
 import { Button, MainLayout, Modal } from 'components/share'
+import ExampleWithLocalizationProvider from 'components/Table/Table'
 import { AddStationMainComponent } from 'src/components'
 import { useModal } from 'src/hooks/useModal'
 
@@ -23,6 +24,7 @@ const Stations = () => {
           </Button>
         }
       >
+        <ExampleWithLocalizationProvider />
         <Modal
           isOpen={isOpenBig}
           onModalClose={closeModalBig}
