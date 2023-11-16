@@ -5,7 +5,9 @@ import styles from './PaymentsCard.module.scss'
 export const PaymentsCard = () => (
   <HomeCard variant="primary">
     <div className={styles.headerLine}>
-      <Typography variant="LabelL">Payments</Typography>
+      <Typography variant="LabelL" className={styles.paymentsTypo}>
+        Payments
+      </Typography>
       <img src="src/assets/icons/externalLink.png" alt="external link" />
     </div>
     <div className={styles.textContainer}>

@@ -8,7 +8,7 @@ import styles from './MarketWatchCard.module.scss'
 export const MarketWatchCard = () => {
   return (
     <HomeCard variant="primary">
-      <Typography variant="LabelL" className={styles.tittle}>
+      <Typography variant="LabelL" className={styles.title}>
         Market Watch
       </Typography>
       <div className={styles.chartPeriods}>
@@ -16,8 +16,7 @@ export const MarketWatchCard = () => {
           <Typography
             variant="LabelM"
             className={cn(styles.chartPeriod, {
-              [styles.active]:
-                period.isActive,
+              [styles.active]: period.isActive,
             })}
             key={period.key}
           >
@@ -25,7 +24,13 @@ export const MarketWatchCard = () => {
           </Typography>
         ))}
       </div>
-      <LineChart dataSet = {marketWatchData} symbol={'$'} minScale={76} maxScale={79} baseline = {true}/>
+      <LineChart
+        dataSet={marketWatchData}
+        symbol={'$'}
+        minScale={76}
+        maxScale={79}
+        baseline={true}
+      />
       <Typography variant="HeaderXL" className={styles.currentPrice}>
         $76.25
       </Typography>

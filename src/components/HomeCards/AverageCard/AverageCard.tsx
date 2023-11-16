@@ -5,7 +5,9 @@ import styles from './AverageCard.module.scss'
 export const AverageCard = () => (
   <div>
     <HomeCard variant="secondary" className={styles.firstCard}>
-      <Typography variant="LabelL">Local Average</Typography>
+      <Typography variant="LabelL" className={styles.localTypo}>
+        Local Average
+      </Typography>
       <div className={styles.container}>
         <div className={styles.triangle}>
           <img src="src/assets/icons/GreenTriangle.png" alt="triangle" />
@@ -23,7 +25,9 @@ export const AverageCard = () => (
       </div>
     </HomeCard>
     <HomeCard variant="secondary">
-      <Typography variant="LabelL">National Average</Typography>
+      <Typography variant="LabelL" className={styles.localTypo}>
+        National Average
+      </Typography>
       <div className={styles.container}>
         <div className={styles.triangle}>
           <img src="src/assets/icons/GreenTriangle.png" alt="triangle" />
