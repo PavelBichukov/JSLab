@@ -1,5 +1,6 @@
 import { HomeCard, LineChart, Typography } from 'components/share'
 
+import {transactionData} from './TransactionCard.consts'
 import styles from './TransactionsCard.module.scss'
 
 export const TransactionsCard = () => {
@@ -16,7 +17,7 @@ export const TransactionsCard = () => {
         <Typography variant="LabelM">This Month</Typography>
         <Typography variant="LabelM">This Year</Typography>
       </div>
-      <LineChart />
+      <LineChart dataSet = {transactionData} minScale={0} maxScale={600}/>
       <Typography variant="HeaderXL" className={styles.header}>
         812
       </Typography>

@@ -1,0 +1,40 @@
+@import '../../../App.scss';
+
+.card{
+  img{
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+.tittleBox   {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 20px;
+}
+
+.cardTittle {
+  color: $brand-black;
+  font-weight: 600;
+}
+
+
+.change{
+  color: $brand-black;
+  font-weight: 600;
+  border-bottom: 2px solid $medium-gray;
+  cursor: pointer;
+  transition: all 0.3s ease-out;
+  &:hover{
+    border-bottom: 2px solid $brand-black;
+  }
+}
+
+.textTittle{
+  padding: 18px 0px 8px 0px
+}
+
+.cardText{
+  color: $darkest-gray;
+}
