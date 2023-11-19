@@ -1,0 +1,72 @@
+@import '../../App.scss';
+
+.table {
+  width: 1635px;
+  height: 842px;
+  background-color: $white;
+  border-radius: 16px;
+}
+
+.tableContainer {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.header {
+  background-color: #F5F6FA;
+  height: 40px;
+  line-height: 40px;
+  border-collapse: collapse;
+  padding-top: 20px;
+}
+
+.headerTr {
+  border-radius: 16px;
+}
+
+.headerTh {
+  width: 70px;
+  text-align: left;
+}
+
+.headerLabel {
+  font-weight: 600;
+  color: $darker-gray;
+  text-align: left;
+}
+
+.tbody {
+}
+
+.trStyle {
+  height: 72px;
+  border-top: 1px solid $medium-gray;
+  border-bottom: 1px solid $medium-gray;
+}
+
+table {
+  border-collapse: collapse;
+  border-radius: 16px 16px 0 0;
+  overflow: hidden;
+}
+
+.table thead th {
+  text-align: left;
+}
+
+.table thead th {
+  margin-top: 20px;
+}
+
+.table tbody td {
+  padding-top: 25px;
+}
+
+.addressTd {
+  width: 150px;
+}
+
+.latAndLogTd {
+  width: 30px;
+}
