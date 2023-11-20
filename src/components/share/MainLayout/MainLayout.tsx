@@ -29,7 +29,7 @@ const MainLayout = ({
         </div>
         {headerActions && <div>{headerActions}</div>}
       </div>
-      <div className={cn(styles.main, mainClassName)}>{children}</div>
+      <div className={mainClassName}>{children}</div>
     </div>
   </div>
 )

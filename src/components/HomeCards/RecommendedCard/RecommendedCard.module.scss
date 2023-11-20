@@ -1,0 +1,39 @@
+@import '../../../App.scss';
+
+.container {
+  display: flex;
+  justify-content: center;
+  margin-top: 41px;
+}
+
+.paragraph {
+  color: $medium-gray-2;
+  margin: 10px 0 46px 16px;
+}
+
+.recommendedTypo {
+  color: $brand-black;
+  font-weight: 600;
+}
+
+.containerItem {
+  display: flex;
+  padding-bottom: 16px;
+}
+
+.containerParameters {
+  margin-left: 48px;
+}
+
+.parameter {
+  width: 200px;
+}
+
+.subContainerItem {
+  display: flex;
+  justify-content: center;
+  padding-top: 16px;
+  margin-left: 48px;
+  width: 250px;
+  border-top: 1px solid $medium-gray-2
+}

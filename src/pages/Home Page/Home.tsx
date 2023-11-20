@@ -1,5 +1,15 @@
 import { Button, MainLayout, Modal, Typography } from 'components/share'
 import { AddStationMainComponent } from 'src/components'
+import {
+  AverageCard,
+  CurrentOfferCard,
+  MarketWatchCard,
+  MyStationCard,
+  NewsCard,
+  PaymentsCard,
+  RecommendedCard,
+  TransactionsCard
+} from 'src/components/HomeCards'
 import { useModal } from 'src/hooks/useModal'
 
 import styles from './Home.module.scss'
@@ -12,10 +22,21 @@ const Home = () => {
     openModalBig()
   }
   return (
-    <div className={styles.main}>
-      <MainLayout title="Home">
-        <h3>Home</h3>
-        {!isOpenSmall ? openModalSmall() : console.log('no')}
+      <div className={styles.main}>
+        <MainLayout title="Home">
+          <div className={styles.scroll}>
+            <div className={styles.container}>
+              <MyStationCard/>
+              <PaymentsCard/>
+              <TransactionsCard/>
+              <MarketWatchCard/>
+              <AverageCard/>
+              <RecommendedCard/>
+              <NewsCard/>
+              <CurrentOfferCard/>
+             </div>
+           </div>
+        {/*{!isOpenSmall ? openModalSmall() : console.log('no')}*/}
         <Modal
           isOpen={isOpenSmall}
           onModalClose={closeModalSmall}

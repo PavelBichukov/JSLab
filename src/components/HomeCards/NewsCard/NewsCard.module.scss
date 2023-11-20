@@ -1,0 +1,30 @@
+@import '../../../App.scss';
+
+.newsContainer {
+  margin-top: 20px;
+  height: 340px;
+  overflow-y: hidden;
+}
+
+.newsTypo {
+  color: $brand-black;
+  font-weight: 600;
+}
+
+.container {
+  display: flex;
+  padding-bottom: 24px;
+}
+
+.subContainer {
+  margin-left: 6px;
+}
+
+.title {
+  font-weight: 600;
+}
+
+.date {
+  color: $medium-gray-2;
+  font-weight: 500;
+}

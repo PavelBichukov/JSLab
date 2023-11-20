@@ -1,0 +1,41 @@
+@import '../../../App.scss';
+
+.myStationTitle {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 20px;
+}
+
+.myStationTypo {
+  color: $brand-black;
+  font-weight: 600;
+}
+
+.stationImage {
+  width: 345px;
+  @media (max-width: 500px) {
+    width: 290px;
+  }
+}
+
+.changeTypo {
+  color: $brand-black;
+  font-weight: 600;
+  margin-top: 5px;
+  border-bottom: 2px solid $medium-gray;
+}
+
+.shellTypo {
+  margin: 8px 0;
+}
+
+.containerTypo {
+  display: flex;
+  margin-top: 20px;
+  gap: 110px;
+}
+
+.paragraphTypo {
+  padding-bottom: 6px;
+  color: $darker-gray;
+}
