@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 
 import { Button, FormController, Typography } from 'components/share'
-import { addStation } from 'src/api/api'
+import { addStation } from 'src/api'
 import { ADD_STATION_STEPS } from 'src/constants/addStationSteps'
 import { setCurrentStep } from 'src/store/signUp'
 import { setStationID } from 'src/store/user'
@@ -122,7 +122,7 @@ export const StationTypeBlock = () => {
           variant="primary"
           size="large"
           className={styles.buttonContinue}
-          onClick={() => handleSendRequest()}
+          onClick={handleSendRequest}
         >
           Continue
         </Button>

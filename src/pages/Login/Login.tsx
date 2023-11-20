@@ -2,7 +2,7 @@ import { useForm } from 'react-hook-form'
 import { Link, useNavigate } from 'react-router-dom'
 
 import { Button, FormController, Input, Typography } from 'components/share'
-import { login } from 'src/api/api'
+import { login } from 'src/api'
 
 import styles from './Login.module.scss'
 

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 
 import { Button, Typography } from 'components/share'
-import { getStationInfo } from 'src/api/api'
+import { getStationInfo } from 'src/api'
 import { useAppSelector } from 'src/utils/redux-hooks/hooks'
 
 import styles from './Finalize.module.scss'

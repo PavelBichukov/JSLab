@@ -11,7 +11,7 @@ import {
   Typography,
 } from 'components/share'
 import { stateOptions } from 'components/SignUp/BusinessLocationBlock/BusinessLocation.constants'
-import { addStationGeneralInformation, loadOptions } from 'src/api/api'
+import { addStationGeneralInformation, loadOptions } from 'src/api'
 import { ADD_STATION_STEPS } from 'src/constants/addStationSteps'
 import { setCurrentStep } from 'src/store/signUp'
 import { useAppDispatch, useAppSelector } from 'src/utils/redux-hooks/hooks'

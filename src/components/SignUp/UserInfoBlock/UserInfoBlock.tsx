@@ -1,7 +1,7 @@
 import { useForm } from 'react-hook-form'
 
 import { Button, FormController, Input, Typography } from 'components/share'
-import { signUpContinue } from 'src/api/api'
+import { signUpContinue } from 'src/api'
 import { SIGN_UP_STEPS } from 'src/constants/signUpSteps'
 import { setCurrentStep } from 'src/store/signUp'
 import { useAppDispatch } from 'src/utils/redux-hooks/hooks'

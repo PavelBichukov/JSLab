@@ -1,7 +1,7 @@
 import { useForm } from 'react-hook-form'
 
 import { Button, FormController, Input, Typography } from 'components/share'
-import { signUpEmail } from 'src/api/api'
+import { signUpEmail } from 'src/api'
 import { SIGN_UP_STEPS } from 'src/constants/signUpSteps'
 import { setCurrentStep } from 'src/store/signUp'
 import { setEmail } from 'src/store/user'

@@ -8,7 +8,7 @@ import {
   Select,
   Typography,
 } from 'components/share'
-import { addStationPaymentMethod } from 'src/api/api'
+import { addStationPaymentMethod } from 'src/api'
 import { ADD_STATION_STEPS } from 'src/constants/addStationSteps'
 import { setCurrentStep } from 'src/store/signUp'
 import { useAppDispatch, useAppSelector } from 'src/utils/redux-hooks/hooks'
