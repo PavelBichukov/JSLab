@@ -1,0 +1,53 @@
+@import '../../../App.scss';
+
+.title {
+  color: $brand-black;
+  font-weight: 600;
+}
+
+.chartPeriods {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 12px 0 5px
+}
+
+.chartPeriod {
+  color: $brand-black;
+  padding-bottom: 5px;
+  cursor: pointer;
+}
+
+.active {
+  padding-bottom: 4px;
+  border-bottom: 2px solid $brand-black;
+}
+
+.currentPrice {
+  padding-top: 20px;
+}
+
+.pricesChangingBox {
+  display: flex;
+  gap: 16px;
+  padding: 10px 0 10px 16px;
+}
+
+.priceValueChange {
+  color: #FF3B30;
+  position: relative;
+
+  &::before {
+    content: url(src/assets/icons/redTriangle.svg);
+    vertical-align: middle;
+    position: relative;
+    right: 8px;
+    bottom: 2px;
+  }
+}
+
+.bottomText {
+  color: $medium-gray-2;
+  text-align: center;
+  padding-top: 8px;
+}

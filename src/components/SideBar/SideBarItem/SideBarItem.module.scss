@@ -5,35 +5,37 @@
   display: flex;
   align-items: center;
   gap: 16px;
-  border-left:4px solid transparent;
+  border-left: 4px solid transparent;
   border-top-right-radius: 8px;
   border-bottom-right-radius: 8px;
   cursor: pointer;
   transition: all 0.2s ease-out;
   width: 232px;
-  &:hover{
+
+  &:hover {
     background-color: $light-gray;
   }
 }
 
-.itemCollapsed{
+.itemCollapsed {
   width: auto
 }
 
-.tittle{
+.title {
   cursor: pointer;
   color: $brand-black;
   transition: 0.3s;
 }
 
-.tittleCollapsed{
+.titleCollapsed {
   display: none;
 }
 
 .itemActive {
   background-color: $medium-gray;
-  border-left:4px solid $brand-blue;
-  &:hover{
+  border-left: 4px solid $brand-blue;
+
+  &:hover {
     background-color: $medium-gray;
   }
 }

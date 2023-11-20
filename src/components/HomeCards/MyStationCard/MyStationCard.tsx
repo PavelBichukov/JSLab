@@ -12,7 +12,11 @@ export const MyStationCard = () => (
         Change
       </Typography>
     </div>
-    <img src="src/assets/images/station.png" alt="stationPhoto" height="154" />
+    <img
+      src="src/assets/images/station.png"
+      alt="stationPhoto"
+      className={styles.stationImage}
+    />
     <Typography variant="HeaderS" className={styles.shellTypo}>
       Shell
     </Typography>

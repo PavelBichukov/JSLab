@@ -2,6 +2,13 @@
 
 .newsContainer {
   margin-top: 20px;
+  height: 340px;
+  overflow-y: hidden;
+}
+
+.newsTypo {
+  color: $brand-black;
+  font-weight: 600;
 }
 
 .container {
