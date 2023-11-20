@@ -50,7 +50,7 @@ const SideBarItem = ({
 
   return (
     <div>
-      {title != 'Supports' ? (
+      {title !== 'Supports' ? (
         <NavLink
           className={cn(
             styles.item,
