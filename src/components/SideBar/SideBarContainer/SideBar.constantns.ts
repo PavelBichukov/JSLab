@@ -52,6 +52,5 @@ export const ADDITIONAL_ITEMS = [
   {
     icon: 'supports',
     title: 'Supports',
-    route: '/supports',
   },
 ] as { icon: string; title: string; route: string }[]

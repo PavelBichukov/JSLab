@@ -1,6 +1,7 @@
 import Button from './Button/Button'
 import Checkbox from './Checkbox/Checkbox'
 import FormController from './FormController/FormController'
+import HelpCard from './HelpCard/HelpCard'
 import HomeCard from './HomeCard/HomeCard'
 import Input from './Input/Input'
 import LineChart from './LineChart/LineChart'
@@ -30,4 +31,5 @@ export {
   Location,
   HomeCard,
   LineChart,
+  HelpCard,
 }
