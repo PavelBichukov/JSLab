@@ -5,7 +5,9 @@ import styles from './NewsCard.module.scss'
 
 export const NewsCard = () => (
   <HomeCard variant="primary">
-    <Typography variant="LabelL">News</Typography>
+    <Typography variant="LabelL" className={styles.newsTypo}>
+      News
+    </Typography>
     <div className={styles.newsContainer}>
       {news.map((news) => (
         <div key={news.date} className={styles.container}>

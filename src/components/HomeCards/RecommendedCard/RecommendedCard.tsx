@@ -5,7 +5,9 @@ import styles from './RecommendedCard.module.scss'
 
 export const RecommendedCard = () => (
   <HomeCard variant="primary">
-    <Typography variant="LabelL">Recommended Price</Typography>
+    <Typography variant="LabelL" className={styles.recommendedTypo}>
+      Recommended Price
+    </Typography>
     <div className={styles.container}>
       <Typography variant="HeaderL">$3.018</Typography>
       <Typography variant="ParagraphL" className={styles.paragraph}>
