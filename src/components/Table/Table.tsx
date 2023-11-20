@@ -4,7 +4,7 @@ import {
   getCoreRowModel,
   useReactTable,
 } from '@tanstack/react-table'
-import * as React from 'react'
+import { useState } from 'react'
 
 import { Typography } from 'components/share'
 
@@ -81,7 +81,7 @@ const columns = [
   }),
 ]
 const Example = () => {
-  const [data, setData] = React.useState(() => [...defaultData])
+  const [data, setData] = useState(() => [...defaultData])
 
   const table = useReactTable({
     data,
