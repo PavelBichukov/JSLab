@@ -1,102 +1,37 @@
 import {
-  createColumnHelper,
   flexRender,
   getCoreRowModel,
   useReactTable,
 } from '@tanstack/react-table'
-import { useEffect, useReducer, useState } from 'react'
+import { useEffect, useState } from 'react'
 
 import { Toggle, Typography } from 'components/share'
+import { columns } from 'components/Table/Table.constants'
+import { getAllStations } from 'src/api/api'
+import { useAppSelector } from 'src/utils/redux-hooks/hooks'
 
 import styles from './Table.module.scss'
 
-type Person = {
-  stationName: string
-  stationDescription: string
-  address: string
-  latitude: string
-  longitude: string
-  lastUpdated: string
-  online: string
-}
-
-const defaultData: Person[] = [
-  {
-    stationName: 'Shell #218',
-    stationDescription: 'Merchant 2023-2983 • Store 2832-2083',
-    address: '55 Kibby Ln, Cincinnati, OH 45233',
-    latitude: '32.802774',
-    longitude: '-96.800143',
-    lastUpdated: 'Feb 14, 2023 • 12:00:01 AM EST',
-    online: false,
-  },
-  {
-    stationName: 'Shell #218',
-    stationDescription: 'Merchant 2023-2983 • Store 2832-2083',
-    address: '55 Kibby Ln, Cincinnati, OH 45233',
-    latitude: '32.802774',
-    longitude: '-96.800143',
-    lastUpdated: 'Feb 14, 2023 • 12:00:01 AM EST',
-    online: false,
-  },
-  {
-    stationName: 'Shell #218',
-    stationDescription: 'Merchant 2023-2983 • Store 2832-2083',
-    address: '55 Kibby Ln, Cincinnati, OH 45233',
-    latitude: '32.802774',
-    longitude: '-96.800143',
-    lastUpdated: 'Feb 14, 2023 • 12:00:01 AM EST',
-    online: false,
-  },
-]
-
-const columnHelper = createColumnHelper<Person>()
-
-const columns = [
-  columnHelper.accessor('stationName', {
-    header: () => 'Station Name | IDs',
-    cell: (info) => info.getValue(),
-    footer: (info) => info.column.id,
-  }),
-  columnHelper.accessor('address', {
-    header: () => 'Address',
-    cell: (info) => info.getValue(),
-    footer: (info) => info.column.id,
-  }),
-  columnHelper.accessor('latitude', {
-    header: () => 'Latitude',
-    cell: (info) => info.getValue(),
-    footer: (info) => info.column.id,
-  }),
-  columnHelper.accessor('longitude', {
-    header: () => 'Longitude',
-    cell: (info) => info.getValue(),
-    footer: (info) => info.column.id,
-  }),
-  columnHelper.accessor('lastUpdated', {
-    header: () => 'Last Updated',
-    cell: (info) => info.getValue(),
-    footer: (info) => info.column.id,
-  }),
-  columnHelper.accessor('online', {
-    header: () => 'Online',
-    cell: (info) => info.getValue(),
-    footer: (info) => info.column.id,
-  }),
-]
 const Example = () => {
-  const [data, setData] = useState(() => [...defaultData])
-  const rerender = useReducer(() => ({}), {})[1]
-  useEffect(() => {}, [defaultData])
-  const toggleState = (name) => {
-    console.log('rerender')
-    console.log(defaultData[0])
-    defaultData.map((person) => {
-      return person.stationName === name
-        ? { ...person, online: !person.online }
-        : { ...person }
-    })
-  }
+  const email = useAppSelector((state) => state.user.email)
+  const [data, setData] = useState([])
+
+  useEffect(() => {
+    const getStations = async () => {
+      try {
+        const response = await getAllStations(email)
+        const { status, data, message } = response && response.data
+        if (status === 'OK') {
+          setData(data)
+        } else {
+          alert(message)
+        }
+      } catch (error) {
+        alert('Oops... Something go wrong')
+      }
+    }
+    getStations()
+  }, [])
 
   const table = useReactTable({
     data,
@@ -109,7 +44,7 @@ const Example = () => {
       <table className={styles.tableContainer}>
         <thead className={styles.header}>
           {table.getHeaderGroups().map((headerGroup) => (
-            <tr key={headerGroup.id} className={styles.headerTr}>
+            <tr key={headerGroup.id}>
               {headerGroup.headers.map((header) => (
                 <th key={header.id} className={styles.headerTh}>
                   <Typography variant="LabelS" className={styles.headerLabel}>
@@ -126,8 +61,8 @@ const Example = () => {
           ))}
         </thead>
         <tbody className={styles.tbody}>
-          {table.getRowModel().rows.map((row) => (
-            <tr key={row.id} className={styles.trStyle}>
+          {data.map((station) => (
+            <tr key={station.id} className={styles.trStyle}>
               <td>
                 <div className={styles.stationContainer}>
                   <div className={styles.subSquare}>
@@ -138,45 +73,37 @@ const Example = () => {
                       variant="LabelM"
                       className={styles.labelStation}
                     >
-                      {row.original.stationName}
+                      {station.stationName}
                     </Typography>
                     <Typography
                       variant="ParagraphS"
                       className={styles.paragraphStation}
                     >
-                      {row.original.stationDescription}
+                      Merchant 2023-2983 • Store 2832-2083
                     </Typography>
                   </div>
                 </div>
               </td>
               <td className={styles.addressTd}>
-                <div className={styles.address}>
-                  <Typography variant="ParagraphL">
-                    {row.original.address}
-                  </Typography>
-                </div>
-              </td>
-              <td>
                 <Typography variant="ParagraphL">
-                  {row.original.latitude}
+                  55 Kibby Ln, Cincinnati, OH 45233
                 </Typography>
               </td>
               <td>
+                <Typography variant="ParagraphL">{station.latitude}</Typography>
+              </td>
+              <td>
                 <Typography variant="ParagraphL">
-                  {row.original.longitude}
+                  {station.longitude}
                 </Typography>
               </td>
               <td className={styles.addressTd}>
                 <Typography variant="ParagraphL">
-                  {row.original.lastUpdated}
+                  Feb 14, 2023 • 12:00:01 AM EST
                 </Typography>
               </td>
               <td>
-                <Toggle
-                  name={row.original.stationName}
-                  online={row.original.online}
-                  toggleState={toggleState}
-                />
+                <Toggle online={station.online} />
               </td>
             </tr>
           ))}
