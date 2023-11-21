@@ -37,6 +37,10 @@
 
 .buttonSelect {
   height: 56px;
+  margin-bottom: 24px;
+  &:disabled{
+    cursor: not-allowed;
+  }
   @media (max-width: 575px) {
     width: 90%;
   }
@@ -45,15 +49,7 @@
 .buttonSelectActive {
   height: 56px;
   border: 3px solid $brand-black;
-  @media (max-width: 575px) {
-    width: 90%;
-  }
-}
-
-.buttonDisabled {
-  height: 56px;
-  margin: 14px 0 24px 0;
-  cursor: not-allowed;
+  margin-bottom: 24px;
   @media (max-width: 575px) {
     width: 90%;
   }

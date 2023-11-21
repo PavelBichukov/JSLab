@@ -1,8 +1,7 @@
-import { useState } from 'react'
-import { useForm } from 'react-hook-form'
+import { useEffect, useState } from 'react'
 
-import { Button, FormController, Typography } from 'components/share'
-import { addStation } from 'src/api'
+import { Button, Typography } from 'components/share'
+import { addStation, getAllStations } from 'src/api'
 import { ADD_STATION_STEPS } from 'src/constants/addStationSteps'
 import { setCurrentStep } from 'src/store/signUp'
 import { setStationID } from 'src/store/user'
@@ -12,29 +11,15 @@ import styles from './StationTypeBlock.module.scss'
 
 export const StationTypeBlock = () => {
   const dispatch = useAppDispatch()
-  const [isActive, setIsActive] = useState(false)
+  const [stationType, setStationType] = useState('')
+  const [isAnyStations, setStatus] = useState(false)
 
   const email = useAppSelector((state) => state.user.email)
-
-  const { control, handleSubmit, setError } = useForm({
-    mode: 'onBlur',
-    defaultValues: {
-      termsCheckBox: '',
-    },
-  })
-
-  const onSubmit = () => {
-    console.log('Terms checkbox is checked')
-  }
-
-  const handleClick = () => {
-    setIsActive((current) => !current)
-  }
 
   const handleSendRequest = async () => {
     try {
       const response = await addStation({
-        stationType: 'Gasoline',
+        stationType: stationType,
         userEmail: email,
       })
       const { status, message } = response && response.data
@@ -46,87 +31,100 @@ export const StationTypeBlock = () => {
       }
     } catch (error) {
       if (error.message === 'Empty station type field') {
-        setError('root.serverError', {
-          type: 'FAILED',
-          message: 'Empty station type field',
-        })
+        alert(error.message)
       } else {
-        setError('root.serverError', {
-          type: 'FAILED',
-          message: 'Oops... Something go wrong',
-        })
+        alert('Oops... Something go wrong')
       }
     }
   }
+
+  useEffect(() => {
+    const getInfo = async () => {
+      try {
+        const response = await getAllStations()
+        const { status } = response && response.data
+        if (status === 'TRUE') {
+          setStatus(true)
+        }
+      } catch (error) {
+        alert('Oops... Something go wrong')
+      }
+    }
+    getInfo()
+  }, [])
 
   return (
     <div className={styles.mainBlock}>
       <Typography variant="HeaderS" className={styles.title}>
         Select a Station Type
       </Typography>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <div className={styles.buttonBlock}>
-          <FormController
-            name="btnCheck"
-            control={control}
-            errorClassName={styles.btnError}
-            rules={{
-              required: true,
-            }}
-            render={() => (
-              <Button
-                type="button"
-                className={
-                  isActive ? styles.buttonSelectActive : styles.buttonSelect
-                }
-                mode="whiteShadow"
-                variant="secondary"
-                size="large"
-                onClick={handleClick}
-              >
-                <Typography variant="LabelL">Gasoline / Diesel</Typography>
-              </Button>
-            )}
-          />
-          <div>
-            <Button
-              type="button"
-              className={styles.buttonDisabled}
-              mode="whiteShadowDisabled"
-              variant="secondary"
-              size="large"
-              onClick={() => console.log('click')}
-            >
-              <Typography variant="LabelL">Electric (Coming Soon)</Typography>
-            </Button>
-            <Button
-              type="button"
-              className={styles.buttonDisabled}
-              mode="whiteShadowDisabled"
-              variant="secondary"
-              size="large"
-              onClick={() => console.log('click')}
-            >
-              <Typography variant="LabelL">Both (Coming Soon)</Typography>
-            </Button>
-            <Typography variant="ParagraphS" className={styles.btnParagraph}>
-              This information is used to determine which POS system will be
-              integrated with during setup. After the station is created - other
-              systems may be added to JSLab.
-            </Typography>
-          </div>
-        </div>
+      <div className={styles.buttonBlock}>
         <Button
-          type="submit"
-          mode={isActive ? 'defaultBlack' : 'disabled'}
-          variant="primary"
+          type="button"
+          className={
+            stationType === 'Gasoline / Diesel'
+              ? styles.buttonSelectActive
+              : styles.buttonSelect
+          }
+          mode="whiteShadow"
+          variant="secondary"
           size="large"
-          className={styles.buttonContinue}
-          onClick={handleSendRequest}
+          onClick={() => setStationType('Gasoline / Diesel')}
         >
-          Continue
+          <Typography variant="LabelL">Gasoline / Diesel</Typography>
         </Button>
-      </form>
+        <div>
+          <Button
+            type="button"
+            className={
+              stationType === 'Electric'
+                ? styles.buttonSelectActive
+                : styles.buttonSelect
+            }
+            mode={isAnyStations ? 'whiteShadow' : 'whiteShadowDisabled'}
+            variant="secondary"
+            size="large"
+            disabled = {!isAnyStations}
+            onClick={() => setStationType('Electric')}
+          >
+            <Typography variant="LabelL">
+              {isAnyStations ? 'Electric ' : 'Electric (Coming Soon)'}
+            </Typography>
+          </Button>
+          <Button
+            type="button"
+            className={
+              stationType === 'Both'
+                ? styles.buttonSelectActive
+                : styles.buttonSelect
+            }
+            mode={isAnyStations ? 'whiteShadow' : 'whiteShadowDisabled'}
+            variant="secondary"
+            size="large"
+            disabled = {!isAnyStations}
+            onClick={() => setStationType('Both')}
+          >
+            <Typography variant="LabelL">
+              {isAnyStations ? 'Both ' : 'Both (Coming Soon)'}
+            </Typography>
+          </Button>
+          <Typography variant="ParagraphS" className={styles.btnParagraph}>
+            This information is used to determine which POS system will be
+            integrated with during setup. After the station is created - other
+            systems may be added to JSLab.
+          </Typography>
+        </div>
+      </div>
+      <Button
+        type="submit"
+        mode={stationType === '' ? 'disabled' : 'defaultBlack'}
+        variant="primary"
+        size="large"
+        className={styles.buttonContinue}
+        onClick={handleSendRequest}
+      >
+        Continue
+      </Button>
     </div>
   )
 }

@@ -1,0 +1,132 @@
+@import '../../../../App.scss';
+
+.formBlock {
+  height: 100%;
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.mainBlock {
+  height: 64vh;
+  overflow-y: scroll;
+  padding-right: 200px;
+
+  &::-webkit-scrollbar {
+    background-color: transparent;
+    width: 6px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: rgba(80, 87, 107, 1);
+    border-radius: 3px;
+  }
+
+  @media (max-width: 1010px) {
+    width: 88%;
+    padding-right: 10px;
+  }
+}
+
+.buttonSelect {
+  height: 56px;
+  margin-bottom: 24px;
+  margin-left: 47px;
+  &:disabled{
+    cursor: not-allowed;
+  }
+  @media (max-width: 575px) {
+    width: 90%;
+  }
+}
+
+.buttonSelectActive {
+  height: 56px;
+  border: 3px solid $brand-black;
+  margin-bottom: 24px;
+  @media (max-width: 575px) {
+    width: 90%;
+  }
+}
+
+.buttonsBlock {
+  width: 100%;
+  padding: 0 200px 0 47px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+
+  & button {
+    flex: 1;
+  }
+
+  @media (max-width: 1010px) {
+    width: 88%;
+    padding-right: 10px;
+  }
+}
+
+.buttonBack {
+  height: 44px;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 24px;
+  border-width: 1.5px;
+}
+
+.buttonFinished {
+  height: 44px;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 24px;
+}
+
+.stationsDropDown {
+  padding: 70px 0 0 47px;
+  display: flex;
+  flex-direction: column;
+  overflow-y: visible;
+}
+
+.titleSelect {
+  margin-top: 50px;
+}
+
+.paymentMethod {
+  padding-left: 47px;
+  padding-bottom: 24px;
+}
+
+.titleEnter {
+  padding-top: 64px;
+}
+
+.underSelectPart {
+  padding-left: 47px;
+}
+
+.accountNickname {
+  padding: 24px 0 65px 0;
+}
+
+.infoContainer {
+  display: flex;
+  background-color: $light-gray;
+  padding: 16px 24px;
+  border-radius: 8px;
+  margin-top: 25px;
+  margin-bottom: 72px;
+}
+
+.infoText {
+  padding-left: 16px;
+  color: $darker-gray;
+}
+
+.routingNumber {
+  padding: 0;
+}
