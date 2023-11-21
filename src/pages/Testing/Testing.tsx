@@ -1,6 +1,6 @@
 import { QueryClient, QueryClientProvider, useQuery } from 'react-query'
 
-import { Radio } from 'components/share'
+import { Toggle } from 'components/share'
 
 const queryClient = new QueryClient()
 
@@ -25,12 +25,7 @@ function Example() {
       ) : (
         data.users.map((user: string, i: number) => <p key={i}>{user}</p>)
       )}
-      <Radio
-        labelText="Manual Verification"
-        subText="We will connect you account instantly with Plaid."
-      />
-      <Radio labelText="Manual Verification" subText="Manual Verification" />
-      <Radio labelText="Manual Verification" subText="Manual Verification" />
+      <Toggle />
     </div>
   )
 }
