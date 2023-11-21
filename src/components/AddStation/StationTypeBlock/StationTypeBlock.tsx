@@ -13,8 +13,8 @@ import styles from './StationTypeBlock.module.scss'
 export const StationTypeBlock = () => {
   const dispatch = useAppDispatch()
   const [isActive, setIsActive] = useState(false)
-
   const email = useAppSelector((state) => state.user.email)
+  console.log(email)
 
   const { control, handleSubmit, setError } = useForm({
     mode: 'onBlur',
