@@ -13,6 +13,10 @@
   border-spacing: 0;
 }
 
+th:nth-child(1) {
+  padding-left: 60px;
+}
+
 .header {
   background-color: #F5F6FA;
   height: 40px;
@@ -53,10 +57,6 @@
   line-height: 36px;
 }
 
-.headerTr {
-  border-radius: 16px;
-}
-
 .headerTh {
   width: 70px;
   text-align: left;
@@ -72,7 +72,7 @@
 }
 
 .trStyle {
-  height: 72px;
+  height: 74px;
   border-top: 1px solid $medium-gray;
   border-bottom: 1px solid $medium-gray;
 }
@@ -87,17 +87,8 @@ table {
   text-align: left;
 }
 
-.table thead th {
-  margin-top: 20px;
-}
-
 .addressTd {
+  margin-top: 5px;
   width: 120px;
   height: 30px;
-}
-
-.address {
-  height: 40px;
-  margin: 0;
-  padding: 0;
 }
