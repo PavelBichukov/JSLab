@@ -4,9 +4,9 @@ import {
   getCoreRowModel,
   useReactTable,
 } from '@tanstack/react-table'
-import { useState } from 'react'
+import { useEffect, useReducer, useState } from 'react'
 
-import { Typography } from 'components/share'
+import { Toggle, Typography } from 'components/share'
 
 import styles from './Table.module.scss'
 
@@ -26,7 +26,7 @@ const defaultData: Person[] = [
     latitude: '32.802774',
     longitude: '-96.800143',
     lastUpdated: 'Feb 14, 2023 • 12:00:01 AM EST',
-    online: 'str',
+    online: false,
   },
   {
     stationName: 'tandy',
@@ -34,7 +34,7 @@ const defaultData: Person[] = [
     latitude: '32.802774',
     longitude: '-96.800143',
     lastUpdated: 'Feb 14, 2023 • 12:00:01 AM EST',
-    online: 'str',
+    online: false,
   },
   {
     stationName: 'joe',
@@ -42,7 +42,7 @@ const defaultData: Person[] = [
     latitude: '32.802774',
     longitude: '-96.800143',
     lastUpdated: 'Feb 14, 2023 • 12:00:01 AM EST',
-    online: 'str',
+    online: false,
   },
 ]
 
@@ -82,6 +82,17 @@ const columns = [
 ]
 const Example = () => {
   const [data, setData] = useState(() => [...defaultData])
+  const rerender = useReducer(() => ({}), {})[1]
+  useEffect(() => {}, [defaultData])
+  const toggleState = (name) => {
+    console.log('rerender')
+    console.log(defaultData[0])
+    defaultData.map((person) => {
+      return person.stationName === name
+        ? { ...person, online: !person.online }
+        : { ...person }
+    })
+  }
 
   const table = useReactTable({
     data,
@@ -134,7 +145,13 @@ const Example = () => {
                   {row.original.lastUpdated}
                 </Typography>
               </td>
-              <td>{row.original.online}</td>
+              <td>
+                <Toggle
+                  name={row.original.stationName}
+                  online={row.original.online}
+                  toggleState={toggleState}
+                />
+              </td>
             </tr>
           ))}
         </tbody>
