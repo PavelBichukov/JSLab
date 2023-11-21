@@ -62,3 +62,9 @@ export const loadOptions = (
       alert(error.message)
     })
 }
+
+export const getAllStations = async (data: any) => {
+  return await axios.get(
+    `${import.meta.env.VITE_HOST_DEV}/addStation/getAllStations/?email=${data}`
+  )
+}

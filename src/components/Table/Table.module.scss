@@ -21,6 +21,38 @@
   padding-top: 20px;
 }
 
+.stationContainer {
+  display: flex;
+  height: 40px;
+}
+
+.subSquare {
+  height: 100%;
+}
+
+.square {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  background: #ABB2C2;
+  margin-right: 5px;
+  margin-left: 16px;
+  margin-top: 16px;
+}
+
+.labelStation {
+  font-weight: 600;
+}
+
+.paragraphStation {
+  color: $darker-gray;
+}
+
+.subContainer {
+  margin-top: 6px;
+  line-height: 36px;
+}
+
 .headerTr {
   border-radius: 16px;
 }
@@ -59,14 +91,13 @@ table {
   margin-top: 20px;
 }
 
-.table tbody td {
-  padding-top: 25px;
-}
-
 .addressTd {
-  width: 150px;
+  width: 120px;
+  height: 30px;
 }
 
-.latAndLogTd {
-  width: 30px;
+.address {
+  height: 40px;
+  margin: 0;
+  padding: 0;
 }
