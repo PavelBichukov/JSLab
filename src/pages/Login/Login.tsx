@@ -2,7 +2,11 @@ import { useForm } from 'react-hook-form'
 import { Link, useNavigate } from 'react-router-dom'
 
 import { Button, FormController, Input, Typography } from 'components/share'
+<<<<<<< HEAD
 import { login } from 'src/api'
+=======
+import { login } from 'src/api/api'
+>>>>>>> fb97a05 (INT-63/FEAT: add api routes)
 import { setEmail } from 'src/store/user'
 import { useAppDispatch } from 'src/utils/redux-hooks/hooks'
 

@@ -12,6 +12,7 @@ import styles from './Table.module.scss'
 
 type Person = {
   stationName: string
+  stationDescription: string
   address: string
   latitude: string
   longitude: string
@@ -21,7 +22,8 @@ type Person = {
 
 const defaultData: Person[] = [
   {
-    stationName: 'tanner',
+    stationName: 'Shell #218',
+    stationDescription: 'Merchant 2023-2983 • Store 2832-2083',
     address: '55 Kibby Ln, Cincinnati, OH 45233',
     latitude: '32.802774',
     longitude: '-96.800143',
@@ -29,7 +31,8 @@ const defaultData: Person[] = [
     online: false,
   },
   {
-    stationName: 'tandy',
+    stationName: 'Shell #218',
+    stationDescription: 'Merchant 2023-2983 • Store 2832-2083',
     address: '55 Kibby Ln, Cincinnati, OH 45233',
     latitude: '32.802774',
     longitude: '-96.800143',
@@ -37,7 +40,8 @@ const defaultData: Person[] = [
     online: false,
   },
   {
-    stationName: 'joe',
+    stationName: 'Shell #218',
+    stationDescription: 'Merchant 2023-2983 • Store 2832-2083',
     address: '55 Kibby Ln, Cincinnati, OH 45233',
     latitude: '32.802774',
     longitude: '-96.800143',
@@ -124,18 +128,40 @@ const Example = () => {
         <tbody className={styles.tbody}>
           {table.getRowModel().rows.map((row) => (
             <tr key={row.id} className={styles.trStyle}>
-              <td>{row.original.stationName}</td>
-              <td className={styles.addressTd}>
-                <Typography variant="ParagraphL">
-                  {row.original.address}
-                </Typography>
+              <td>
+                <div className={styles.stationContainer}>
+                  <div className={styles.subSquare}>
+                    <div className={styles.square}></div>
+                  </div>
+                  <div className={styles.subContainer}>
+                    <Typography
+                      variant="LabelM"
+                      className={styles.labelStation}
+                    >
+                      {row.original.stationName}
+                    </Typography>
+                    <Typography
+                      variant="ParagraphS"
+                      className={styles.paragraphStation}
+                    >
+                      {row.original.stationDescription}
+                    </Typography>
+                  </div>
+                </div>
               </td>
-              <td className={styles.latAndLogTd}>
+              <td className={styles.addressTd}>
+                <div className={styles.address}>
+                  <Typography variant="ParagraphL">
+                    {row.original.address}
+                  </Typography>
+                </div>
+              </td>
+              <td>
                 <Typography variant="ParagraphL">
                   {row.original.latitude}
                 </Typography>
               </td>
-              <td className={styles.latAndLogTd}>
+              <td>
                 <Typography variant="ParagraphL">
                   {row.original.longitude}
                 </Typography>
