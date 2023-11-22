@@ -1,7 +1,5 @@
 import { QueryClient, QueryClientProvider, useQuery } from 'react-query'
 
-import { Toggle } from 'components/share'
-
 const queryClient = new QueryClient()
 
 const Testing = () => (
@@ -25,7 +23,6 @@ function Example() {
       ) : (
         data.users.map((user: string, i: number) => <p key={i}>{user}</p>)
       )}
-      <Toggle />
     </div>
   )
 }

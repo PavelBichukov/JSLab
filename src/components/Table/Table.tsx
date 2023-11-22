@@ -13,7 +13,7 @@ import { useAppSelector } from 'src/utils/redux-hooks/hooks'
 
 import styles from './Table.module.scss'
 
-const Example = () => {
+const Table = () => {
   const email = useAppSelector((state) => state.user.email)
   const [data, setData] = useState([])
 
@@ -151,4 +151,4 @@ const Example = () => {
   )
 }
 
-export default Example
+export default Table

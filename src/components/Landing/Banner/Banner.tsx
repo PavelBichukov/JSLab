@@ -16,7 +16,7 @@ const Banner = () => (
       </Typography>
     </div>
     <div className={styles.buttonContainer}>
-      <a href="src/components/Landing/Banner#rates">
+      <a href="#rates">
         <Button
           className={styles.bannerButton}
           type="button"
