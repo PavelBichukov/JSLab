@@ -17,6 +17,16 @@ const Example = () => {
   const email = useAppSelector((state) => state.user.email)
   const [data, setData] = useState([])
 
+  const toggleStationHandler = (stationName) => {
+    setData(
+      data.map((station) => {
+        return station.stationName === stationName
+          ? { ...station, online: !station.online }
+          : { ...station }
+      })
+    )
+  }
+
   useEffect(() => {
     const getStations = async () => {
       try {
@@ -127,7 +137,11 @@ const Example = () => {
                 </Typography>
               </td>
               <td>
-                <Toggle online={station.online} />
+                <Toggle
+                  online={station.online}
+                  stationName={station.stationName}
+                  toggleStationHandler={toggleStationHandler}
+                />
               </td>
             </tr>
           ))}
