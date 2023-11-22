@@ -30,3 +30,22 @@ export const columns = [
     cell: (info) => info.getValue(),
   }),
 ]
+
+export const filters = [
+  {
+    filterName: 'Station Name',
+    subFilterName: 'All stations',
+  },
+  {
+    filterName: 'Location',
+    subFilterName: 'All stations',
+  },
+  {
+    filterName: 'Last Updated',
+    subFilterName: 'Any',
+  },
+  {
+    filterName: 'Status',
+    subFilterName: 'Online',
+  },
+]

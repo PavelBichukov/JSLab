@@ -6,8 +6,9 @@ import {
 import { useEffect, useState } from 'react'
 
 import { Toggle, Typography } from 'components/share'
-import { columns } from 'components/Table/Table.constants'
+import { filters as FILTERS, columns } from 'components/Table/Table.constants'
 import { getAllStations } from 'src/api/api'
+import ChevronDownIcon from 'src/assets/icons/ChevronDownIcon.svg'
 import { useAppSelector } from 'src/utils/redux-hooks/hooks'
 
 import styles from './Table.module.scss'
@@ -41,6 +42,29 @@ const Example = () => {
 
   return (
     <div className={styles.table}>
+      <div className={styles.subDiv}>
+        {FILTERS.map((filter) => (
+          <div key={filter.filterName} className={styles.subDivElement}>
+            <div>
+              <Typography variant="LabelS" className={styles.labelTypo}>
+                {filter.filterName}
+              </Typography>
+            </div>
+            <div className={styles.subDivTypo}>
+              <Typography variant="ParagraphM">
+                {filter.subFilterName}
+              </Typography>
+              <img src={ChevronDownIcon} alt={ChevronDownIcon} />
+            </div>
+          </div>
+        ))}
+        <Typography variant="LabelM" className={styles.filters}>
+          More Filters
+        </Typography>
+        <Typography variant="LabelM" className={styles.filters}>
+          Clear
+        </Typography>
+      </div>
       <table className={styles.tableContainer}>
         <thead className={styles.header}>
           {table.getHeaderGroups().map((headerGroup) => (
