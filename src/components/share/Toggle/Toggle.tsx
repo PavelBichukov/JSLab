@@ -1,19 +1,21 @@
 import cn from 'classnames'
-import { useState } from 'react'
 
 import styles from './Toggle.module.scss'
 
 const Toggle = ({
   className,
   online,
+  stationName,
+  toggleStationHandler,
   ...restProps
 }: {
   className?: any
   online: boolean
+  stationName: any
+  toggleStationHandler: any
 }) => {
-  const [checked, setChecked] = useState(online)
   const clickHandler = () => {
-    setChecked(!checked)
+    toggleStationHandler(stationName)
   }
 
   return (
