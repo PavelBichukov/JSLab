@@ -1,6 +1,5 @@
 import { Button, MainLayout, Modal } from 'components/share'
-import Example from 'components/Table/Table'
-import { AddStationMainComponent } from 'src/components'
+import { AddStationMainComponent, Table } from 'src/components'
 import { useModal } from 'src/hooks/useModal'
 
 import styles from './Stations.module.scss'
@@ -24,7 +23,7 @@ const Stations = () => {
           </Button>
         }
       >
-        <Example />
+        <Table />
         <Modal
           isOpen={isOpenBig}
           onModalClose={closeModalBig}
