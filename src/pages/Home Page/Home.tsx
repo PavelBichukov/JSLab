@@ -36,7 +36,7 @@ const Home = () => {
             <CurrentOfferCard />
           </div>
         </div>
-        {/*{!isOpenSmall ? openModalSmall() : console.log('no')}*/}
+        {!isOpenSmall ? openModalSmall() : console.log('no')}
         <Modal
           isOpen={isOpenSmall}
           onModalClose={closeModalSmall}

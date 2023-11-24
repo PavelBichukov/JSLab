@@ -8,7 +8,7 @@ import styles from './HelpCard.module.scss'
 export const HelpCard = () => {
   const [message, setMessage] = useState('')
   const [send, setSend] = useState(false)
-  const handleInput = (ev) => {
+  const handleInput = (ev: any) => {
     setMessage(ev.target.value)
   }
   const handleClear = (ev: any) => {

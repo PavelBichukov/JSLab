@@ -15,9 +15,9 @@ import styles from './Table.module.scss'
 
 const Table = () => {
   const email = useAppSelector((state) => state.user.email)
-  const [data, setData] = useState([])
+  const [data, setData] = useState<any[]>([])
 
-  const toggleStationHandler = (stationName) => {
+  const toggleStationHandler = (stationName: any) => {
     setData(
       data.map((station) => {
         return station.stationName === stationName
