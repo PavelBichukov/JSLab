@@ -3,10 +3,13 @@ import { Link, useNavigate } from 'react-router-dom'
 
 import { Button, FormController, Input, Typography } from 'components/share'
 import { login } from 'src/api'
+import { setEmail } from 'src/store/user'
+import { useAppDispatch } from 'src/utils/redux-hooks/hooks'
 
 import styles from './Login.module.scss'
 
 const Login = () => {
+  const dispatch = useAppDispatch()
   const {
     control,
     setError,
@@ -21,11 +24,13 @@ const Login = () => {
   const navigate = useNavigate()
   const onSubmit = async (data: any, e: any) => {
     e.preventDefault()
+    console.log(data.email)
     try {
       const response = await login(data)
       const { status, message } = response && response.data
       console.log(status)
       if (status === 'SUCCESS') {
+        dispatch(setEmail(data.email))
         navigate('/home')
       } else {
         throw new Error(message)

@@ -11,9 +11,11 @@ import styles from './StationTypeBlock.module.scss'
 
 export const StationTypeBlock = () => {
   const dispatch = useAppDispatch()
+  
   const [stationType, setStationType] = useState('')
   const [isAnyStations, setStatus] = useState(false)
-
+  const [isActive, setIsActive] = useState(false)
+  
   const email = useAppSelector((state) => state.user.email)
 
   const handleSendRequest = async () => {
