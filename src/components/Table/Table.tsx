@@ -7,7 +7,7 @@ import { useEffect, useState } from 'react'
 
 import { Toggle, Typography } from 'components/share'
 import { filters as FILTERS, columns } from 'components/Table/Table.constants'
-import { getAllStations } from 'src/api/api'
+import { getAllStations } from 'src/api'
 import ChevronDownIcon from 'src/assets/icons/ChevronDownIcon.svg'
 import { useAppSelector } from 'src/utils/redux-hooks/hooks'
 
