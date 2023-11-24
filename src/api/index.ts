@@ -119,6 +119,7 @@ export const getBankAccounts = async () => {
     `${import.meta.env.VITE_HOST_DEV}/addBankAccount/getBankAccounts`
   )
 }
+
 export const getAllStations = async (data: any) => {
   return await axios.get(
     `${import.meta.env.VITE_HOST_DEV}/addStation/getAllStations/?email=${data}`
