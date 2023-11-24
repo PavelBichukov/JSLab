@@ -87,9 +87,16 @@ export const addStationAmenities = async (data: any) => {
   )
 }
 
-export const addStationPaymentMethod = async (data: any) => {
+export const createBankAccount = async (data: any) => {
   return await axios.post(
-    `${import.meta.env.VITE_HOST_DEV}/addStation/stationPaymentMethod`,
+    `${import.meta.env.VITE_HOST_DEV}/addBankAccount/createBankAccount`,
+    data
+  )
+}
+
+export const addBankAccount = async (data: any) => {
+  return await axios.post(
+    `${import.meta.env.VITE_HOST_DEV}/addStation/addBankAccount`,
     data
   )
 }
@@ -104,5 +111,17 @@ export const addStationPOSSystem = async (data: any) => {
 export const getStationInfo = async (data: any) => {
   return await axios.get(
     `${import.meta.env.VITE_HOST_DEV}/addStation/getStationInfo/?id=${data}`,
+  )
+}
+
+export const getAllStations = async () => {
+  return await axios.get(
+    `${import.meta.env.VITE_HOST_DEV}/addStation/getAllStations`,
+  )
+}
+
+export const getBankAccounts = async () => {
+  return await axios.get(
+    `${import.meta.env.VITE_HOST_DEV}/addBankAccount/getBankAccounts`,
   )
 }
