@@ -14,7 +14,6 @@ export const StationTypeBlock = () => {
   
   const [stationType, setStationType] = useState('')
   const [isAnyStations, setStatus] = useState(false)
-  const [isActive, setIsActive] = useState(false)
   
   const email = useAppSelector((state) => state.user.email)
 
@@ -43,9 +42,9 @@ export const StationTypeBlock = () => {
   useEffect(() => {
     const getInfo = async () => {
       try {
-        const response = await getAllStations()
+        const response = await getAllStations(email)
         const { status } = response && response.data
-        if (status === 'TRUE') {
+        if (status === 'OK') {
           setStatus(true)
         }
       } catch (error) {
