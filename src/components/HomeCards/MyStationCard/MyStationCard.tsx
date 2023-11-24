@@ -1,4 +1,5 @@
 import { HomeCard, Typography } from 'components/share'
+import imgStation from 'src/assets/images/station.png'
 
 import styles from './MyStationCard.module.scss'
 
@@ -12,11 +13,7 @@ export const MyStationCard = () => (
         Change
       </Typography>
     </div>
-    <img
-      src="src/assets/images/station.png"
-      alt="stationPhoto"
-      className={styles.stationImage}
-    />
+    <img src={imgStation} alt="stationPhoto" className={styles.stationImage} />
     <Typography variant="HeaderS" className={styles.shellTypo}>
       Shell
     </Typography>

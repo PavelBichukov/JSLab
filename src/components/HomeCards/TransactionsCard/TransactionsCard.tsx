@@ -1,4 +1,6 @@
 import { HomeCard, LineChart, Typography } from 'components/share'
+import imgLink from 'src/assets/icons/externalLink.png'
+import imgTriangle from 'src/assets/icons/GreenTriangle.png'
 
 import { transactionData } from './TransactionCard.consts'
 import styles from './TransactionsCard.module.scss'
@@ -10,7 +12,7 @@ export const TransactionsCard = () => {
         <Typography variant="LabelL" className={styles.transactionTypo}>
           Transactions
         </Typography>
-        <img src="src/assets/icons/externalLink.png" alt="external link" />
+        <img src={imgLink} alt="external link" />
       </div>
       <div className={styles.subHeaderContainer}>
         <Typography variant="LabelM" className={styles.subHeaderSelected}>
@@ -25,7 +27,7 @@ export const TransactionsCard = () => {
       </Typography>
       <div className={styles.footerContainer}>
         <div>
-          <img src="src/assets/icons/GreenTriangle.png" alt="triangle" />
+          <img src={imgTriangle} alt="triangle" />
         </div>
         <Typography variant="LabelXL" className={styles.number}>
           93

@@ -1,4 +1,5 @@
 import { HomeCard, Typography } from 'components/share'
+import imgTriangle from 'src/assets/icons/GreenTriangle.png'
 
 import styles from './AverageCard.module.scss'
 
@@ -10,7 +11,7 @@ export const AverageCard = () => (
       </Typography>
       <div className={styles.container}>
         <div className={styles.triangle}>
-          <img src="src/assets/icons/GreenTriangle.png" alt="triangle" />
+          <img src={imgTriangle} alt="triangle" />
         </div>
         <Typography variant="HeaderL">$3.018</Typography>
         <Typography variant="ParagraphL" className={styles.paragraph}>
@@ -30,7 +31,7 @@ export const AverageCard = () => (
       </Typography>
       <div className={styles.container}>
         <div className={styles.triangle}>
-          <img src="src/assets/icons/GreenTriangle.png" alt="triangle" />
+          <img src={imgTriangle} alt="triangle" />
         </div>
         <Typography variant="HeaderL">$3.446</Typography>
         <Typography variant="ParagraphL" className={styles.paragraph}>

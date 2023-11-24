@@ -1,4 +1,5 @@
 import { HomeCard, Typography } from 'components/share'
+import imgCoffee from 'src/assets/images/coffee.png'
 
 import styles from './CurrentOfferCard.module.scss'
 
@@ -12,7 +13,7 @@ export const CurrentOfferCard = () => (
         Change
       </Typography>
     </div>
-    <img src="src/assets/images/coffee.png" alt="coffeePhoto" />
+    <img src={imgCoffee} alt="coffeePhoto" />
     <Typography variant="HeaderM" className={styles.textTitle}>
       Free Coffee
     </Typography>

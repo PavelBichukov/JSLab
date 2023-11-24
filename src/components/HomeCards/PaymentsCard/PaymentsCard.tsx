@@ -1,4 +1,5 @@
 import { HomeCard, Typography } from 'components/share'
+import imgLink from 'src/assets/icons/externalLink.png'
 
 import styles from './PaymentsCard.module.scss'
 
@@ -8,7 +9,7 @@ export const PaymentsCard = () => (
       <Typography variant="LabelL" className={styles.paymentsTypo}>
         Payments
       </Typography>
-      <img src="src/assets/icons/externalLink.png" alt="external link" />
+      <img src={imgLink} alt="external link" />
     </div>
     <div className={styles.textContainer}>
       <Typography variant="HeaderXL" className={styles.headerPrice}>
