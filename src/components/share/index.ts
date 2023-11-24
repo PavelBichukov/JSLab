@@ -13,6 +13,7 @@ import Radio from './Radio/Radio'
 import RateCard from './RateCard/Rate'
 import Select from './Select/Select'
 import TeamCard from './TeamCard/TeamCard'
+import Toggle from './Toggle/Toggle'
 import Typography from './Typography/Typography'
 
 export {
@@ -32,4 +33,5 @@ export {
   HomeCard,
   LineChart,
   HelpCard,
+  Toggle,
 }

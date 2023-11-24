@@ -110,18 +110,18 @@ export const addStationPOSSystem = async (data: any) => {
 
 export const getStationInfo = async (data: any) => {
   return await axios.get(
-    `${import.meta.env.VITE_HOST_DEV}/addStation/getStationInfo/?id=${data}`,
-  )
-}
-
-export const getAllStations = async () => {
-  return await axios.get(
-    `${import.meta.env.VITE_HOST_DEV}/addStation/getAllStations`,
+    `${import.meta.env.VITE_HOST_DEV}/addStation/getStationInfo/?id=${data}`
   )
 }
 
 export const getBankAccounts = async () => {
   return await axios.get(
-    `${import.meta.env.VITE_HOST_DEV}/addBankAccount/getBankAccounts`,
+    `${import.meta.env.VITE_HOST_DEV}/addBankAccount/getBankAccounts`
+  )
+}
+
+export const getAllStations = async (data: any) => {
+  return await axios.get(
+    `${import.meta.env.VITE_HOST_DEV}/addStation/getAllStations/?email=${data}`
   )
 }

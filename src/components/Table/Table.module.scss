@@ -1,0 +1,135 @@
+@import '../../App.scss';
+
+.table {
+  width: 1635px;
+  height: 842px;
+  background-color: $white;
+  border-radius: 16px;
+}
+
+.subDiv {
+  height: 68px;
+  width: 100%;
+  display: flex;
+  margin-left: 24px;
+  padding-top: 16px;
+}
+
+.subDivElement {
+  width: 240px;
+  margin-right: 24px;
+}
+
+.subDivTypo {
+  display: flex;
+  justify-content: space-between;
+}
+
+.labelTypo {
+  font-weight: 600;
+  color: $darker-gray;
+}
+
+.filters {
+  font-weight: 500;
+  margin-right: 48px;
+  margin-top: 17px;
+  text-decoration: underline;
+  text-underline-offset: 6px;
+}
+
+.tableContainer {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+th:nth-child(1) {
+  padding-left: 60px;
+}
+
+.header {
+  background-color: #F5F6FA;
+  height: 40px;
+  line-height: 40px;
+  border-collapse: collapse;
+  padding-top: 20px;
+}
+
+.stationContainer {
+  display: flex;
+  height: 40px;
+}
+
+.subSquare {
+  height: 100%;
+}
+
+.square {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  background: #ABB2C2;
+  margin-right: 5px;
+  margin-left: 16px;
+  margin-top: 16px;
+}
+
+.labelStation {
+  font-weight: 600;
+}
+
+.paragraphStation {
+  color: $darker-gray;
+}
+
+.subContainer {
+  margin-top: 6px;
+  line-height: 36px;
+}
+
+.headerTh {
+  width: 70px;
+  text-align: left;
+}
+
+.headerLabel {
+  font-weight: 600;
+  color: $darker-gray;
+  text-align: left;
+}
+
+.tbody {
+  overflow-y: scroll;
+  
+  &::-webkit-scrollbar {
+    background-color: transparent;
+    width: 6px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: rgba(80, 87, 107, 1);
+    border-radius: 3px;
+  }
+}
+
+.trStyle {
+  height: 74px;
+  border-top: 1px solid $medium-gray;
+  border-bottom: 1px solid $medium-gray;
+}
+
+table {
+  border-collapse: collapse;
+  overflow: hidden;
+}
+
+.table thead th {
+  text-align: left;
+}
+
+.addressTd {
+  margin-top: 5px;
+  width: 120px;
+  height: 30px;
+}

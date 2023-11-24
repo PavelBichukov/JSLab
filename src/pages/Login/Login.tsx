@@ -10,6 +10,7 @@ import styles from './Login.module.scss'
 
 const Login = () => {
   const dispatch = useAppDispatch()
+  const navigate = useNavigate()
   const {
     control,
     setError,
@@ -21,7 +22,6 @@ const Login = () => {
       email: '',
     },
   })
-  const navigate = useNavigate()
   const onSubmit = async (data: any, e: any) => {
     e.preventDefault()
     console.log(data.email)
