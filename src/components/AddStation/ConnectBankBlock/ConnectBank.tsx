@@ -8,9 +8,15 @@ import {
   SelectBankAccount,
   SelectConnectMethod,
 } from './ConnectBankSubComponents'
+import { IChildrenProps } from '../AddStationMainComponent/AddStation.types'
 
-export const ConnectBank = () => {
+export const ConnectBank = ({
+  stationState,
+  setStationState,
+}: IChildrenProps) => {
   const [bankAccounts, setStatus] = useState('')
+
+  const [isAnyAccounts, setState] = useState(false)
 
   useEffect(() => {
     const getAccounts = async () => {
@@ -18,6 +24,7 @@ export const ConnectBank = () => {
         const response = await getBankAccounts()
         const { status } = response && response.data
         if (status === 'TRUE') {
+          setState(true)
           setStatus('has accounts')
         } else {
           setStatus('no accounts')
@@ -34,8 +41,23 @@ export const ConnectBank = () => {
       {bankAccounts === 'has accounts' && (
         <SelectConnectMethod setMethod={setStatus} />
       )}
-      {bankAccounts === 'no accounts' && <CreateBankAccount />}
-      {bankAccounts === 'previous' && <SelectBankAccount />}
+      {bankAccounts === 'select method' && (
+        <SelectConnectMethod setMethod={setStatus} />
+      )}
+      {bankAccounts === 'no accounts' && (
+        <CreateBankAccount
+          setMethod={setStatus}
+          method={isAnyAccounts}
+          stationState={stationState}
+          setStationState={setStationState}
+        />
+      )}
+      {bankAccounts === 'previous' && (
+        <SelectBankAccount
+          setMethod={setStatus}
+          setStationState={setStationState}
+        />
+      )}
     </div>
   )
 }

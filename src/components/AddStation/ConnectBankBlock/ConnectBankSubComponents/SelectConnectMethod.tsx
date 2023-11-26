@@ -7,7 +7,11 @@ import { useAppDispatch } from 'src/utils/redux-hooks/hooks'
 
 import styles from './SelectConnectMethod.module.scss'
 
-export const SelectConnectMethod = ({ setMethod }: any) => {
+export const SelectConnectMethod = ({
+  setMethod,
+}: {
+  setMethod: (value: string) => void
+}) => {
   const [active, setActive] = useState('')
 
   const dispatch = useAppDispatch()

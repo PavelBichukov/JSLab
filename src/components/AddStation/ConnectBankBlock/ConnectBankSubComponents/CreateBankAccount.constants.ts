@@ -5,7 +5,7 @@ export const paymentMethods = [
   { value: 'Cryptocurrency', label: 'Cryptocurrency' },
 ]
 
-export const accountType = [
+export const accountTypes = [
   { value: 'Checking', label: 'Checking' },
   { value: 'Verified', label: 'Verified' },
   { value: 'Pending', label: 'Pending' },

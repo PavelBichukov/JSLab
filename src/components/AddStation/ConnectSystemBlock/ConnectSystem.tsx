@@ -1,18 +1,21 @@
 import { useForm } from 'react-hook-form'
 
 import { Button, FormController, Select, Typography } from 'components/share'
-import { addStationPOSSystem } from 'src/api'
+import { addStation } from 'src/api'
 import { ADD_STATION_STEPS } from 'src/constants/addStationSteps'
 import { setCurrentStep } from 'src/store/signUp'
+import { setStationID } from 'src/store/user'
 import { useAppDispatch, useAppSelector } from 'src/utils/redux-hooks/hooks'
 
 import { posSystems } from './ConnectSystem.constants'
 import styles from './ConnectSystem.module.scss'
+import { IChildrenProps } from '../AddStationMainComponent/AddStation.types'
 
-export const ConnectSystem = () => {
+export const ConnectSystem = ({ stationState }: IChildrenProps) => {
   const dispatch = useAppDispatch()
 
-  const stationID = useAppSelector((state) => state.user.stationID)
+  // const email = useAppSelector((state) => state.user.email)
+  const email = 'email'
 
   const {
     control,
@@ -27,21 +30,24 @@ export const ConnectSystem = () => {
   })
   const onSubmit = async (data: any) => {
     try {
-      const response = await addStationPOSSystem({
+      const response = await addStation({
+        ...stationState,
+        userEmail: email,
         posSystem: data.posSystem.value,
-        id: stationID,
       })
       const { status, message } = response && response.data
+
       if (status === 'UPDATED') {
+        dispatch(setStationID(message.id))
         dispatch(setCurrentStep(ADD_STATION_STEPS.FINALIZE))
       } else {
         throw new Error(message)
       }
     } catch (error) {
-      if (error.message === 'Empty POS system field') {
+      if (error.message === 'Empty user email field') {
         setError('root.serverError', {
           type: 'FAILED',
-          message: 'Empty POS system field',
+          message: 'Empty user email field',
         })
       } else {
         setError('root.serverError', {
@@ -51,6 +57,7 @@ export const ConnectSystem = () => {
       }
     }
   }
+
   const onBack = () => {
     dispatch(setCurrentStep(ADD_STATION_STEPS.CONNECT_YOUR_BANK))
   }
@@ -117,7 +124,6 @@ export const ConnectSystem = () => {
             mode={isValid ? 'defaultBlack' : 'disabled'}
             variant="primary"
             size="small"
-            onClick={() => console.log('clicked')}
           >
             Next
           </Button>

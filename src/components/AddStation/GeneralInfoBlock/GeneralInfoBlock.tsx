@@ -1,5 +1,5 @@
 import debounce from 'lodash.debounce'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 
 import {
@@ -11,18 +11,23 @@ import {
   Typography,
 } from 'components/share'
 import { stateOptions } from 'components/SignUp/BusinessLocationBlock/BusinessLocation.constants'
-import { addStationGeneralInformation, loadOptions } from 'src/api'
+import { loadOptions } from 'src/api'
 import { ADD_STATION_STEPS } from 'src/constants/addStationSteps'
 import { setCurrentStep } from 'src/store/signUp'
-import { useAppDispatch, useAppSelector } from 'src/utils/redux-hooks/hooks'
+import { useAppDispatch } from 'src/utils/redux-hooks/hooks'
 
 import { stationOptions } from './GeneralInfo.constants'
 import styles from './GeneralInfo.module.scss'
+import {
+  IChildrenProps,
+  IStation,
+} from '../AddStationMainComponent/AddStation.types'
 
-const GeneralInfoBlock = () => {
+const GeneralInfoBlock = ({
+  stationState,
+  setStationState,
+}: IChildrenProps) => {
   const dispatch = useAppDispatch()
-
-  const stationID = useAppSelector((state) => state.user.stationID)
 
   const [lat, setLat] = useState(53.88383)
   const [lng, setLng] = useState(27.5387)
@@ -32,7 +37,6 @@ const GeneralInfoBlock = () => {
     setValue,
     formState: { isValid },
     handleSubmit,
-    setError,
   } = useForm({
     mode: 'onChange',
     defaultValues: {
@@ -66,35 +70,59 @@ const GeneralInfoBlock = () => {
   }
 
   const onSubmit = async (data: any) => {
-    try {
-      const response = await addStationGeneralInformation({
-        ...data,
-        id: stationID,
-      })
-      const { status, message } = response && response.data
-      if (status === 'UPDATED') {
-        dispatch(setCurrentStep(ADD_STATION_STEPS.STATION_AMENITIES))
-      } else {
-        throw new Error(message)
-      }
-    } catch (error) {
-      if (error.message === 'Empty station information fields') {
-        setError('root.serverError', {
-          type: 'FAILED',
-          message: 'Empty station information fields',
-        })
-      } else {
-        setError('root.serverError', {
-          type: 'FAILED',
-          message: 'Oops... Something go wrong',
-        })
-      }
-    }
+    const {
+      stationBrand: { value: stationBrand },
+      stationName,
+      latitude,
+      longitude,
+      phoneNumber,
+      emailAddress,
+    } = data
+
+    setStationState((stationState: IStation) => ({
+      ...stationState,
+      stationBrand,
+      stationName,
+      latitude: latitude,
+      longitude: longitude,
+      phoneNumber,
+      emailAddress,
+    }))
+
+    dispatch(setCurrentStep(ADD_STATION_STEPS.STATION_AMENITIES))
   }
 
   const onBack = () => {
     dispatch(setCurrentStep(ADD_STATION_STEPS.STATION_TYPE))
   }
+
+  useEffect(() => {
+    const {
+      stationBrand,
+      stationName,
+      latitude,
+      longitude,
+      phoneNumber,
+      emailAddress,
+    } = stationState
+    const setValues = () => {
+      setValue('stationName', stationName)
+      setValue('latitude', +latitude)
+      setValue('longitude', +longitude)
+      setValue('phoneNumber', phoneNumber)
+      setValue('emailAddress', emailAddress)
+      const brandOptions = stationOptions.find(
+        (option: { value: string; label: string }) =>
+          option.value === stationBrand
+      )
+      if (brandOptions !== undefined) {
+        return setValue('stationBrand', brandOptions)
+      }
+    }
+    if (stationName) {
+      setValues()
+    }
+  }, [])
   return (
     <div>
       <form className={styles.formBlock} onSubmit={handleSubmit(onSubmit)}>

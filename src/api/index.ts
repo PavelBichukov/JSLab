@@ -63,12 +63,9 @@ export const loadOptions = (
     })
 }
 
-export const addStation = async (data: {
-  stationType: string
-  userEmail: string
-}) => {
+export const addStation = async (data: any) => {
   return await axios.post(
-    `${import.meta.env.VITE_HOST_DEV}/addStation/stationType`,
+    `${import.meta.env.VITE_HOST_DEV}/addStation/station`,
     data
   )
 }
