@@ -43,7 +43,7 @@ const _renderStep = (
       return <ConnectBank stationState={state} setStationState={setState} />
     }
     case ADD_STATION_STEPS.CONNECT_YOUR_SYSTEM: {
-      return <ConnectSystem stationState={state} />
+      return <ConnectSystem stationState={state} setStationState={setState} />
     }
     case ADD_STATION_STEPS.FINALIZE: {
       return <Finalize />

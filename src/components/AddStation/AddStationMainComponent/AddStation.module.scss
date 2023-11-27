@@ -1,6 +1,6 @@
 .signUpBlock {
   max-width: 1184px;
-  height: 100%;
+  height: 82vh;
   background-color: rgba(255, 255, 255, 1);
   display: flex;
   margin: 0 auto;
@@ -92,6 +92,7 @@
 .formBlock {
   flex: 3;
   padding: 72px 8px 32px 157px;
+  display: flex;
   @media (max-width: 1200px) {
     padding: 72px 8px 32px 130px;
   }

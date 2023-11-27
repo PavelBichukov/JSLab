@@ -1,7 +1,8 @@
 @import '../../../App.scss';
 
 .mainContainer {
-  padding: 0 206px 0 47px;
+  padding: 0 185px 0 47px;
+  padding-right: 185px;
   height: 60vh;
   overflow-y: scroll;
 
@@ -35,7 +36,7 @@
 
 .buttonsBlock {
   width: 100%;
-  padding: 60px 206px 0 47px;
+  padding: 55px 194px 0 47px;
   display: flex;
   align-items: center;
   justify-content: space-between;

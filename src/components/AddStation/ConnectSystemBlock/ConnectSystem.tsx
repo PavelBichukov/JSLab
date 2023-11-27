@@ -14,8 +14,7 @@ import { IChildrenProps } from '../AddStationMainComponent/AddStation.types'
 export const ConnectSystem = ({ stationState }: IChildrenProps) => {
   const dispatch = useAppDispatch()
 
-  // const email = useAppSelector((state) => state.user.email)
-  const email = 'email'
+  const email = useAppSelector((state) => state.user.email)
 
   const {
     control,
@@ -65,71 +64,69 @@ export const ConnectSystem = ({ stationState }: IChildrenProps) => {
     console.log('download')
   }
   return (
-    <div>
-      <form className={styles.formBlock} onSubmit={handleSubmit(onSubmit)}>
-        <div className={styles.mainBlockContainer}>
-          <Typography variant="HeaderS">Select Your POS System</Typography>
-          <div className={styles.dropDownPOS}>
-            <FormController
-              name="posSystem"
-              control={control}
-              rules={{
-                required: 'POS System is required!',
-              }}
-              render={({ field }: any) => (
-                <Select
-                  {...field}
-                  ref={null}
-                  options={posSystems}
-                  placeholder="POS System"
-                />
-              )}
-            />
-            <Typography variant="HeaderS" className={styles.downloadTitle}>
-              Download Instructions
-            </Typography>
-            <Typography variant="ParagraphL" className={styles.paragraph}>
-              We’ll provide you with a step-by-step guide to enable JSLab
-              payments at your location.
-            </Typography>
-            <Button
-              type="button"
-              mode="defaultBlack"
-              variant="secondary"
-              size="large"
-              className={styles.buttonStyles}
-              onClick={onDownload}
-            >
-              + Download pdf
-            </Button>
-            <Typography variant="ParagraphL" className={styles.paragraphNeed}>
-              Need Support?
-            </Typography>
-          </div>
-        </div>
-        <div className={styles.buttonsBlock}>
+    <form className={styles.formBlock} onSubmit={handleSubmit(onSubmit)}>
+      <div className={styles.mainBlockContainer}>
+        <Typography variant="HeaderS">Select Your POS System</Typography>
+        <div className={styles.dropDownPOS}>
+          <FormController
+            name="posSystem"
+            control={control}
+            rules={{
+              required: 'POS System is required!',
+            }}
+            render={({ field }: any) => (
+              <Select
+                {...field}
+                ref={null}
+                options={posSystems}
+                placeholder="POS System"
+              />
+            )}
+          />
+          <Typography variant="HeaderS" className={styles.downloadTitle}>
+            Download Instructions
+          </Typography>
+          <Typography variant="ParagraphL" className={styles.paragraph}>
+            We’ll provide you with a step-by-step guide to enable JSLab payments
+            at your location.
+          </Typography>
           <Button
-            className={styles.buttonBack}
             type="button"
-            mode="outlinedWhite"
-            variant="primary"
-            size="small"
-            onClick={onBack}
+            mode="defaultBlack"
+            variant="secondary"
+            size="large"
+            className={styles.buttonStyles}
+            onClick={onDownload}
           >
-            Back
+            + Download pdf
           </Button>
-          <Button
-            className={styles.buttonFinished}
-            type="submit"
-            mode={isValid ? 'defaultBlack' : 'disabled'}
-            variant="primary"
-            size="small"
-          >
-            Next
-          </Button>
+          <Typography variant="ParagraphL" className={styles.paragraphNeed}>
+            Need Support?
+          </Typography>
         </div>
-      </form>
-    </div>
+      </div>
+      <div className={styles.buttonsBlock}>
+        <Button
+          className={styles.buttonBack}
+          type="button"
+          mode="outlinedWhite"
+          variant="primary"
+          size="small"
+          onClick={onBack}
+        >
+          Back
+        </Button>
+        <Button
+          className={styles.buttonFinished}
+          type="submit"
+          mode={isValid ? 'defaultBlack' : 'disabled'}
+          variant="primary"
+          size="small"
+        >
+          Next
+        </Button>
+      </div>
+    </form>
   )
 }
 
