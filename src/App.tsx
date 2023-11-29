@@ -24,7 +24,6 @@ function App() {
       <Route path="/add-station" element={<AddStation />} />
       <Route path="/testing" element={<Testing />} />
       <Route path="/signup-continue" element={<SignUpContinue />} />
-      {/* <Route path="/stations" element={<Stations />} /> */}
       <Route path="/stations">
         <Route index element={<Stations />} />
         <Route path=":stationId" element={<SelectedStationPage />} />
