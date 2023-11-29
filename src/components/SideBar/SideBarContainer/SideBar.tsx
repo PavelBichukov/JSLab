@@ -16,7 +16,6 @@ export const SideBar = () => {
   const [collapsed, setCollapsed] = useState(true)
   const [help, setHelp] = useState(false)
   const currentPath = useLocation()
-  console.log(`/${currentPath.pathname.split('/')[1]}`)
   const toggleCollapsed = () => {
     setCollapsed(!collapsed)
     setHelp(false)
