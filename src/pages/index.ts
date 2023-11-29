@@ -3,6 +3,7 @@ import Home from './Home Page/Home'
 import Landing from './Landing/Landing'
 import Login from './Login/Login'
 import Payments from './Payments/Payments'
+import SelectedStationPage from './Selected Station/SelectedStation'
 import SignUp from './Sign Up/SignUp'
 import SignUpContinue from './Sign Up Continue/SignUpContinue'
 import Stations from './Stations/Stations'
@@ -20,4 +21,5 @@ export {
   Transactions,
   Payments,
   AddStation,
+  SelectedStationPage
 }

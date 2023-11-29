@@ -4,6 +4,7 @@ import {
   useReactTable,
 } from '@tanstack/react-table'
 import { useEffect, useState } from 'react'
+import { NavLink } from 'react-router-dom'
 
 import { Toggle, Typography } from 'components/share'
 import { filters as FILTERS, columns } from 'components/Table/Table.constants'
@@ -103,12 +104,12 @@ const Table = () => {
                     <div className={styles.square}></div>
                   </div>
                   <div className={styles.subContainer}>
-                    <Typography
-                      variant="LabelM"
+                    <NavLink
+                      to={`/stations/${station.stationId}`}
                       className={styles.labelStation}
                     >
                       {station.stationName}
-                    </Typography>
+                    </NavLink>
                     <Typography
                       variant="ParagraphS"
                       className={styles.paragraphStation}

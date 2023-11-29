@@ -16,6 +16,7 @@ export const SideBar = () => {
   const [collapsed, setCollapsed] = useState(true)
   const [help, setHelp] = useState(false)
   const currentPath = useLocation()
+  console.log(`/${currentPath.pathname.split('/')[1]}`)
   const toggleCollapsed = () => {
     setCollapsed(!collapsed)
     setHelp(false)
@@ -57,7 +58,7 @@ export const SideBar = () => {
                 route={item.route}
                 collapsed={collapsed}
                 help={help}
-                pathname={currentPath.pathname}
+                pathname={`/${currentPath.pathname.split('/')[1]}`}
               />
             )
           )}
@@ -71,7 +72,7 @@ export const SideBar = () => {
                 title={item.title}
                 route={item.route}
                 collapsed={collapsed}
-                pathname={currentPath.pathname}
+                pathname={`/${currentPath.pathname.split('/')[1]}`}
                 help={help}
                 toggleHelp={toggleHelp}
               />
