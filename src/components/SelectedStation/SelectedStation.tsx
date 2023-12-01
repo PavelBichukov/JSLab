@@ -56,7 +56,6 @@ const SelectedStation = () => {
       }
     }
     getStation()
-    console.log(stationInfo)
   }, [])
 
   return (
