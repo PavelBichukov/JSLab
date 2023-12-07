@@ -13,6 +13,13 @@
   border-top-left-radius: 16px;
   box-shadow: 0px 2px 5px -2px rgba(34, 60, 80, 0.2);
   padding: 24px 24px 12px 24px;
+  position: relative;
+  @media (max-width: 1080px) {
+    flex-direction: column;
+  }
+  @media (max-width: 590px) {
+    padding: 12px 12px 6px 12px;
+  }
 }
 
 .stationInfoBox {
@@ -28,6 +35,10 @@
   height: 96px;
   background-color: $medium-gray-2;
   border-radius: 16px;
+  @media (max-width: 590px) {
+    width: 70px;
+    height: 70px;
+  }
 }
 
 .stationInfoText {
@@ -39,6 +50,9 @@
 .stationInfoTittle {
   color: $brand-black;
   font-weight: 600;
+  @media (max-width: 590px) {
+    font-size: 16px;
+  }
 }
 
 .stationAddress {
@@ -59,12 +73,14 @@
   align-items: center;
   justify-content: space-between;
   gap: 5px;
-  min-height: 44px;
+  height: 44px;
   border-radius: 10px;
   padding: 4px;
   align-self: flex-end;
   background-color: $blue-gray;
-  height: 30px;
+  @media (max-width: 1080px) {
+    align-self: center;
+  }
 }
 
 .switchButton {
@@ -82,6 +98,10 @@
   border-radius: 6px;
   cursor: pointer;
   transition: all 0.2s ease-out;
+  @media (max-width: 500px) {
+    padding: 4px, 6px, 4px, 6px;
+    font-size: 12px;
+  }
 }
 
 .switchButtonDisabled {
@@ -96,6 +116,12 @@
   flex: 1;
   display: flex;
   justify-content: flex-end;
+  @media (max-width: 1450px) {
+    flex: 0;
+  }
+  @media (max-width: 1080px) {
+    display: none;
+  }
 }
 
 .headerDotsIcon {
@@ -112,5 +138,8 @@
   &::-webkit-scrollbar-thumb {
     background-color: $darker-gray;
     border-radius: 3px;
+  }
+  @media (max-width: 1080px) {
+    height: 67vh;
   }
 }

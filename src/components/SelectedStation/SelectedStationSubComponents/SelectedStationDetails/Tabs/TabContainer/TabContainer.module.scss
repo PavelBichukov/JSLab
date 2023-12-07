@@ -1,0 +1,120 @@
+@import '../../../../../../App.scss';
+
+.container {
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+  background-color: $white;
+  border-radius: 8px;
+  max-height: 72px;
+  overflow: hidden;
+  transition: all 0.4s ease-out;
+  overflow-y: hidden;
+  @media (max-width: 1080px) {
+    padding: 10px;
+  }
+}
+
+.containerOpen {
+  max-height: 700px;
+  overflow-y: scroll;
+  &::-webkit-scrollbar {
+    background-color: transparent;
+    width: 6px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: $darker-gray;
+    border-radius: 3px;
+  }
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 24px;
+}
+
+.headerText {
+  position: relative;
+  flex: 1;
+}
+
+.tittle {
+  font-weight: 600;
+  color: $brand-black;
+}
+
+.subTittle {
+  color: $medium-gray-2;
+  opacity: 1;
+  position: absolute;
+}
+
+.subTittleHidden {
+  opacity: 0;
+}
+
+.chevron {
+  cursor: pointer;
+  transition: all 0.3s ease-out;
+}
+
+.chevron:hover * {
+  transition: all 0.3s ease-out;
+  fill: $brand-blue;
+}
+
+.chevronActive {
+  transform: rotate(180deg);
+}
+
+.main {
+  opacity: 0;
+  transition: all 0.2s ease-out;
+}
+
+.mainOpen {
+  opacity: 1;
+}
+
+.buttonsBlock {
+  align-self: flex-end;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding-top: 24px;
+  opacity: 0;
+  transition: all 0.2s ease-out;
+  @media (max-width: 575px) {
+    gap: 8px;
+  }
+}
+
+.buttonsBlockOpen {
+  opacity: 1;
+}
+
+.buttonDiscard {
+  border: 1.5px solid $brand-black;
+  font-family: 'Metropolis', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 24px;
+  max-width: 175px;
+  @media (max-width: 575px) {
+    max-width: 120px;
+  }
+}
+
+.buttonSave {
+  border: 1.5px solid $brand-black;
+  font-family: 'Metropolis', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 24px;
+  max-width: 175px;
+  @media (max-width: 575px) {
+    max-width: 120px;
+  }
+}

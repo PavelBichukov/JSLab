@@ -1,0 +1,114 @@
+@import '../../../../../../../App.scss';
+
+
+.main{
+  display: grid;
+  grid-template: 1fr / repeat(4, 1fr);
+  align-items: center;
+  gap: 24px;
+  min-height: 50px;
+  @media (max-width: 1370px) {
+    grid-template: 1fr 1fr / repeat(2, 1fr);
+    box-shadow: 0px 0px 5px -1px rgba(34, 60, 80, 0.2);
+    padding: 10px;
+    border-radius: 16px;
+  }
+  @media (max-width: 883px) {
+    grid-template: auto / 1fr;
+  }
+}
+
+.dayToggle{
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: 20px;
+  @media (max-width: 700px) {
+    gap: 10px;
+  }
+}
+
+.day{
+  min-width: 93px;
+}
+
+.isOpen{
+  min-width: 70px;
+}
+
+.isOpenDisabled{
+  color: $medium-gray-2;
+}
+
+.switch{
+  display: flex;
+  align-items: center;
+}
+
+.toggleCircle{
+  width: 44px;
+  height: 24px;
+  border-radius: 24px;
+  background-color: $medium-gray-2;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  &::before{
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: $white;
+    justify-self: flex-start;
+    left: 2px;
+    border-radius: 50%;
+    transition: all 0.2s ease-out;
+  }
+}
+
+.input:checked + .toggleCircle::before{
+  left: 22px;
+}
+
+.input:checked + .toggleCircle{
+  background-color: #28BC00;
+}
+
+.breakCheckBox{
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 16px;
+  padding-left: 24px;
+  @media (max-width: 1370px) {
+    padding-left: 0;
+    justify-content: space-around;
+  }
+}
+
+
+.selectTime{
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  *{
+    margin-top: 0;
+  }
+}
+
+.select{
+  flex: 1;
+}
+
+.selectBetweenText{
+  flex: 0;
+  text-align: center;
+  padding: 0 16px 0 16px;
+  color: $medium-gray-2;
+}
+

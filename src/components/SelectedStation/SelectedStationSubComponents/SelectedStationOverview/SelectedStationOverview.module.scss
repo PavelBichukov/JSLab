@@ -9,4 +9,7 @@
 .card{
   width: auto;
   flex: 0 1 385px;
+  @media (max-width: 480px) {
+    max-height: 300px;
+  }
 }

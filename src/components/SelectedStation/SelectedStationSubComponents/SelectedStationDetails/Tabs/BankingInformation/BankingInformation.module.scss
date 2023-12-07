@@ -1,0 +1,59 @@
+@import '../../../../../../App.scss';
+
+.main {
+  display: grid;
+  grid-template: 1fr / repeat(4, 1fr);
+  gap: 24px;
+  padding-bottom: 48px;
+  @media (max-width: 1350px) {
+    grid-template: 1fr 1fr / repeat(2, 1fr);
+  }
+  @media (max-width: 780px) {
+    grid-template: repeat(4, 1fr) / 1fr;
+  }
+}
+
+.infoTittle {
+  color: $darker-gray;
+  padding-bottom: 8px;
+}
+
+.infoText {
+  color: $brand-black;
+}
+
+.status {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.statusBox {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.statusText {
+  color: #28bc00;
+}
+
+.removeText {
+  color: $medium-gray-2;
+  border-bottom: 1px solid $medium-gray-2;
+  cursor: pointer;
+  transition: all 0.2s ease-out;
+  &:hover {
+    color: tomato;
+    border-color: tomato;
+  }
+}
+
+.addAccount {
+  color: $brand-black;
+  font-weight: 600;
+  border-bottom: 1px solid $medium-gray-2;
+  cursor: pointer;
+  width: fit-content;
+}
