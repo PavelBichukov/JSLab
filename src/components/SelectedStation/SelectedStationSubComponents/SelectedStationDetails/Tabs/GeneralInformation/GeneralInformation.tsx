@@ -11,11 +11,20 @@ import {
 
 import { stationOptions } from './GeneralInformation.constants'
 import styles from './GeneralInformation.module.scss'
+import { IStation } from '../../../../SelectedStation.types'
 import { TabContainer } from '../../Tabs'
 
-const GeneralInformation = () => {
-  const [lat, setLat] = useState(53.88383)
-  const [lng, setLng] = useState(27.5387)
+const GeneralInformation = ({ stationInfo }: { stationInfo: IStation }) => {
+  const {
+    stationBrand,
+    stationName,
+    phoneNumber,
+    emailAddress,
+    latitude,
+    longitude,
+  } = stationInfo
+  const [lat, setLat] = useState(+latitude)
+  const [lng, setLng] = useState(+longitude)
 
   const [addNumber, setAddNumber] = useState(false)
   const [addEmail, setAddEmail] = useState(false)
@@ -23,16 +32,49 @@ const GeneralInformation = () => {
   const { control, setValue, handleSubmit } = useForm({
     mode: 'onChange',
     defaultValues: {
-      stationBrand: '',
-      stationName: '',
-      phoneNumber: '',
+      stationBrand: {
+        value: stationBrand || '',
+        label: stationBrand || '',
+      },
+      stationName: stationName || '',
+      phoneNumber: phoneNumber || '',
       additionalPhoneNumber: '',
-      emailAddress: '',
+      emailAddress: emailAddress || '',
+      additionalEmailAddress: '',
     },
   })
 
+  const handleAddNumber = () => {
+    if (addNumber) {
+      setValue('additionalPhoneNumber', '')
+      setAddNumber(!addNumber)
+    } else {
+      setAddNumber(!addNumber)
+    }
+  }
+
+  const handleAddEmail = () => {
+    if (addEmail) {
+      setValue('additionalEmailAddress', '')
+      setAddEmail(!addEmail)
+    } else {
+      setAddEmail(!addEmail)
+    }
+  }
+
   const onSubmit = (data: any) => {
-    console.log(data)
+    if (
+      stationBrand !== data.stationBrand.value ||
+      stationName !== data.stationName ||
+      phoneNumber !== data.phoneNumber ||
+      emailAddress !== data.emailAddress ||
+      data.additionalPhoneNumber ||
+      data.additionalEmailAddress
+    ) {
+      console.log('there have been changes')
+    } else {
+      console.log('no changes')
+    }
   }
 
   return (
@@ -131,7 +173,7 @@ const GeneralInformation = () => {
           <Typography
             className={styles.addButton}
             variant="ParagraphS"
-            onClick={() => setAddNumber(!addNumber)}
+            onClick={handleAddNumber}
           >
             {!addNumber ? 'Add a phone number' : 'Remove additional number'}
           </Typography>
@@ -172,7 +214,7 @@ const GeneralInformation = () => {
           <Typography
             className={styles.addButton}
             variant="ParagraphS"
-            onClick={() => setAddEmail(!addEmail)}
+            onClick={handleAddEmail}
           >
             {!addEmail ? 'Add an email address' : 'Remove additional email'}
           </Typography>

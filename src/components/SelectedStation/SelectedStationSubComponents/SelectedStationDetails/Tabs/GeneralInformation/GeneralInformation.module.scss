@@ -5,18 +5,15 @@
   grid-template: 1fr / repeat(4, 1fr);
   gap: 20px;
   @media (max-width: 1350px) {
-    grid-template: 1fr 1fr/ repeat(2, 1fr);
+    grid-template: 1fr 1fr / repeat(2, 1fr);
   }
   @media (max-width: 780px) {
-    grid-template: repeat(4, 1fr)/ 1fr;
+    grid-template: repeat(4, 1fr) / 1fr;
   }
 }
 
 .stationInfo {
   padding-top: 2px;
-}
-
-.selectBox {
 }
 
 .label {
@@ -28,9 +25,6 @@
   flex-direction: column;
   gap: 8px;
   padding-bottom: 28px;
-}
-
-.infoText {
 }
 
 .select {
@@ -51,8 +45,9 @@
   align-self: flex-start;
   cursor: pointer;
   transition: all 0.2s ease-out;
-  &:hover{
-    border-color: $brand-blue ;
+  margin-bottom: 16px;
+  &:hover {
+    border-color: $brand-blue;
     color: $brand-blue;
   }
 }
@@ -83,6 +78,7 @@
   display: flex;
   align-items: center;
   gap: 100px;
+  padding-bottom: 20px;
   @media (max-width: 940px) {
     gap: 30px;
   }

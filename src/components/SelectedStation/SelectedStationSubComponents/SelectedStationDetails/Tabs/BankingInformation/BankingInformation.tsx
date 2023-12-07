@@ -3,18 +3,20 @@ import { ReactComponent as TrashIcon } from 'assets/icons/trash.svg'
 import { Typography } from 'components/share'
 
 import styles from './BankingInformation.module.scss'
+import { IStation } from '../../../../SelectedStation.types'
 import { TabContainer } from '../../Tabs'
 
-const BankingInformation = () => {
+const BankingInformation = ({ stationInfo }: { stationInfo: IStation }) => {
+  const { accountNickname, accountType, accountNumber } = stationInfo
   return (
-    <TabContainer tittle="Banking Information">
+    <TabContainer tittle="Banking Information" isDisabled={true}>
       <div className={styles.main}>
         <div className={styles.infoColumn}>
           <Typography className={styles.infoTittle} variant="ParagraphS">
             Bank Nickname
           </Typography>
           <Typography className={styles.infoText} variant="ParagraphL">
-            Chase Bank
+            {accountNickname}
           </Typography>
         </div>
         <div className={styles.infoColumn}>
@@ -22,7 +24,7 @@ const BankingInformation = () => {
             Account Type
           </Typography>
           <Typography className={styles.infoText} variant="ParagraphL">
-            Checking
+            {accountType}
           </Typography>
         </div>
         <div className={styles.infoColumn}>
@@ -30,7 +32,7 @@ const BankingInformation = () => {
             Account Number
           </Typography>
           <Typography className={styles.infoText} variant="ParagraphL">
-            *****5555
+            {`****${accountNumber?.substr(4)}`}
           </Typography>
         </div>
         <div className={styles.status}>

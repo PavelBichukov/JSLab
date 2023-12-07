@@ -13,6 +13,7 @@ const TabContainer = ({
   onSave,
   onDiscard,
   onSubmit,
+  isDisabled,
 }: {
   tittle: string
   children: any
@@ -20,6 +21,7 @@ const TabContainer = ({
   onSave?: () => void
   onDiscard?: () => void
   onSubmit?: any
+  isDisabled?: boolean
 }) => {
   const [isOpen, setIsOpen] = useState(false)
 
@@ -61,6 +63,7 @@ const TabContainer = ({
           variant="primary"
           size="medium"
           onClick={onDiscard}
+          disabled = {isDisabled}
         >
           Discard
         </Button>
@@ -71,6 +74,7 @@ const TabContainer = ({
           variant="primary"
           size="medium"
           onClick={onSave}
+          disabled = {isDisabled}
         >
           Save
         </Button>

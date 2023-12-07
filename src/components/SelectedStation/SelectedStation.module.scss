@@ -129,7 +129,7 @@
 }
 
 .content {
-  height: 70vh;
+  height: 67vh;
   overflow-y: scroll;
   &::-webkit-scrollbar {
     background-color: transparent;
@@ -140,6 +140,6 @@
     border-radius: 3px;
   }
   @media (max-width: 1080px) {
-    height: 67vh;
+    height: 64vh;
   }
 }

@@ -4,6 +4,7 @@
   display: grid;
   grid-template: 1fr / repeat(2, 1fr);
   gap: 64px;
+  padding-bottom: 24px;
   @media (max-width: 1350px) {
     grid-template: 1fr 1fr/ 1fr;
   }

@@ -1,26 +1,57 @@
+import { useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 
 import { ReactComponent as CheckCircle } from 'assets/icons/check-circle.svg'
 import { FormController, Select, Typography } from 'components/share'
 
+import { stationTypes } from './PosSystem.constants'
 import styles from './PosSystem.module.scss'
-import { stationTypes } from './PosSytem.constants'
+import { IStation } from '../../../../SelectedStation.types'
 import { TabContainer } from '../../Tabs'
 
-const PosSystem = () => {
-  const { control, setValue, handleSubmit } = useForm({
+const PosSystem = ({ stationInfo }: { stationInfo: IStation }) => {
+  const { posSystem, stationType } = stationInfo
+
+  const { control, getValues, setValue, handleSubmit } = useForm({
     mode: 'onChange',
     defaultValues: {
-      stationType: '',
+      stationType: {
+        value: '',
+        label: '',
+      },
     },
   })
 
   const onSubmit = (data: any) => {
+    if (getValues().stationType.value === stationType) {
+      console.log('no changes')
+    } else {
+      console.log('has changes')
+    }
     console.log(data)
   }
 
+  useEffect(() => {
+    const setValues = () => {
+      const stationOption = stationTypes.find(
+        (option: { value: string; label: string }) =>
+          option.value === stationType
+      )
+      if (stationOption !== undefined) {
+        return setValue('stationType', stationOption)
+      }
+    }
+    if (stationType) {
+      setValues()
+    }
+  }, [])
+
   return (
-    <TabContainer tittle="POS Systems(s)" onSubmit={handleSubmit(onSubmit)}>
+    <TabContainer
+      tittle="POS Systems(s)"
+      onSubmit={handleSubmit(onSubmit)}
+      isDisabled={false}
+    >
       <div className={styles.main}>
         <div className={styles.infoColumn}>
           <Typography className={styles.selectTittle} variant="ParagraphS">
@@ -44,7 +75,7 @@ const PosSystem = () => {
             System
           </Typography>
           <Typography className={styles.infoText} variant="ParagraphL">
-            Verifone Commander
+            {posSystem}
           </Typography>
         </div>
         <div className={styles.infoColumn}>

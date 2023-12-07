@@ -17,14 +17,16 @@
 
 .containerOpen {
   max-height: 700px;
-  overflow-y: scroll;
-  &::-webkit-scrollbar {
-    background-color: transparent;
-    width: 6px;
-  }
-  &::-webkit-scrollbar-thumb {
-    background-color: $darker-gray;
-    border-radius: 3px;
+  @media (max-width: 1400px) {
+    overflow-y: scroll;
+    &::-webkit-scrollbar {
+      background-color: transparent;
+      width: 6px;
+    }
+    &::-webkit-scrollbar-thumb {
+      background-color: $darker-gray;
+      border-radius: 3px;
+    }
   }
 }
 
@@ -83,7 +85,6 @@
   display: flex;
   align-items: center;
   gap: 16px;
-  padding-top: 24px;
   opacity: 0;
   transition: all 0.2s ease-out;
   @media (max-width: 575px) {
@@ -102,6 +103,11 @@
   font-size: 14px;
   line-height: 24px;
   max-width: 175px;
+  transition: all 0.2s ease-out;
+  &:disabled {
+    border-color: $medium-gray;
+    color: $medium-gray-2 ;
+  }
   @media (max-width: 575px) {
     max-width: 120px;
   }
@@ -114,6 +120,12 @@
   font-size: 14px;
   line-height: 24px;
   max-width: 175px;
+  transition: all 0.2s ease-out;
+  &:disabled {
+    background-color: $medium-gray;
+    border-color: $medium-gray;
+    color: $medium-gray-2 ;
+  }
   @media (max-width: 575px) {
     max-width: 120px;
   }
