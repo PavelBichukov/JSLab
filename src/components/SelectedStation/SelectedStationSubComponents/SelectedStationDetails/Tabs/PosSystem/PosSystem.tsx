@@ -1,5 +1,4 @@
-import { useEffect } from 'react'
-import { useForm } from 'react-hook-form'
+import { useForm, useFormState } from 'react-hook-form'
 
 import { ReactComponent as CheckCircle } from 'assets/icons/check-circle.svg'
 import { FormController, Select, Typography } from 'components/share'
@@ -12,45 +11,29 @@ import { TabContainer } from '../../Tabs'
 const PosSystem = ({ stationInfo }: { stationInfo: IStation }) => {
   const { posSystem, stationType } = stationInfo
 
-  const { control, getValues, setValue, handleSubmit } = useForm({
+  const { control, handleSubmit, reset } = useForm({
     mode: 'onChange',
     defaultValues: {
       stationType: {
-        value: '',
-        label: '',
+        value: stationType || '',
+        label: stationType || '',
       },
     },
   })
 
-  const onSubmit = (data: any) => {
-    if (getValues().stationType.value === stationType) {
-      console.log('no changes')
-    } else {
-      console.log('has changes')
-    }
-    console.log(data)
-  }
+  const { isDirty } = useFormState({ control })
 
-  useEffect(() => {
-    const setValues = () => {
-      const stationOption = stationTypes.find(
-        (option: { value: string; label: string }) =>
-          option.value === stationType
-      )
-      if (stationOption !== undefined) {
-        return setValue('stationType', stationOption)
-      }
-    }
-    if (stationType) {
-      setValues()
-    }
-  }, [])
+  const onSubmit = (data: any) => {
+    reset({ ...data })
+    console.log(data.stationType.value)
+  }
 
   return (
     <TabContainer
       tittle="POS Systems(s)"
       onSubmit={handleSubmit(onSubmit)}
-      isDisabled={false}
+      isDisabled={!isDirty}
+      onDiscard={() => reset()}
     >
       <div className={styles.main}>
         <div className={styles.infoColumn}>

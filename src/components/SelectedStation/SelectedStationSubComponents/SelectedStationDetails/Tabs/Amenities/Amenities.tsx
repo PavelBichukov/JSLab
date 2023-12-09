@@ -13,6 +13,9 @@ import { TabContainer } from '../../Tabs'
 
 const Amenities = ({ stationInfo }: { stationInfo: IStation }) => {
   const { stationAmenities } = stationInfo
+
+  const [defaultPerks, setDefaultPerks] = useState(stationAmenities)
+
   const [perks, setPerks] = useState<string[]>([])
 
   const [check, setCheck] = useState(false)
@@ -28,7 +31,7 @@ const Amenities = ({ stationInfo }: { stationInfo: IStation }) => {
 
   const isDisabled = () => {
     if (perks.length) {
-      if (perks.sort().toString() === stationAmenities.sort().toString()) {
+      if (perks.sort().toString() === defaultPerks.sort().toString()) {
         return true
       } else {
         return false
@@ -41,11 +44,16 @@ const Amenities = ({ stationInfo }: { stationInfo: IStation }) => {
   const onSubmit = (e: any) => {
     e.preventDefault()
     console.log(perks)
+    setDefaultPerks(perks)
+  }
+
+  const onDiscard = () => {
+    setPerks(defaultPerks)
   }
 
   useEffect(() => {
-    if (stationAmenities.length) {
-      setPerks(stationAmenities)
+    if (defaultPerks.length) {
+      setPerks(defaultPerks)
       setCheck(true)
     }
   }, [])
@@ -55,6 +63,7 @@ const Amenities = ({ stationInfo }: { stationInfo: IStation }) => {
       tittle="Amenities"
       onSubmit={onSubmit}
       isDisabled={isDisabled()}
+      onDiscard={onDiscard}
     >
       <div className={styles.main}>
         <div className={styles.subAmenitiesBlock}>

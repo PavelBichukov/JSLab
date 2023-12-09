@@ -1,5 +1,5 @@
 import cn from 'classnames'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useFormContext } from 'react-hook-form'
 
 import { Checkbox, FormController, Select, Typography } from 'components/share'
@@ -7,39 +7,42 @@ import { Checkbox, FormController, Select, Typography } from 'components/share'
 import { hoursOfOperationsAM, hoursOfOperationsPM } from './DayItem.constants'
 import styles from './DayItem.module.scss'
 
-export const DayItem = ({
-  day,
-  from,
-  to,
-  breakFrom,
-  breakTo,
-}: {
-  day: string
-  from: string
-  to: string
-  breakFrom: string
-  breakTo: string
-}) => {
-  const [isChecked, setChecked] = useState(false)
-  const [hasBreak, setHasBreak] = useState(false)
+export const DayItem = ({ day }: { day: string }) => {
+  const { control, getValues } = useFormContext()
 
-  const { control } = useFormContext()
+  const { isOpen, hasBreak: isBreak } = getValues(day)
+
+  const [isChecked, setChecked] = useState(isOpen)
+  const [hasBreak, setHasBreak] = useState(isBreak)
+
+  useEffect(() => {
+    setChecked(isOpen)
+  }, [isOpen])
+
   return (
     <div className={styles.main}>
       <div className={styles.dayToggle}>
         <Typography className={styles.day} variant="ParagraphL">
           {day}
         </Typography>
-        <label className={styles.switch}>
-          <input
-            className={styles.input}
-            type="checkbox"
-            name="toggler"
-            checked = {isChecked}
-            onChange={() => setChecked(!isChecked)}
-          />
-          <div className={styles.toggleCircle}></div>
-        </label>
+        <FormController
+          rootClassName={styles.select}
+          name={`${day}.isOpen`}
+          control={control}
+          render={({ field }: any) => (
+            <label className={styles.switch}>
+              <input
+                {...field}
+                className={styles.input}
+                type="checkbox"
+                name="toggler"
+                checked={field.value}
+                onClick={() => setChecked(!field.value)}
+              />
+              <div className={styles.toggleCircle}></div>
+            </label>
+          )}
+        />
         <Typography
           className={cn(styles.isOpen, { [styles.isOpenDisabled]: !isChecked })}
           variant="ParagraphL"
@@ -51,7 +54,7 @@ export const DayItem = ({
         <div className={styles.selectTime}>
           <FormController
             rootClassName={styles.select}
-            name={from}
+            name={`${day}.from`}
             control={control}
             render={({ field }: any) => (
               <Select
@@ -67,7 +70,7 @@ export const DayItem = ({
           </Typography>
           <FormController
             rootClassName={styles.select}
-            name={to}
+            name={`${day}.to`}
             control={control}
             render={({ field }: any) => (
               <Select
@@ -84,10 +87,18 @@ export const DayItem = ({
       )}
       {isChecked ? (
         <div className={styles.breakCheckBox}>
-          <Checkbox
-            id="breakCheckbox"
-            onChange={() => setHasBreak(!hasBreak)}
-            checked={hasBreak}
+          <FormController
+            rootClassName={styles.select}
+            name={`${day}.hasBreak`}
+            control={control}
+            render={({ field }: any) => (
+              <Checkbox
+                {...field}
+                id="breakCheckbox"
+                checked={field.value}
+                onClick={() => setHasBreak(!field.value)}
+              />
+            )}
           />
           <Typography className="" variant="ParagraphL">
             Closed for break
@@ -100,7 +111,7 @@ export const DayItem = ({
         <div className={styles.selectTime}>
           <FormController
             rootClassName={styles.select}
-            name={breakFrom}
+            name={`${day}.breakFrom`}
             control={control}
             render={({ field }: any) => (
               <Select
@@ -116,7 +127,7 @@ export const DayItem = ({
           </Typography>
           <FormController
             rootClassName={styles.select}
-            name={breakTo}
+            name={`${day}.breakTo`}
             control={control}
             render={({ field }: any) => (
               <Select

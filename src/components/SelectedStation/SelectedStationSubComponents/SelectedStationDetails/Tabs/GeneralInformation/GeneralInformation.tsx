@@ -1,5 +1,5 @@
-import { useState } from 'react'
-import { useForm } from 'react-hook-form'
+import { useState, useEffect } from 'react'
+import { useForm, useFormState } from 'react-hook-form'
 
 import {
   FormController,
@@ -29,8 +29,8 @@ const GeneralInformation = ({ stationInfo }: { stationInfo: IStation }) => {
   const [addNumber, setAddNumber] = useState(false)
   const [addEmail, setAddEmail] = useState(false)
 
-  const { control, setValue, handleSubmit } = useForm({
-    mode: 'onChange',
+  const { control, handleSubmit, reset, setValue, getValues } = useForm({
+    mode: 'onBlur',
     defaultValues: {
       stationBrand: {
         value: stationBrand || '',
@@ -44,9 +44,11 @@ const GeneralInformation = ({ stationInfo }: { stationInfo: IStation }) => {
     },
   })
 
+  const { isDirty } = useFormState({ control })
+
   const handleAddNumber = () => {
     if (addNumber) {
-      setValue('additionalPhoneNumber', '')
+      setValue('additionalPhoneNumber', '', { shouldDirty: true })
       setAddNumber(!addNumber)
     } else {
       setAddNumber(!addNumber)
@@ -55,7 +57,7 @@ const GeneralInformation = ({ stationInfo }: { stationInfo: IStation }) => {
 
   const handleAddEmail = () => {
     if (addEmail) {
-      setValue('additionalEmailAddress', '')
+      setValue('additionalEmailAddress', '', { shouldDirty: true })
       setAddEmail(!addEmail)
     } else {
       setAddEmail(!addEmail)
@@ -63,24 +65,25 @@ const GeneralInformation = ({ stationInfo }: { stationInfo: IStation }) => {
   }
 
   const onSubmit = (data: any) => {
-    if (
-      stationBrand !== data.stationBrand.value ||
-      stationName !== data.stationName ||
-      phoneNumber !== data.phoneNumber ||
-      emailAddress !== data.emailAddress ||
-      data.additionalPhoneNumber ||
-      data.additionalEmailAddress
-    ) {
-      console.log('there have been changes')
-    } else {
-      console.log('no changes')
-    }
+    reset({ ...data })
+    console.log(data)
   }
+
+  useEffect(() => {
+    if (!getValues('additionalPhoneNumber')) {
+      setAddNumber(false)
+    }
+    if (!getValues('additionalEmailAddress')) {
+      setAddEmail(false)
+    }
+  }, [isDirty])
 
   return (
     <TabContainer
       tittle="General Information"
       onSubmit={handleSubmit(onSubmit)}
+      isDisabled={!isDirty}
+      onDiscard={() => reset()}
     >
       <div className={styles.main}>
         <div className={styles.stationInfo}>
