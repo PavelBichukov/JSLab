@@ -32,6 +32,17 @@
   min-height: 60px;
 }
 
+.tittle{
+  font-family: 'Metropolis', sans-serif;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 32px;
+  transition: all 0.3s ease-out;
+  &:hover{
+    color: $brand-blue;
+  }
+}
+
 .headerText {
   display: flex;
   align-items: baseline;

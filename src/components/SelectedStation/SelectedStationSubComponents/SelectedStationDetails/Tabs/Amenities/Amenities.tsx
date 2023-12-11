@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 
 import { Checkbox, Typography } from 'components/share'
+import { updateStationAmenities } from 'src/api'
 
 import {
   stationAmenitiesLeft,
@@ -12,7 +13,7 @@ import { IStation } from '../../../../SelectedStation.types'
 import { TabContainer } from '../../Tabs'
 
 const Amenities = ({ stationInfo }: { stationInfo: IStation }) => {
-  const { stationAmenities } = stationInfo
+  const { stationAmenities, stationId } = stationInfo
 
   const [defaultPerks, setDefaultPerks] = useState(stationAmenities)
 
@@ -45,6 +46,23 @@ const Amenities = ({ stationInfo }: { stationInfo: IStation }) => {
     e.preventDefault()
     console.log(perks)
     setDefaultPerks(perks)
+    const updateInfo = async () => {
+      try {
+        const response = await updateStationAmenities({
+          stationAmenities: perks,
+          id: stationId,
+        })
+        const { status, message } = response && response.data
+        if (status === 'UPDATED') {
+          console.log(message)
+        } else {
+          alert(message)
+        }
+      } catch (error) {
+        alert('Oops... Something go wrong')
+      }
+    }
+    updateInfo()
   }
 
   const onDiscard = () => {

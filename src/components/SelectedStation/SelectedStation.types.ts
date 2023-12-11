@@ -7,7 +7,9 @@ export interface IStation {
   latitude: string
   longitude: string
   phoneNumber: string
+  additionalEmailAddress: string
   emailAddress: string
+  additionalPhoneNumber: string
   stationAmenities: string[]
   online: boolean
   bankAccountId: string
@@ -18,4 +20,5 @@ export interface IStation {
   accountType?: string
   routingNumber?: string
   accountNumber?: string
+  hoursOfOperations?: any
 }

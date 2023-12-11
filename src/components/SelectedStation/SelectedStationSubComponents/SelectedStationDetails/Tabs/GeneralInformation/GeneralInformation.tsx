@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useForm, useFormState } from 'react-hook-form'
 
 import {
@@ -8,6 +8,7 @@ import {
   Select,
   Typography,
 } from 'components/share'
+import { updateStationGeneralInfo } from 'src/api'
 
 import { stationOptions } from './GeneralInformation.constants'
 import styles from './GeneralInformation.module.scss'
@@ -19,9 +20,12 @@ const GeneralInformation = ({ stationInfo }: { stationInfo: IStation }) => {
     stationBrand,
     stationName,
     phoneNumber,
+    additionalPhoneNumber,
     emailAddress,
+    additionalEmailAddress,
     latitude,
     longitude,
+    stationId,
   } = stationInfo
   const [lat, setLat] = useState(+latitude)
   const [lng, setLng] = useState(+longitude)
@@ -38,9 +42,9 @@ const GeneralInformation = ({ stationInfo }: { stationInfo: IStation }) => {
       },
       stationName: stationName || '',
       phoneNumber: phoneNumber || '',
-      additionalPhoneNumber: '',
+      additionalPhoneNumber: additionalPhoneNumber || '',
       emailAddress: emailAddress || '',
-      additionalEmailAddress: '',
+      additionalEmailAddress: additionalEmailAddress || '',
     },
   })
 
@@ -64,9 +68,25 @@ const GeneralInformation = ({ stationInfo }: { stationInfo: IStation }) => {
     }
   }
 
-  const onSubmit = (data: any) => {
-    reset({ ...data })
-    console.log(data)
+  const onSubmit = (formData: any) => {
+    reset({ ...formData })
+    const updateInfo = async () => {
+      try {
+        const response = await updateStationGeneralInfo({
+          ...formData,
+          id: stationId,
+        })
+        const { status, message } = response && response.data
+        if (status === 'UPDATED') {
+          console.log(message)
+        } else {
+          alert(message)
+        }
+      } catch (error) {
+        alert('Oops... Something go wrong')
+      }
+    }
+    updateInfo()
   }
 
   useEffect(() => {
@@ -77,6 +97,15 @@ const GeneralInformation = ({ stationInfo }: { stationInfo: IStation }) => {
       setAddEmail(false)
     }
   }, [isDirty])
+
+  useEffect(() => {
+    {
+      additionalPhoneNumber && setAddNumber(!addNumber)
+    }
+    {
+      additionalEmailAddress && setAddEmail(!addEmail)
+    }
+  }, [])
 
   return (
     <TabContainer
