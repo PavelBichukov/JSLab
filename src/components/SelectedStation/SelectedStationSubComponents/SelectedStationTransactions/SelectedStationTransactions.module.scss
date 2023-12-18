@@ -1,0 +1,106 @@
+@import '../../../../App.scss';
+
+.filtersContainer {
+  display: grid;
+  align-items: center;
+  grid-template: 1fr / repeat(3, minmax(max-content, 250px)) 1fr;
+  gap: 24px;
+  background-color: $white;
+  padding: 10px 24px;
+  box-shadow: 0px 2px 5px -2px rgba(34, 60, 80, 0.2);
+}
+
+.filterBox {
+  * {
+    margin-top: 0;
+    border-bottom: none;
+  }
+}
+
+.filterLabel {
+  font-weight: 600;
+  color: $darker-gray;
+}
+
+.filtersButtons {
+  flex: 1;
+  justify-self: end;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.filterButton {
+  cursor: pointer;
+}
+
+.tableContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  display: flex;
+}
+
+.headerTr {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 70px;
+  padding: 16px 64px 16px 16px;
+}
+
+.headerTh {
+  &:nth-child(1) {
+    padding-left: 0;
+  }
+  &:nth-last-child(1) {
+    text-align: right;
+  }
+  flex: 1;
+  text-align: left;
+}
+
+.headerLabel {
+  color: $darker-gray;
+  font-weight: 600;
+}
+
+.tableTr {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 70px;
+  background-color: $white;
+  border-bottom: 1px solid $medium-gray-2;
+  padding: 16px 64px 16px 16px;
+}
+
+.tableTd {
+  flex: 1;
+  &:nth-last-child(1) {
+    text-align: right;
+  }
+}
+
+.transactionIdBox {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.customer {
+  display: flex;
+  flex-direction: column;
+}
+
+.tdTittle {
+  color: $brand-black;
+}
+
+.tdSubTittle {
+  color: #6e768a;
+}
