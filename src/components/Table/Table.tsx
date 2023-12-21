@@ -4,6 +4,7 @@ import {
   useReactTable,
 } from '@tanstack/react-table'
 import { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { NavLink } from 'react-router-dom'
 
 import { Toggle, Typography } from 'components/share'
@@ -51,6 +52,17 @@ const Table = () => {
     getCoreRowModel: getCoreRowModel(),
   })
 
+  const navigate = useNavigate()
+
+  const handleNav = (e: any, id: any) => {
+    if (
+      e.target.className.includes('slider') !== true &&
+      e.target.type !== 'checkbox'
+    ) {
+      navigate(`/stations/${id}`)
+    }
+  }
+
   return (
     <div className={styles.table}>
       <div className={styles.subDiv}>
@@ -97,7 +109,12 @@ const Table = () => {
         </thead>
         <tbody className={styles.tbody}>
           {data.map((station) => (
-            <tr key={station.id} className={styles.trStyle}>
+            <tr
+              key={station.id}
+              className={styles.trStyle}
+              id={station.id}
+              onClick={(e) => handleNav(e, station.stationId)}
+            >
               <td>
                 <div className={styles.stationContainer}>
                   <div className={styles.subSquare}>
