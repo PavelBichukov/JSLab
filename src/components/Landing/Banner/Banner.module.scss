@@ -1,0 +1,67 @@
+@import '../../../App';
+
+a {
+  text-decoration: none;
+}
+
+.mainBanner {
+  background-image: url("assets/images/pattern.png");
+  max-width: 1920px;
+  height: 800px;
+}
+
+.pattern {
+  width: 100%;
+  height: 144px;
+  display: flex;
+  justify-content: center;
+}
+
+.mainText {
+  display: flex;
+  justify-content: center;
+}
+
+.patternText {
+  display: block;
+  font-weight: 400;
+  width: 37%;
+  height: auto;
+  letter-spacing: 0;
+  color: $white;
+  margin-top: 144px;
+}
+
+.smartText {
+  color: $brand-blue;
+  font-style: normal;
+  font-weight: 600;
+}
+
+.buttonContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.bannerButton {
+  margin-top: 80px;
+  height: 56px;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 24px;
+}
+
+@media screen and (max-width: 800px) {
+  .patternText {
+    font-size: 30px;
+    width: 75%;
+  }
+  .smartText {
+    font-size: 30px;
+  }
+  .bannerButton {
+    width: 100%;
+  }
+}

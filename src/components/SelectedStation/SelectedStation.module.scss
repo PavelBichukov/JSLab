@@ -1,0 +1,149 @@
+@import '../../App.scss';
+
+.main {
+  border-radius: 16px;
+  background-color: $lighter-gray;
+  box-shadow: 0px 0px 7px -2px rgba(34, 60, 80, 0.2);
+}
+
+.header {
+  display: flex;
+  background-color: $white;
+  border-top-right-radius: 16px;
+  border-top-left-radius: 16px;
+  box-shadow: 0px 2px 5px -2px rgba(34, 60, 80, 0.2);
+  padding: 24px 24px 12px 24px;
+  position: relative;
+  @media (max-width: 1080px) {
+    flex-direction: column;
+  }
+  @media (max-width: 590px) {
+    padding: 12px 12px 6px 12px;
+  }
+
+}
+
+.stationInfoBox {
+  flex: 1;
+  padding-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.stationLogoSquare {
+  width: 96px;
+  height: 96px;
+  background-color: $medium-gray-2;
+  border-radius: 16px;
+  @media (max-width: 590px) {
+    width: 70px;
+    height: 70px;
+  }
+
+}
+
+.stationInfoText {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.stationInfoTittle {
+  color: $brand-black;
+  font-weight: 600;
+  @media (max-width: 590px) {
+    font-size: 16px;
+  }
+
+}
+
+.stationAddress {
+  color: #6e768a;
+}
+
+.stationType {
+  color: #6e768a;
+}
+
+.stationMerchantId {
+  color: $brand-black;
+}
+
+.contentSwitchBox {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 5px;
+  height: 44px;
+  border-radius: 10px;
+  padding: 4px;
+  align-self: flex-end;
+  background-color: $blue-gray;
+  @media (max-width: 1080px) {
+    align-self: center;
+  }
+}
+
+.switchButton {
+  width: 100%;
+  height: 100%;
+  padding: 8px, 12px, 8px, 12px;
+  background-color: $white;
+  font-family: 'Metropolis', sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  color: $brand-black;
+  font-weight: 600;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease-out;
+  @media (max-width: 500px) {
+    padding: 4px, 6px, 4px, 6px;
+    font-size: 12px;
+  }
+}
+
+.switchButtonDisabled {
+  background-color: transparent;
+  color: #6e768a;
+  &:hover {
+    color: $brand-black;
+  }
+}
+
+.moreVert {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+
+  @media (max-width: 1450px) {
+    flex: 0;
+  }
+  @media (max-width: 1080px) {
+    display: none;
+  }
+}
+
+.headerDotsIcon {
+  cursor: pointer;
+}
+
+.content {
+  height: 67vh;
+  overflow-y: scroll;
+  &::-webkit-scrollbar {
+    background-color: transparent;
+    width: 6px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: $darker-gray;
+    border-radius: 3px;
+  }
+  @media (max-width: 1080px) {
+    height: 64vh;
+  }
+}

@@ -1,0 +1,62 @@
+@import '../../../../../../App.scss';
+
+.main {
+  display: grid;
+  grid-template: 1fr / repeat(2, 1fr);
+  gap: 64px;
+  padding-bottom: 24px;
+  @media (max-width: 1350px) {
+    grid-template: 1fr 1fr/ 1fr;
+  }
+  @media (max-width: 780px) {
+    grid-template: repeat(2, 1fr) / 1fr;
+  }
+}
+
+.subAmenitiesBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.subAmenities {
+  padding-left: 32px;
+  display: grid;
+  grid-template: 1fr 1fr / repeat(3, 1fr);
+  gap: 32px 16px;
+  @media (max-width: 850px) {
+    grid-template: repeat(3, 1fr) / 1fr 1fr;
+  }
+  @media (max-width: 850px) {
+    grid-template: 1fr /1fr;
+  }
+}
+
+.basicAmenitiesBlock {
+  display: flex;
+  justify-content: space-between;
+  @media (max-width: 600px) {
+    flex-wrap: wrap;
+  }
+}
+
+.amenitiesBlock {
+  justify-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.checkBox {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.checkBoxTittle {
+  color: $brand-black;
+}
+
+.checkBoxTittleDisabled {
+  color: $medium-gray-2;
+}

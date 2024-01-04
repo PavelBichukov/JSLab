@@ -1,0 +1,79 @@
+@import '../../../App.scss';
+
+.mainContainer {
+  padding: 0 185px 0 47px;
+  padding-right: 185px;
+  height: 60vh;
+  overflow-y: scroll;
+
+  &::-webkit-scrollbar {
+    background-color: transparent;
+    width: 6px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: rgba(80, 87, 107, 1);
+    border-radius: 3px;
+  }
+}
+
+.labelBlock {
+  display: flex;
+  margin-top: 20px;
+}
+
+.paragraphLabel {
+  display: inline;
+  padding: 3px 0 0 16px;
+}
+
+.paragraphLabelDisabled {
+  font-size: 14px;
+  display: inline;
+  padding: 3px 0 0 16px;
+  color: $darker-gray;
+}
+
+.buttonsBlock {
+  width: 100%;
+  padding: 55px 194px 0 47px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+
+  & button {
+    flex: 1;
+  }
+
+  @media (max-width: 1000px) {
+    padding-top: 10px;
+  }
+}
+
+.buttonBack {
+  height: 44px;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 24px;
+  border-width: 1.5px;
+}
+
+.buttonFinished {
+  height: 44px;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 24px;
+}
+
+.subDiv {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 40px;
+}
+
+.subLabelBlock {
+  display: flex;
+  margin-top: 20px;
+  width: 165px;
+}

@@ -9,6 +9,7 @@ const initialState = {
   password: '',
   id: '',
   isAuthorized: false,
+  stationID: ''
 } as IUserInfo
 
 const userInfoSlice = createSlice({
@@ -33,6 +34,9 @@ const userInfoSlice = createSlice({
     setIsAuthorized: (state, action: PayloadAction<boolean>) => {
       state.isAuthorized = action.payload
     },
+    setStationID: (state, action: PayloadAction<string>) => {
+      state.stationID = action.payload
+    },
   },
 })
 
@@ -43,6 +47,7 @@ export const {
   setPassword,
   setId,
   setIsAuthorized,
+  setStationID
 } = userInfoSlice.actions
 
 export default userInfoSlice.reducer

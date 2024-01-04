@@ -1,6 +1,5 @@
 import cn from 'classnames'
-import { MouseEventHandler } from 'react'
-import * as ReactModal from 'react-modal'
+import Modal from 'react-modal'
 
 import styles from './Modal.module.scss'
 
@@ -8,25 +7,23 @@ const VARIANTS = {
   small: styles.small,
   medium: styles.medium,
 }
-const Modal = ({
+const CustomModal = ({
   isOpen,
   children,
   onModalClose,
-  className,
   variant,
   withCloseButton,
 }: {
   isOpen: boolean
   children?: any
-  onModalClose: MouseEventHandler<HTMLButtonElement> | undefined
-  className: any
+  onModalClose: any
   variant: string
   withCloseButton: boolean
 }) => (
-  <ReactModal
+  <Modal
     isOpen={isOpen}
     onRequestClose={onModalClose}
-    className={cn((VARIANTS as any)[variant]!, className)}
+    className={cn((VARIANTS as any)[variant]!)}
     overlayClassName={styles.overlay}
     contentLabel="Modal"
     appElement={document.querySelector('#root') as HTMLElement}
@@ -37,7 +34,7 @@ const Modal = ({
       </button>
     )}
     {children}
-  </ReactModal>
+  </Modal>
 )
 
-export default Modal
+export default CustomModal

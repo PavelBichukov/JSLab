@@ -1,0 +1,15 @@
+.cardsContainer{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding: 16px;
+}
+
+.card{
+  width: auto;
+  flex: 0 1 385px;
+  @media (max-width: 480px) {
+    max-height: 300px;
+  }
+}

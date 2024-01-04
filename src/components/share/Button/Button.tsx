@@ -32,6 +32,7 @@ const Button = ({
   size,
   children,
   onClick,
+  disabled,
   ...restProps
 }: {
   className: any
@@ -39,7 +40,8 @@ const Button = ({
   size: string
   mode: string
   variant: string
-  onClick: MouseEventHandler<HTMLButtonElement> | undefined
+  onClick?: MouseEventHandler<HTMLButtonElement> | undefined
+  disabled?:boolean
   children?: any
 }) => (
   <button
@@ -52,6 +54,7 @@ const Button = ({
       (SIZES as any)[size]!,
       className
     )}
+    disabled={disabled}
   >
     {children}
   </button>

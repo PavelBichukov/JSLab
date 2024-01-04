@@ -8,5 +8,6 @@ export interface IUserInfo {
   email: string
   id: string
   password: string
+  stationID: string
   isAuthorized: boolean
 }

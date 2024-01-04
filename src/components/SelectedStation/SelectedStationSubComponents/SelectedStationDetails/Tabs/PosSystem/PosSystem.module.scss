@@ -1,0 +1,64 @@
+@import '../../../../../../App.scss';
+
+.main {
+  padding-bottom: 48px;
+  display: grid;
+  grid-template: 1fr / repeat(4, 1fr);
+  gap: 24px;
+  align-items: center;
+  @media (max-width: 1350px) {
+    grid-template: 1fr 1fr / repeat(2, 1fr);
+  }
+  @media (max-width: 780px) {
+    grid-template: repeat(2, 1fr) / 1fr;
+  }
+}
+
+.infoColumn {
+  * {
+    margin-top: 0;
+  }
+}
+
+.infoTittle {
+  color: $darker-gray;
+  padding-bottom: 8px;
+  padding-top: 5px;
+}
+
+.selectTittle {
+  color: $darker-gray;
+}
+
+.infoText {
+  color: $brand-black;
+  padding-bottom: 20px;
+}
+
+.status {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.statusBox {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  @media (max-width: 1350px) {
+    justify-content: flex-start;
+  }
+}
+
+.statusText {
+  color: #28bc00;
+}
+
+.support {
+  color: $brand-black;
+  font-weight: 600;
+  border-bottom: 1px solid $medium-gray-2;
+  cursor: pointer;
+  width: fit-content;
+}

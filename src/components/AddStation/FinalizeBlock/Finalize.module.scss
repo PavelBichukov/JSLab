@@ -1,0 +1,85 @@
+@import '../../../App.scss';
+
+.mainContainer {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  justify-content: space-between;
+  width: 100%;
+  height: auto;
+  padding-left: 47px;
+  @media (max-width: 1094px) {
+    padding-left: 10px;
+  }
+}
+
+.subContainer {
+  max-height: 66vh;
+  padding-right: 216px;
+  overflow-y: scroll;
+
+  &::-webkit-scrollbar {
+    background-color: transparent;
+    width: 6px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: rgba(80, 87, 107, 1);
+    border-radius: 3px;
+  }
+
+  @media (max-width: 1284px) {
+    padding-right: 146px;
+  }
+  @media (max-width: 976px) {
+    padding-right: 86px;
+  }
+}
+
+.paragraph {
+  padding: 24px 0 16px 0;
+  color: $darker-gray;
+}
+
+.labelContainer {
+  padding: 32px 90px 0 0;
+}
+
+.labelTitle {
+  font-weight: 600;
+  color: $darker-gray;
+}
+
+.subLabelTitle {
+  display: block;
+  margin-top: 8px;
+  color: $brand-black;
+}
+
+.labelsContainer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.print {
+  padding-top: 59px;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration-line: underline;
+}
+
+.secondParagraph {
+  color: $darker-gray;
+  padding: 40px 0;
+}
+
+.mainButton {
+  height: 44px;
+  @media (max-width: 900px) {
+    margin: 0 auto;
+  }
+  @media (max-width: 472px) {
+    width: 90%;
+  }
+}

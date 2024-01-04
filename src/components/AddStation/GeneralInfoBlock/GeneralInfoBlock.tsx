@@ -1,24 +1,36 @@
 import debounce from 'lodash.debounce'
+import { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 
 import {
   Button,
   FormController,
   Input,
+  Map,
   Select,
   Typography,
 } from 'components/share'
 import { stateOptions } from 'components/SignUp/BusinessLocationBlock/BusinessLocation.constants'
-import { loadOptions } from 'src/api/api'
+import { loadOptions } from 'src/api'
 import { ADD_STATION_STEPS } from 'src/constants/addStationSteps'
 import { setCurrentStep } from 'src/store/signUp'
 import { useAppDispatch } from 'src/utils/redux-hooks/hooks'
 
 import { stationOptions } from './GeneralInfo.constants'
 import styles from './GeneralInfo.module.scss'
+import {
+  IChildrenProps,
+  IStation,
+} from '../AddStationMainComponent/AddStation.types'
 
-const GeneralInfoBlock = () => {
+const GeneralInfoBlock = ({
+  stationState,
+  setStationState,
+}: IChildrenProps) => {
   const dispatch = useAppDispatch()
+
+  const [lat, setLat] = useState(53.88383)
+  const [lng, setLng] = useState(27.5387)
   const {
     control,
     getValues,
@@ -31,8 +43,13 @@ const GeneralInfoBlock = () => {
       stationBrand: '',
       stationName: '',
       streetAddress: '',
+      city: '',
+      state: '' as any,
+      zipCode: '',
       phoneNumber: '',
       emailAddress: '',
+      latitude: lat,
+      longitude: lng,
     },
   })
 
@@ -52,14 +69,60 @@ const GeneralInfoBlock = () => {
     setValue('zipCode', locationValue?.label?.split(', ')[5])
   }
 
-  const onSubmit = () => {
-    console.log('Next')
+  const onSubmit = async (data: any) => {
+    const {
+      stationBrand: { value: stationBrand },
+      stationName,
+      latitude,
+      longitude,
+      phoneNumber,
+      emailAddress,
+    } = data
+
+    setStationState((stationState: IStation) => ({
+      ...stationState,
+      stationBrand,
+      stationName,
+      latitude: latitude,
+      longitude: longitude,
+      phoneNumber,
+      emailAddress,
+    }))
+
     dispatch(setCurrentStep(ADD_STATION_STEPS.STATION_AMENITIES))
   }
 
   const onBack = () => {
     dispatch(setCurrentStep(ADD_STATION_STEPS.STATION_TYPE))
   }
+
+  useEffect(() => {
+    const {
+      stationBrand,
+      stationName,
+      latitude,
+      longitude,
+      phoneNumber,
+      emailAddress,
+    } = stationState
+    const setValues = () => {
+      setValue('stationName', stationName)
+      setValue('latitude', +latitude)
+      setValue('longitude', +longitude)
+      setValue('phoneNumber', phoneNumber)
+      setValue('emailAddress', emailAddress)
+      const brandOptions = stationOptions.find(
+        (option: { value: string; label: string }) =>
+          option.value === stationBrand
+      )
+      if (brandOptions !== undefined) {
+        return setValue('stationBrand', brandOptions)
+      }
+    }
+    if (stationName) {
+      setValues()
+    }
+  }, [])
   return (
     <div>
       <form className={styles.formBlock} onSubmit={handleSubmit(onSubmit)}>
@@ -121,10 +184,13 @@ const GeneralInfoBlock = () => {
             <Typography variant="HeaderXS" className={styles.headerEnter}>
               Enter Your Address Manually
             </Typography>
+            <Typography variant="ParagraphS" className={styles.subTitle}>
+              Move the map to change the coordinates OR sync with address
+            </Typography>
+            <Map lat={lat} lng={lng} setLat={setLat} setLng={setLng} />
             <FormController
               name="phoneNumber"
               control={control}
-              rootClassName={styles.numberStyle}
               rules={{
                 required: 'Phone Number is required!',
               }}

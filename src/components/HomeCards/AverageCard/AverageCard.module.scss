@@ -1,0 +1,36 @@
+@import '../../../App.scss';
+
+.firstCard {
+  margin-bottom: 16px;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  margin-top: 41px;
+}
+
+.localTypo {
+  color: $brand-black;
+  font-weight: 600;
+}
+
+.triangle {
+  margin: 4px 8px 0 0;
+}
+
+.paragraph {
+  color: $medium-gray-2;
+  margin: 10px 0 0 16px;
+}
+
+.subContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 6px;
+}
+
+.subParagraph {
+  color: $medium-gray-2;
+  margin: 5px 0 0 7px;
+}

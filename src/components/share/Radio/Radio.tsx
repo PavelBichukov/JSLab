@@ -1,5 +1,3 @@
-import cn from 'classnames'
-
 import { Typography } from 'components/share'
 
 import styles from './Radio.module.scss'
@@ -14,7 +12,7 @@ const Radio = ({
 }) => {
   return (
     <div>
-      <label className={styles.container} {...restProps}>
+      <label className={styles.container}>
         <div>
           <Typography variant="LabelL" className={styles.textStyle}>
             {labelText}
@@ -23,7 +21,7 @@ const Radio = ({
             {subText}
           </Typography>
         </div>
-        <input type="radio" name="radio" />
+        <input {...restProps} type="radio" name="radio" />
         <span className={styles.checkmark}></span>
       </label>
     </div>

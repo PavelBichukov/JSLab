@@ -3,8 +3,9 @@ export interface ILayoutProps {
   innerClassName?: string
   actionsClassName?: string
   headerClassName?: string
-  tittle: string
+  title: string
+  navLinkTo?: string
   adornment?: string
-  children: JSX.Element | JSX.Element[]
+  children: JSX.Element | JSX.Element[] | any
   headerActions?: JSX.Element | JSX.Element[] | any
 }

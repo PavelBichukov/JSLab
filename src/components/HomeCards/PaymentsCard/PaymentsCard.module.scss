@@ -1,0 +1,31 @@
+@import '../../../App.scss';
+
+.headerLine {
+  display: flex;
+  justify-content: space-between;
+}
+
+.textContainer {
+  text-align: center;
+}
+
+.paymentsTypo {
+  color: $brand-black;
+  font-weight: 600;
+}
+
+.headerPrice {
+  margin-top: 132px;
+}
+
+.deposited {
+  margin-top: 8px;
+}
+
+.nextPayment {
+  margin-top: 13vh;
+  color: $medium-gray-2;
+  @media (max-width: 450px) {
+    margin-top: 8vh;
+  }
+}

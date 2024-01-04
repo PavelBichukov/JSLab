@@ -1,2 +1,7 @@
 export * from './AddStationMainComponent'
 export * from './StationTypeBlock'
+export * from './ConnectBankBlock'
+export * from './GeneralInfoBlock'
+export * from './ConnectSystemBlock'
+export * from './FinalizeBlock'
+export * from './StationAmenitiesBlock'

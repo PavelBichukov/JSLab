@@ -2,6 +2,43 @@
 
 .main {
   background-color: $blue-gray;
-  height: 100vh;
+  height: auto;
+  max-height: 3000px;
+  min-height: 750px;
+}
+
+.scroll {
+  overflow-y: scroll;
+  height: 91vh;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+
+  @media (max-width: 1819px) {
+    justify-content: center;
+  }
+}
+
+.headerElement {
+  text-align: center;
+  padding-bottom: 48px;
+}
+
+.paragraphElement {
+  color: $darker-gray;
+  padding-bottom: 15px;
+}
+
+.secondParagraph {
+  color: $darker-gray;
+  padding-bottom: 64px;
+}
+
+.mainButton {
+  height: 44px;
+  font-weight: 600;
 }
 

@@ -7,11 +7,16 @@
   gap: 16px;
   justify-content: space-between;
   width: 100%;
+  height: auto;
   padding-left: 47px;
+  @media (max-width: 1106px) {
+    padding-left: 10px;
+    width: 85%;
+  }
 }
 
 .mainBlock {
-  max-height: 64vh;
+  height: 64vh;
   overflow-y: scroll;
   padding-right: 200px;
 
@@ -24,11 +29,17 @@
     background-color: rgba(80, 87, 107, 1);
     border-radius: 3px;
   }
+
+  @media (max-width: 1303px) {
+    padding-right: 100px;
+  }
+  @media (max-width: 1106px) {
+    padding-right: 100px;
+  }
 }
 
 .buttonsBlock {
   width: 100%;
-  padding-top: 20px;
   padding-right: 200px;
   display: flex;
   align-items: center;
@@ -38,6 +49,15 @@
   & button {
     flex: 1;
   }
+
+  @media (max-width: 1303px) {
+    padding-right: 100px;
+  }
+}
+
+.subTitle {
+  padding: 12px 0 5px 14px;
+  color: $darker-gray;
 }
 
 .buttonBack {
@@ -69,9 +89,5 @@
 
 .headerEnter {
   margin: 0 auto;
-  border-bottom: 1px solid #14151A;
-}
-
-.numberStyle {
-  margin-top: 20px;
+  border-bottom: 1px solid #14151a;
 }

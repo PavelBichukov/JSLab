@@ -1,12 +1,13 @@
 .signUpBlock {
   max-width: 1184px;
-  height: 80vh;
+  height: 82vh;
   background-color: rgba(255, 255, 255, 1);
   display: flex;
   margin: 0 auto;
+  min-height: 670px;
   border-radius: 24px;
   box-shadow: 0 0 4px -1px rgba(34, 60, 80, 0.2);
-  @media (max-width: 768px) {
+  @media (max-width: 900px) {
     flex-direction: column;
     height: auto;
   }
@@ -25,7 +26,7 @@
     flex: 2;
     padding: 72px 15px 0 15px;
   }
-  @media (max-width: 768px) {
+  @media (max-width: 900px) {
     border: none;
     padding: 15px;
   }
@@ -36,7 +37,7 @@
   flex-direction: column;
   gap: 24px;
   min-width: 270px;
-  @media (max-width: 768px) {
+  @media (max-width: 900px) {
     flex-direction: row;
     justify-content: space-between;
   }
@@ -50,7 +51,7 @@
   cursor: pointer;
 
   & p {
-    @media (max-width: 768px) {
+    @media (max-width: 900px) {
       display: none;
     }
   }
@@ -83,11 +84,15 @@
 
 .headerStation {
   padding-bottom: 51px;
+  @media (max-width: 900px) {
+    padding-bottom: 11px;
+  }
 }
 
 .formBlock {
   flex: 3;
   padding: 72px 8px 32px 157px;
+  display: flex;
   @media (max-width: 1200px) {
     padding: 72px 8px 32px 130px;
   }
