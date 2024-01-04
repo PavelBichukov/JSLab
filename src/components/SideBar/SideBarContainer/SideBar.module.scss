@@ -5,7 +5,7 @@
   top: 0;
   left: 0;
   background-color: $white;
-  height: 100vh;
+    height: 100vh;
   display: flex;
   flex-direction: column;
   box-shadow: 2px 2px 7px -3px rgba(34, 60, 80, 0.2);
@@ -13,6 +13,7 @@
   transition: 0.3s;
   overflow: hidden;
   min-height: 750px;
+  z-index: 1;
 }
 
 .sideBarCollapsed {

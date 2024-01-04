@@ -1,4 +1,5 @@
 import cn from 'classnames'
+import { useState } from 'react'
 
 import {
   ConnectBank,
@@ -14,34 +15,67 @@ import { getStepIndex } from 'src/utils'
 import { useAppSelector } from 'src/utils/redux-hooks/hooks'
 
 import styles from './AddStation.module.scss'
+import { IStation } from './AddStation.types'
 import { progressBarConstants } from './progressBarConstants'
 
-const _renderStep = (step: string) => {
+const _renderStep = (
+  step: string,
+  state: IStation,
+  setState: (prev: (value: IStation) => IStation) => void
+) => {
   switch (step) {
     case ADD_STATION_STEPS.STATION_TYPE: {
-      return <StationTypeBlock />
+      return (
+        <StationTypeBlock stationState={state} setStationState={setState} />
+      )
     }
     case ADD_STATION_STEPS.GENERAL_INFORMATION: {
-      return <GeneralInfoBlock />
+      return (
+        <GeneralInfoBlock stationState={state} setStationState={setState} />
+      )
     }
     case ADD_STATION_STEPS.STATION_AMENITIES: {
-      return <StationAmenities />
+      return (
+        <StationAmenities stationState={state} setStationState={setState} />
+      )
     }
     case ADD_STATION_STEPS.CONNECT_YOUR_BANK: {
-      return <ConnectBank />
+      return <ConnectBank stationState={state} setStationState={setState} />
     }
     case ADD_STATION_STEPS.CONNECT_YOUR_SYSTEM: {
-      return <ConnectSystem />
+      return <ConnectSystem stationState={state} setStationState={setState} />
     }
     case ADD_STATION_STEPS.FINALIZE: {
       return <Finalize />
     }
     default:
-      return <StationTypeBlock />
+      return (
+        <StationTypeBlock stationState={state} setStationState={setState} />
+      )
   }
 }
 
 export const AddStationMainComponent = () => {
+  const [stationState, setStationState] = useState({
+    userEmail: '',
+    stationId: '',
+    stationType: '',
+    stationBrand: '',
+    stationName: '',
+    latitude: '',
+    longitude: '',
+    phoneNumber: '',
+    emailAddress: '',
+    stationAmenities: [],
+    paymentMethod: '',
+    accountNickname: '',
+    accountType: '',
+    routingNumber: '',
+    accountNumber: '',
+    bankAccountId: '',
+    posSystem: '',
+  } as IStation)
+
   const currentStep = useAppSelector(
     (state) => state.addStationStep.currentStep
   )
@@ -71,7 +105,9 @@ export const AddStationMainComponent = () => {
           ))}
         </div>
       </section>
-      <div className={styles.formBlock}>{_renderStep(currentStep)}</div>
+      <div className={styles.formBlock}>
+        {_renderStep(currentStep, stationState, setStationState)}
+      </div>
     </div>
   )
 }

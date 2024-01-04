@@ -63,12 +63,9 @@ export const loadOptions = (
     })
 }
 
-export const addStation = async (data: {
-  stationType: string
-  userEmail: string
-}) => {
+export const addStation = async (data: any) => {
   return await axios.post(
-    `${import.meta.env.VITE_HOST_DEV}/addStation/stationType`,
+    `${import.meta.env.VITE_HOST_DEV}/addStation/station`,
     data
   )
 }
@@ -123,5 +120,39 @@ export const getBankAccounts = async () => {
 export const getAllStations = async (data: any) => {
   return await axios.get(
     `${import.meta.env.VITE_HOST_DEV}/addStation/getAllStations/?email=${data}`
+  )
+}
+
+export const getBankAccountInfo = async (data: any) => {
+  return await axios.get(
+    `${import.meta.env.VITE_HOST_DEV}/addBankAccount/getBankAccount/?id=${data}`
+  )
+}
+
+export const updateStationGeneralInfo = async (data: any) => {
+  return await axios.post(
+    `${import.meta.env.VITE_HOST_DEV}/addStation/updateStationGeneralIInfo`,
+    data
+  )
+}
+
+export const updateStationAmenities = async (data: any) => {
+  return await axios.post(
+    `${import.meta.env.VITE_HOST_DEV}/addStation/updateStationAmenities`,
+    data
+  )
+}
+
+export const updateStationType = async (data: any) => {
+  return await axios.post(
+    `${import.meta.env.VITE_HOST_DEV}/addStation/updateStationType`,
+    data
+  )
+}
+
+export const updateHoursOfOperations = async (data: any) => {
+  return await axios.post(
+    `${import.meta.env.VITE_HOST_DEV}/addStation/updateHoursOfOperations`,
+    data
   )
 }

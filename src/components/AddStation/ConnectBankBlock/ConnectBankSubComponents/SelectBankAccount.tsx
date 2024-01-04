@@ -2,20 +2,25 @@ import { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 
 import { Button, FormController, Radio, Typography } from 'components/share'
-import { addBankAccount, getBankAccounts } from 'src/api'
+import { getBankAccounts } from 'src/api'
 import { ADD_STATION_STEPS } from 'src/constants/addStationSteps'
 import { setCurrentStep } from 'src/store/signUp'
-import { useAppDispatch, useAppSelector } from 'src/utils/redux-hooks/hooks'
+import { useAppDispatch } from 'src/utils/redux-hooks/hooks'
 
 import { IBankAccount } from './bankAccount.types'
 import styles from './SelectBankAccount.module.scss'
+import { IStation } from '../../AddStationMainComponent/AddStation.types'
 
-export const SelectBankAccount = () => {
+export const SelectBankAccount = ({
+  setMethod,
+  setStationState,
+}: {
+  setMethod: (value: string) => void
+  setStationState: (prev: (value: IStation) => IStation) => void
+}) => {
   const [accounts, setAccounts] = useState([] as IBankAccount[])
 
   const dispatch = useAppDispatch()
-
-  const stationID = useAppSelector((state) => state.user.stationID)
 
   const {
     control,
@@ -30,39 +35,15 @@ export const SelectBankAccount = () => {
   })
 
   const onSubmit = async (data: any) => {
-    console.log(data.radio)
     const selectedAccountID = accounts.find(
       (acc) => acc.accountNickname === data.radio
     )?.accountId
-    console.log(selectedAccountID)
-    try {
-      const response = await addBankAccount({
-        stationId: stationID,
-        accountId: selectedAccountID,
-      })
-      const { status, message } = response && response.data
-      if (status === 'UPDATED') {
-        dispatch(setCurrentStep(ADD_STATION_STEPS.CONNECT_YOUR_SYSTEM))
-      } else {
-        throw new Error(message)
-      }
-    } catch (error) {
-      if (error.message === 'Empty id fields') {
-        setError('root.serverError', {
-          type: 'FAILED',
-          message: 'Empty id fields',
-        })
-      } else {
-        setError('root.serverError', {
-          type: 'FAILED',
-          message: 'Oops... Something go wrong',
-        })
-      }
-    }
-  }
-
-  const onBack = () => {
-    dispatch(setCurrentStep(ADD_STATION_STEPS.STATION_AMENITIES))
+    setStationState((stationState: IStation) => ({
+      ...stationState,
+      ...data,
+      bankAccountId: selectedAccountID,
+    }))
+    dispatch(setCurrentStep(ADD_STATION_STEPS.CONNECT_YOUR_SYSTEM))
   }
 
   useEffect(() => {
@@ -130,7 +111,7 @@ export const SelectBankAccount = () => {
             mode="outlinedWhite"
             variant="primary"
             size="small"
-            onClick={onBack}
+            onClick={() => setMethod('select method')}
           >
             Back
           </Button>

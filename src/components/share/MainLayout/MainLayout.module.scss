@@ -19,11 +19,8 @@
   flex-direction: column;
   padding: 38px 110px 100px 170px;
   box-sizing: border-box;
-  @media (max-width: 600px) {
-    padding: 38px 0 100px 40px;
-  }
-  @media (max-width: 420px) {
-    padding: 38px 0 100px 59px;
+  @media (max-width: 689px) {
+    padding: 16px 15px 100px 80px;
   }
 }
 
@@ -33,6 +30,17 @@
   justify-content: space-between;
   padding-bottom: 25px;
   min-height: 60px;
+}
+
+.tittle{
+  font-family: 'Metropolis', sans-serif;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 32px;
+  transition: all 0.3s ease-out;
+  &:hover{
+    color: $brand-blue;
+  }
 }
 
 .headerText {

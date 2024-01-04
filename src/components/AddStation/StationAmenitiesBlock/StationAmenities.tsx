@@ -1,23 +1,27 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 import { Button, Checkbox, Typography } from 'components/share'
-import { addStationAmenities } from 'src/api'
 import { ADD_STATION_STEPS } from 'src/constants/addStationSteps'
 import { setCurrentStep } from 'src/store/signUp'
-import { useAppDispatch, useAppSelector } from 'src/utils/redux-hooks/hooks'
+import { useAppDispatch } from 'src/utils/redux-hooks/hooks'
 
 import {
   stationAmenities,
   subStoreAmenities,
 } from './StationAmenities.constants'
 import styles from './StationAmenities.module.scss'
+import {
+  IChildrenProps,
+  IStation,
+} from '../AddStationMainComponent/AddStation.types'
 
-export const StationAmenities = () => {
+export const StationAmenities = ({
+  stationState,
+  setStationState,
+}: IChildrenProps) => {
   const [perks, setPerks] = useState<string[]>([])
   const [check, setCheck] = useState(false)
   const dispatch = useAppDispatch()
-
-  const stationID = useAppSelector((state) => state.user.stationID)
 
   const handleCbClick = (ev: any) => {
     const { checked, name } = ev.target
@@ -34,21 +38,20 @@ export const StationAmenities = () => {
 
   const onNext = async (e: any) => {
     e.preventDefault()
-    try {
-      const response = await addStationAmenities({
-        stationAmenities: perks,
-        id: stationID,
-      })
-      const { status, message } = response && response.data
-      if (status === 'UPDATED') {
-        dispatch(setCurrentStep(ADD_STATION_STEPS.CONNECT_YOUR_BANK))
-      } else {
-        alert(message)
-      }
-    } catch (error) {
-      alert(error.message)
-    }
+    setStationState((stationState: IStation) => ({
+      ...stationState,
+      stationAmenities: perks,
+    }))
+    dispatch(setCurrentStep(ADD_STATION_STEPS.CONNECT_YOUR_BANK))
   }
+
+  useEffect(() => {
+    const { stationAmenities } = stationState
+    if (stationAmenities.length) {
+      setPerks(stationAmenities)
+      setCheck(true)
+    }
+  }, [])
 
   return (
     <div>
@@ -62,6 +65,7 @@ export const StationAmenities = () => {
               name="Convenient Store"
               onClick={() => setCheck(!check)}
               onChange={handleCbClick}
+              checked={perks.includes('Convenient Store')}
             />
             <Typography variant="ParagraphL" className={styles.paragraphLabel}>
               Convenient Store
@@ -76,6 +80,7 @@ export const StationAmenities = () => {
                   name={subStoreAmenity.value}
                   onChange={handleCbClick}
                   disabled={!check}
+                  checked={perks.includes(subStoreAmenity.value)}
                 />
                 <Typography
                   variant="ParagraphL"
@@ -97,6 +102,7 @@ export const StationAmenities = () => {
                 id="termsCheckBox"
                 name={stationAmenity.value}
                 onChange={handleCbClick}
+                checked={perks.includes(stationAmenity.value)}
               />
               <Typography
                 variant="ParagraphL"

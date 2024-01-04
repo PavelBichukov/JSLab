@@ -6,7 +6,7 @@ import styles from './SelectedStation.module.scss'
 const SelectedStationPage = () => {
   return (
     <div className={styles.main}>
-      <MainLayout title="Stations">
+      <MainLayout title="Stations" navLinkTo = {'/stations'}>
         <SelectedStation/>
       </MainLayout>
     </div>

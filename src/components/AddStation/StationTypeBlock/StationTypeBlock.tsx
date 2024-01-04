@@ -1,42 +1,35 @@
 import { useEffect, useState } from 'react'
 
 import { Button, Typography } from 'components/share'
-import { addStation, getAllStations } from 'src/api'
+import { getAllStations } from 'src/api'
 import { ADD_STATION_STEPS } from 'src/constants/addStationSteps'
 import { setCurrentStep } from 'src/store/signUp'
-import { setStationID } from 'src/store/user'
 import { useAppDispatch, useAppSelector } from 'src/utils/redux-hooks/hooks'
 
 import styles from './StationTypeBlock.module.scss'
+import {
+  IChildrenProps,
+  IStation,
+} from '../AddStationMainComponent/AddStation.types'
 
-export const StationTypeBlock = () => {
+export const StationTypeBlock = ({
+  stationState,
+  setStationState,
+}: IChildrenProps) => {
   const dispatch = useAppDispatch()
-  
+
   const [stationType, setStationType] = useState('')
   const [isAnyStations, setStatus] = useState(false)
-  
+
   const email = useAppSelector((state) => state.user.email)
 
-  const handleSendRequest = async () => {
-    try {
-      const response = await addStation({
-        stationType: stationType,
-        userEmail: email,
-      })
-      const { status, message } = response && response.data
-      if (status === 'UPDATED') {
-        dispatch(setStationID(message.id))
-        dispatch(setCurrentStep(ADD_STATION_STEPS.GENERAL_INFORMATION))
-      } else {
-        throw new Error(message)
-      }
-    } catch (error) {
-      if (error.message === 'Empty station type field') {
-        alert(error.message)
-      } else {
-        alert('Oops... Something go wrong')
-      }
-    }
+  const handleUpdateState = () => {
+    setStationState((stationState: IStation) => ({
+      ...stationState,
+      stationType: stationType,
+      userEmail: email,
+    }))
+    dispatch(setCurrentStep(ADD_STATION_STEPS.GENERAL_INFORMATION))
   }
 
   useEffect(() => {
@@ -52,6 +45,10 @@ export const StationTypeBlock = () => {
       }
     }
     getInfo()
+    const { stationType } = stationState
+    if (stationType) {
+      setStationType(stationType)
+    }
   }, [])
 
   return (
@@ -85,7 +82,7 @@ export const StationTypeBlock = () => {
             mode={isAnyStations ? 'whiteShadow' : 'whiteShadowDisabled'}
             variant="secondary"
             size="large"
-            disabled = {!isAnyStations}
+            disabled={!isAnyStations}
             onClick={() => setStationType('Electric')}
           >
             <Typography variant="LabelL">
@@ -102,7 +99,7 @@ export const StationTypeBlock = () => {
             mode={isAnyStations ? 'whiteShadow' : 'whiteShadowDisabled'}
             variant="secondary"
             size="large"
-            disabled = {!isAnyStations}
+            disabled={!isAnyStations}
             onClick={() => setStationType('Both')}
           >
             <Typography variant="LabelL">
@@ -122,7 +119,7 @@ export const StationTypeBlock = () => {
         variant="primary"
         size="large"
         className={styles.buttonContinue}
-        onClick={handleSendRequest}
+        onClick={handleUpdateState}
       >
         Continue
       </Button>

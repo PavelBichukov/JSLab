@@ -4,10 +4,12 @@ import { useParams } from 'react-router-dom'
 
 import { ReactComponent as DotsIcon } from 'assets/icons/side-bar-icons/moreVert.svg'
 import { Typography } from 'components/share'
-import { getStationInfo } from 'src/api'
+
+import { getBankAccountInfo, getStationInfo } from 'src/api'
 
 import { SwitchBoxConstants } from './SelectedStation.constants'
 import styles from './SelectedStation.module.scss'
+import { IStation } from './SelectedStation.types'
 import {
   SelectedStationDetails,
   SelectedStationOverview,
@@ -15,13 +17,14 @@ import {
   SelectedStationTransactions,
 } from './SelectedStationSubComponents'
 
-const _renderChapter = (chapter: string) => {
+
+const _renderChapter = (chapter: string, stationInfo: IStation) => {
   switch (chapter) {
     case 'Overview': {
       return <SelectedStationOverview />
     }
     case 'Details': {
-      return <SelectedStationDetails />
+      return <SelectedStationDetails stationInfo={stationInfo} />
     }
     case 'Transactions': {
       return <SelectedStationTransactions />
@@ -39,7 +42,8 @@ const SelectedStation = () => {
 
   const [chapter, setChapter] = useState('Overview')
 
-  const [stationInfo, setStationInfo] = useState({})
+  const [stationInfo, setStationInfo] = useState({} as IStation)
+
 
   useEffect(() => {
     const getStation = async () => {
@@ -47,7 +51,17 @@ const SelectedStation = () => {
         const response = await getStationInfo(stationId)
         const { status, data, message } = response && response.data
         if (status === 'UPDATED') {
-          setStationInfo(data)
+          const responseAccount = await getBankAccountInfo(data.bankAccountId)
+          const { status, accountData, message } =
+            responseAccount && responseAccount.data
+          if (status === 'UPDATED') {
+            setStationInfo({
+              ...data,
+              ...accountData,
+            })
+          } else {
+            alert(message)
+          }
         } else {
           alert(message)
         }
@@ -98,7 +112,9 @@ const SelectedStation = () => {
           <DotsIcon className={styles.headerDotsIcon} />
         </div>
       </div>
-      <div className={styles.content}>{_renderChapter(chapter)}</div>
+      <div className={styles.content}>
+        {_renderChapter(chapter, stationInfo)}
+      </div>
     </div>
   )
 }

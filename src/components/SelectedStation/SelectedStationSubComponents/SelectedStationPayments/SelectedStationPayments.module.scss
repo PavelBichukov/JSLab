@@ -1,0 +1,12 @@
+@import '../../../../App.scss';
+
+.main{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.tittle{
+  color: $darker-gray;
+}

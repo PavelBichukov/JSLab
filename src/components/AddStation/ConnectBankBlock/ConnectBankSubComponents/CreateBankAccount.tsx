@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 
 import {
@@ -8,24 +9,34 @@ import {
   Select,
   Typography,
 } from 'components/share'
-import { addBankAccount, createBankAccount } from 'src/api'
+import { createBankAccount } from 'src/api'
 import { ADD_STATION_STEPS } from 'src/constants/addStationSteps'
 import { setCurrentStep } from 'src/store/signUp'
-import { useAppDispatch, useAppSelector } from 'src/utils/redux-hooks/hooks'
+import { useAppDispatch } from 'src/utils/redux-hooks/hooks'
 
-import { accountType, paymentMethods } from './CreateBankAccount.constants'
+import { accountTypes, paymentMethods } from './CreateBankAccount.constants'
 import styles from './CreateBankAccount.module.scss'
+import { IStation } from '../../AddStationMainComponent/AddStation.types'
 
-export const CreateBankAccount = () => {
+export const CreateBankAccount = ({
+  method,
+  setMethod,
+  stationState,
+  setStationState,
+}: {
+  method: boolean
+  setMethod: (value: string) => void
+  stationState: IStation
+  setStationState: (prev: (value: IStation) => IStation) => void
+}) => {
   const dispatch = useAppDispatch()
-
-  const stationID = useAppSelector((state) => state.user.stationID)
 
   const {
     control,
     formState: { isValid },
     handleSubmit,
     setError,
+    setValue,
   } = useForm({
     mode: 'onChange',
     defaultValues: {
@@ -39,24 +50,18 @@ export const CreateBankAccount = () => {
   })
 
   const onSubmit = async (data: any) => {
-    console.log(data)
     try {
       const response = await createBankAccount({
         ...data,
-        id: stationID,
       })
       const { status, message, accountId } = response && response.data
       if (status === 'UPDATED') {
-        const response = await addBankAccount({
-          stationId: stationID,
-          accountId: accountId,
-        })
-        const { status, message } = response && response.data
-        if (status === 'UPDATED') {
-          dispatch(setCurrentStep(ADD_STATION_STEPS.CONNECT_YOUR_SYSTEM))
-        } else {
-          throw new Error(message)
-        }
+        setStationState((stationState: IStation) => ({
+          ...stationState,
+          ...data,
+          bankAccountId: accountId,
+        }))
+        dispatch(setCurrentStep(ADD_STATION_STEPS.CONNECT_YOUR_SYSTEM))
       } else {
         throw new Error(message)
       }
@@ -76,8 +81,45 @@ export const CreateBankAccount = () => {
   }
 
   const onBack = () => {
-    dispatch(setCurrentStep(ADD_STATION_STEPS.STATION_AMENITIES))
+    if (method) {
+      setMethod('select method')
+    } else {
+      dispatch(setCurrentStep(ADD_STATION_STEPS.STATION_AMENITIES))
+    }
   }
+
+  useEffect(() => {
+    const {
+      paymentMethod,
+      accountNickname,
+      accountType,
+      routingNumber,
+      accountNumber,
+    } = stationState
+
+    const setValues = () => {
+      setValue('accountNickname', accountNickname)
+      setValue('routingNumber', routingNumber)
+      setValue('accountNumber', accountNumber)
+      const paymentMethodOption = paymentMethods.find(
+        (option: { value: string; label: string }) =>
+          option.value === paymentMethod.value
+      )
+      if (paymentMethodOption !== undefined) {
+        setValue('paymentMethod', paymentMethodOption)
+      }
+      const accountTypeOption = accountTypes.find(
+        (option: { value: string; label: string }) =>
+          option.value === accountType.value
+      )
+      if (accountTypeOption !== undefined) {
+        setValue('accountType', accountTypeOption)
+      }
+    }
+    if (accountNickname) {
+      setValues()
+    }
+  }, [])
 
   return (
     <form className={styles.formBlock} onSubmit={handleSubmit(onSubmit)}>
@@ -168,7 +210,7 @@ export const CreateBankAccount = () => {
               <Select
                 {...field}
                 ref={null}
-                options={accountType}
+                options={accountTypes}
                 placeholder="Account Type"
               />
             )}
@@ -238,7 +280,6 @@ export const CreateBankAccount = () => {
           mode={isValid ? 'defaultBlack' : 'disabled'}
           variant="primary"
           size="small"
-          onClick={() => console.log('clicked')}
         >
           Next
         </Button>
