@@ -20,6 +20,7 @@
   @media (max-width: 590px) {
     padding: 12px 12px 6px 12px;
   }
+
 }
 
 .stationInfoBox {
@@ -39,6 +40,7 @@
     width: 70px;
     height: 70px;
   }
+
 }
 
 .stationInfoText {
@@ -53,6 +55,7 @@
   @media (max-width: 590px) {
     font-size: 16px;
   }
+
 }
 
 .stationAddress {
@@ -116,6 +119,7 @@
   flex: 1;
   display: flex;
   justify-content: flex-end;
+
   @media (max-width: 1450px) {
     flex: 0;
   }

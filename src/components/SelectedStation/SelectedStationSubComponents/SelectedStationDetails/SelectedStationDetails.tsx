@@ -1,3 +1,4 @@
+
 import styles from './SelectedStationDetails.module.scss'
 import {
   Amenities,

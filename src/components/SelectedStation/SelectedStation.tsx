@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom'
 
 import { ReactComponent as DotsIcon } from 'assets/icons/side-bar-icons/moreVert.svg'
 import { Typography } from 'components/share'
+
 import { getBankAccountInfo, getStationInfo } from 'src/api'
 
 import { SwitchBoxConstants } from './SelectedStation.constants'
@@ -15,6 +16,7 @@ import {
   SelectedStationPayments,
   SelectedStationTransactions,
 } from './SelectedStationSubComponents'
+
 
 const _renderChapter = (chapter: string, stationInfo: IStation) => {
   switch (chapter) {
@@ -41,6 +43,7 @@ const SelectedStation = () => {
   const [chapter, setChapter] = useState('Overview')
 
   const [stationInfo, setStationInfo] = useState({} as IStation)
+
 
   useEffect(() => {
     const getStation = async () => {
