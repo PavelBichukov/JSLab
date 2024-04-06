@@ -19,21 +19,20 @@ JSLab - web applications for managing a chain of a gas stations.
 - Realtime chat with pop-up notifications
 
 
-![](../../JSLAb%20demo%20images/home.jpg)
+![](./src/assets/images/demo/home.jpg)
 <br>
-![](../../JSLAb%20demo%20images/chat.jpg)
+![](./src/assets/images/demo/station.jpg)
 <br>
-![](../../JSLAb%20demo%20images/station.jpg)
+![](./src/assets/images/demo/stationInfo.jpg)
 <br>
-![](../../JSLAb%20demo%20images/stationInfo.jpg)
+![](./src/assets/images/demo/amenities.jpg)
 <br>
-![](../../JSLAb%20demo%20images/amenities.jpg)
+![](./src/assets/images/demo/stationTime.jpg)
 <br>
-![](../../JSLAb%20demo%20images/stationTime.jpg)
+![](./src/assets/images/demo/chat.jpg)
 <br>
-![](../../JSLAb%20demo%20images/transactions.jpg)
+![](./src/assets/images/demo/settings.jpg)
 <br>
-![](../../JSLAb%20demo%20images/transactions.jpg)
 
 ### :hammer_and_wrench: Languages and Tools :
 - React / TypeScript / SCSS
