@@ -21,6 +21,8 @@ JSLab - web applications for managing a chain of a gas stations.
 
 ![](./src/assets/images/demo/home.jpg)
 <br>
+![](./src/assets/images/demo/addStation.jpg)
+<br>
 ![](./src/assets/images/demo/station.jpg)
 <br>
 ![](./src/assets/images/demo/stationInfo.jpg)
