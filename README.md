@@ -1,27 +1,43 @@
-# React + TypeScript + Vite
+### JSLab
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+[DemoLink](https://jslabcom.netlify.app/)
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Description
+JSLab - web applications for managing a chain of a gas stations.
+<br>
+<br>
+## The application provides the user with the following features:
 
-## Expanding the ESLint configuration
+- Registration with further possibility of logging in after registration
+- Changing the user data in personal account
+- Adding stations
+- Changing the configuration of a created station
+- Ability to create members with a connection to a stations and
+- Ability to create members with a connection to a stations and distribution of roles (regular user and administrator)
+- Realtime chat with pop-up notifications
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
 
-- Configure the top-level `parserOptions` property like this:
+![](../../JSLAb%20demo%20images/home.jpg)
+<br>
+![](../../JSLAb%20demo%20images/chat.jpg)
+<br>
+![](../../JSLAb%20demo%20images/station.jpg)
+<br>
+![](../../JSLAb%20demo%20images/stationInfo.jpg)
+<br>
+![](../../JSLAb%20demo%20images/amenities.jpg)
+<br>
+![](../../JSLAb%20demo%20images/stationTime.jpg)
+<br>
+![](../../JSLAb%20demo%20images/transactions.jpg)
+<br>
+![](../../JSLAb%20demo%20images/transactions.jpg)
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
+### :hammer_and_wrench: Languages and Tools :
+- React / TypeScript / SCSS
+- Redux Toolkit
+- React Router DOM
+- React Hook Form
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
