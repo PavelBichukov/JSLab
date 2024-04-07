@@ -35,6 +35,8 @@ JSLab - web applications for managing a chain of a gas stations.
 <br>
 ![](./src/assets/images/demo/settings.jpg)
 <br>
+![](./src/assets/images/demo/signup.jpg)
+<br>
 
 ### :hammer_and_wrench: Languages and Tools :
 - React / TypeScript / SCSS
