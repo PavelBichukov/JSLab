@@ -43,4 +43,5 @@ JSLab - web applications for managing a chain of a gas stations.
 - Redux Toolkit
 - React Router DOM
 - React Hook Form
+- Socket.IO
 
